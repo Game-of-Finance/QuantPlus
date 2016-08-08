@@ -1,0 +1,115 @@
+﻿<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>jQuery可悬停控制图片轮播代码 - 站长素材</title>
+<link rel="stylesheet" href="slider.css"/>
+
+	<!--<script src="jquery-2.2.3.min.js"></script>-->
+	<link href="css/bootstrap.css" rel="stylesheet"/>
+	<!-- FontAwesome Styles-->
+	<link href="css/font-awesome.css" rel="stylesheet"/>
+	<!-- Custom Styles-->
+	<link href="css/custom-styles.css" rel="stylesheet"/>
+
+	<link rel="stylesheet" href="css/slider.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+
+
+
+	<script src="js/jquery-2.2.3.min.js"></script>
+	<script src="/js/slider.js"></script>
+	<!--<script src="/js/slider.js"></script>-->
+	<style>
+		.col-md-12{
+			border:1px white solid;
+			height:100%;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.col-md-12 span{
+			border:1px blue solid;
+			margin:30px auto;
+			color:white;
+		}
+	</style>
+</head>
+
+<body>
+<br/><br/><br/>
+<!-- 轮播广告 -->
+<div id="banner_tabs" class="flexslider">
+	<ul class="slides">
+		<li>
+			<div class="col-md-12">
+				<div>
+					1
+				</div>
+				<span>1</span>
+			</div>
+
+		</li>
+		<li>
+			<div class="col-md-12">
+				<div>
+					2
+				</div>
+				<span>1</span>
+			</div>
+
+		</li>
+		<li>
+			<div class="col-md-12">
+				<div>
+					3
+				</div>
+				<span>1</span>
+			</div>
+
+		</li>
+		<li>
+			<div class="col-md-12">
+				<div>
+					4
+				</div>
+				<span>1</span>
+			</div>
+
+		</li>
+	</ul>
+	<ul class="flex-direction-nav">
+		<li><a class="flex-prev" href="javascript:;">Previous</a></li>
+		<li><a class="flex-next" href="javascript:;">Next</a></li>
+	</ul>
+	<ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+		<li><a>1</a></li>
+		<li><a>2</a></li>
+		<li><a>3</a></li>
+		<li><a>4</a></li>
+	</ol>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	var bannerSlider = new Slider($('#banner_tabs'), {
+		time: 5000,
+		delay: 400,
+		event: 'hover',
+		auto: true,
+		mode: 'fade',
+		controller: $('#bannerCtrl'),
+		activeControllerCls: 'active'
+	});
+	$('#banner_tabs .flex-prev').click(function() {
+		bannerSlider.prev()
+	});
+	$('#banner_tabs .flex-next').click(function() {
+		bannerSlider.next()
+	});
+})
+</script>
+
+</body>
+</html>
+

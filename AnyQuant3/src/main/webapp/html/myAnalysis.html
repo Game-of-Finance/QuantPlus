@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AnyQuant</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <!-- FontAwesome Styles-->
+    <link href="../css/font-awesome.css" rel="stylesheet"/>
+    <!-- Custom Styles-->
+    <link href="../css/custom-styles.css" rel="stylesheet"/>
+
+
+    <link rel="stylesheet" href="../css/stock.css"/>
+    <script src="../js/jquery-2.2.3.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <script src="../js/stock.js"></script>
+
+
+    <!--搜索提示-->
+    <script src="../js/jquery-ui.min.js"></script>
+    <link href="../css/jquery-ui.min.css" rel="stylesheet"/>
+    <style>
+        .ui-autocomplete {
+            max-height: 100px;
+            overflow-y: auto;
+            max-width: 200px;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+            position: relative;
+            z-index: 9999
+        }
+
+        /*div{*/
+        /*border: 1px black solid;*/
+        /*}*/
+        /*p{*/
+        /*border: 1px black solid;*/
+        /*}*/
+
+        .four-grids {
+            background: #fff;
+            padding: 4em 3em;
+            text-align: center;
+        }
+
+        .thumbnail{
+            border:none;
+        }
+
+        .caption{
+            padding: 5%;
+        }
+
+        .icon i {
+            font-size: 1.5em;
+            border-radius: 62px;
+            border: 3px solid #fff;
+            padding: 1em;
+            background: #34495e;
+            color: #fff;
+        }
+
+        i.fa-user {
+            background: #68b828;
+        }
+
+        .four-grid1 {
+            background: #68b828;
+
+        }
+
+        .icon i {
+            margin-top: -1.8em;
+        }
+
+        .four-grid h3 {
+            font-size: 1.2em;
+            font-family: 'Comfortaa', cursive;
+            padding: 1em 0 0.5em;
+            color: #fff;
+        }
+
+        .four-grid h4 {
+            font-size: 2em;
+            font-family: 'Comfortaa', cursive;
+            color: #fff;
+            padding-bottom: .5em;
+            font-weight: 600;
+        }
+
+        .four-grid1 a, .four-grid2 a, .four-grid3 a, .four-grid4 a {
+            font-size: 1em;
+            color: #fff;
+            box-shadow: inset 0 -50px 0 0 rgba(255, 255, 255, .1);
+            display: block;
+            padding: .5em;
+            margin-top: 1em;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="loading">
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two" style="left:20px;"></div>
+                <div class="object" id="object_three" style="left:40px;"></div>
+                <div class="object" id="object_four" style="left:60px;"></div>
+                <div class="object" id="object_five" style="left:80px;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="typo" id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="single.stock"><strong>AnyQuant</strong></a>
+
+            <div id="sideNav" href=""><i class="fa fa-caret-right"></i></div>
+        </div>
+
+        <ul class="nav navbar-top-links">
+            <form class="form-inline text-left" style="padding-top: 15px" action="single.search" method="get">
+                <div class="form-group">
+                    <div class="row-inline" class="thumbnail" style="border: none">
+                        <input type="text" id="search" name="number" class="form-control" placeholder="请输入股票代码"
+                               style="margin-left:40px;"/>
+                        <input type="text" id="viewID" name="view" value="analysis" style="display:none;"/>
+                        <input type="text" name="from" value="analysis" style="display:none;"/>
+                        <input type="text" name="isSearch" value="true" style="display:none;"/>
+                        <input type="text" name="rawNumber" id="number" value="true" style="display:none;"/>
+                        <input type="submit" value="搜索" style="margin-left:30px;"/>
+                    </div>
+                </div>
+            </form>
+            <!--<script type="text/javascript">-->
+            <!--var text = <%=number%>;-->
+            <!--document.getElementById("search").value = text.number;-->
+            <!--document.getElementById("number").value = text.number;-->
+            <!--document.getElementById("viewID").value = "analysis";-->
+            <!--</script>-->
+            <!--在此添加横向导航-->
+
+        </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a href="all.markets?from=analysis" onclick="showLoading()"><i class="fa fa-qrcode"></i> Markets</a>
+                </li>
+                <li>
+                    <a href="analysis.industry?from=analysis" onclick="showLoading()"><i class="fa fa-desktop"></i>
+                        Industry</a>
+                </li>
+                <li>
+                    <a href="single.singleStock?from=analysis" onclick="showLoading()"><i class="fa fa-dashboard"></i>
+                        SingleStock</a>
+                </li>
+
+                <li>
+                    <a class="active-menu" href="single.analysis?from=analysis" onclick="showLoading()"><i
+                            class="fa fa-bar-chart-o"></i> Analysis</a>
+                </li>
+                <li>
+                    <a href="single.history?from=analysis" onclick="showLoading()"><i class="fa fa-table"></i>
+                        History</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+
+    <div id="page-wrapper">
+        <%--索引--%>
+        <div class="header">
+            <h1 class="page-header">
+                Analysis
+                <small>Welcome to AnyQuant</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Analysis</a></li>
+                <li class="active">Data</li>
+            </ol>
+
+        </div>
+
+        <div id="page-inner">
+
+            <div class="row">
+                <div class="col-xs-6 col-md-8">
+                    <div class="panel panel-default" style="height: 500px;">
+
+                        <h4 style="font-family: 'Microsoft YaHei';"> 总体分析</h4>
+                        <div style="width:100%;height:150px;">
+                            <p id="summary">This is a very good stock website</p>
+                        </div>
+                        <div style="width:100%;height:270px;">
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+
+                                    <div style="height: 150px;width:100%;text-align: center;"><br><br>
+
+                                        <img src="../images/bodong.png" style="width:50px;height:50px;"
+                                             alt="通用的占位符缩略图">
+                                        <h2>75%</h2></div>
+                                    <div class="caption" style="margin: 0 auto;font-family: 'Microsoft YaHei'">
+                                        <h4>波动值该股票的波动值大于系统内75%的股票</h4>
+                                        <!--</ul>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+                                    <!--<img src="../images/predict.jpg" style="width:50px;height:50px;"-->
+                                    <!--alt="通用的占位符缩略图">-->
+                                    <div style="height: 150px;width:100%;text-align: center;"><br><br>
+
+                                            <img src="../images/predict.jpg" style="width:50px;height:50px;"
+                                                 alt="通用的占位符缩略图"><h2>1987439857</h2>
+                                    </div>
+
+                                    <div class="caption" style="margin: 0 auto;font-family: 'Microsoft YaHei'">
+                                        波动值<br>
+                                        <!--<ul class="fa-list-ul">-->
+                                        该股票的波动值大于系统内<br>
+                                        75%<br>
+                                        的股票<br>
+                                        <!--</ul>-->
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="thumbnail">
+
+                                    <div style="height:150px;width:100%;text-align: center;"><br><br>
+                                        <img src="../images/season.png" style="width:65px;height:50px;"
+                                             alt="通用的占位符缩略图"/>
+                                        <h2>56.4544</h2>
+                                    </div>
+                                    <div class="caption" style="margin: 0 auto;font-family: 'Microsoft YaHei'">
+                                        波动值<br>
+                                        <!--<ul class="fa-list-ul">-->
+                                        该股票的波动值大于系统内<br>
+                                        75%<br>
+                                        的股票<br>
+                                        <!--</ul>-->
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="col-xs-6 col-md-4">
+                    <div class="panel panel-default" style="height: 500px;">
+                        <div class="panel-heading">
+                            <h4>交易量</h4>
+                            <a href="" class="tooltip-show" data-toggle="tooltip" id="PIE_Tip" title="百度百科"
+                               style="float:right;"><img src="images/tip.png"></a>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs" style="font-family: 'Yuanti SC'">
+                                <li class="active"><a href="#pietab" data-toggle="tab"
+                                                      onclick="createAmount()"
+                                >成交金额</a>
+                                </li>
+                                <li class=""><a href="#pietab" data-toggle="tab"
+                                                onclick="createVolume()"
+                                >成交量</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="pietab">
+                                    <div class="analysis_pieChart" id="pieChart" style="width:100%;height:320px;">amount
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="width:100%;height: 80px;">
+                                <p>成交情况分析</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-6 col-md-8">
+                    <div class="panel panel-default" style="height: 520px;">
+                        <div class="panel-heading">
+                            一些指标
+                            <a href="" class="tooltip-show" data-toggle="tooltip" id="MAER_Tip" title="MACD"
+                               style="float:right;"><img src="images/tip.png"></a>
+                            <!--<a href="#" class="tooltip-hide" data-toggle="tooltip"-->
+                            <!--data-placement="left" title="hide">Tooltip 方法 hide-->
+                            <!--</a>.-->a
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#MACDtab" data-toggle="tab"
+                                                      onclick="createMACD()"
+                                >MACD</a>
+                                </li>
+                                <li class=""><a href="#MACDtab" data-toggle="tab"
+                                                onclick="createEMA()"
+                                >EMA</a>
+                                </li>
+                                <li class=""><a href="#MACDtab" data-toggle="tab"
+                                                onclick="createRSI()"
+                                >RSI</a>
+                                </li>
+                                <li class=""><a href="#MACDtab" data-toggle="tab"
+                                                onclick="createARBR()"
+                                >ARBR</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane fade active in" id="MACDtab">
+                                    <div class="analysis_lineChart" id="MERA" style="width:100%;height:340px;">MERA
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="width:100%;height: 60px;">
+                                <p id="singleConclusion">singleConclusion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-4">
+                    <div class="panel panel-default" style="height: 520px;">
+
+                        <div class="panel-body easypiechart-panel">
+                            <h3>准确度</h3>
+                            <div class="easypiechart" id="easypiechart-orange" data-percent="55.22">
+                                <span class="percent" style="margin: 25px;padding-right:10px;">55.22%</span>
+                            </div>
+                        </div>
+
+                        <div style="width:100%;height:220px">
+                            文字分析
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+
+<div style="display: none;" id="rsiAcurc" value=35%></div>
+<div style="display: none;" id="arbrAcurc" value=45%></div>
+<div style="display: none;" id="arimaAcurc" value=55%></div>
+<div style="display: none;" id="macdAcurc" value=65%></div>
+<div style="display: none;" id="percent" value=80%></div>
+<script>
+    //    var temp = [1,2,3,4,5,6];
+    //    var result = [];
+    //    var sum = 0;
+    //    for(var i = 0;i<temp.length;i++){
+    //        var tem = temp[i]/7;
+    //        tem = tem.toFixed(3);
+    //        alert(tem);
+    //        sum+=tem;
+    //    }
+//    var number = $('#percent').attr('value');
+//    //
+//    var data_percent = (number * 100);
+//
+//
+//    $('#easypiechart-orange').attr('data-percent', '55.11');
+//    $('.percent').html('55.11%');
+
+
+
+
+
+    function setAcurc(id){
+        var number = $(id).attr('value');
+        alert('here');
+        number  = $.parseJSON(number);
+        alert(number);
+        var data_percent = (number*100);
+
+        var percent = data_percent+"%";
+
+
+        $('#easypiechart-orange').attr('data-percent',data_percent);
+        $('.percent').html(percent);
+
+    }
+
+    setAcurc('#rsiAcurc');
+    function createMACD() {
+        $('#MAER_Tip').attr('title', "MACD\nMACD称为指数平滑异同平均线,由快、慢均线的离散、" +
+                "聚合表征当前的多空状态和股价可能的发展变化趋势。\n当MACD从负数转向正数，是买的" +
+                "信号；\n当MACD从正数转向负数，是卖的信号；\n当MACD以大角度变化，表示快的移动平均线和" +
+                "慢的移动平均线的差距非常迅速的拉开，代表了一个市场大趋势的转变。");
+    }
+    ;
+
+    function createEMA() {
+        $('#MAER_Tip').attr('title', "EMA\nEMA称为指数平均数指标。也叫EXPMA指标，它也是一种趋向类指标，" +
+                "指数平均数指标是以指数式递减加权的移动平均。");
+    }
+    ;
+
+    function createARBR() {
+        $('#MAER_Tip').attr('title', "ARBR\nARBR是情绪指标，也称为人气意愿指标，其英文缩写亦可表示为BRAR。由人气指标(AR)和意愿指标(BR)两个指标构成。" +
+                "\nAR指标是反映市场当前情况下多空双方力量发展对比的结果。它是以当日的开盘价为基点，与当日最高价相比较，依固定公式计算出来的强弱指标。" +
+                "\nBR指标是“强弱指标判定法”中的指标之一，是以前一天的收盘价为基准，用数字把当天行情的波动情形表现出来，用来预测股票变动趋势的预测指标。" +
+                "BR指标反映的是昨日收盘价与今日最高价和最低价之间的强弱走势从而反映股指意愿。");
+    }
+    ;
+
+    function createRSI() {
+        $('#MAER_Tip').attr('title', "RSI\nRSI称为相对强弱指数，是根据一定时期内上涨点数和涨跌点数之和的比率制作出的一种技术曲线。" +
+                "能够反映出市场在一定时期内的景气程度。");
+    }
+    ;
+    $('#PIE_Tip').attr('title', "买盘：表示以比市价高的价格进行委托买入，并已经“主动成交”，代表外盘；\n" +
+            "卖盘：表示以比市价低的价格进行委托卖出，并已经“主动成交”，代表内盘；\n" +
+            "中性盘：表示主动性不明确的买入卖出；\n" +
+            "内盘为主动性卖盘之即时和。外盘为主动性买盘之即时和。主动买大于主动卖会改变瞬间走势。" +
+            "当成交价在买入价时，将现手数量加入内盘累计数量中，当内盘累计数量比外盘累计数量大很多，而股价下跌时表示很多人在强抛卖出股票。" +
+            "如外盘很大，意味着多数卖的价位有人来接，显示买势强劲。");
+    createMACD()
+</script>
+
+<!-- Bootstrap Js -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- Metis Menu Js -->
+<script src="../js/jquery.metisMenu.js"></script>
+<!--EasyPieChart Js-->
+<script src="../js/easypiechart.js"></script>
+<script src="../js/easypiechart-data.js"></script>
+
+
+<!-- Custom Js -->
+<script src="../js/custom-scripts.js"></script>
+
+<script>
+
+    $('#search').autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                url: "analysis.fuzzy",
+                dataType: "json",
+                data: {
+                    info: request.term
+                },
+                success: function (data) {
+                    var lines = new Array();
+                    for (var obj in data) {
+                        var json = JSON.parse(data[obj]);
+                        var line = new Object();
+                        line.label = json.stockNumber + " " + json.stockName;
+                        line.value = json.stockNumber;
+                        lines.push(line);
+                    }
+                    return response(lines);
+                }
+            });
+        },
+        focus: function (event, ui) {
+            $("#search").val(ui.item.value);
+            return false;
+        },
+        select: function (event, ui) {
+            $("#search").val(ui.item.value);
+            return false;
+        },
+    });
+
+
+    $(window).load(function () {
+        $(".loading").fadeOut(750);
+    });
+    function showLoading() {
+        $(".loading").fadeTo(100, 0.5);
+    }
+    ;
+</script>
+
+</body>
+
+</html>
