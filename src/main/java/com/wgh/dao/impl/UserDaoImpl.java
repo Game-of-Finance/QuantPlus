@@ -1,15 +1,16 @@
-package com.wgh.dao;
+package com.wgh.dao.impl;
+
+import com.wgh.dao.service.UserDao;
+import com.wgh.model.User;
+import com.wgh.tools.ConnDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.wgh.model.User;
-import com.wgh.tools.ConnDB;
-
-public class UserDao {
+public class UserDaoImpl implements UserDao{
 	private ConnDB conn = null;
 
-	public UserDao() {
+	public UserDaoImpl() {
 		conn = new ConnDB();
 	}
 
@@ -46,12 +47,6 @@ public class UserDao {
 		return flag;
 	}
 
-	/**
-	 * 功能：检测用户名是否为空
-	 * 
-	 * @param sql
-	 * @return
-	 */
 	public String checkUser(String sql) {
 		ResultSet rs = conn.executeQuery(sql); // 执行查询语句
 		String result = "";
@@ -69,12 +64,6 @@ public class UserDao {
 		return result; // 返回判断结果
 	}
 
-	/**
-	 * 功能：保存用户注册信息
-	 * 
-	 * @param sql
-	 * @return
-	 */
 	public String save(String sql) {
 		int rtn = conn.executeUpdate(sql); // 执行更新语句
 		String result = "";
@@ -87,12 +76,6 @@ public class UserDao {
 		return result; // 返回执行结果
 	}
 
-	/**
-	 * 找回密码第一步
-	 * 
-	 * @param username
-	 * @return
-	 */
 	public String forgetPwd1(String username) {
 		String sql = "SELECT question FROM tb_user WHERE username='" + username
 				+ "'";
@@ -113,12 +96,6 @@ public class UserDao {
 		return result;
 	}
 
-	/**
-	 * 找回密码第二步
-	 * 
-	 * @param username
-	 * @return
-	 */
 	public String forgetPwd2(String username, String question, String answer) {
 		String sql = "SELECT pwd FROM tb_user WHERE username='" + username
 				+ "' AND question='" + question + "' AND answer='" + answer

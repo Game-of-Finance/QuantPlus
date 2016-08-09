@@ -1,5 +1,6 @@
-package com.wgh.dao;
+package com.wgh.dao.impl;
 
+import com.wgh.dao.service.DiaryDao;
 import com.wgh.model.Diary;
 import com.wgh.tools.ConnDB;
 
@@ -11,19 +12,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DiaryDao {
+public class DiaryDaoImpl implements DiaryDao{
     private ConnDB conn = null;// 创建数据库连接对象
 
-    public DiaryDao() {
+    public DiaryDaoImpl() {
         conn = new ConnDB();// 实例化数据库连接对象
     }
 
-    /**
-     * 查询日记
-     *
-     * @param sql
-     * @return
-     */
+
     public List<Diary> queryDiary(String sql) {
         ResultSet rs = conn.executeQuery(sql);// 执行查询语句
         List<Diary> list = new ArrayList<Diary>();
@@ -58,12 +54,7 @@ public class DiaryDao {
         return list;
     }
 
-    /**
-     * 功能：保存九宫格日记到数据库
-     *
-     * @param diary
-     * @return
-     */
+
     public int saveDiary(Diary diary) {
         String sql = "INSERT INTO tb_diary (title,address,userid) VALUES('"
                 + diary.getTitle() + "','" + diary.getAddress() + "',"
@@ -74,12 +65,7 @@ public class DiaryDao {
         return ret;
     }
 
-    /**
-     * 删除指定日记
-     *
-     * @param id
-     * @return
-     */
+
     public int delDiary(int id) {
         String sql = "DELETE FROM tb_diary WHERE id=" + id;
         int ret = 0;

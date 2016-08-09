@@ -1,13 +1,9 @@
 package com.wgh.servlet;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import com.wgh.dao.service.DiaryDao;
+import com.wgh.dao.stub.DiaryStub;
+import com.wgh.model.Diary;
+import com.wgh.tools.MyPagination;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -15,10 +11,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.wgh.dao.DiaryDao;
-import com.wgh.model.Diary;
-import com.wgh.tools.MyPagination;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Servlet implementation class DiaryServlet
@@ -33,8 +33,9 @@ public class DiaryServlet extends HttpServlet {
 	 */
 	public DiaryServlet() {
 		super();
-		// TODO Auto-generated constructor stub
-		dao = new DiaryDao();// 实例化日记相关的数据库操作类的对象
+		// TODO spring 注入
+//		dao = new DiaryDaoImpl();// 实例化日记相关的数据库操作类的对象
+        dao = new DiaryStub();
 	}
 
 	/**
@@ -246,9 +247,15 @@ public class DiaryServlet extends HttpServlet {
 		int Page = 1;
 		List<Diary> list = null;
 		if (strPage == null) {// 当页面初次运行
-			String sql = "select d.*,u.username from tb_diary d inner join tb_user u on u.id=d.userid order by d.writeTime DESC limit 50";
+			String sql = "select d.*,u.username from tb_diary d " +
+					"inner join tb_user u on u.id=d.userid " +
+					"order by d.writeTime DESC limit 50";
 			pagination = new MyPagination();
-			list = dao.queryDiary(sql); // 获取日记内容
+
+//			list = dao.queryDiary(sql); // 获取日记内容
+
+
+
 			int pagesize = 4; // 指定每页显示的记录数
 			list = pagination.getInitPage(list, Page, pagesize); // 初始化分页信息
 			request.getSession().setAttribute("pagination", pagination);

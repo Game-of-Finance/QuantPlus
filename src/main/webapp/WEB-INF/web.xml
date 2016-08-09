@@ -32,15 +32,18 @@
     <servlet-name>CreateImg</servlet-name>
     <url-pattern>/CreateImg</url-pattern>
   </servlet-mapping>
-  
+
+  <!--设置编码过滤器-->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
     <filter-class>com.wgh.filter.CharacterEncodingFilter</filter-class>
+    <!--构造初始化-->
     <init-param>
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
   </filter>
+    <!--过滤所有链接-->
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>

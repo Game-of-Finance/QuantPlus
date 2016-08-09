@@ -1,6 +1,7 @@
 package com.wgh.servlet;
 
-import com.wgh.dao.UserDao;
+import com.wgh.dao.service.UserDao;
+import com.wgh.dao.stub.UserStub;
 import com.wgh.model.CityMap;
 import com.wgh.model.User;
 
@@ -20,15 +21,15 @@ import java.util.Set;
  */
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserDao userDao = null;
+	private UserDao userDaoImpl = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public UserServlet() {
 		super();
-		userDao = new UserDao();
-		// TODO Auto-generated constructor stub
+		// TODO Spring 注入
+		userDaoImpl = new UserStub();
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class UserServlet extends HttpServlet {
 		User f = new User();
 		f.setUsername(request.getParameter("username")); // 获取并设置用户名
 		f.setPwd(request.getParameter("pwd")); // 获取并设置密码
-		int r = userDao.login(f);
+		int r = userDaoImpl.login(f);
 		if (r > 0) {// 当用户登录成功时
 			HttpSession session = request.getSession();
 			session.setAttribute("userName", f.getUsername());// 保存用户名
@@ -125,7 +126,7 @@ public class UserServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");		//获取用户名
 		String sql = "SELECT * FROM tb_user WHERE username='" + username + "'";
-		String result = userDao.checkUser(sql);		//调用UserDao类的checkUser()方法判断用户是否被注册
+		String result = userDaoImpl.checkUser(sql);		//调用UserDao类的checkUser()方法判断用户是否被注册
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print(result); 							// 输出检测结果
@@ -158,7 +159,7 @@ public class UserServlet extends HttpServlet {
 				+ "','"
 				+ question
 				+ "','" + answer + "','" + city + "')";
-		String result = userDao.save(sql);// 保存用户信息
+		String result = userDaoImpl.save(sql);// 保存用户信息
 		response.setContentType("text/html"); // 设置响应的类型
 		PrintWriter out = response.getWriter();
 		out.print(result); // 输出执行结果
@@ -231,7 +232,7 @@ public class UserServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username"); // 获取用户名
-		String question = userDao.forgetPwd1(username);// 执行找回密码第一步对应的方法获取密码提示问题
+		String question = userDaoImpl.forgetPwd1(username);// 执行找回密码第一步对应的方法获取密码提示问题
 		PrintWriter out = response.getWriter();
 		if ("".equals(question)) {// 判断密码提示问题是否为空
 			out
@@ -261,7 +262,7 @@ public class UserServlet extends HttpServlet {
 		String username = request.getParameter("username"); // 获取用户名
 		String question = request.getParameter("question");// 获取密码提示问题
 		String answer = request.getParameter("answer"); // 获取提示问题答案
-		String pwd = userDao.forgetPwd2(username, question, answer);// 执行找回密码第二步的方法判断提示问题答案是否正确
+		String pwd = userDaoImpl.forgetPwd2(username, question, answer);// 执行找回密码第二步的方法判断提示问题答案是否正确
 		PrintWriter out = response.getWriter();
 
 		if ("您输入的密码提示问题答案错误！".equals(pwd)) {// 提示问题答案错误
