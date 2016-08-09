@@ -252,7 +252,7 @@ public class DiaryServlet extends HttpServlet {
 					"order by d.writeTime DESC limit 50";
 			pagination = new MyPagination();
 
-//			list = dao.queryDiary(sql); // 获取日记内容
+			list = dao.queryDiary(sql); // 获取日记内容
 
 
 

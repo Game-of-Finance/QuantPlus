@@ -10,6 +10,8 @@ public class Diary {
 	private int userid = 0;// 用户ID
 	private String username = "";// 用户名
 
+
+
 	public String getUsername() {
 		return username;
 	}

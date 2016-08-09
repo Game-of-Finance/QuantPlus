@@ -3,6 +3,8 @@ package com.wgh.dao.stub;
 import com.wgh.dao.service.DiaryDao;
 import com.wgh.model.Diary;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,8 +12,29 @@ import java.util.List;
  * All rights reserved.
  */
 public class DiaryStub implements DiaryDao{
+
     public List<Diary> queryDiary(String sql) {
-        return null;
+        return new ArrayList<Diary>(){
+            {
+                Diary diary = new Diary();
+                diary.setAddress("addr");
+                diary.setId(1);
+                diary.setTitle("title");
+                diary.setUserid(22);
+                diary.setWriteTime(new Date());
+                diary.setUsername("username");
+                add(diary);
+
+                diary = new Diary();
+                diary.setAddress("addr");
+                diary.setId(1);
+                diary.setTitle("title");
+                diary.setUserid(22);
+                diary.setWriteTime(new Date());
+                diary.setUsername("username");
+                add(diary);
+            }
+        };
     }
 
     public int delDiary(int id) {
