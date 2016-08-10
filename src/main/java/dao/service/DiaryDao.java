@@ -11,7 +11,7 @@ import java.util.List;
 public interface DiaryDao {
 
     /**
-     * 查询日记
+     * 查询日记(搜索)
      *
      * @param sql
      * @return
@@ -28,11 +28,19 @@ public interface DiaryDao {
 
 
     /**
-     * 功能：保存九宫格日记到数据库
+     * 功能：保存日记到数据库(发帖)
      *
      * @param diary
      * @return
      */
     int saveDiary(Diary diary);
+
+    /**
+     * 功能：点赞
+     *
+     * @param id
+     * @return
+     */
+    int like(int diaryId,int userId);
 
 }

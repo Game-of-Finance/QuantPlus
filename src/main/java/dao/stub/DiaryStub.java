@@ -80,4 +80,8 @@ public class DiaryStub implements DiaryDao{
     public int saveDiary(Diary diary) {
         return 0;
     }
+
+    public int like(int diaryId,int userId) {
+        return 0;
+    }
 }

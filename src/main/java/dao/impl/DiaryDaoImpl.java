@@ -78,4 +78,19 @@ public class DiaryDaoImpl implements DiaryDao{
         }
         return ret;
     }
+
+    public int like(int diaryId,int userId) {
+        //TODO sql语句,喜欢数++
+        String sql = "DELETE FROM tb_diary WHERE id=" + diaryId;
+
+        int ret = 0;
+        try {
+            ret = conn.executeUpdate(sql);// 执行更新语句
+        } catch (Exception e) {
+            e.printStackTrace();// 输出异常信息
+        } finally {
+            conn.close();// 关闭数据连接
+        }
+        return ret;
+    }
 }
