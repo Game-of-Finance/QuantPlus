@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="JS/excanvas-modified.js"></script>
-<title>显示九宫格日记列表</title>
+<title>显示社区</title>
 <script language="javascript">
 //展开或收缩图片的方法
 function zoom(id,url){
@@ -137,7 +137,7 @@ function rotate${id.count }(){
 }
 </script>
 	<div style="border-bottom-color:#CBCBCB;padding:5px;border-bottom-style:dashed;border-bottom-width: 1px;margin: 10px 20px;color:#0F6548">
-	<font color="#CE6A1F" style="font-weight: bold;font-size:14px;">${diaryList.username}</font>&nbsp;&nbsp;发表九宫格日记：<b>${diaryList.title}</b></div>
+	<font color="#CE6A1F" style="font-weight: bold;font-size:14px;">${diaryList.username}</font>&nbsp;&nbsp;发表帖子：<b>${diaryList.title}</b></div>
 	<div style="margin:10px 10px 0px 10px;background-color:#FFFFFF; border-bottom-color:#CBCBCB;border-bottom-style:dashed;border-bottom-width: 1px;">
 		<div id="diaryImg${id.count }" style="border:1px #DDDDDD solid;width:60px;background-color:#EEEEEE;">
 		
@@ -165,7 +165,7 @@ function rotate${id.count }(){
 </c:forEach>
 </c:if>
 <c:if test="${empty requestScope.diaryList}">
-暂无九宫格日记！
+暂无帖子！
 </c:if>
 <script type="text/javascript">
 var flag=new Array(i);//定义一个标记数组

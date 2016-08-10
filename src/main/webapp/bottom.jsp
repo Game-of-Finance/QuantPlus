@@ -17,7 +17,7 @@
 </style>
 <div id="bottom">
 <ul>
-	<li>技术服务热线：100-111-123 传真：0711-521321313 企业邮箱：123@wxh.com</li>
+	<li>技术服务热线：你猜 传真：你猜 企业邮箱：你猜</li>
 	<li>Copyright &copy; wxh All Rights Reserved! </li>
 </ul>
 </div>

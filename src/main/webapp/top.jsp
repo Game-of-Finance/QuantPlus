@@ -105,22 +105,22 @@ function deal_login(){
 <div id="navigation">
 	<div style="float:left;color:#006700;">
 	<c:if test="${!empty sessionScope.userName}">		
-		<b> &nbsp; 》&nbsp; 欢迎 ${sessionScope.userName} 登录九宫格日记网！</b>
+		<b> &nbsp; 》&nbsp; 欢迎 ${sessionScope.userName} 登录quant+</b>
 	</c:if>
 	<c:if test="${empty sessionScope.userName}">		
-		<b> &nbsp; 》&nbsp; 欢迎光临九宫格日记网！</b>
+		<b> &nbsp; 》&nbsp; quant+</b>
 	</c:if>
 	</div>
 	<div style="float:right;text-align: right;">
-		<a href="DiaryServlet?action=listAllDiary">首页</a> 
+		<a href="DiaryServlet?action=listAllDiary">社区</a>
 	<c:if test="${empty sessionScope.userName}">	
 		&nbsp; | &nbsp;<a href="#" onClick="Myopen('login')">登录</a>
 		&nbsp; | &nbsp;<a href="#" onClick="Regopen('register')">注册</a>
 		&nbsp; | &nbsp;<a href="forgetPwd_1.jsp">找回密码</a>	 
 	</c:if>
 	<c:if test="${!empty sessionScope.userName}">		
-		&nbsp;| &nbsp;<a href="DiaryServlet?action=listMyDiary">我的日记</a>
-		&nbsp; | &nbsp;<a href="writeDiary.jsp">写九宫格日记</a>
+		&nbsp;| &nbsp;<a href="DiaryServlet?action=listMyDiary">我的帖子</a>
+		&nbsp; | &nbsp;<a href="writeDiary.jsp">发帖/a>
 		&nbsp; | &nbsp;<a href="UserServlet?action=exit">退出登录</a>
 	</c:if>
 	</div>
@@ -128,7 +128,7 @@ function deal_login(){
 </div>
  <div id="login">
 <form name="form2" method="post" action="" id="form2">
-	<div id="loginTitle">清爽夏日九宫格日记网--用户登录</b></div>
+	<div id="loginTitle">quantplus--用户登录</b></div>
 	<div id="loginContent" style="background-color:#FFFEF9; margin:0px;">
 	<ul id="loginUl"><li>
 	用户名：<input type="text" name="username" style="width:120px" onkeydown="if(event.keyCode==13){this.form.pwd.focus();}">
