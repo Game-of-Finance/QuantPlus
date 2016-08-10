@@ -205,7 +205,9 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String result = "";
 		String selProvince = request.getParameter("parProvince"); // 获取选择的省份
-		selProvince = new String(selProvince.getBytes("ISO-8859-1"), "GBK");
+		//System.out.print(selProvince);
+		//selProvince = new String(selProvince.getBytes("ISO-8859-1"), "GBK");
+		//System.out.print(selProvince);
 		CityMap cityMap = new CityMap(); // 实例化保存省份信息的CityMap类的实例
 		Map<String, String[]> map = cityMap.model; // 获取省份信息保存到Map中
 		String[] arrCity = map.get(selProvince); // 获取指定键的值
