@@ -1,4 +1,4 @@
-package com.wgh.model;
+package model;
 
 public class User {
 	private int id = 0;// 用户ID

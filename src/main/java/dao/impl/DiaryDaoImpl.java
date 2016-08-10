@@ -1,8 +1,8 @@
-package com.wgh.dao.impl;
+package dao.impl;
 
-import com.wgh.dao.service.DiaryDao;
-import com.wgh.model.Diary;
-import com.wgh.tools.ConnDB;
+import dao.service.DiaryDao;
+import model.Diary;
+import tools.ConnDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,6 +1,6 @@
-package com.wgh.dao.service;
+package dao.service;
 
-import com.wgh.model.Diary;
+import model.Diary;
 
 import java.util.List;
 

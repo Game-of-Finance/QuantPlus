@@ -1,4 +1,4 @@
-package com.wgh.model;
+package model;
 
 import java.util.Date;
 

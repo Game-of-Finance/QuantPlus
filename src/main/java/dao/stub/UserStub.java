@@ -1,7 +1,7 @@
-package com.wgh.dao.stub;
+package dao.stub;
 
-import com.wgh.dao.service.UserDao;
-import com.wgh.model.User;
+import dao.service.UserDao;
+import model.User;
 
 /**
  * Created by kylin on 16/8/9.

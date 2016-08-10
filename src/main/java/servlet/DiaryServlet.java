@@ -1,9 +1,9 @@
-package com.wgh.servlet;
+package servlet;
 
-import com.wgh.dao.service.DiaryDao;
-import com.wgh.dao.stub.DiaryStub;
-import com.wgh.model.Diary;
-import com.wgh.tools.MyPagination;
+import dao.service.DiaryDao;
+import dao.stub.DiaryStub;
+import model.Diary;
+import tools.MyPagination;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;

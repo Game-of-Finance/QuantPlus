@@ -265,7 +265,7 @@ function form_reset(form){
                 <tr>
                   <td height="40" align="right">提示问题答案：</td>
                   <td height="40" align="left"><input name="answer" type="text" id="answer" size="35" onBlur="checkQuestion(this.form.question.value,this.value)">
- 如：明日科技                  </td>
+ 如：南京大学                  </td>
                 </tr>
                 <tr>
                   <td height="40">&nbsp;</td>

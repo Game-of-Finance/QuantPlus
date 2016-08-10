@@ -13,7 +13,7 @@
     <description></description>
     <display-name>DiaryServlet</display-name>
     <servlet-name>DiaryServlet</servlet-name>
-    <servlet-class>com.wgh.servlet.DiaryServlet</servlet-class>
+    <servlet-class>servlet.DiaryServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -25,7 +25,7 @@
     <description></description>
     <display-name>CreateImg</display-name>
     <servlet-name>CreateImg</servlet-name>
-    <servlet-class>com.wgh.servlet.CreateImg</servlet-class>
+    <servlet-class>servlet.CreateImg</servlet-class>
   </servlet>
   
   <servlet-mapping>
@@ -36,7 +36,7 @@
   <!--设置编码过滤器-->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
-    <filter-class>com.wgh.filter.CharacterEncodingFilter</filter-class>
+    <filter-class>filter.CharacterEncodingFilter</filter-class>
     <!--构造初始化-->
     <init-param>
       <param-name>encoding</param-name>
@@ -55,7 +55,7 @@
     <description></description>
     <display-name>UserServlet</display-name>
     <servlet-name>UserServlet</servlet-name>
-    <servlet-class>com.wgh.servlet.UserServlet</servlet-class>
+    <servlet-class>servlet.UserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UserServlet</servlet-name>

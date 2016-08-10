@@ -1,4 +1,4 @@
-package com.wgh.servlet;
+package servlet;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;

@@ -1,8 +1,8 @@
-package com.wgh.dao.impl;
+package dao.impl;
 
-import com.wgh.dao.service.UserDao;
-import com.wgh.model.User;
-import com.wgh.tools.ConnDB;
+import dao.service.UserDao;
+import model.User;
+import tools.ConnDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,6 +1,6 @@
-package com.wgh.dao.service;
+package dao.service;
 
-import com.wgh.model.User;
+import model.User;
 
 /**
  * Created by kylin on 16/8/9.

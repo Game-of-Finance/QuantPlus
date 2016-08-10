@@ -1,9 +1,9 @@
-package com.wgh.tools;
+package tools;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wgh.model.Diary;
+import model.Diary;
 
 
 

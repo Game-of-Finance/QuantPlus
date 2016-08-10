@@ -1,4 +1,4 @@
-package com.wgh.filter;
+package filter;
 
 import java.io.IOException;
 import javax.servlet.*;

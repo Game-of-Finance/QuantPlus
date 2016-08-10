@@ -1,9 +1,9 @@
-package com.wgh.servlet;
+package servlet;
 
-import com.wgh.dao.service.UserDao;
-import com.wgh.dao.stub.UserStub;
-import com.wgh.model.CityMap;
-import com.wgh.model.User;
+import dao.service.UserDao;
+import dao.stub.UserStub;
+import model.CityMap;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

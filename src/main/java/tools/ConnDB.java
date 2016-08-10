@@ -1,4 +1,4 @@
-package com.wgh.tools;
+package tools;
 
 import java.io.InputStream; //导入java.io.InputStream类
 import java.sql.*; //导入java.sql包中的所有类
