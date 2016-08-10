@@ -63,7 +63,7 @@ public class DiaryStub implements DiaryDao{
 
                 diary = new Diary();
                 diary.setAddress("addr");
-                diary.setId(6;
+                diary.setId(6);
                 diary.setTitle("title");
                 diary.setUserid(22);
                 diary.setWriteTime(new Date());
