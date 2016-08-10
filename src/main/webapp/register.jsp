@@ -46,7 +46,7 @@ function checkUser(str){
 function deal(){
 	result=this.req.responseText;								//获取返回的检测结果
 	result=result.replace(/\s/g,"");								//去除Unicode空白符
-	if(result=="1"){											//当用户名没有被注册
+  if(result=="1"){											//当用户名没有被注册
 		document.getElementById("div_user").innerHTML="";		//清空提示文字
 		document.getElementById("tr_user").style.display='none';		//隐藏提示信息显示行
 		flag_user=true;		

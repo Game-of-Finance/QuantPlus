@@ -61,6 +61,7 @@ public class UserDaoImpl implements UserDao{
 		} finally {
 			conn.close(); // 关闭数据库连接
 		}
+		System.out.print("UserDaoImpl中的result值为:"+result);
 		return result; // 返回判断结果
 	}
 

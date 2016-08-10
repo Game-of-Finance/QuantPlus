@@ -127,6 +127,7 @@ public class UserServlet extends HttpServlet {
 		String username = request.getParameter("username");		//获取用户名
 		String sql = "SELECT * FROM tb_user WHERE username='" + username + "'";
 		String result = userDaoImpl.checkUser(sql);		//调用UserDao类的checkUser()方法判断用户是否被注册
+		System.out.print("UserServlet中的result值为:"+result);
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.print(result); 							// 输出检测结果
