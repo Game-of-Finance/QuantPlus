@@ -26,7 +26,7 @@ import java.util.Random;
 public class DiaryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MyPagination pagination = null;// 数据分页类的对象
-	DiaryDao dao = null;// 日记相关的数据库操作类的对象
+	DiaryDao diaryDao = null;// 日记相关的数据库操作类的对象
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -34,8 +34,8 @@ public class DiaryServlet extends HttpServlet {
 	public DiaryServlet() {
 		super();
 		// TODO spring 注入
-//		dao = new DiaryDaoImpl();// 实例化日记相关的数据库操作类的对象
-        dao = new DiaryStub();
+//		diaryDao = new DiaryDaoImpl();// 实例化日记相关的数据库操作类的对象
+        diaryDao = new DiaryStub();
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class DiaryServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id")); // 获取要删除的日记的ID
 		String imgName = request.getParameter("imgName"); // 获取图片名
 		String url = request.getParameter("url"); // 获取返回的URL地址
-		int rtn = dao.delDiary(id);// 删除日记
+		int rtn = diaryDao.delDiary(id);// 删除日记
 		PrintWriter out = response.getWriter();
 		if (rtn > 0) {// 当删除日记成功时
 			/************* 删除日记图片及缩略图 ******************/
@@ -120,7 +120,7 @@ public class DiaryServlet extends HttpServlet {
 			String sql = "select d.*,u.username from tb_diary d inner join tb_user u on u.id=d.userid  where d.userid="
 					+ userid + " order by d.writeTime DESC";// 应用内联接查询日记信息
 			pagination = new MyPagination();
-			list = dao.queryDiary(sql); // 获取日记内容
+			list = diaryDao.queryDiary(sql); // 获取日记内容
 			int pagesize = 4; // 指定每页显示的记录数
 			list = pagination.getInitPage(list, Page, pagesize); // 初始化分页信息
 			request.getSession().setAttribute("pagination", pagination);// 保存分页信息
@@ -219,7 +219,7 @@ public class DiaryServlet extends HttpServlet {
 		diary.setUserid(Integer
 				.parseInt(session.getAttribute("uid").toString()));// 设置用户ID
 		//System.out.println(diary.getTitle());
-		int rtn = dao.saveDiary(diary); // 保存日记
+		int rtn = diaryDao.saveDiary(diary); // 保存日记
 		PrintWriter out = response.getWriter();
 		if (rtn > 0) {// 当保存成功时
 			out
@@ -252,7 +252,7 @@ public class DiaryServlet extends HttpServlet {
 					"order by d.writeTime DESC limit 50";
 			pagination = new MyPagination();
 
-			list = dao.queryDiary(sql); // 获取日记内容
+			list = diaryDao.queryDiary(sql); // 获取日记内容
 
 
 

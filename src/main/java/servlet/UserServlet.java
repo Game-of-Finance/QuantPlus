@@ -21,7 +21,7 @@ import java.util.Set;
  */
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UserDao userDaoImpl = null;
+	private UserDao userDao = null;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -29,7 +29,7 @@ public class UserServlet extends HttpServlet {
 	public UserServlet() {
 		super();
 		// TODO Spring 注入
-		userDaoImpl = new UserStub();
+		userDao = new UserStub();
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class UserServlet extends HttpServlet {
 		User f = new User();
 		f.setUsername(request.getParameter("username")); // 获取并设置用户名
 		f.setPwd(request.getParameter("pwd")); // 获取并设置密码
-		int r = userDaoImpl.login(f);
+		int r = userDao.login(f);
 		if (r > 0) {// 当用户登录成功时
 			HttpSession session = request.getSession();
 			session.setAttribute("userName", f.getUsername());// 保存用户名
@@ -126,7 +126,7 @@ public class UserServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");		//获取用户名
 		String sql = "SELECT * FROM tb_user WHERE username='" + username + "'";
-		String result = userDaoImpl.checkUser(sql);		//调用UserDao类的checkUser()方法判断用户是否被注册
+		String result = userDao.checkUser(sql);		//调用UserDao类的checkUser()方法判断用户是否被注册
 		System.out.print("UserServlet中的result值为:"+result);
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
@@ -160,7 +160,7 @@ public class UserServlet extends HttpServlet {
 				+ "','"
 				+ question
 				+ "','" + answer + "','" + city + "')";
-		String result = userDaoImpl.save(sql);// 保存用户信息
+		String result = userDao.save(sql);// 保存用户信息
 		response.setContentType("text/html"); // 设置响应的类型
 		PrintWriter out = response.getWriter();
 		out.print(result); // 输出执行结果
@@ -206,9 +206,9 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String result = "";
 		String selProvince = request.getParameter("parProvince"); // 获取选择的省份
-		//System.out.print(selProvince);
-		//selProvince = new String(selProvince.getBytes("ISO-8859-1"), "GBK");
-		//System.out.print(selProvince);
+//		System.out.print(selProvince);
+//		selProvince = new String(selProvince.getBytes("ISO-8859-1"), "GBK");
+//		System.out.print(selProvince);
 		CityMap cityMap = new CityMap(); // 实例化保存省份信息的CityMap类的实例
 		Map<String, String[]> map = cityMap.model; // 获取省份信息保存到Map中
 		String[] arrCity = map.get(selProvince); // 获取指定键的值
@@ -235,7 +235,7 @@ public class UserServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username"); // 获取用户名
-		String question = userDaoImpl.forgetPwd1(username);// 执行找回密码第一步对应的方法获取密码提示问题
+		String question = userDao.forgetPwd1(username);// 执行找回密码第一步对应的方法获取密码提示问题
 		PrintWriter out = response.getWriter();
 		if ("".equals(question)) {// 判断密码提示问题是否为空
 			out
@@ -265,7 +265,7 @@ public class UserServlet extends HttpServlet {
 		String username = request.getParameter("username"); // 获取用户名
 		String question = request.getParameter("question");// 获取密码提示问题
 		String answer = request.getParameter("answer"); // 获取提示问题答案
-		String pwd = userDaoImpl.forgetPwd2(username, question, answer);// 执行找回密码第二步的方法判断提示问题答案是否正确
+		String pwd = userDao.forgetPwd2(username, question, answer);// 执行找回密码第二步的方法判断提示问题答案是否正确
 		PrintWriter out = response.getWriter();
 
 		if ("您输入的密码提示问题答案错误！".equals(pwd)) {// 提示问题答案错误

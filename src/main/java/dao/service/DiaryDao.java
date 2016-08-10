@@ -16,7 +16,7 @@ public interface DiaryDao {
      * @param sql
      * @return
      */
-        List<Diary> queryDiary(String sql);
+    List<Diary> queryDiary(String sql);
 
     /**
      * 删除指定日记
