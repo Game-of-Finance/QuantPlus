@@ -38,7 +38,7 @@ public interface DiaryDao {
     /**
      * 功能：点赞
      *
-     * @param id
+     * @param diaryId,userId
      * @return
      */
     int like(int diaryId,int userId);
