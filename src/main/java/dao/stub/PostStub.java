@@ -14,13 +14,14 @@ public class PostStub implements PostDao {
     public List<Post> queryPost(String sql) {
         return new ArrayList<Post>(){
             {
-                Post diary = new Post();
-                diary.setAddress("addr");
-                diary.setId(1);
-                diary.setTitle("title");
-                diary.setUserid(22);
-                diary.setWriteTime(new Date());
-                diary.setUsername("username");
+                Post post = new Post();
+                post.setAddress("addr");
+                post.setId(1);
+                post.setTitle("title");
+                post.setUserid(22);
+                post.setWriteTime(new Date());
+                post.setUsername("username");
+                post.setlikes(99);
 
             }
         };

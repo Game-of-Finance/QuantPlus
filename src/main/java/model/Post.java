@@ -6,10 +6,10 @@ import java.util.Date;
  * Created by alfred on 16/8/11.
  */
 public class Post {
-    private int id = 0;// 日记ID号
-    private String title = "";// 日记标题
-    private String address = "";// 日记图片地址
-    private Date writeTime = null;// 写日记的时间
+    private int id = 0;// 帖子ID号
+    private String title = "";// 帖子标题
+    private String address = "";// 帖子图片地址
+    private Date writeTime = null;// 写帖子的时间
     private int userid = 0;// 用户ID
     private String username = "";// 用户名
     private int likes = 0;

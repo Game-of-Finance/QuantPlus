@@ -92,7 +92,7 @@ function checkRepwd(str){
 	}
 }
 //验证E-mail地址
-function checkEmail(str){
+function checkEmail(str){1
 	if(str==""){//当E-mail地址为空时
 		document.getElementById("div_email").innerHTML="请输入E-mail地址！";//设置提示信息
 		document.getElementById("tr_email").style.display='block';		//显示提示信息
