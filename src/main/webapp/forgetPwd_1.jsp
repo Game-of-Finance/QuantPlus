@@ -28,7 +28,8 @@ function checkForm(form){
 <%@ include file="top.jsp" %>
 <%@ include file="register.jsp" %>
  <div id="forgetPwd" style="height:356px;">
-<form name="form_forgetPwd" method="post" action="UserServlet?action=forgetPwd1" onsubmit="return checkForm(this)">
+<form name="form_forgetPwd" method="post" action="UserServlet?action=forgetPwd1"
+	  onsubmit="return checkForm(this)">
 <ul id="forgetPwd1">
 	<li style="padding-top:5px;">请输入用户名： </li>
 	<li><input type="text" name="username"> </li>
