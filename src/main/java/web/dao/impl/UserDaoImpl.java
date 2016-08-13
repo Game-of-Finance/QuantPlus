@@ -6,7 +6,7 @@ import web.model.User;
 
 public class UserDaoImpl implements UserDao {
 
-	public boolean isUserExsit(String username) {
+	public boolean isUserExist(String username) {
 		//TODO 判断username是否已经存在
 		return false;
 	}

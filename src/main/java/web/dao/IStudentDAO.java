@@ -2,7 +2,7 @@ package web.dao;
 
 import web.model.Student;
 
-public interface IStudentDAO {
+public interface IStudentDao {
 
     /**
      * Save Student into database

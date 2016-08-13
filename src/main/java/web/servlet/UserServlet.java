@@ -2,7 +2,7 @@ package web.servlet;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import web.biz.IUserMangService;
+import web.biz.IUserManage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +16,7 @@ import java.io.IOException;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@Autowired
-	private IUserMangService userManagementService;
+	private IUserManage userManagementService;
 
 	/**
 	 * @see HttpServlet#HttpServlet()

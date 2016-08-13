@@ -1,12 +1,15 @@
 package web.biz;
 
 
+import web.model.User;
 import web.tools.MyMessage;
+
+import java.util.List;
 
 /**
  * Created by alfred on 16/8/12.
  */
-public interface IUserMangService {
+public interface IUserManage {
 
     /**
      * 功能：用户登录
@@ -35,20 +38,20 @@ public interface IUserMangService {
     /**
      * 保证注册的用户信息
      *
-     * @param username
+     * @param newUser
      */
-    void save(String username,String pwd,String email,String question,String answer,String city);
+    void save(User newUser);
 
     /**
      * 获取省份和直辖市
      *
      */
-    String getProvince();
+    List<String> getProvince();
 
     /**
      * 获取市县
      */
-    String getCity(String province);
+    List<String> getCity(String province);
 
     /**
      * 找回密码第一步

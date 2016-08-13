@@ -30,7 +30,7 @@ public class UserStub implements UserDao {
         return null;
     }
 
-    public boolean isUserExsit(String username) {
+    public boolean isUserExist(String username) {
         return false;
     }
 

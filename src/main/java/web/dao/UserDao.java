@@ -12,7 +12,7 @@ public interface UserDao {
     /**
      * 判断username是否已经存在
      */
-    boolean isUserExsit(String username);
+    boolean isUserExist(String username);
 
     /**
      * 根据username获取password

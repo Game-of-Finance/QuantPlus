@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import web.model.Student;
-import web.biz.IStudentMangService;
+import web.biz.IStudentManage;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("StudentAction.do")
 public class StudentAction extends MultiActionController{
     @Autowired
-    private IStudentMangService studentManagementService;
+    private IStudentManage studentManagementService;
 
     @RequestMapping(params = "method=HandleStudentRegistrationFormSubmit")
     protected ModelAndView HandleStudentRegistrationFormSubmit(HttpServletRequest request

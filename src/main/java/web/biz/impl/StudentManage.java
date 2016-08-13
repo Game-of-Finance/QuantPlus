@@ -4,16 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import web.dao.IStudentDAO;
+import web.biz.IStudentManage;
+import web.dao.IStudentDao;
 import web.model.Student;
-import web.biz.IStudentMangService;
 
 @Service
-public class IStudentMangImpl implements IStudentMangService {
+public class StudentManage implements IStudentManage {
 
     @Autowired
-    private IStudentDAO studentDAO;
+    private IStudentDao studentDAO;
 
     // @Transactional这一annotation来对事务进行声明式的设定。
     // 具体而言，就是在类或者方法前添加@Transactional并传入属性参数以获取所需要的Transaction特性。
