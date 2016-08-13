@@ -1,6 +1,6 @@
 package web.biz;
 
-import web.model.Student;
+import web.model.register.Student;
 
 public interface IStudentManage {
     public void addStudent(Student student);

@@ -3,7 +3,7 @@ package web.servlet;
 
 import web.dao.DiaryDao;
 import web.dao.stub.DiaryStub;
-import web.model.Diary;
+import web.model.communication.Diary;
 import web.tools.MyPagination;
 
 import javax.imageio.ImageIO;

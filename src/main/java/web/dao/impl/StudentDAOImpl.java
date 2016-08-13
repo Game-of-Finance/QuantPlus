@@ -3,7 +3,7 @@ package web.dao.impl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import web.dao.IStudentDao;
-import web.model.Student;
+import web.model.register.Student;
 
 @SuppressWarnings("restriction")
 @Repository("studentDAO")

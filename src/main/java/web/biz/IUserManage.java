@@ -1,7 +1,7 @@
 package web.biz;
 
 
-import web.model.User;
+import web.model.register.User;
 import web.tools.MyMessage;
 
 import java.util.List;

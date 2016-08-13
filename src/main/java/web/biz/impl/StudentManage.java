@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import web.biz.IStudentManage;
 import web.dao.IStudentDao;
-import web.model.Student;
+import web.model.register.Student;
 
 @Service
 public class StudentManage implements IStudentManage {

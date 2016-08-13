@@ -1,7 +1,8 @@
-package web.model;
+package web.model.communication;
 
 import java.util.Date;
 
+@Deprecated
 public class Diary {
 	private int id = 0;// 日记ID号
 	private String title = "";// 日记标题

@@ -1,6 +1,6 @@
 package web.dao;
 
-import web.model.Student;
+import web.model.register.Student;
 
 public interface IStudentDao {
 

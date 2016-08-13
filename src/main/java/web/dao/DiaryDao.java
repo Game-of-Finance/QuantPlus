@@ -1,7 +1,7 @@
 package web.dao;
 
 
-import web.model.Diary;
+import web.model.communication.Diary;
 
 import java.util.List;
 

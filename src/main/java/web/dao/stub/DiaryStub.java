@@ -2,7 +2,7 @@ package web.dao.stub;
 
 
 import web.dao.DiaryDao;
-import web.model.Diary;
+import web.model.communication.Diary;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -4,8 +4,8 @@ package web.biz.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import web.biz.IUserManage;
 import web.dao.UserDao;
-import web.model.CityMap;
-import web.model.User;
+import web.model.register.CityMap;
+import web.model.register.User;
 import web.tools.MyMessage;
 
 import java.util.*;

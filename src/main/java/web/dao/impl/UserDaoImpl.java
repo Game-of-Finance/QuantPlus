@@ -2,7 +2,7 @@ package web.dao.impl;
 
 
 import web.dao.UserDao;
-import web.model.User;
+import web.model.register.User;
 
 public class UserDaoImpl implements UserDao {
 

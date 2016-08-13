@@ -1,7 +1,7 @@
 package web.dao;
 
 
-import web.model.User;
+import web.model.register.User;
 
 /**
  * Created by kylin on 16/8/9.

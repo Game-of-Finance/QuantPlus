@@ -1,4 +1,4 @@
-package web.model;
+package web.model.register;
 
 public class User {
 	private int id = 0;// 用户ID

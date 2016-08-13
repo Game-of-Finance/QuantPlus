@@ -1,4 +1,4 @@
-package web.model;
+package web.model.register;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

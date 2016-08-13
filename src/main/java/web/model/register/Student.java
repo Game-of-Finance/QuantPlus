@@ -1,4 +1,4 @@
-package web.model;
+package web.model.register;
 
 
 public class Student {
