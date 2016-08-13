@@ -1,99 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
-         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>StudentManagementWeb</display-name>
 
-<display-name>9GridDiary</display-name>
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.htm</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>default.html</welcome-file>
-        <welcome-file>default.htm</welcome-file>
-        <welcome-file>default.jsp</welcome-file>
-    </welcome-file-list>
+  <welcome-file-list>
+    <welcome-file>StudentRegistration.jsp</welcome-file>
+  </welcome-file-list>
 
-    <!--<welcome-file-list>-->
-        <!--<welcome-file>StudentRegistration.jsp</welcome-file>-->
-    <!--</welcome-file-list>-->
+  <servlet>
+    <!-- define the name of Servlet -->
+    <servlet-name>dispatcherServlet</servlet-name>
+    <!-- Servlet implementation class -->
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 
-    <!--<servlet>-->
-        <!--&lt;!&ndash; define the name of Servlet &ndash;&gt;-->
-        <!--<servlet-name>dispatcherServlet</servlet-name>-->
-        <!--&lt;!&ndash; Servlet implementation class &ndash;&gt;-->
-        <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+    <!-- initialize the context -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <!-- load configuration -->
+      <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </init-param>
 
-        <!--&lt;!&ndash; initialize the context &ndash;&gt;-->
-        <!--<init-param>-->
-            <!--<param-name>contextConfigLocation</param-name>-->
-            <!--&lt;!&ndash; load configuration &ndash;&gt;-->
-            <!--<param-value>/WEB-INF/applicationContext.xml</param-value>-->
-        <!--</init-param>-->
-
-        <!--&lt;!&ndash; set loading priority &ndash;&gt;-->
-        <!--<load-on-startup>1</load-on-startup>-->
-    <!--</servlet>-->
+    <!-- set loading priority -->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 
 
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>dispatcherServlet</servlet-name>-->
-        <!--<url-pattern>*.do</url-pattern>-->
-    <!--</servlet-mapping>-->
-
-
-    <servlet>
-        <display-name>DiaryServlet</display-name>
-        <servlet-name>DiaryServlet</servlet-name>
-        <servlet-class>servlet.DiaryServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>DiaryServlet</servlet-name>
-        <url-pattern>/DiaryServlet</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <display-name>CreateImg</display-name>
-        <servlet-name>CreateImg</servlet-name>
-        <servlet-class>servlet.CreateImg</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>CreateImg</servlet-name>
-        <url-pattern>/CreateImg</url-pattern>
-    </servlet-mapping>
-
-    <!--设置编码过滤器-->
-    <filter>
-        <filter-name>CharacterEncodingFilter</filter-name>
-        <filter-class>filter.CharacterEncodingFilter</filter-class>
-        <!--构造初始化-->
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
-    <!--过滤所有链接-->
-    <filter-mapping>
-        <filter-name>CharacterEncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-    </filter-mapping>
-
-    <servlet>
-        <description></description>
-        <display-name>UserServlet</display-name>
-        <servlet-name>UserServlet</servlet-name>
-        <servlet-class>servlet.UserServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/UserServlet</url-pattern>
-    </servlet-mapping>
-
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 
 </web-app>
