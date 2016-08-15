@@ -9,7 +9,7 @@ import web.model.communication.PostViewAttitude;
 /**
  * Created by alfred on 16/8/13.
  */
-public class PostManage implements IPostManage{
+public class PostManage implements IPostManage {
     //TODO
     public boolean publish(PostBasicInfo basicInfo, PostContent content) {
         return false;

@@ -20,9 +20,9 @@ public class UserManage implements IUserManage {
 
     public MyMessage login(String username, String password) {
         //TODO
-        if(this.userDao.isUserExist(username)){
+        if (this.userDao.isUserExist(username)) {
 
-        }else {
+        } else {
             return new MyMessage();
         }
         // using dao interface
@@ -33,18 +33,18 @@ public class UserManage implements IUserManage {
         //TODO
     }
 
-    public boolean checkUser(String username){
-        if(this.userDao.isUserExist(username)){
+    public boolean checkUser(String username) {
+        if (this.userDao.isUserExist(username)) {
             return false;
         }
         return true;
     }
 
-    public void save(User user){
+    public void save(User user) {
         userDao.save(user);
     }
 
-    public List<String> getProvince(){
+    public List<String> getProvince() {
         List<String> result = new ArrayList<String>();
         CityMap cityMap = new CityMap();// 实例化保存省份信息的CityMap类的实例
         Map<String, String[]> map = cityMap.model;// 获取省份信息保存到Map中
@@ -57,7 +57,7 @@ public class UserManage implements IUserManage {
     }
 
 
-    public List<String> getCity(String province){
+    public List<String> getCity(String province) {
         List<String> result = new ArrayList<String>();
         String selProvince = province; // 获取选择的省份
 //		selProvince = new String(selProvince.getBytes("ISO-8859-1"), "GBK");
@@ -70,14 +70,14 @@ public class UserManage implements IUserManage {
         return result;
     }
 
-    public String forgetPwd1(String username){
+    public String forgetPwd1(String username) {
         String question = userDao.getQuestion(username);// 执行找回密码第一步对应的方法获取密码提示问题
-        return  question;
+        return question;
     }
 
-    public String forgetPwd2(String question,String username,String answer){
+    public String forgetPwd2(String question, String username, String answer) {
 
-        String Answer = userDao.getAnswer(username,question); // 获取提示问题答案
+        String Answer = userDao.getAnswer(username, question); // 获取提示问题答案
         String pwd = userDao.getPassword(username);
 
 

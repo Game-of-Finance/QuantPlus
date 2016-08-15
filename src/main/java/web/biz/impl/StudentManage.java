@@ -20,7 +20,7 @@ public class StudentManage implements IStudentManage {
     // 当前方法必须在Transaction中运行。
     // 如果存在已经定义的Transaction，则该方法在已定义的Transaction中运行；
     // 如果不存在已经定义的Transaction，则该方法新开一个Transaction并在其中运行。
-    @Transactional(propagation=Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void addStudent(Student student) {
         //逻辑层调用数据层
         studentDAO.saveStudent(student);

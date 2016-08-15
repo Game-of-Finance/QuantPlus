@@ -15,7 +15,7 @@ import java.util.List;
 public class DiaryStub implements DiaryDao {
 
     public List<Diary> queryDiary(String sql) {
-        return new ArrayList<Diary>(){
+        return new ArrayList<Diary>() {
             {
                 Diary diary = new Diary();
                 diary.setAddress("addr");
@@ -82,7 +82,7 @@ public class DiaryStub implements DiaryDao {
         return 0;
     }
 
-    public int like(int diaryId,int userId) {
+    public int like(int diaryId, int userId) {
         return 0;
     }
 }

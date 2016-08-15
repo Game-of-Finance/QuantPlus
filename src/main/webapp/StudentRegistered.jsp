@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=GBK"
-         pageEncoding="ISO-8859-1"%>
+         pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,7 +25,8 @@
         <td height="100"><span class="STYLE2">${param.college }</span></td>
     </tr>
     <tr>
-        <td height="100" colspan="2" align="center"><a href="StudentRegistration.jsp" class="STYLE2">return to registration</a></td>
+        <td height="100" colspan="2" align="center"><a href="StudentRegistration.jsp" class="STYLE2">return to
+            registration</a></td>
     </tr>
 </table>
 </body>

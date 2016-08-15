@@ -21,8 +21,8 @@ public interface IUserManage {
     MyMessage login(String username, String password);
 
     /**
-     *
      * 功能：用户退出
+     *
      * @param username
      */
     void exit(String username);
@@ -44,7 +44,6 @@ public interface IUserManage {
 
     /**
      * 获取省份和直辖市
-     *
      */
     List<String> getProvince();
 
@@ -62,7 +61,6 @@ public interface IUserManage {
 
     /**
      * 找回密码第二步
-     *
      */
-    String forgetPwd2(String question,String username,String answer);
+    String forgetPwd2(String question, String username, String answer);
 }

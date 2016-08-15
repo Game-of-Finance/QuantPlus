@@ -6,6 +6,7 @@ public interface IStudentDao {
 
     /**
      * Save Student into database
+     *
      * @param student
      */
     void saveStudent(Student student);

@@ -32,6 +32,6 @@ public interface UserDao {
     /**
      * 根据用户名和问题获取密码提示答案
      */
-    String getAnswer(String username,String question);
+    String getAnswer(String username, String question);
 
 }

@@ -11,7 +11,7 @@ import web.model.register.Student;
 public class StudentDaoImpl implements IStudentDao {
 
 
-    public void saveStudent(Student student){
+    public void saveStudent(Student student) {
         System.out.println("student");
         System.out.println(student.getName());
         System.out.println(student.getCollege());
