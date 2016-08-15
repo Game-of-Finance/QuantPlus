@@ -166,7 +166,7 @@
         </div>
         <nav id="kk_navbar" class="kk_navbar collapse navbar-collapse" aria-expanded='false'>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="">首页</a></li>
+                <li class="active"><a href="index.jsp">首页</a></li>
 
                 <li data-step="5" data-intro="策略研究" data-position='bottom'>
                     <a href="javascript:void(0)">策略研究</a>
