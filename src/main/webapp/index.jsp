@@ -4,6 +4,7 @@
   Date: 16/8/15
   Time: 下午12:53
   To change this template use File | Settings | File Templates.
+  注意!:::::用到的css样式表在joinquant网站查看源文件里找!!!!!!!!!!!!!!!!!!!!!!很关键!!!!
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
@@ -192,12 +193,11 @@
                 <li><a href="">常见问题</a></li>
 
                 <li data-step="6" data-intro="查看其它小伙伴分享的策略" data-position='bottom'>
-                    <a href="">社区</a>
+                    <a href="communication.jsp">社区</a>
                 </li>
 
-                <li><a href="">登录</a></li>
-
-                <li><a href="">注册</a></li>
+                <li><a href="login.jsp">登录</a></li>
+                <li><a href="register.jsp">注册</a></li>
             </ul>
         </nav>
         <!-- </div> -->
@@ -275,170 +275,17 @@
             <!--/banner-->
 
         </div>
-
-        <!--<script src="https://joinquant-static.b0.upaiyun.com/third/jquery.min.js"></script>
-        <script>
-            var indexObj = {
-                init: function () {
-                    this.calcNum();
-                    this.moveNum();
-                },
-                calcNum: function () {
-                    // $('.bg_num_cont').each(function(){
-                    //   var $num = $(this).find('.num');
-                    //   var len = $num.length;
-                    //   //开始随机数
-                    //   var randData = [11.21,0.43,302.23,4.78,35.23,106.11,7.44,10.21,11.98];
-                    //   //自定义随机时间
-                    //   var timeData = [550,200,100,1000,2000,140,1200,800,90];
-                    //   for(var i =0;i<len;i++){
-                    //       (function(i){
-                    //           setInterval(function(){
-                    //               randData[i] += 0.01;
-                    //               $num.eq(i).text(randData[i].toFixed(2));
-                    //           },timeData[i]);
-                    //       })(i);
-                    //   }
-                    // });
-                },
-                //跟随鼠标移动
-                moveNum: function () {
-                    $('.bg_num_cont').each(function () {
-                        var $num = $(this).find('.num');
-                        var $banner = $(".banner");
-                        $banner.on('mousemove', function (event) {
-                            var centerX = $banner.width() / 2;
-                            var centerY = $banner.height() / 2;
-                            var x = event.offsetX,
-                                    y = event.offsetY;
-                            var newStyle = {'transform': 'translate3D(' + parseInt(-(x - centerX) / 60) + 'px,' + parseInt(-(y - centerY) / 60) + 'px,' + parseInt(y / 50) + 'px)'};
-                            $num.css(newStyle)
-                        })
-                    });
-                }
-            }
-            indexObj.init();
-        </script>-->
-
     </div>
     <!--/body-->
 
 
 </div>
 
-<script>
-    var g_staticHost = 'https://joinquant-static.b0.upaiyun.com';
-    var g_isBackToTop = true;
-    var g_isMobile = false;
-
-    var g_isLogin = false;
-</script>
 <script src="https://joinquant-static.b0.upaiyun.com/common/js/lib.min.js?v=201608151157"></script>
 
-
-<script>
-    $('.dropdown-toggle').dropdown();
-    $("body").delegate("a", "click", function () {
-        if ($(this)[0].hostname.length > 0 && $(this)[0].hostname != window.location.hostname) {
-            window.open($(this)[0].href);
-            return false;
-        }
-    });
-
-    function addUserIcon() {
-        var user = {
-            "莫邪的救赎": '<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i>',
-            "Waiting": '<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
-            "kuhn": '<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i>',
-            "胡庆平": '<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
-            "Kris": '<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
-            "海纳百川": '<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
-        }
-
-        $('.user-alias').each(function () {
-            var alias = $(this).html();
-            if (user[alias]) {
-                alias = alias + user[alias];
-            }
-            $(this).html(alias);
-        });
-    }
-</script>
 <script src="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.js"></script>
 <script src="https://joinquant-static.b0.upaiyun.com/default/js/data.js"></script>
-<script>
-    // $('.looper').looper(
-    //         {
-    //             interval: 5000
-    //       }
-    // );
-    // $('#bulletLooper').on('shown', function(e){
-    //      $('.looper-nav > li', this)
-    //      .removeClass('active')
-    //      .eq(e.relatedIndex)
-    //      .addClass('active');
 
-    // });
-    //    $('.carousel').carousel({
-    //   interval: 5000
-    // })
-</script>
-<div style="display:none">
-    <script src="https://s95.cnzz.com/z_stat.php?id=1256107754&web_id=1256107754" language="JavaScript"></script>
-    <!-- 返回顶部 -->
-    <script>
-        if (g_isBackToTop) {
-            $('#leftsead').removeClass('hidden');
-            $("#leftsead a").hover(function () {
-                if ($(this).prop("className") == "youhui") {
-                    $(this).children("img.hides").show();
-                } else {
-                    $(this).children("div.hides").show();
-                    $(this).children("img.shows").hide();
-                    $(this).children("div.hides").animate({marginRight: '0px'}, '0');
-                }
-            }, function () {
-                if ($(this).prop("className") == "youhui") {
-                    $(this).children("img.hides").hide();
-                } else {
-                    $(this).children("div.hides").animate({marginRight: '-163px'}, 0, function () {
-                        $(this).hide();
-                        $(this).next("img.shows").show();
-                    });
-                }
-            });
-            $("#top_btn").click(function () {
-                if (scroll == "off") return;
-                $("html,body").animate({scrollTop: 0}, 300);
-            });
-
-            //右侧导航 - 二维码
-            $(".youhui").mouseover(function () {
-                $(this).children(".2wm").show();
-            })
-            $(".youhui").mouseout(function () {
-                $(this).children(".2wm").hide();
-            });
-        }
-    </script>
-    <script>
-        var img = new Image();
-        var referer = "https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DfWroWbfQksHsicvQxBYb1M3zbIl-P0iXBrTyU9JS6Lvq5aeOG9zrbkgCDHSLlHxR%26wd%3D%26eqid%3Dea14b357001886880000000557b1475e";
-        var euid = "0";
-        var urd = "0000-00-00";
-        var logHost = '';
-        var timestamp = new Date().getTime();
-        img.src = logHost + '/log/p.gif?euid=' + euid + "&referer=" + referer + '&urd=' + urd + '&_t=' + timestamp;
-    </script>
-    <script>
-        /*cnzz点击事件统计*/
-        $('.track_event_click').click(function () {
-            var cate = $(this).attr('_cate');
-            var name = $(this).attr('_name');
-            _czc.push(['_trackEvent', cate, '点击', name]);
-        });
-    </script>
-</div>
 </body>
 </html>
 
