@@ -205,7 +205,7 @@
     <!--/header-->
     <div class="kk_body top_50">
         <div class="kk_main signup_wrap container mb_30">
-            <h2 class="signup_header clearfix"><a href="/user/login/index"
+            <h2 class="signup_header clearfix"><a href="login.jsp"
                                                   class="btn btn-md btn-default pull-right btn_gray">已经有账号？立即登录</a></h2>
             <div class="form_pane">
                 <h1 class="text-center form_title">注 册</h1>
@@ -215,14 +215,42 @@
 
                     <div class="relative">
                         <div class="form-group form-group-lg">
-                            <input type="password" id="password" name="UserModel[pwd]" class="form-control"
+                            <input type="username" name="UserModel[alias]" class="form-control" placeholder="用户名">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="form-group form-group-lg">
+                            <input type="pwd" id="password" name="UserModel[pwd]" class="form-control"
                                    placeholder="密码">
                         </div>
                     </div>
 
                     <div class="relative">
                         <div class="form-group form-group-lg">
-                            <input type="昵称" name="UserModel[alias]" class="form-control" placeholder="昵称">
+                            <input type="pwd" id="confirm" name="UserModel[pwd]" class="form-control"
+                                   placeholder="确认密码">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="form-group form-group-lg">
+                            <input type="email" id="E-mail" name="UserModel[pwd]" class="form-control"
+                                   placeholder="电子邮箱">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="form-group form-group-lg">
+                            <input type="question" id="question" name="UserModel[pwd]" class="form-control"
+                                   placeholder="密码提示问题">
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="form-group form-group-lg">
+                            <input type="answer" id="answer" name="UserModel[pwd]" class="form-control"
+                                   placeholder="密码提示问题答案">
                         </div>
                     </div>
 
