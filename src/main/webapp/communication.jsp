@@ -258,16 +258,16 @@
                     <div class="list" style="min-height:100px;">
                         <div style="width:auto;float:left">
                             <div class="post-row">
-                                <div class="avatar-container" title="朱铭">
+                                <!--<div class="avatar-container" title="朱铭">
                                     <a target="_blank" href="/user/6142888221fa300c35198fadc8029c37">
                                         <img src="https://joinquant-image.b0.upaiyun.com/d4280920ea915a26e5257b5045bc9004"
                                              class="avatar">
                                     </a>
-                                </div>
+                                </div>-->
                                 <div class="post-title">
-                                    <div class="container-top">
+                                    <!--<div class="container-top">
                                         <i title="置顶" alt="置顶" class="icon-top"></i>
-                                    </div>
+                                    </div>-->
                                     <a class="subtitle" target="_blank" href="/post/2126?tag=new">
                                         【周年庆第二弹】分享策略，赢周年庆礼包~~
                                     </a>
@@ -294,12 +294,12 @@
                     <div class="list" style="min-height:100px;">
                         <div style="width:auto;float:left">
                             <div class="post-row">
-                                <div class="avatar-container" title="aimforever">
+                                <!--<div class="avatar-container" title="aimforever">
                                     <a target="_blank" href="/user/bb7039e63e8908a605a9eef8d6a4306d">
                                         <img src="https://joinquant-static.b0.upaiyun.com/common/img/default_header.png"
                                              class="avatar">
                                     </a>
-                                </div>
+                                </div>-->
                                 <div class="post-title">
                                     <a class="subtitle" target="_blank" href="/post/2118?tag=new">
                                         参数优化
