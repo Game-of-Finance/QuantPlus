@@ -190,8 +190,6 @@
                     </div>
                 </li>
 
-                <li><a href="">常见问题</a></li>
-
                 <li data-step="6" data-intro="查看其它小伙伴分享的策略" data-position='bottom'>
                     <a href="communication.jsp">社区</a>
                 </li>

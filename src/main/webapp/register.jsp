@@ -240,7 +240,7 @@
                         </div>
                     </div>
 
-                    <div class="relative">
+                    <!--<div class="relative">
                         <div class="form-group form-group-lg">
                             <input type="question" id="question" name="UserModel[pwd]" class="form-control"
                                    placeholder="密码提示问题">
@@ -252,7 +252,7 @@
                             <input type="answer" id="answer" name="UserModel[pwd]" class="form-control"
                                    placeholder="密码提示问题答案">
                         </div>
-                    </div>
+                    </div>-->
 
                     <button class="btn btn-primary btn-block btn-lg" id="btnSubmit" type="submit" disabled>注册</button>
 
