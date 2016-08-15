@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 stock_pick=[
     'sh600000',
-    'sh600315'
+    # 'sh600315'
 
 ]
 def quantplus_ingest(
@@ -45,6 +45,7 @@ def quantplus_ingest(
             print symbol,'start'
             ans=ans.append(ts.get_h_data(symbol,start=start.strftime(tfot),end=(start+datetime.timedelta(1200)).strftime(tfot) ,retry_count=5,pause=0.1  ))
             start=start+datetime.timedelta(1201)
+        ans=ans.sort_index()
         print ans
         return ans
 
@@ -60,13 +61,13 @@ def quantplus_ingest(
     for sid in range(0,len(stock_pick)):
         symb=stock_pick[sid][2:]
         daily_data=daily(symb)
-        daily_data_list.append((symb,daily_data))
+        daily_data_list.append((sid,daily_data))
         fact = stock_info[stock_info['symbol'] == int(symb)]
-        if int(symb[2:])>=600000:
+        if int(symb)>=600000:
             equities.iloc[sid, 3]='SH'
         else:
             equities.iloc[sid, 3]='SZ'
-        equities.iloc[sid,0]=symb
+        equities.iloc[sid,0]=stock_pick[sid]
         equities.iloc[sid,1]=unicode(fact.iloc[0,1])
         equities.iloc[sid,2]=datetime.datetime.strptime(str(fact.iloc[0,15]),'%Y%m%d')
 
