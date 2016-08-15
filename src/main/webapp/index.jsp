@@ -9,11 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>JoinQuant聚宽量化交易平台</title>
-    <meta name="keywords"
-          content="joinquant,聚宽,量化,宽客,quant,量化交易,量化平台,量化投资,量化策略,程序化交易,量化交易平台,python,金融工程,level2,level1"/>
-    <meta name="description"
-          content="聚宽（JoinQuant）量化交易平台是为量化爱好者（宽客）量身打造的云平台，我们为您提供精准的回测功能、高速实盘交易接口、易用的API文档、由易入难的策略库，便于您快速实现、使用自己的量化交易策略。"/>
+    <title>quant+量化交易平台</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link type='text/css' href="https://joinquant-static.b0.upaiyun.com/common/css/lib.min.css?v=201608131019"
@@ -207,53 +203,6 @@
     </header>
 
     <!--/header-->
-    <div class="kk_body ">
-
-        <script src=""></script>
-        <script>
-            var indexObj = {
-                init: function () {
-                    this.calcNum();
-                    this.moveNum();
-                },
-                calcNum: function () {
-                    $('.bg_num_cont').each(function () {
-                        var $num = $(this).find('.num');
-                        var len = $num.length;
-                        //开始随机数
-                        var randData = [11.21, 0.43, 302.23, 4.78, 35.23, 106.11, 7.44, 10.21, 11.98];
-                        //自定义随机时间
-                        var timeData = [550, 200, 100, 1000, 2000, 140, 1200, 800, 90];
-                        for (var i = 0; i < len; i++) {
-                            (function (i) {
-                                setInterval(function () {
-                                    randData[i] += 0.01;
-                                    $num.eq(i).text(randData[i].toFixed(2));
-                                }, timeData[i]);
-                            })(i);
-                        }
-                    });
-                },
-                //跟随鼠标移动
-                moveNum: function () {
-                    $('.bg_num_cont').each(function () {
-                        var $num = $(this).find('.num');
-                        var $banner = $(".banner");
-                        $banner.on('mousemove', function (event) {
-                            var centerX = $banner.width() / 2;
-                            var centerY = $banner.height() / 2;
-                            var x = event.offsetX,
-                                    y = event.offsetY;
-                            var newStyle = {'transform': 'translate3D(' + parseInt(-(x - centerX) / 60) + 'px,' + parseInt(-(y - centerY) / 60) + 'px,' + parseInt(y / 50) + 'px)'};
-                            $num.css(newStyle)
-                        })
-                    });
-                }
-            }
-            indexObj.init();
-        </script>
-
-    </div>
     <!--/body-->
 </div>
 
