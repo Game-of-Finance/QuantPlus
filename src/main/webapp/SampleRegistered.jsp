@@ -25,7 +25,7 @@
         <td height="100"><span class="STYLE2">${param.college }</span></td>
     </tr>
     <tr>
-        <td height="100" colspan="2" align="center"><a href="StudentRegistration.jsp" class="STYLE2">return to
+        <td height="100" colspan="2" align="center"><a href="SampleRegistration.jsp" class="STYLE2">return to
             registration</a></td>
     </tr>
 </table>

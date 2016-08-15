@@ -2,13 +2,14 @@ package web.dao.impl;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import web.dao.IStudentDao;
+import web.dao.SampleDao;
 import web.model.register.Student;
 
 @SuppressWarnings("restriction")
 @Repository("studentDAO")
 @Transactional
-public class StudentDaoImpl implements IStudentDao {
+@Deprecated
+public class StudentDaoImpl implements SampleDao {
 
 
     public void saveStudent(Student student) {

@@ -1,4 +1,4 @@
-package web.model.communication;
+package web.model.enums;
 
 /**
  * Created by kylin on 16/8/13.

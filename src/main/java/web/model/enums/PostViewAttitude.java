@@ -1,4 +1,4 @@
-package web.model.communication;
+package web.model.enums;
 
 /**
  * Created by alfred on 16/8/13.
@@ -9,8 +9,11 @@ public enum PostViewAttitude {
 
     private String attitude;
 
-
     PostViewAttitude(String attitude) {
         this.attitude = attitude;
+    }
+
+    public String getAttitude() {
+        return attitude;
     }
 }

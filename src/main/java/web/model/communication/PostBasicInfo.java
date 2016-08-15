@@ -1,5 +1,7 @@
 package web.model.communication;
 
+import web.model.enums.PostTopic;
+
 import java.util.Date;
 
 /**

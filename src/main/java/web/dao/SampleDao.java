@@ -2,7 +2,8 @@ package web.dao;
 
 import web.model.register.Student;
 
-public interface IStudentDao {
+@Deprecated
+public interface SampleDao {
 
     /**
      * Save Student into database

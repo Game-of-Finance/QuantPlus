@@ -4,7 +4,7 @@ import web.biz.IPostManage;
 import web.model.communication.Post;
 import web.model.communication.PostBasicInfo;
 import web.model.communication.PostContent;
-import web.model.communication.PostViewAttitude;
+import web.model.enums.PostViewAttitude;
 
 /**
  * Created by alfred on 16/8/13.
