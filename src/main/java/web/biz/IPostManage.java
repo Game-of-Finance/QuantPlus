@@ -3,7 +3,7 @@ package web.biz;
 
 import web.model.communication.Post;
 import web.model.communication.PostBasicInfo;
-import web.model.communication.PostContent;
+import web.model.communication.PostComment;
 import web.model.enums.PostViewAttitude;
 
 /**
@@ -13,27 +13,39 @@ public interface IPostManage {
     /**
      * 功能：发表
      *
-     * @param basicInfo
-     * @param content
+     * @param basicInfo 帖子基本信息
+     * @param content 原贴内容
      * @return
      */
-    boolean publish(PostBasicInfo basicInfo, PostContent content);
+    boolean publish(PostBasicInfo basicInfo, String content);
+
+    /**
+     * 对原贴的回复
+     *
+     * @param postID 原贴ID
+     * @param comment 回复的内容
+     * @return
+     */
+    boolean comment(String postID, PostComment comment);
 
     /**
      * 功能：删除
      *
-     * @param id
+     * @param postID 目标帖子ID
      */
-    void delete(int id);
+    void delete(String postID);
 
 
     /**
-     * 态度(赞同不赞同)
+     * 对帖子表态(赞同不赞同)
+     *
+     * @param postID 目标帖子ID
+     * @param attitude 态度
      */
-    void attitude(int id, PostViewAttitude attitude);
+    void attitude(String postID, PostViewAttitude attitude);
 
     /**
      * 搜索
      */
-    Post search(String str);
+    Post search(String keyword);
 }

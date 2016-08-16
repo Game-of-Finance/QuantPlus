@@ -6,11 +6,13 @@
   To change this template use File | Settings | File Templates.注意!:::::用到的css样式表在joinquant网站查看源文件里找!!!!!!!!!!!!!!!!!!!!!!很关键!!!!
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>quant+</title>
+    <script language="javascript" src="JS/AjaxRequest.js"></script>
     <meta name="viewport"
           content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link type='text/css' href="https://joinquant-static.b0.upaiyun.com/common/css/lib.min.css?v=201608151157"
@@ -157,6 +159,31 @@
     </style>
     <script type="text/javascript" src="wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="wangEditor/dist/js/wangEditor.js"></script>
+    <script type="text/javascript" >
+        function read() {
+            // 获取编辑器区域完整html代码
+            var html = editor.$txt.html();
+            alert(html);
+
+            // 获取编辑器纯文本内容
+            var text = editor.$txt.text();
+
+            // 获取格式化后的纯文本
+            var formatText = editor.$txt.formatText();
+
+//            $.ajax({
+//                type: "POST",
+//                contentType: "application/json; charset=utf-8",
+//                dataType: "text",
+//                url: "read.do/getInput",//传入后台的地址/方法
+//                data: {text:"text",formatText:"formatText"}//参数，这里是一个json语句
+//            });
+        }
+
+        function onerror() {
+
+        }
+    </script>
 </head>
 <body>
 
@@ -298,7 +325,8 @@
                                     <%--type="button">预 览--%>
                             <%--</button>--%>
                             <button id="btn-submit" title="需要输入标题与内容"
-                                    class="btn btn-default btn_l blue_on_white mr_20 disabled" type="button">提 交
+                                    <%--class="btn btn-default btn_l blue_on_white mr_20 disabled" --%>
+                                    type="button" onclick="read()">提 交
                             </button>
                         </div>
                     </div>

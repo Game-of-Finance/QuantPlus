@@ -31,7 +31,7 @@ public class PostViews {
     /**
      * 回帖的内容
      */
-    List<PostContent> commentList;
+    List<PostComment> commentList;
 
     public int getViewsNum() {
         return viewsNum;
@@ -65,11 +65,12 @@ public class PostViews {
         this.disagrees = disagrees;
     }
 
-    public List<PostContent> getCommentList() {
+    public List<PostComment> getCommentList() {
         return commentList;
     }
 
-    public void setCommentList(List<PostContent> commentList) {
+    public void setCommentList(List<PostComment> commentList) {
         this.commentList = commentList;
     }
+
 }

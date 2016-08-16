@@ -12,8 +12,10 @@ public class Post {
 
     /**
      * 帖子主题内容
+     * //附：1.发表帖子可以包括文本、图片、URL、@其他注册用户等多种形式，具体参见3.2.4回复帖子。
+     //2.允许发表话题的注册用户删除自己话题中的回复
      */
-    PostContent content;
+    String  content;
 
     /**
      * 帖子收到的评论,浏览信息
@@ -28,11 +30,11 @@ public class Post {
         this.basicInfo = basicInfo;
     }
 
-    public PostContent getContent() {
+    public String getContent() {
         return content;
     }
 
-    public void setContent(PostContent content) {
+    public void setContent(String content) {
         this.content = content;
     }
 

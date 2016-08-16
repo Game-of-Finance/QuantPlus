@@ -1,24 +1,18 @@
 package web.model.communication;
 
-import web.model.enums.PostTopic;
-
 import java.util.Date;
+import java.util.List;
 
 /**
- * Created by kylin on 16/8/13.
+ * Created by kylin on 16/8/16.
  * All rights reserved.
  */
-public class PostBasicInfo {
+public class PostComment {
 
     /**
-     * 帖子ID(唯一标示符)
+     * 评论ID
      */
     String postID;
-
-    /**
-     * 标题
-     */
-    String titile;
 
     /**
      * 作者
@@ -31,9 +25,14 @@ public class PostBasicInfo {
     Date date;
 
     /**
-     * 帖子话题种类
+     * 回复的内容
      */
-    PostTopic topic;
+    String content;
+
+    /**
+     * 对评论的再评论
+     */
+    List<PostComment> comments;
 
     public String getPostID() {
         return postID;
@@ -41,14 +40,6 @@ public class PostBasicInfo {
 
     public void setPostID(String postID) {
         this.postID = postID;
-    }
-
-    public String getTitile() {
-        return titile;
-    }
-
-    public void setTitile(String titile) {
-        this.titile = titile;
     }
 
     public String getAnthor() {
@@ -67,11 +58,19 @@ public class PostBasicInfo {
         this.date = date;
     }
 
-    public PostTopic getTopic() {
-        return topic;
+    public String getContent() {
+        return content;
     }
 
-    public void setTopic(PostTopic topic) {
-        this.topic = topic;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public List<PostComment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<PostComment> comments) {
+        this.comments = comments;
     }
 }

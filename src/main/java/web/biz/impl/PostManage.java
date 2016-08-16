@@ -3,7 +3,6 @@ package web.biz.impl;
 import web.biz.IPostManage;
 import web.model.communication.Post;
 import web.model.communication.PostBasicInfo;
-import web.model.communication.PostContent;
 import web.model.enums.PostViewAttitude;
 
 /**
@@ -11,7 +10,7 @@ import web.model.enums.PostViewAttitude;
  */
 public class PostManage implements IPostManage {
     //TODO
-    public boolean publish(PostBasicInfo basicInfo, PostContent content) {
+    public boolean publish(PostBasicInfo basicInfo, String content) {
         return false;
     }
 
