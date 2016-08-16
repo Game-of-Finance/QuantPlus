@@ -13,8 +13,9 @@ if __name__ == '__main__':
 
     direction = sys.argv[1]  # xx/xx/xx.pickle
     perf = pd.read_pickle(direction)
-    direction = direction[:-7]
-    perf.to_csv(direction+'.csv',index_label='date')
+    direction = direction[:-7]+'.csv'
+    perf.to_csv(direction,index_label='date')
+    print direction
     # perf.to_json(direction+'.json',date_format='iso',double_precision=3,force_ascii=False)
 
     # json_file = open(direction+".json", 'w')
