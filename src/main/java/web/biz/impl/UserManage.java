@@ -4,6 +4,8 @@ package web.biz.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import web.biz.IUserManage;
 import web.dao.UserDao;
+import web.model.exceptions.BadInputException;
+import web.model.exceptions.NotFoundException;
 import web.model.register.CityMap;
 import web.model.register.User;
 import web.tools.MyMessage;
@@ -41,7 +43,12 @@ public class UserManage implements IUserManage {
     }
 
     public void save(User user) {
-        userDao.save(user);
+        try {
+            userDao.save(user);
+            //TODO exception
+        } catch (BadInputException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<String> getProvince() {
@@ -71,14 +78,31 @@ public class UserManage implements IUserManage {
     }
 
     public String forgetPwd1(String username) {
-        String question = userDao.getQuestion(username);// 执行找回密码第一步对应的方法获取密码提示问题
+        String question = null;// 执行找回密码第一步对应的方法获取密码提示问题
+        try {
+            question = userDao.getQuestion(username);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
         return question;
     }
 
     public String forgetPwd2(String question, String username, String answer) {
 
-        String Answer = userDao.getAnswer(username, question); // 获取提示问题答案
-        String pwd = userDao.getPassword(username);
+        String Answer = null; // 获取提示问题答案
+        try {
+            Answer = userDao.getAnswer(username, question);
+            //TODO exception
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        String pwd = null;
+        try {
+            pwd = userDao.getPassword(username);
+            //TODO exception
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
 
 
         if (Answer.equals(answer)) {// 提示问题答案正确，返回密码

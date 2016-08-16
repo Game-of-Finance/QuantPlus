@@ -32,6 +32,7 @@ public class MybatisUtils {
         InputStream is = MybatisUtils.class.getResourceAsStream(resource);
         //构建sqlSession的工厂
         sessionFactory = new SqlSessionFactoryBuilder().build(is);
+        sessionFactory.getConfiguration().addMapper(UserOperation.class);
     }
 
 }

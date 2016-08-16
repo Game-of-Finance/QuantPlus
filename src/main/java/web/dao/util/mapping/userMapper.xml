@@ -12,4 +12,10 @@
         select * from users where username=#{username}
     </select>
 
+    <insert id="addUser" parameterType="web.model.register.User"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into user(username,pwd,email,question,answer,city)
+        values(#{username},#{pwd},#{email},#{question},#{answer},#{city})
+    </insert>
+
 </mapper>
