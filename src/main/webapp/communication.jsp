@@ -209,7 +209,7 @@
             <div class="item item_title clearfix">
                 <div class="plr_18 tool_bar">
                     <h3 class="title">社 区</h3>
-                    <a href="/community/post/edit?tag=new" class="btn btn-default btn_l blue_on_white"
+                    <a href="startNewPost.jsp" class="btn btn-default btn_l blue_on_white"
                        style="float:right" target="_blank">发起主题</a>
                     <div class="search-form">
                         <div class="form-group">
@@ -359,7 +359,8 @@
 
         <script src="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.js"></script>
         <script src="https://joinquant-static.b0.upaiyun.com/default/js/data.js"></script>
-
+    </div>
+</div>
 </body>
 </html>
 

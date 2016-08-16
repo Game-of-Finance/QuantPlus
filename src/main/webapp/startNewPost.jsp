@@ -146,7 +146,17 @@
 
 
     <style>
+
     </style>
+    <link rel="stylesheet" type="text/css" href="wangEditor/dist/css/wangEditor.min.css">
+    <style type="text/css">
+        #div1,#div2 {
+            width: 100%;
+            height: 250px;
+        }
+    </style>
+    <script type="text/javascript" src="wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="wangEditor/dist/js/wangEditor.js"></script>
 </head>
 <body>
 
@@ -204,69 +214,111 @@
 
     <!--/header-->
     <div class="kk_body top_50">
-        <div class="kk_main signup_wrap container mb_30">
-            <h2 class="signup_header clearfix"><a href="login.jsp"
-                                                  class="btn btn-md btn-default pull-right btn_gray">已经有账号？立即登录</a></h2>
-            <div class="form_pane">
-                <h1 class="text-center form_title">注 册</h1>
-                <form class='kkform' name="UserModel" autocomplete="off">
-                    <input class='hidden' type="text"/>
-                    <input class='hidden' type="password"/>
+        <div class="community_body new">
+            <form name="PostModel" class="form_pane" novalidate="novalidate">
+                <input type="hidden" name="PostModel[postId]" value="">
 
-                    <div class="relative">
-                        <div class="form-group form-group-lg">
-                            <input type="username" name="UserModel[alias]" class="form-control" placeholder="用户名">
-                        </div>
+                <div class="item item_title">
+                    <h3 class="title pb_0i">发起主题</h3>
+                </div>
+                <!--/item_title-->
+                <div class="item item_head item_title">
+                    <div class="form_label">
+                        <label>标 题</label>
+                        <span class="tip"></span>
+                    </div>
+                    <div class="form-group form-group-lg">
+                        <select class="selectpicker" id="tag-select" name="PostModel[tagId]">
+                            <option value="3" _alias="algorithm">策略探讨</option>
+                            <%--<option value="10" _alias="faq">问答</option>--%>
+                            <%--<option value="9" _alias="python">一起学习</option>--%>
+                        </select>
+                        <input type="text" name="PostModel[title]" value="" id="title" class="title_input form-control"
+                               placeholder="请输入主题标题">
+                    </div>
+                </div>
+                <!--/item_head-->
+                <div class="item item_detail">
+                    <div class="form_label">
+                        <label>内 容</label>
+                        <span class="tip"></span>
+                    </div>
+                    <div id="div1">
+                        <%--<p>请输入内容...</p>--%>
                     </div>
 
-                    <div class="relative">
-                        <div class="form-group form-group-lg">
-                            <input type="pwd" id="password" name="UserModel[pwd]" class="form-control"
-                                   placeholder="密码">
+                    <%--<div class="form-group form-group-lg">--%>
+                        <%--<div id="wmd-button-bar"></div>--%>
+                        <%--<input type="hidden" name="PostModel[atUsers]" value="" id="atUsers">--%>
+                        <%--<textarea class="form-control wmd-input" rows="8" id="wmd-input" name="PostModel[content]"--%>
+                                  <%--value=""></textarea>--%>
+                        <%--<span class="tip">内容编辑使用MarkDown语法。<a target="_blank" href="http://segmentfault.com/markdown">查看编写帮助</a></span>--%>
+                    <%--</div>--%>
+                </div>
+                <%--<div class="item item_others">--%>
+                    <%--<div class="form_label">--%>
+                        <%--<label>回 测</label>--%>
+                        <%--<!----%>
+                        <%--<span class="tip">可以在主题中插入一个回测实例.</span>--%>
+                        <%---->--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-group-lg relative">--%>
+                        <%--<input type="hidden" name="PostModel[backtestId]" value="0" id="backtestId">--%>
+                        <%--<input type="text" name="PostModel[backtestName]" class="form-control" id="backtestName"--%>
+                               <%--value="" placeholder="所选回测的结果会插入到主题中">--%>
+                        <%--<span class="remove-attachment-link hidden" id="btn-backtest-remove"--%>
+                              <%--title="点击将回测从主题中删除"> </span>--%>
+                        <%--<button id="btn-select-backtest" class="btn btn-default input_addon" type="button"--%>
+                                <%--disabled="disabled">选 择--%>
+                        <%--</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="item item_others">--%>
+                    <%--<div class="form_label">--%>
+                        <%--<label>研 究</label>--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group form-group-lg relative">--%>
+                        <%--<input type="hidden" name="PostModel[notebookReport]" value="" id="notebookReport">--%>
+                        <%--<input type="text" name="PostModel[notebookPath]" class="form-control" id="notebookPath"--%>
+                               <%--value="" placeholder="所选研究的结果会插入到主题中">--%>
+                        <%--<span class="remove-attachment-link hidden" id="btn-notebook-remove"--%>
+                              <%--title="点击将研究从主题中删除"> </span>--%>
+                        <%--<button id="btn-select-notebook" class="btn btn-default input_addon" type="button">选 择</button>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <!--/item_others-->
+                <div class="item item_submit clearfix">
+                    <div class="form-group form-group-lg">
+                        <div class="pull-right post-submit">
+                            <!--
+                            <a href="/community/post/list" class="btn btn-link f18 link_gray nounderline mr_10">取 消</a>
+                            -->
+                            <%--<button id="btn-preview"--%>
+                                    <%--class="btn btn-default btn_l blue_on_white mr_20 btn-preview disabled"--%>
+                                    <%--type="button">预 览--%>
+                            <%--</button>--%>
+                            <button id="btn-submit" title="需要输入标题与内容"
+                                    class="btn btn-default btn_l blue_on_white mr_20 disabled" type="button">提 交
+                            </button>
                         </div>
                     </div>
-
-                    <div class="relative">
-                        <div class="form-group form-group-lg">
-                            <input type="pwd" id="confirm" name="UserModel[pwd]" class="form-control"
-                                   placeholder="确认密码">
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="form-group form-group-lg">
-                            <input type="email" id="E-mail" name="UserModel[pwd]" class="form-control"
-                                   placeholder="电子邮箱">
-                        </div>
-                    </div>
-
-                    <!--<div class="relative">
-                        <div class="form-group form-group-lg">
-                            <input type="question" id="question" name="UserModel[pwd]" class="form-control"
-                                   placeholder="密码提示问题">
-                        </div>
-                    </div>
-
-                    <div class="relative">
-                        <div class="form-group form-group-lg">
-                            <input type="answer" id="answer" name="UserModel[pwd]" class="form-control"
-                                   placeholder="密码提示问题答案">
-                        </div>
-                    </div>-->
-
-                    <button class="btn btn-primary btn-block btn-lg" id="btnSubmit" type="submit" disabled>注册</button>
-
-                </form>
-            </div>
-            <!--/body-->
-
-
+                </div>
+                <!--/item_others-->
+            </form>
         </div>
 
-        <script src="https://joinquant-static.b0.upaiyun.com/common/js/lib.min.js?v=201608151157"></script>
-        <script src="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.js"></script>
-        <script src="https://joinquant-static.b0.upaiyun.com/default/js/data.js"></script>
     </div>
+
+
+    <!--这里引用jquery和wangEditor.js-->
+    <script type="text/javascript">
+        var editor = new wangEditor('div1');
+        editor.create();
+    </script>
+    <script src="https://joinquant-static.b0.upaiyun.com/common/js/lib.min.js?v=201608151157"></script>
+    <script src="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.js"></script>
+    <script src="https://joinquant-static.b0.upaiyun.com/default/js/data.js"></script>
+</div>
 </div>
 </body>
 </html>
