@@ -2,14 +2,11 @@ package web.dao.impl;
 
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import web.dao.UserDao;
 import web.dao.util.MybatisUtils;
+import web.model.exceptions.BadInputException;
+import web.model.exceptions.NotFoundException;
 import web.model.register.User;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 public class UserDaoImpl implements UserDao {
 
@@ -25,27 +22,35 @@ public class UserDaoImpl implements UserDao {
         return user != null;
     }
 
-    public String getPassword(String username) {
+    public String getPassword(String username) throws NotFoundException {
         session = MybatisUtils.getSession();
         User user = session.selectOne(BY_NAME, username);
         session.close();
-        user.getPwd();
+        if (user==null)
+            throw new NotFoundException("用户不存在");
         return user.getPwd();
     }
 
-    public void save(User user) {
-        //TODO 将user存入数据库
+    public void save(User user) throws BadInputException {
+
     }
 
-    public String getQuestion(String username) {
-        String question = "";
-        //TODO
-        return question;
+    public String getQuestion(String username) throws NotFoundException {
+        session = MybatisUtils.getSession();
+        User user = session.selectOne(BY_NAME, username);
+        session.close();
+        if (user==null)
+            throw new NotFoundException("用户不存在");
+        return user.getQuestion();
     }
 
-    public String getAnswer(String username, String question) {
-        //TODO
-        String answer = "";
-        return answer;
+    public String getAnswer(String username, String question) throws NotFoundException {
+        session = MybatisUtils.getSession();
+        User user = session.selectOne(BY_NAME, username);
+        session.close();
+        if (user==null)
+            throw new NotFoundException("用户不存在");
+        return user.getAnswer();
     }
+
 }
