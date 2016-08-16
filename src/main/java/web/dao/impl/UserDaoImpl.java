@@ -4,52 +4,54 @@ package web.dao.impl;
 import org.apache.ibatis.session.SqlSession;
 import web.dao.UserDao;
 import web.dao.util.MybatisUtils;
+import web.dao.util.UserOperation;
 import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 import web.model.register.User;
 
 public class UserDaoImpl implements UserDao {
 
-    private final static String BY_ID = "web.dao.util.mapping.userMapper.getUserByID";
-    private final static String BY_NAME = "web.dao.util.mapping.userMapper.getUserByName";
+    UserOperation userOperation;
 
-    private SqlSession session = null;
+    public UserDaoImpl() {
+        SqlSession session = MybatisUtils.getSession();
+        userOperation = session
+                .getMapper(UserOperation.class);
+    }
 
     public boolean isUserExist(String username) {
-        session = MybatisUtils.getSession();
-        User user = session.selectOne(BY_NAME, username);
-        session.close();
+        User user = userOperation.getUserByName(username);
         return user != null;
     }
 
     public String getPassword(String username) throws NotFoundException {
-        session = MybatisUtils.getSession();
-        User user = session.selectOne(BY_NAME, username);
-        session.close();
-        if (user==null)
+        User user = userOperation.getUserByName(username);
+        if (user == null)
             throw new NotFoundException("用户不存在");
         return user.getPwd();
     }
 
     public void save(User user) throws BadInputException {
-
+//        try {
+        userOperation.addUser(user);
+//        } catch (Exception e) {
+//            throw new BadInputException("新增数据有误");
+//        }
     }
 
     public String getQuestion(String username) throws NotFoundException {
-        session = MybatisUtils.getSession();
-        User user = session.selectOne(BY_NAME, username);
-        session.close();
-        if (user==null)
+        User user = userOperation.getUserByName(username);
+        if (user == null)
             throw new NotFoundException("用户不存在");
         return user.getQuestion();
     }
 
     public String getAnswer(String username, String question) throws NotFoundException {
-        session = MybatisUtils.getSession();
-        User user = session.selectOne(BY_NAME, username);
-        session.close();
-        if (user==null)
+        User user = userOperation.getUserByName(username);
+        if (user == null)
             throw new NotFoundException("用户不存在");
+        else if (!question.equalsIgnoreCase(user.getQuestion()))
+            throw new NotFoundException("问题不匹配");
         return user.getAnswer();
     }
 
