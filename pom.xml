@@ -104,5 +104,49 @@
             <version>4.0.2.RELEASE</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.28</version>
+        </dependency>
+
+        <!-- struts2依赖包 -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.3.14</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+
+        <resources>
+
+            <resource>
+                <directory>src/main/java/web/dao/util/mapping</directory>
+                <targetPath>web/dao/util/mapping</targetPath>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <directory>src/main/java/web/dao/util</directory>
+                <targetPath>web/dao/util</targetPath>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+        </resources>
+
+    </build>
+
 </project>

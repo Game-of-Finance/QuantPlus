@@ -1,6 +1,7 @@
 package web.model.register;
 
 
+@Deprecated
 public class Student {
     private int sid;
     private String name;

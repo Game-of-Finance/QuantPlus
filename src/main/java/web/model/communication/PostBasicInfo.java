@@ -1,5 +1,7 @@
 package web.model.communication;
 
+import web.model.enums.PostTopic;
+
 import java.util.Date;
 
 /**
@@ -27,7 +29,6 @@ public class PostBasicInfo {
      * 发布时间
      */
     Date date;
-
 
     /**
      * 帖子话题种类

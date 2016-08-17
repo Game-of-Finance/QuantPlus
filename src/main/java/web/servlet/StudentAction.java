@@ -29,6 +29,6 @@ public class StudentAction extends MultiActionController{
         student.setCollege(college);
 
         studentManagementService.addStudent(student);
-        return new ModelAndView("StudentRegistered.jsp");
+        return new ModelAndView("SampleRegistered.jsp");
     }
 }
