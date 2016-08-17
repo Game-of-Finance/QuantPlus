@@ -1,7 +1,6 @@
 package web.model.communication;
 
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by kylin on 16/8/16.
@@ -28,11 +27,11 @@ public class PostComment {
      * 回复的内容
      */
     String content;
-
-    /**
-     * 对评论的再评论
-     */
-    List<PostComment> comments;
+//
+//    /**
+//     * 对评论的再评论
+//     */
+//    List<PostComment> comments;
 
     public String getPostID() {
         return postID;
@@ -66,11 +65,11 @@ public class PostComment {
         this.content = content;
     }
 
-    public List<PostComment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<PostComment> comments) {
-        this.comments = comments;
-    }
+//    public List<PostComment> getComments() {
+//        return comments;
+//    }
+//
+//    public void setComments(List<PostComment> comments) {
+//        this.comments = comments;
+//    }
 }
