@@ -24,7 +24,7 @@ public class UserDaoImplTest extends TestCase {
         user.setUsername("wang");
         user.setPwd("123456");
         user.setEmail("@@@");
-        user.setCity("大连");
+        user.setCity("南京");
         user.setQuestion("hahaha");
         user.setAnswer("hhh");
         test.save(user);

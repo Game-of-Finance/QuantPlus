@@ -15,7 +15,6 @@ public interface UserOperation {
     @Select("select * from users where username=#{username}")
     public User getUserByName(String username);
 
-    @Insert("insert into users(username,pwd,email,question,answer,city)" +
-            "values(#{username},#{pwd},#{email},#{question},#{answer},#{city})")
+    @Insert("insert into users(username,pwd,email,question,answer,city) values(#{username},#{pwd},#{email},#{question},#{answer},#{city})")
     public void addUser(User user);
 }

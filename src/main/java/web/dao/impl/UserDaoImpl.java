@@ -11,43 +11,60 @@ import web.model.register.User;
 
 public class UserDaoImpl implements UserDao {
 
+    SqlSession session;
     UserOperation userOperation;
 
     public UserDaoImpl() {
-        SqlSession session = MybatisUtils.getSession();
-        userOperation = session
-                .getMapper(UserOperation.class);
+
+    }
+
+    private User getUser(String username) {
+        User user = null;
+        try {
+            session = MybatisUtils.getSession();
+            userOperation = session
+                    .getMapper(UserOperation.class);
+            user = userOperation.getUserByName(username);
+            session.commit();
+        } finally {
+            session.close();
+        }
+        return user;
     }
 
     public boolean isUserExist(String username) {
-        User user = userOperation.getUserByName(username);
+        User user = this.getUser(username);
         return user != null;
     }
 
     public String getPassword(String username) throws NotFoundException {
-        User user = userOperation.getUserByName(username);
+        User user = this.getUser(username);
         if (user == null)
             throw new NotFoundException("用户不存在");
         return user.getPwd();
     }
 
     public void save(User user) throws BadInputException {
-//        try {
-        userOperation.addUser(user);
-//        } catch (Exception e) {
-//            throw new BadInputException("新增数据有误");
-//        }
+        try {
+            session = MybatisUtils.getSession();
+            userOperation = session
+                    .getMapper(UserOperation.class);
+            userOperation.addUser(user);
+            session.commit();
+        } finally {
+            session.close();
+        }
     }
 
     public String getQuestion(String username) throws NotFoundException {
-        User user = userOperation.getUserByName(username);
+        User user = this.getUser(username);
         if (user == null)
             throw new NotFoundException("用户不存在");
         return user.getQuestion();
     }
 
     public String getAnswer(String username, String question) throws NotFoundException {
-        User user = userOperation.getUserByName(username);
+        User user = this.getUser(username);
         if (user == null)
             throw new NotFoundException("用户不存在");
         else if (!question.equalsIgnoreCase(user.getQuestion()))
