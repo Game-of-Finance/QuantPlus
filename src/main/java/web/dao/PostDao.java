@@ -1,6 +1,8 @@
 package web.dao;
 
 import web.model.communication.Post;
+import web.model.communication.PostComment;
+import web.model.communication.PostViews;
 import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 
@@ -19,6 +21,26 @@ public interface PostDao {
      * @throws NotFoundException
      */
     Post getPost(String ID) throws NotFoundException;
+
+    /**
+     * 帖子浏览信息更新（浏览数，感谢数，点赞数，反对数）
+     *
+     * @param ID    编号（唯一标识符）
+     * @param views 浏览数，感谢数，点赞数，反对数等信息
+     * @return 操作结果
+     * @throws BadInputException
+     */
+    boolean resetViews(String ID, PostViews views) throws BadInputException;
+
+    /**
+     * 新增评论
+     *
+     * @param ID      编号（唯一标识符）
+     * @param comment 评论信息
+     * @return 操作结果
+     * @throws BadInputException
+     */
+    boolean insertComment(String ID, PostComment comment) throws BadInputException;
 
     /**
      * 删除帖子
