@@ -123,6 +123,13 @@
             <version>2.3.14</version>
         </dependency>
 
+        <!-- velocity用于生成模板-->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
+
     </dependencies>
 
     <build>
