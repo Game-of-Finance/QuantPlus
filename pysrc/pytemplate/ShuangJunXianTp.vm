@@ -1,4 +1,4 @@
-#双均线策略
+#双均线策略模板
 # ${startDate} 到 ${endDate}, ￥${initialMoney}, ${unitTimeString}
 
 '''
@@ -75,6 +75,7 @@ def set_slip_fee(context):
 ================================================================================
 '''
 def handle_data(context, data):
+
     # 将总资金等分为g.N份，为每只股票配资
     capital_unit = context.portfolio.portfolio_value/g.N
     toSell = signal_stock_sell(context,data)
