@@ -16,7 +16,7 @@ public class PostComment {
     /**
      * 作者
      */
-    String anthor;
+    String author;
 
     /**
      * 发布时间
@@ -41,12 +41,12 @@ public class PostComment {
         this.postID = postID;
     }
 
-    public String getAnthor() {
-        return anthor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAnthor(String anthor) {
-        this.anthor = anthor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Date getDate() {
@@ -63,6 +63,11 @@ public class PostComment {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return "PostComment [postID=" + postID + ", author=" + author + ", date=" + date + ", content=" + content + "]";
     }
 
 //    public List<PostComment> getComments() {

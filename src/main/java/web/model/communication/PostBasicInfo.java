@@ -1,8 +1,6 @@
 package web.model.communication;
 
-import web.model.enums.PostTopic;
-
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by kylin on 16/8/13.
@@ -18,12 +16,12 @@ public class PostBasicInfo {
     /**
      * 标题
      */
-    String titile;
+    String title;
 
     /**
      * 作者
      */
-    String anthor;
+    String author;
 
     /**
      * 发布时间
@@ -33,7 +31,7 @@ public class PostBasicInfo {
     /**
      * 帖子话题种类
      */
-    PostTopic topic;
+    String topic;
 
     public String getPostID() {
         return postID;
@@ -44,19 +42,19 @@ public class PostBasicInfo {
     }
 
     public String getTitile() {
-        return titile;
+        return title;
     }
 
-    public void setTitile(String titile) {
-        this.titile = titile;
+    public void setTitile(String title) {
+        this.title = title;
     }
 
-    public String getAnthor() {
-        return anthor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAnthor(String anthor) {
-        this.anthor = anthor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public Date getDate() {
@@ -67,11 +65,16 @@ public class PostBasicInfo {
         this.date = date;
     }
 
-    public PostTopic getTopic() {
+    public String getTopic() {
         return topic;
     }
 
-    public void setTopic(PostTopic topic) {
+    public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    @Override
+    public String toString() {
+        return "PostBasicInfo [postID=" + postID + ", title=" + title + ", author=" + author + ", date=" + date + ", topic=" + topic + "]";
     }
 }
