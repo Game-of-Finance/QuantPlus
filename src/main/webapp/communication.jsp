@@ -174,8 +174,8 @@
                     <div class="submenu" id="research">
                         <span class="sanjiao"></span>
 
-                        <a href="" class="item">优选策略</a>
-                        <a href="" class="item">我的策略</a>
+                        <a href="modelStrategy.jsp" class="item">优选策略</a>
+                        <a href="strategyList.jsp" class="item">我的策略</a>
                     </div>
                 </li>
 
@@ -219,19 +219,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-container">
-                    <div class="post-nav">
-                        <table>
-                            <tr>
-                                <td class="no-border active ">
-                                    <a href="communication.jsp" class="track_event_click sort-by sort-by-interesting"
-                                       _cate="社区分类" _name="全部">全部</a>
-                                </td>
+                <%--<div class="tab-container">--%>
+                    <%--<div class="post-nav">--%>
+                        <%--<table>--%>
+                            <%--<tr>--%>
+                                <%--<td class="no-border active ">--%>
+                                    <%--<a href="communication.jsp" class="track_event_click sort-by sort-by-interesting"--%>
+                                       <%--_cate="社区分类" _name="全部">全部</a>--%>
+                                <%--</td>--%>
 
-                                <td class=" no-border ">
-                                    <a href="/community/algorithm" class="track_event_click sort-by sort-by-interesting"
-                                       _cate="社区分类" _name="策略探讨">策略探讨</a>
-                                </td>
+                                <%--<td class=" no-border ">--%>
+                                    <%--<a href="/community/algorithm" class="track_event_click sort-by sort-by-interesting"--%>
+                                       <%--_cate="社区分类" _name="策略探讨">策略探讨</a>--%>
+                                <%--</td>--%>
                                 <!--<td class="  ">
                                     <a href="/community/faq" class="track_event_click sort-by sort-by-interesting"
                                        _cate="社区分类" _name="问答">问答</a>
@@ -246,10 +246,10 @@
                                     <a href="/community/recommend" class="track_event_click sort-by sort-by-interesting"
                                        _cate="社区分类" _name="聚宽推荐">聚宽推荐</a>
                                 </td>-->
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+                            <%--</tr>--%>
+                        <%--</table>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
             <!--/item_post-->
             <!--<br/>-->

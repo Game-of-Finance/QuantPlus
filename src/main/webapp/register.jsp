@@ -173,8 +173,8 @@
                     <div class="submenu" id="research">
                         <span class="sanjiao"></span>
 
-                        <a href="" class="item">优选策略</a>
-                        <a href="" class="item">我的策略</a>
+                        <a href="modelStrategy.jsp" class="item">优选策略</a>
+                        <a href="strategyList.jsp" class="item">我的策略</a>
                     </div>
                 </li>
 

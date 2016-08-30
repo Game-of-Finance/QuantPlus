@@ -1,10 +1,9 @@
 <%--
   Created by IntelliJ IDEA.
   User: alfred
-  Date: 16/8/15
-  Time: 下午12:53
-  To change this template use File | Settings | File Templates.
-  注意!:::::用到的css样式表在joinquant网站查看源文件里找!!!!!!!!!!!!!!!!!!!!!!很关键!!!!
+  Date: 16/8/30
+  Time: 下午2:21
+  To change this template use File | Settings | File Templates.注意!:::::用到的css样式表在joinquant网站查看源文件里找!!!!!!!!!!!!!!!!!!!!!!很关键!!!!
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
@@ -190,6 +189,8 @@
                     </div>
                 </li>
 
+                <li><a href="">常见问题</a></li>
+
                 <li data-step="6" data-intro="查看其它小伙伴分享的策略" data-position='bottom'>
                     <a href="communication.jsp">社区</a>
                 </li>
@@ -202,77 +203,63 @@
     </header>
 
     <!--/header-->
-    <div class="kk_body ">
-        <div class="in_body">
-            <div id="carousel-example-generic" class="carousel slide relat ive" data-ride="carousel"
-                 style="background-color:#000000">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="banner item active ">
-                        <div class="banner_o"><img class="fleft"
-                                                   src="images/index/slide01.png"
-                                                   alt="">
-                            <!--<div class="text-center fright" style=" position: relative;top: 183px;"><a
-                                    href="/algorithm/index/new" class="btn btn-default btn_l btn_start"
-                                    style="display:block;width:132px;margin-bottom:10px" target="_blank">编写策略</a><a
-                                    href="/faq?f=home&m=banner" class="btn btn-default btn_l btn_start new"
-                                    style="margin-left:12px;display:block;width:132px;margin-left:0" target="_blank">新人必读</a>
-                            </div>-->
-                        </div>
+    <div class="kk_body top_50">
+        <div class="mainpage-container algo-list">
+            <div class="container bg-white algo-feed margin_20t">
+                <div class="inline-block algo-toolbar" >
+                    <div class="algo-title backtest-header klavika inline-block">
+                        策略列表
                     </div>
-                    <div class="banner item " style="text-align:center">
-                        <div class="banner_t" style="z-index:2">
-                            <img class="fleft" src="images/index/slide01.png"
-                                 alt="" style="margin-right:20px">
-                            <!--<div class="text-center fright" style="">
-                                <div class="row"><h1 class="title" style="font-size:40px">分享策略，赢周年庆礼包</h1></div>
-                                <a href="https://www.joinquant.com/post/2126?f=home&m=banner"
-                                   class="btn btn-default btn_l btn_start"
-                                   style="width:132px;width:132px;position:relative;bottom:-77px">活动规则</a>
-                                <a href="https://www.joinquant.com/algorithm/trade/list?f=home&m=banner"
-                                   class="btn btn-default btn_l btn_start new"
-                                   style="margin-left:12px;width:132px;position:relative;bottom:-77px">分享策略</a>
-                            </div>-->
-                        </div>
-                        <div class="container numbers">
-                            <div class="bg_num_cont">
-                                <span class="num num1 blur2">$</span>
-                                <span class="num num2 blur2">$</span>
-                                <span class="num num3">$</span>
-                                <span class="num num4">$</span>
-                                <span class="num num5 blur2">$</span>
-                                <span class="num num6 blur2">$</span>
-                                <span class="num num7">$</span>
-                                <span class="num num8">$</span>
-                                <span class="num num9 blur1">$</span>
-                            </div>
-                        </div>
+                    <div class="btn-group inline-block margin_20l">
+                        <a id="new-algo-button" href="startNewstrategy.jsp" data-toggle="modal" class="btn btn-small btn-primary inline-block margin_15l" target="_blank">新建策略</a>
                     </div>
-                    <div class="banner item" style="text-align:center">
-                        <div class="banner_thr">
-                            <img class="fright" src="images/index/slide01.png"
-                                 alt="" style="">
-                            <!--<div class="text-center fleft" style="">
-                                <a href="https://www.joinquant.com/post/1988?f=home&m=banner"
-                                   class="btn btn-default btn_l btn_start new"
-                                   style="margin-left:12px;width:132px;width:132px;position:relative;bottom:-77px;left:300px">活动规则</a>
-
-                            </div>-->
-                        </div>
+                    <div class="btn-group inline-block">
+                        <btn id="del-algorithm" class="btn btn-small algo-delete-button disabled">
+                            <i class="icon icon-trash"></i>
+                            删除
+                        </btn>
+                    </div>
+                    <div class="alg-bbs">
+                        <a href="modelStrategy.jsp" target="_blank">优选策略</a>
                     </div>
                 </div>
+                <div class="search-form">
+                    <div class="form-group">
+                        <span class="icon-search-wrapper " id="btn-search-submit"></span>
+                        <span class="hidden icon-close icon-close-wrapper" id="btn-search-del"></span>
+                        <input type="text" value="" placeholder="策略名称" id="search-box" class="form-control">
+                    </div>
+                </div>
+                <div class="margin_15t" style="text-align:center">
+                    <table id="algo_table" delete-button-id="algo-delete-button" class="table checkbox-table checkbox-done">
+                        <thead>
+                        <tr><td>
+                            <input type="checkbox" id="selectAll">
+                        </td>
+                            <td>名称</td>
+                            <td>最后修改时间</td>
+                            <td>历史回测</td>
+                            <td></td>
+                        </tr></thead>
+                        <tbody>
+                        <tr >
+                            <td _algorithmId="170038"><input type="checkbox"></td>
+                            <td class="align-left">
+                                <a href="/algorithm/index/edit?algorithmId=1fcb3f1d35bb47973b40ccb630310e09" class="black" target="_blank">这是一个简单的策略</a>
+                            </td>
+                            <td>2016-08-16 10:01:53</td>
+                            <td>
+                                0
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <!--/banner-->
-
         </div>
+
     </div>
     <!--/body-->
 
@@ -280,10 +267,10 @@
 </div>
 
 <script src="https://joinquant-static.b0.upaiyun.com/common/js/lib.min.js?v=201608151157"></script>
-
 <script src="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.js"></script>
 <script src="https://joinquant-static.b0.upaiyun.com/default/js/data.js"></script>
-
+</div>
+</div>
 </body>
 </html>
 
