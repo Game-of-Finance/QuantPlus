@@ -211,7 +211,8 @@
                         策略列表
                     </div>
                     <div class="btn-group inline-block margin_20l">
-                        <a id="new-algo-button" href="startNewstrategy.jsp" data-toggle="modal" class="btn btn-small btn-primary inline-block margin_15l" target="_blank">新建策略</a>
+                        <a id="new-algo-button" href="startNewstrategy.jsp" target="_blank">新建策略</a>
+                        <%--<a id="new-algo-button" href="startNewstrategy.jsp" data-toggle="modal" class="btn btn-small btn-primary inline-block margin_15l" target="_blank">新建策略</a>--%>
                     </div>
                     <div class="btn-group inline-block">
                         <btn id="del-algorithm" class="btn btn-small algo-delete-button disabled">

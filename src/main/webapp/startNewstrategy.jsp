@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: alfred
-  Date: 16/8/30
+  Date: 16/8/15
   Time: 下午2:21
   To change this template use File | Settings | File Templates.注意!:::::用到的css样式表在joinquant网站查看源文件里找!!!!!!!!!!!!!!!!!!!!!!很关键!!!!
 --%>
@@ -10,161 +10,64 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>quant+</title>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link type='text/css' href="https://joinquant-static.b0.upaiyun.com/common/css/lib.min.css?v=201608151157"
-          rel='stylesheet'></link>
-    <link type='text/css' href="https://joinquant-static.b0.upaiyun.com/common/css/common.min.css?v=201608151157"
-          rel='stylesheet'></link>
-    <link rel="icon" href="https://joinquant-static.b0.upaiyun.com/common/img/favicon-16-16.png?v=2"
-          type="image/x-icon">
+    <title>新建策略</title>
+    <meta name="keywords" content="joinquant,聚宽,量化,宽客,quant,量化交易,量化平台,量化投资,量化策略,程序化交易,量化交易平台,python,金融工程,level2,level1" />
+    <meta name="description" content="聚宽（JoinQuant）量化交易平台是为量化爱好者（宽客）量身打造的云平台，我们为您提供精准的回测功能、高速实盘交易接口、易用的API文档、由易入难的策略库，便于您快速实现、使用自己的量化交易策略。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link type='text/css'  href="https://joinquant-static.b0.upaiyun.com/common/css/lib.min.css?v=201608311338" rel='stylesheet'></link>
+    <link type='text/css'  href="https://joinquant-static.b0.upaiyun.com/common/css/common.min.css?v=201608311338" rel='stylesheet'></link>
+    <link rel="icon" href="https://joinquant-static.b0.upaiyun.com/common/img/favicon-16-16.png?v=2" type="image/x-icon">
 
-    <!-- <link type='text/css'  href="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.css?v=201608151157" rel='stylesheet'/> -->
-    <link type='text/css' href="https://joinquant-static.b0.upaiyun.com/default/css/style.min.css?v=201608151157"
-          rel='stylesheet'/>
+    <link href="https://joinquant-static.b0.upaiyun.com/third/jquery-ui/jquery-ui-jq.min.css?v=201608311338" rel="stylesheet" />
+    <link href="https://joinquant-static.b0.upaiyun.com/algorithm/css/algorithm.min.css?v=201608311338" rel="stylesheet" />
     <style>
-        body {
-            background-color: #fff
-        }
+        .introjs-helperNumberLayer{-webkit-box-sizing:initial;-moz-box-sizing:initial;box-sizing:initial;}
+        .ace_print-margin{ visibility: hidden !important; }
+    </style>
 
-        #kk_nav {
-            background-color: #000000;
-        }
-
-        .in_body .banner {
-            background-color: #ffffff;
-        }
-
-        #kk_nav .nav a {
-            padding: 35px 27px 17px 27px;
-            font-size: 15px;
-            -webkit-font-smoothing: auto
-        }
-
-        #kk_nav .nav a .bor {
-            transition: .5s ease all;
-            display: inline-block;
-            border: 2px solid #fff;
-            border-radius: 3px;
-            position: absolute;
-            width: 70px;
-            height: 40px;
-            margin-left: -35px;
-            margin-top: -10px;
-            left: 50%;
-            top: 50%;
-        }
-
-        #kk_nav .nav a:hover .bor {
-            border-color: rgba(255, 255, 255, .3);
-        }
-
-        #kk_nav .nav .submenu a {
-            padding: 0 0 0 10px
-        }
-
-        #kk_nav .nav a:hover, #kk_nav .nav a:focus {
-            color: rgba(255, 255, 255, .3);
-            background-color: transparent;
-        }
-
-        #kk_nav .navbar-brand {
-            background: url(images/index/logo.png) no-repeat;
-            background-size: 100%;
-            width: 400px;
-            height: 60px;
-            margin-top: 10px;
-        }
-
-        #kk_nav .navbar-brand-mob {
-            margin-top: 15px;
-        }
-
-        #kk_nav .nav .message-badge-nav {
-            top: 26px;
-        }
-
-        .new.btn-default {
-            border: 2px solid #fff;
-            background: none;
-            color: #fff;
-            box-sizing: border-box;
-            width: 132px;
-            height: 45px;
-            padding-top: 7px;
-        }
-
-        @media (max-width: 1225px) {
-            #kk_nav .nav a {
-                padding-left: 20px;
-            }
-        }
-
-        @media (max-width: 1170px) {
-            #kk_nav .nav a {
-                padding: 33px 13px;
-            }
-
-            #kk_nav .nav a .bor {
-                margin-top: -20px;
-            }
-        }
-
-        @media (max-width: 970px) {
-            #kk_nav .nav a {
-                padding: 33px 6px;
-            }
-
-            #kk_nav .nav a .bor {
-                width: 50px;
-                margin-left: -25px
-            }
-        }
-
-        @media (max-width: 870px) {
-            #kk_nav .navbar-brand {
-                width: 160px;
-            }
-
-            #kk_nav .nav a {
-                padding-top: 28px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            #kk_nav .navbar-brand {
-                width: 160px;
-                background-size: 80%;
-            }
-
-            #kk_nav .nav a .bor {
-                display: none
-            }
+    <style>
+        .kk_body{
+            padding-bottom:0px;
         }
     </style>
 
-
     <style>
+        span.new{
+            background: rgba(0,0,0,0);
+        }
     </style>
+    <%--读取.py文件--%>
+    <script language="JavaScript">
+        function read() {
+
+            var fso, ts, s;
+            var ForReading = 1;
+            fso = new ActiveXObject("Scripting.FileSystemObject");
+            ts = fso.OpenTextFile("/Users/alfred/Desktop/test.txt", ForReading);
+            s = ts.ReadAll();
+            alert("S:"+s);
+            document.getElementById("code").value = s;
+            window.location.reload();
+        }
+    </script>
 </head>
-<body>
-
+<body >
 <div class="kk_main in_wrap">
 
-    <header id="kk_nav" class=" kk_nav navbar narbar-static-top">
+    <header id="kk_nav" class="fixed-top kk_nav navbar narbar-static-top">
         <!-- <div class="container"> -->
         <div class="navbar-header">
-            <button id="btn_menu" class="navbar-toggle" type="button" data-toggle="collapse" data-target='#kk_navbar'>
+            <button id="btn_menu" class="navbar-toggle" type="button"  data-toggle="collapse" data-target='#kk_navbar'>
                 <span class="sr-only">Toggle nav</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/?f=home&m=logo" title='joinQuant' class="navbar-brand "></a>
+            <a href="/" title='joinQuant' class="navbar-brand "></a>
         </div>
         <nav id="kk_navbar" class="kk_navbar collapse navbar-collapse" aria-expanded='false'>
             <ul class="nav navbar-nav">
+                <button type="button" onclick="read()">Click Me!</button>
                 <li class="active"><a href="index.jsp">首页</a></li>
 
                 <li data-step="5" data-intro="策略研究" data-position='bottom'>
@@ -206,21 +109,21 @@
     <div class="kk_body top_50">
         <div class="content content-area old-style padding_b0 " style="overflow:hidden;">
             <form name="AlgorithmModel">
-                <input type="hidden" id="algorithmId" name="algorithm[algorithmId]"  value="31307fa1f6ae2a7d43ac0a0a80f4ac56">
+                <input type="hidden" id="algorithmId" name="algorithm[algorithmId]"  value="62e908069077ad5bfaac6fe7b806c08c">
                 <input type="hidden" name="algorithm[userId]"  value="19155">
                 <input type="hidden" id="type" name="backtest[type]"  value="1">
                 <div id="subnav" class="subnav">
                     <a href="/algorithm/index/list" class="algo-back" title="返回策略列表">
                         <i class="icon icon-chevron-left no-decoration"></i>
                     </a>
-                    <h2 class="algo-title" title="点击修改策略名称">这是一个简单的策略-2</h2>
-                    <input class="algo-title-box medium hidden"  id="title-box" name="algorithm[name]" size="30" value="这是一个简单的策略-2" type="text" style="margin-left:4px">
+                    <h2 class="algo-title" title="点击修改策略名称">这是一个简单的策略-5</h2>
+                    <input class="algo-title-box medium hidden"  id="title-box" name="algorithm[name]" size="30" value="这是一个简单的策略-5" type="text" style="margin-left:4px">
                     <div class="state-triangle"></div>
                     <div class="state-triangle border"></div>
                     <div class="pull-right mode-buttons">
                         <div class="mode-container">
                             <div class="btn-group inline-block">
-                                <a href="/algorithm/live/shareList?f=algedit" target="_blank">优选策略&nbsp;&nbsp;</a>
+                                <a href="/algorithm/live/shareList?f=algedit" target="_blank">策略擂台&nbsp;&nbsp;</a>
                             </div>
                             <div class="btn-group inline-block">
                                 <a target="_blank" href="/api" class="btn">
@@ -249,6 +152,7 @@
                                 <div id="splitter-container" class="splitter ui-widget ui-widget-content" data-splitter-initialized="true">
                                     <div id="code-area" style="height:100%; position:absolute; left:0px;width: 45%;border-right:1px solid #a9a9a9" class="splitter-pane">
                                         <!-- toolbar start -->
+
                                         <div class="toolbar" id="toolbar">
                                             <div class="toolbar-inner">
                                                 <div class="left inline-block">
@@ -368,7 +272,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <textarea  id="code" name="algorithm[code]" value="" class="hidden" style="padding:0px;height:auto">
+                                            <textarea  id="code" name="algorithm[code]" value="" class="hidden" style="padding:0px;height:auto" >
 def initialize(context):
     # 定义一个全局变量, 保存要操作的股票
     # 000001(股票:平安银行)
@@ -427,11 +331,11 @@ def handle_data(context, data):
                                                 <div id="setting-btn-group" class="btn-group inline-block dailybars-controls form-inline" data-step="2" data-intro="设置回测的开始时间、结束时间、初始资金、回测频率"  data-position='bottom'>
                                                     <div class="control-group">
                                                         <div class="controls inline-block">
-                                                            <input value="2016-01-01" id="startTime" name="backtest[startTime]" data-default="2015-01-05" data-datetype="backtest_start_date" class="datepicker" readonly="readonly">
+                                                            <input value="2016-01-01 00:00:00" id="startTime" name="backtest[startTime]" data-default="2015-01-05" data-datetype="backtest_start_date" class="datepicker" readonly="readonly">
                                                         </div>
                                                         <label class="inline-block margin_5l margin_5r to-label"> 到 </label>
                                                         <div class="controls inline-block">
-                                                            <input value="2016-07-01" id="endTime"  name="backtest[endTime]" data-default="2015-05-31" data-datetype="backtest_end_date" class="datepicker"  readonly="readonly">
+                                                            <input value="2016-07-01 23:59:59" id="endTime"  name="backtest[endTime]" data-default="2015-05-31" data-datetype="backtest_end_date" class="datepicker"  readonly="readonly">
                                                         </div>
                                                         <div class="controls inline-block padding_5l capitalbase-container" style="padding-right:5px">
                                                             <div class="input-prepend">
@@ -462,7 +366,7 @@ def handle_data(context, data):
                                                     </div>
                                                 </div>
                                                 <a id="full-backtest-button">
-                                                    <div id="daily-new-backtest-button" href="#join-modal" data-toggle="modal" class="btn btn-primary pull-right" data-step="4" data-intro="点击“运行回测”进行完整的回测"  data-position='left'>
+                                                    <div id="daily-new-backtest-button" href="backTest.jsp" data-toggle="modal" class="btn btn-primary pull-right" data-step="4" data-intro="点击“运行回测”进行完整的回测"  data-position='left'>
                                                         运 行 回 测
                                                         <i class="icon chevron-right padding_5l"></i>
                                                     </div>
@@ -574,14 +478,194 @@ def handle_data(context, data):
     <!--/body-->
 
 
+
+</div>
+<!-- 回到顶部 联系我们 -->
+<div id="leftsead" class="hidden">
+    <ul>
+        <li>
+            <a href="javascript:void(0)" class="youhui">
+                <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/l02.png" width="47" height="49" class="shows" />
+                <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/a.png" width="57" height="49" class="hides" />
+                <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/weixin.jpg" width="145" class="2wm" style="display:none;margin:-100px 57px 0 0" />
+            </a>
+        </li>
+        <li>
+            <!--
+                        <a href="http://shang.qq.com/wpa/qunwpa?idkey=3d953481afd338d17ecbedfa4c9f82172b059d404372221c0c7a27489d761de0" target="_blank">
+            -->
+            <a href="http://jq.qq.com/?_wv=1027&k=27PjcZu" target="_blank">
+                <div class="hides" style="width:161px;display:none;" id="qq">
+                    <div class="hides" id="p1">
+                        <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/ll04.png">
+                    </div>
+                    <!--
+                                    <div class="hides" id="p2"><span style="color:#FFF;font-size:13px">429620025</span>
+                    -->
+                    <div class="hides" id="p2"><span style="color:#FFF;font-size:13px">484717016</span>
+                    </div>
+                </div>
+                <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/l04.png" width="47" height="49" class="shows" />
+            </a>
+        </li>
+        <li id="tel">
+            <a target="_blank" href="/community/post/edit?tag=faq">
+                <div class="hides" style="width:161px;display:none;" id="tels">
+                    <div class="hides" id="p1">
+                        <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/ll05.png">
+                    </div>
+                    <div class="hides" id="p3"><span style="color:#FFF;font-size:15px">反馈</span>
+                    </div>
+                </div>
+                <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/l05.png" width="47" height="49" class="shows" />
+            </a>
+        </li>
+        <li id="btn">
+            <a id="top_btn">
+                <div class="hides" style="width:161px;display:none">
+                    <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/ll06.png" width="161" height="49" />
+                </div>
+                <img src="https://joinquant-static.b0.upaiyun.com/third/backtotop/images/l06.png" width="47" height="49" class="shows" />
+            </a>
+        </li>
+    </ul>
 </div>
 
-<script src="https://joinquant-static.b0.upaiyun.com/common/js/lib.min.js?v=201608151157"></script>
-<script src="https://joinquant-static.b0.upaiyun.com/third/looper/looper.min.js"></script>
-<script src="https://joinquant-static.b0.upaiyun.com/default/js/data.js"></script>
-</div>
-</div>
+<script>
+    var g_staticHost = 'https://joinquant-static.b0.upaiyun.com';
+    var g_isBackToTop = true;
+    var g_isMobile = false;
+
+    var g_isLogin = true;
+</script>
+<script src="https://joinquant-static.b0.upaiyun.com/common/js/lib.min.js?v=201608311338"></script>
+
+
+<script>
+    $('.dropdown-toggle').dropdown();
+    $("body").delegate("a","click",function(){
+        if ($(this)[0].hostname.length>0 && $(this)[0].hostname != window.location.hostname) {
+            window.open($(this)[0].href);
+            return false;
+        }
+    });
+
+    function addUserIcon(){
+        var user = {
+            "莫邪的救赎":'<i class="icon icon-trophy icon-trophy-gold" title="2015年最受欢迎策略冠军"></i>',
+            "Waiting":'<i class="icon icon-trophy icon-trophy-silver" title="2015年最受欢迎策略亚军"></i>',
+            "kuhn":'<i class="icon icon-trophy icon-trophy-copper" title="2015年最受欢迎策略季军"></i>',
+            "胡庆平":'<i class="icon icon-trophy icon-trophy-gold" title="2015年圣诞节最受欢迎策略冠军"></i>',
+            "Kris":'<i class="icon icon-trophy icon-trophy-silver" title="2015年圣诞节最受欢迎策略亚军"></i>',
+            "海纳百川":'<i class="icon icon-trophy icon-trophy-copper" title="2015年圣诞节最受欢迎策略季军"></i>',
+        }
+
+        $('.user-alias').each(function(){
+            var alias =  $(this).html();
+            if(user[alias]){
+                alias = alias+user[alias];
+            }
+            $(this).html(alias);
+        });
+    }
+</script>
+<script type="text/javascript" charset="utf-8" src="https://joinquant-file.b0.upaiyun.com/www/stockcode.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://joinquant-static.b0.upaiyun.com/third/jquery-ui/jquery-ui-jq.min.js?v=201608311338"></script>
+<script type="text/javascript" charset="utf-8" src="https://joinquant-static.b0.upaiyun.com/third/ace/ace.min.js?v=201608311338"></script>
+<script type="text/javascript" charset="utf-8" src="https://joinquant-static.b0.upaiyun.com/algorithm/js/edit.min.js?v=201608311338"></script>
+<script>
+    var visited = 1;
+    showIntro(visited);
+    g_isBackToTop=false;
+</script>
+<script>
+    visitTiming();
+    function visitTiming()
+    {
+        var timestamp = (new Date()).valueOf();
+        var rand = parseInt(Math.random()*1000);
+        ///访问ID+随机数
+        var visitId = timestamp.toString()+rand.toString();
+
+        /*
+         ///进入页面的发送请求
+         $.ajax({
+         type: 'POST',
+         async: true,
+         url: '/log/index/log',
+         data: {visitId:visitId,type:0}
+         });
+         */
+
+        ///离开页面的发送请求
+        var start;
+        var end;
+        var duration = 0;
+        start = new Date();
+        $(window).bind('beforeunload', function(e) {
+            end = new Date();//用户退出时间
+            duration = end.getTime() - start.getTime();
+            duration = duration/1000;//取的是秒
+            $.ajax({
+                type: 'POST',
+                async: false,
+                url: '/log/index/log',
+                data: {visitId:visitId,type:1,visitTime:duration}
+            });
+        });
+    }
+</script>
+
+<%--<div style="display:none">--%>
+    <%--<script src="https://s95.cnzz.com/z_stat.php?id=1256107754&web_id=1256107754" language="JavaScript"></script>--%>
+    <%--<!-- 返回顶部 -->--%>
+    <%--<script>--%>
+        <%--if(g_isBackToTop){--%>
+            <%--$('#leftsead').removeClass('hidden');--%>
+            <%--$("#leftsead a").hover(function(){--%>
+                <%--if($(this).prop("className")=="youhui"){--%>
+                    <%--$(this).children("img.hides").show();--%>
+                <%--}else{--%>
+                    <%--$(this).children("div.hides").show();--%>
+                    <%--$(this).children("img.shows").hide();--%>
+                    <%--$(this).children("div.hides").animate({marginRight:'0px'},'0');--%>
+                <%--}--%>
+            <%--},function(){--%>
+                <%--if($(this).prop("className")=="youhui"){--%>
+                    <%--$(this).children("img.hides").hide();--%>
+                <%--}else{--%>
+                    <%--$(this).children("div.hides").animate({marginRight:'-163px'},0,function(){$(this).hide();$(this).next("img.shows").show();});--%>
+                <%--}--%>
+            <%--});--%>
+            <%--$("#top_btn").click(function(){if(scroll=="off") return;$("html,body").animate({scrollTop: 0}, 300);});--%>
+
+            <%--//右侧导航 - 二维码--%>
+            <%--$(".youhui").mouseover(function(){--%>
+                <%--$(this).children(".2wm").show();--%>
+            <%--})--%>
+            <%--$(".youhui").mouseout(function(){--%>
+                <%--$(this).children(".2wm").hide();--%>
+            <%--});--%>
+        <%--}--%>
+    <%--</script>--%>
+    <%--<script>--%>
+        <%--var img = new Image();--%>
+        <%--var referer = "";--%>
+        <%--var euid = "7eb7cf3e3b2bd545cf0534466f26cf84";--%>
+        <%--var urd = "2016-08-16";--%>
+        <%--var logHost = '';--%>
+        <%--var timestamp=new Date().getTime();--%>
+        <%--img.src = logHost+'/log/p.gif?euid='+euid+"&referer="+referer+'&urd='+urd+'&_t='+timestamp;--%>
+    <%--</script>--%>
+    <%--<script>--%>
+        <%--/*cnzz点击事件统计*/--%>
+        <%--$('.track_event_click').click(function(){--%>
+            <%--var cate = $(this).attr('_cate');--%>
+            <%--var name = $(this).attr('_name');--%>
+            <%--_czc.push(['_trackEvent', cate, '点击', name]);--%>
+        <%--});--%>
+    <%--</script>--%>
+<%--</div>--%>
 </body>
 </html>
-
 
