@@ -9,9 +9,14 @@ import java.util.Date;
 public class PostComment {
 
     /**
-     * 评论ID
+     * 帖子ID(唯一标示符)
      */
     String postID;
+
+    /**
+     * 该评论ID
+     */
+    int ID;
 
     /**
      * 作者
@@ -32,6 +37,14 @@ public class PostComment {
 //     * 对评论的再评论
 //     */
 //    List<PostComment> comments;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getPostID() {
         return postID;
@@ -67,7 +80,7 @@ public class PostComment {
 
     @Override
     public String toString() {
-        return "PostComment [postID=" + postID + ", author=" + author + ", date=" + date + ", content=" + content + "]";
+        return "PostComment [postID=" + postID + ", ID=" + ID + ", author=" + author + ", date=" + date + ", content=" + content + "]";
     }
 
 //    public List<PostComment> getComments() {

@@ -13,14 +13,14 @@ public class Post {
     /**
      * 帖子主题内容
      * //附：1.发表帖子可以包括文本、图片、URL、@其他注册用户等多种形式，具体参见3.2.4回复帖子。
-     //2.允许发表话题的注册用户删除自己话题中的回复
+     * //2.允许发表话题的注册用户删除自己话题中的回复
      */
-    String  content;
+    String content;
 
     /**
      * 帖子收到的评论,浏览信息
      */
-    PostViews comment;
+    PostViews views;
 
     public PostBasicInfo getBasicInfo() {
         return basicInfo;
@@ -38,11 +38,19 @@ public class Post {
         this.content = content;
     }
 
-    public PostViews getComment() {
-        return comment;
+    public PostViews getViews() {
+        return views;
     }
 
-    public void setComment(PostViews comment) {
-        this.comment = comment;
+    public void setViews(PostViews views) {
+        this.views = views;
     }
+
+    @Override
+    public String toString() {
+        return "*************************************************************************************************************************************" + "\n" +
+                basicInfo.toString() + "\n" + "Connent : " + content + "\n" + views.toString()
+                + "*************************************************************************************************************************************" + "\n";
+    }
+
 }

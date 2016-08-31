@@ -1,6 +1,6 @@
 package web.model.communication;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by kylin on 16/8/13.

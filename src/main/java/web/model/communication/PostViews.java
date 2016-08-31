@@ -9,6 +9,11 @@ import java.util.List;
 public class PostViews {
 
     /**
+     * 帖子ID(唯一标示符)
+     */
+    String postID;
+
+    /**
      * 浏览数
      */
     int viewsNum;
@@ -32,6 +37,14 @@ public class PostViews {
      * 回帖的内容
      */
     List<PostComment> commentList;
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
+    }
 
     public int getViewsNum() {
         return viewsNum;
@@ -73,4 +86,14 @@ public class PostViews {
         this.commentList = commentList;
     }
 
+    @Override
+    public String toString() {
+        String str = "PostViews [postID=" + postID + ",viewsNum=" + viewsNum + ", thanks=" + thanks +
+                ", likes=" + likes + ", disagrees=" + disagrees;
+        str += (commentList == null) ? "]" : ", comments' num=" + commentList.size() + "]";
+        str += "\n";
+        for (PostComment comment : commentList)
+            str += comment.toString() + "\n";
+        return str;
+    }
 }
