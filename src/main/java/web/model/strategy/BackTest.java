@@ -26,6 +26,7 @@ public class BackTest {
     private long consumingTime; //耗时
     private double maxDrowdown ; //最大回撤
     private double annualizedReturn; //年化收益
+    private double income;//策略收益
 
     // 预计绩效 ，是一张折线图用于显示预期效果，实际上不是image
     private Image anticipatedPerformance;

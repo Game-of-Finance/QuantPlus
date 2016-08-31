@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.Map;
 
 /*
     python 代码生成器，利用pyres/pytemplate下的模板
@@ -36,19 +37,30 @@ public class PyGenerator {
      * @param values 设置数值
      * @param pyGeneratedName 生成的Python文件名
      */
-    public static void generate(String template, HashMap<String,String> values,String pyGeneratedName){
+    public static void generate(String template, Map<String,String> values,String pyGeneratedName){
         init();
         Template actionTpt = ve.getTemplate("pysrc/pytemplate/"+template+".vm","UTF-8");
 
-        VelocityContext ctx = new VelocityContext();
+        VelocityContext ctx = new VelocityContext(values);
 
-        ctx.put("startDate","2015-08-16");
-        ctx.put("endDate","2016-08-16");
-        ctx.put("initialMoney","10000");
-        ctx.put("unitTimeString","每天");
-        ctx.put("frequency","15");
-        ctx.put("number","4");
-//		ctx.put("classNameLowCase", "teacher");
+
+
+        String rootPath = PyGenerator.class.getClassLoader().getResource("").getFile() ;
+        merge(actionTpt,ctx,rootPath+"../../pysrc/pyGenerated/"+pyGeneratedName+".py");
+
+        System.out.println("generate python successed...");
+    }
+
+	public static void main(String[] args) {
+        Map<String,String> values =new HashMap<String, String>();
+        values.put("startDate","2015-08-16");
+        values.put("endDate","2016-08-16");
+        values.put("initialMoney","10000");
+        values.put("unitTimeString","每天");
+        values.put("frequency","15");
+        values.put("number","4");
+
+        //		ctx.put("classNameLowCase", "teacher");
 //		ctx.put("classNameUpCase", "Teacher");
 //		String[][] attrs = {
 //				{"Integer","id"},
@@ -58,14 +70,7 @@ public class PyGenerator {
 //				{"String","subject"}
 //		};
 //		ctx.put("attrs", attrs);
-        String rootPath = PyGenerator.class.getClassLoader().getResource("").getFile() ;
-        merge(actionTpt,ctx,rootPath+"../../pysrc/pyGenerated/"+pyGeneratedName+".py");
-
-        System.out.println("generate python successed...");
-    }
-
-	public static void main(String[] args) {
-		generate("ActionTemplate",null,"test");
+		generate("BasicTp",values,"test");
 
 	}
 

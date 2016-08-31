@@ -15,8 +15,8 @@ def initialize(context):
 #1
 #设置策略参数
 def set_params():
-    g.tc=${frequency}  # 调仓频率
-    g.N=${number} #持仓数目
+    g.tc=${tc}  # 调仓频率
+    g.N=${N} #持仓数目
     g.security = ["000001.XSHE","000002.XSHE","000006.XSHE","000007.XSHE","000009.XSHE"]#设置股票池
 
 #2

@@ -32,6 +32,14 @@ public class Strategy {
 	private Set<Integer> backTestIds =new HashSet<Integer>();
     private Set<BackTest> backTestSet =new HashSet<BackTest>();
 
+	//策略排名部分
+	//用户决定是否分享该策略,默认false
+	private boolean isShare=false;
+	private double rank;//策略评分
+	//累计收益==策略收益backtest的income
+	//今日收益、最大回测、开始时间、初始资金
+
+
 	public Strategy(int id, String name, int userId, Date createTime) {
 		this.id = id;
 		this.name = name;
@@ -51,7 +59,10 @@ public class Strategy {
 		backTestIds.add(backTestId);
 	}
 
+	//计算rank分并设置
+	public void calcRank(){
 
+	}
 
 
 
@@ -138,6 +149,19 @@ public class Strategy {
         this.backTestSet = backTestSet;
     }
 
+	public boolean isShare() {
+		return isShare;
+	}
 
+	public void setShare(boolean share) {
+		isShare = share;
+	}
 
+	public double getRank() {
+		return rank;
+	}
+
+	public void setRank(double rank) {
+		this.rank = rank;
+	}
 }

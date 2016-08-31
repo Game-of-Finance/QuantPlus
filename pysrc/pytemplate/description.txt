@@ -1,0 +1,10 @@
+VM模板中的替换选项
+${startDate} #开始时间
+${endDate}   #结束时间
+${initialMoney}  #初始资金
+${unitTimeString} #单位时间
+
+${tc}  # 调仓天数 default:15
+${yb}  # 样本长度
+${N}   # 持仓数目
+${factors}    # 因子    default:["market_cap","roe"] 见:https://www.joinquant.com/data/dict/fundamentals

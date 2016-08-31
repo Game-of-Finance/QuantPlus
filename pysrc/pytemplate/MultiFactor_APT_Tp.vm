@@ -24,7 +24,7 @@ def initialize(context):
 #1
 #设置策略参数
 def set_params():
-    g.tc = 63         # 设置调仓天数
+    g.tc = ${tc}         # 设置调仓天数
     g.lag= 4          # 用过去多少期的财报回归
     g.N = 20          # 需要前多少天的数据
     g.num_stocks= 20  # 默认值选表现最好的20个股票

@@ -17,10 +17,10 @@ def initialize(context):
 #1
 #设置策参数
 def set_params():
-    g.tc=${frequency}  # 调仓频率
-    g.yb=${length}  # 样本长度
-    g.N=${number}   # 持仓数目
-    g.factors=["market_cap","roe"] # 用户选出来的因子,因子名称
+    g.tc=${tc}  # 调仓频率
+    g.yb=${yb}  # 样本长度
+    g.N=${N}   # 持仓数目
+    g.factors=${factors} # 用户选出来的因子,因子名称
     # 因子等权重里1表示因子值越小越好，-1表示因子值越大越好
     g.weights=[[1],[-1]]
 
