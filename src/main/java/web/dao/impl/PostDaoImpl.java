@@ -10,6 +10,8 @@ import web.model.communication.PostViews;
 import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 
+import java.util.List;
+
 /**
  * Created by JiachenWang on 2016/8/18.
  */
@@ -17,6 +19,40 @@ public class PostDaoImpl implements PostDao {
 
     SqlSession session;
     PostOperation postOperation;
+
+    public String getNewPostID() {
+        int ID = 0;
+        try {
+            session = MybatisUtils.getSession();
+            postOperation = session
+                    .getMapper(PostOperation.class);
+            ID = postOperation.getNewPostID();
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.rollback();
+        } finally {
+            session.close();
+        }
+        return String.format("%06d", ++ID);
+    }
+
+    public String getNewCommentID(String postID) {
+        int comentID = 0;
+        try {
+            session = MybatisUtils.getSession();
+            postOperation = session
+                    .getMapper(PostOperation.class);
+            comentID = postOperation.getNewCommentID(postID);
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.rollback();
+        } finally {
+            session.close();
+        }
+        return String.format("%05d", ++comentID);
+    }
 
     public Post getPost(String postID) throws NotFoundException {
         Post post = null;
@@ -34,6 +70,7 @@ public class PostDaoImpl implements PostDao {
             session.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            session.rollback();
         } finally {
             session.close();
         }
@@ -145,6 +182,11 @@ public class PostDaoImpl implements PostDao {
         }
 
         return true;
+    }
+
+    public List<Post> search(String str) {
+        //TODO 模糊查找
+        return null;
     }
 
 //    public PostBasicInfo getBasicInfoByID(String postID) {

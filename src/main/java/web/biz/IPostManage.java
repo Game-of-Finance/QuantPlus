@@ -14,7 +14,7 @@ public interface IPostManage {
      * 功能：发表
      *
      * @param basicInfo 帖子基本信息
-     * @param content 原贴内容
+     * @param content   原贴内容
      * @return
      */
     boolean publish(PostBasicInfo basicInfo, String content);
@@ -22,7 +22,7 @@ public interface IPostManage {
     /**
      * 对原贴的回复
      *
-     * @param postID 原贴ID
+     * @param postID  原贴ID
      * @param comment 回复的内容
      * @return
      */
@@ -41,8 +41,16 @@ public interface IPostManage {
      *
      * @param postID 目标帖子ID
      * @param attitude 态度
+     * @return 操作结果
      */
-    void attitude(String postID, PostViewAttitude attitude);
+    boolean attitude(String postID, PostViewAttitude attitude);
+
+    /**
+     * 帖子被浏览一次，计数+1
+     *
+     * @param postID 目标帖子ID
+     */
+    void browse(String postID);
 
     /**
      * 搜索

@@ -5,7 +5,7 @@ package web.model.enums;
  */
 public enum PostViewAttitude {
 
-    like("感谢"),agree("同意");
+    thanks("感谢"),like("点赞"),disagree("反对");
 
     private String attitude;
 

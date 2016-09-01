@@ -16,6 +16,12 @@ import java.util.List;
  */
 public interface PostOperation {
 
+    @Select("select max(postID) from post")
+    public int getNewPostID();
+
+    @Select("select max(ID) from post_comment where postID=#{postID}")
+    public int getNewCommentID(String postID);
+
     @Select("select * from post_basic where postID=#{postID}")
     public PostBasicInfo getBasicInfoByID(String postID);
 

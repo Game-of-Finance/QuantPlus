@@ -16,7 +16,7 @@ public class PostComment {
     /**
      * 该评论ID
      */
-    int ID;
+    String ID;
 
     /**
      * 作者
@@ -38,11 +38,11 @@ public class PostComment {
 //     */
 //    List<PostComment> comments;
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 

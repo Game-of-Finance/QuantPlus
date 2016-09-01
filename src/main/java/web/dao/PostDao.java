@@ -14,6 +14,19 @@ import java.util.List;
 public interface PostDao {
 
     /**
+     * 获得新的帖子唯一指定编号
+     * @return 的帖子唯一指定编号
+     */
+    String getNewPostID();
+
+    /**
+     * 获得新的评论编号
+     * @param postID 帖子唯一指定编号
+     * @return 新的评论编号
+     */
+    String getNewCommentID(String postID);
+
+    /**
      * 查询指定帖子
      *
      * @param postID 编号（唯一标识符）
@@ -66,12 +79,12 @@ public interface PostDao {
      */
     boolean save(Post post) throws BadInputException;
 
-//    /**
-//     * 模糊查找
-//     *
-//     * @param strs 字符串数组
-//     * @return 相关帖子
-//     */
-//    List<Post> search(String[] strs);
+    /**
+     * 模糊查找
+     *
+     * @param str 关键字
+     * @return 相关帖子
+     */
+    List<Post> search(String str);
 
 }

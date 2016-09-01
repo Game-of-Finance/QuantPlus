@@ -10,16 +10,25 @@ import java.util.Date;
  * Created by JiachenWang on 2016/8/30.
  */
 public class PostDaoImplTest extends TestCase {
+    public void testGetNewPostID() throws Exception {
+        PostDaoImpl test = new PostDaoImpl();
+        System.out.println(test.getNewPostID());
+    }
+
+    public void testGetNewCommentID() throws Exception {
+        PostDaoImpl test = new PostDaoImpl();
+        System.out.println(test.getNewCommentID("0000001"));
+    }
 
     public void testGetPost() throws Exception {
         PostDaoImpl test = new PostDaoImpl();
-        Post info = test.getPost("1");
+        Post info = test.getPost("0000001");
         System.out.println(info.toString());
     }
 
     public void testResetViews() throws Exception {
         PostDaoImpl test = new PostDaoImpl();
-        Post info = test.getPost("1");
+        Post info = test.getPost("0000001");
         info.getViews().setLikes(6000);
         test.resetViews(info.getViews());
     }

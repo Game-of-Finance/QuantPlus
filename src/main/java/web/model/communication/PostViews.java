@@ -1,5 +1,6 @@
 package web.model.communication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -37,6 +38,15 @@ public class PostViews {
      * 回帖的内容
      */
     List<PostComment> commentList;
+
+    public PostViews(String postID) {
+        this.postID = postID;
+        viewsNum = 0;
+        thanks = 0;
+        likes = 0;
+        disagrees = 0;
+        commentList = new ArrayList<PostComment>();
+    }
 
     public String getPostID() {
         return postID;
