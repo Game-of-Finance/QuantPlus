@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <div class="margin_15t" style="text-align:center">
                         <div style="margin-top:30px">
-                暂无模拟交易，您可以<a href="startNewPost.jsp">新建模拟交易</a>。
+               <a href="startNewPost.jsp">新建模拟交易</a>
             </div>
                     </div>
     </div>
@@ -99,7 +99,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
             <footer class="kk_footer clearfix bottom-50">
                 <div class="inner auto_w">
-                    <div class="wp20 fleft"><a href='/'><img width='134' title='joinQuant' alt='joinQuant' src="https://joinquant-static.b0.upaiyun.com/common/img/logo-134-28.png" /></a></div>
+                    
                     <div class="wp20 fleft">
                         <div class="item title"><a href="index.jsp">首页</a></div>
                     </div>
