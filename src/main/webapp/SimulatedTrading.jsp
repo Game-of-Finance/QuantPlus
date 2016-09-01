@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <button type="button" id="stop-live" class="btn btn-small">已关闭</button>
             </div>
                        <div class="btn-group inline-block margin_20l" style="top:6px">
-                <a href="/algorithm/live/new" data-toggle="modal" class="btn btn-small btn-primary inline-block margin_15l" target="_blank">新建模拟交易</a>
+               
             </div>
                         <div class="btn-group inline-block">
                 <btn id="del-live" class="btn btn-small live-algo-delete-button disabled">
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <div class="margin_15t" style="text-align:center">
                         <div style="margin-top:30px">
-                暂无模拟交易，您可以<a href="/algorithm/live/new">新建模拟交易</a>；如果您有疑问，请查看<a href="/faq#模拟交易"  target="_blank" style="margin:0 auto">常见问题</a>。
+                暂无模拟交易，您可以<a href="startNewPost.jsp">新建模拟交易</a>。
             </div>
                     </div>
     </div>
