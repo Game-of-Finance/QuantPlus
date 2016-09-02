@@ -60,7 +60,7 @@ input[readonly] {
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="/" title='joinQuant' class="navbar-brand "></a>
+                        
                     </div>
                     <nav id="kk_navbar" class="kk_navbar collapse navbar-collapse" aria-expanded='false'>
                         <ul class="nav navbar-nav">

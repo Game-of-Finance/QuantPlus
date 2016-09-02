@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="/" title='QuantPlus' class="navbar-brand "></a>
+                        <!-- a href="/" title='QuantPlus' class="navbar-brand "></a-->
                     </div>
                     <nav id="kk_navbar" class="kk_navbar collapse navbar-collapse" aria-expanded='false'>
                         <ul class="nav navbar-nav">
