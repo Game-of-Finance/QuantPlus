@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <div class="margin_15t" style="text-align:center">
                         <div style="margin-top:30px">
-               <a href="startNewPost.jsp">新建模拟交易</a>
+               <a href="startNewTrading.jsp">新建模拟交易</a>
             </div>
                     </div>
     </div>
