@@ -76,7 +76,7 @@ input[readonly] {
                 <div class="backtest-area content content-area old-style padding_b0">
     <form name="BacktestModel">
         <div id="subnav" class="subnav">
-            <a href="/algorithm/index/list" class="algo-back" title="返回">
+            <a href="SimulatedTrading.jsp" class="algo-back" title="返回">
                 <i class="icon icon-chevron-left no-decoration"></i>
             </a>
             <label style="position:absolute;top:15px;margin-left:3px">模拟交易</label>
