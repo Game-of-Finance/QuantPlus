@@ -1,0 +1,130 @@
+
+# 选股函数
+def getSelectConfig():
+    # filter 筛选
+
+    filter_c=[]
+    #foreach(${i} in $root.selectStock.filter)
+
+    #--------------------------cell--------------------------------
+    name ="$i.name"
+    comparison="$i.comparison"
+    count=$i.count
+    cell${velocityCount}=[name,comparison,count]
+    #if($i.count_low)##
+
+    count_low=$i.count_low
+    cell${velocityCount}.append(count_low)
+    #end##
+    #if($i.count_upper)##
+
+    count_upper=$i.count_upper
+    cell${velocityCount}.append(count_upper)
+    #end
+
+    filter_c.append(cell${velocityCount})
+    #end
+
+
+
+    # sort 排序
+    sort_c=[]
+    #foreach($i in $root.selectStock.sort)
+
+    #---------------------------------------------
+
+    name ="$i.name"
+    order="$i.order"
+    weight=$i.weight
+    sort${velocityCount}=[name,order,weight]
+    sort_c.append(sort${velocityCount})
+    #end
+
+    return [filter_c,sort_c]
+
+# 择时函数
+def getTimeConfig():
+    # condition 条件
+    select_c=[]
+    #if( $root.selectTime.condition.c_MA)
+
+    # 1.has c_MA
+    name="$root.selectTime.condition.c_MA.name"
+    period="$root.selectTime.condition.c_MA.period"
+    shortMA=$root.selectTime.condition.c_MA.shortMA
+    longMA=$root.selectTime.condition.c_MA.longMA
+    select_c.append([name,period,shortMA,longMA])
+    #end
+    #if( $root.selectTime.condition.c_MACD)
+
+    # 2.has c_MACD
+    name = "$root.selectTime.condition.c_MACD.name"
+    period = "$root.selectTime.condition.c_MACD.period"
+    shortDIF =$root.selectTime.condition.c_MACD.shortDIF
+    longDIF =$root.selectTime.condition.c_MACD.longDIF
+    select_c.append([name,period,shortDIF,longDIF])
+    #end
+    #if( $root.selectTime.condition.c_DMA)
+
+    # 3.has c_DMA
+    name = "$root.selectTime.condition.c_DMA.name"
+    period = "$root.selectTime.condition.c_DMA.period"
+    shortMA =$root.selectTime.condition.c_DMA.shortMA
+    longMA =$root.selectTime.condition.c_DMA.longMA
+    AMA =$root.selectTime.condition.c_DMA.AMA
+    select_c.append([name,period,shortMA,longMA,AMA])
+    #end
+    #if( $root.selectTime.condition.c_TRIX)
+
+    # 4. has c_TRIX
+    #end
+    #if( $root.selectTime.condition.c_MAVOL)
+
+    # 5.has c_MAVOL
+    #end
+    #if( $root.selectTime.condition.c_MABias)
+
+    # 6.has c_MABias
+    #end
+    #if( $root.selectTime.condition.c_PE)
+
+    # 7. has c_PE
+    #end
+    #if( $root.selectTime.condition.c_PB)
+
+    # 8.has c_PB
+    #end
+    #if( $root.selectTime.condition.c_PE2)
+
+    # 9.has c_PE2
+    #end
+    #if( $root.selectTime.condition.c_PB2)
+
+    # 10.has c_PB2
+    #end
+
+    # parameter 参数
+
+    bear_position =$root.selectTime.parameter.bear_position
+    bear_to_bull =$root.selectTime.parameter.bear_to_bull
+    bull_to_bear =$root.selectTime.parameter.bull_to_bear
+
+# 交易
+def trade():
+    cycle =$root.trade.cycle
+    gains_calc ="$root.trade.gains_calc"
+    ideal_position =$root.trade.ideal_position
+    position_upper =$root.trade.position_upper
+    position_low =$root.trade.position_low
+
+    # 买入限制
+    #foreach($i in $root.trade.buy_limit)
+
+    buy_limit = "$i.name"+"$i.comparison"+"$i.count"
+    #end
+
+    # 卖出限制
+    #foreach($i in $root.trade.sell_limit)
+
+    sell_limit = "$i.name"+"$i.comparison"+"$i.count"
+    #end

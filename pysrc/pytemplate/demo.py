@@ -1,58 +1,90 @@
 # demo py
 # 总体回测前要做的事情
-def initialize(context):
 
-
-# 每天交易时
-def handle_data(context, data):
 
 # 选股函数
-def selectStock():
+def getSelectConfig():
     # filter 筛选
+
+    filter_c=[]
     
+    #--------------------------cell--------------------------------
     name ="MACD"
     comparison=">"
     count=0
-    count_low=
-    count_upper=
+    cell1=[name,comparison,count]
+        
+    filter_c.append(cell1)
     
+    #--------------------------cell--------------------------------
     name ="营业利润增长"
-    comparison="区间"
+    comparison="<>"
     count=0
+    cell2=[name,comparison,count]
+    
     count_low=0.2
+    cell2.append(count_low)
+        
     count_upper=0.3
+    cell2.append(count_upper)
     
+    filter_c.append(cell2)
+    
+    #--------------------------cell--------------------------------
     name ="净利润增长"
-    comparison="区间排名"
+    comparison="top"
     count=0
+    cell3=[name,comparison,count]
+    
     count_low=10.0
+    cell3.append(count_low)
+        
     count_upper=20.0
+    cell3.append(count_upper)
     
+    filter_c.append(cell3)
+    
+
+
     # sort 排序
+    sort_c=[]
     
+    #---------------------------------------------
+
     name ="流通市值"
     order="ascd"
     weight=1
+    sort1=[name,order,weight]
+    sort_c.append(sort1)
     
+    #---------------------------------------------
+
     name ="BBIC"
     order="ascd"
     weight=2
+    sort2=[name,order,weight]
+    sort_c.append(sort2)
     
+    return [filter_c,sort_c]
+
 # 择时函数
-def selectTime():
+def getTimeConfig():
     # condition 条件
+    select_c=[]
     
     # 1.has c_MA
     name="MA"
     period="day"
     shortMA=5
     longMA=60
+    select_c.append([name,period,shortMA,longMA])
         
     # 2.has c_MACD
     name = "MACD"
     period = "day"
     shortDIF =12
     longDIF =26
+    select_c.append([name,period,shortDIF,longDIF])
         
     # 3.has c_DMA
     name = "DMA"
@@ -60,6 +92,7 @@ def selectTime():
     shortMA =5
     longMA =60
     AMA =20
+    select_c.append([name,period,shortMA,longMA,AMA])
         
     # 4. has c_TRIX
         
@@ -101,9 +134,10 @@ def trade():
     
     sell_limit = "买入后涨幅(止盈)"+">="+"10"
     
+def initialize(context):
+    [filt,sort]=getSelectConfig()
 
 
 
-
-
-
+# 每天交易时
+def handle_data(context, data):

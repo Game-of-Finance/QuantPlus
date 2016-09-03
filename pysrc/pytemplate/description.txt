@@ -8,3 +8,7 @@ ${tc}  # 调仓天数 default:15
 ${yb}  # 样本长度
 ${N}   # 持仓数目
 ${factors}    # 因子    default:["market_cap","roe"] 见:https://www.joinquant.com/data/dict/fundamentals
+
+区间 <>
+区间排名 top
+上证指数 sh600000

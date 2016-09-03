@@ -1,10 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-stock_pick=[
-    'sh600000',
-    # 'sh600315'
+import numpy as np
 
-]
+stock_pick=np.loadtxt('pytemplate/select_id.csv',dtype=str)
+print  stock_pick
 def quantplus_ingest(
         environ,
         asset_db_writer,

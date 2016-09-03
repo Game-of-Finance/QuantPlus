@@ -3,18 +3,17 @@
     "filter": [
       {
         "name": "MACD",
-        "comparison": ">",
-        "count": 0
+        "comparison": ">"
       },
       {
         "name": "营业利润增长",
-        "comparison": "区间",
+        "comparison": "<>",
         "count_low": 0.2,
         "count_upper": 0.3
       },
       {
         "name": "净利润增长",
-        "comparison": "区间排名",
+        "comparison": "top",
         "count_low": 10,
         "count_upper": 20
       }
@@ -36,7 +35,7 @@
     "condition": {
       "c_MA": {
         "name": "MA",
-        "stock_index": "上证指数",
+        "stock_index": "sh600000",
         "period": "day",
         "shortMA": 5,
         "longMA": 60,
@@ -44,7 +43,7 @@
       },
       "c_MACD": {
         "name": "MACD",
-        "stock_index": "上证指数",
+        "stock_index": "sh600000",
         "period": "day",
         "shortDIF": 12,
         "longDIF": 26,
@@ -53,7 +52,7 @@
       },
       "c_DMA": {
         "name": "DMA",
-        "stock_index": "上证指数",
+        "stock_index": "sh600000",
         "period": "day",
         "shortMA": 5,
         "longMA": 60,
@@ -61,14 +60,14 @@
       },
       "c_TRIX": {
         "name": "TRIX",
-        "stock_index": "上证指数",
+        "stock_index": "sh600000",
         "period": "day",
         "TRIX": 120,
         "MATRIX": 5
       },
       "c_MAVOL": {
         "name": "MAVOL",
-        "stock_index": "上证指数",
+        "stock_index": "sh600000",
         "period": "day",
         "shortMA": 5,
         "longMA": 60,
@@ -76,7 +75,7 @@
       },
       "c_MABias": {
         "name": "MABias",
-        "stock_index": "上证指数",
+        "stock_index": "sh600000",
         "period": "day",
         "shortMA": 5,
         "longMA": 60,
@@ -148,4 +147,3 @@
     "reference": "沪深300"
   }
 }
-
