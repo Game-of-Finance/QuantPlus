@@ -14,7 +14,7 @@ import java.util.Map;
 /*
     python 代码生成器，利用pyres/pytemplate下的模板
  */
-public class PyGenerator {
+public class VelocityUtil {
     private static  VelocityEngine ve;
 
     public static  void init(){
@@ -37,22 +37,19 @@ public class PyGenerator {
      * @param values 设置数值
      * @param pyGeneratedName 生成的Python文件名
      */
-    public static void generate(String template, Map<String,String> values,String pyGeneratedName){
+    public static void generate(String template, Map values,String pyGeneratedName){
         init();
-        Template actionTpt = ve.getTemplate("pysrc/pytemplate/"+template+".vm","UTF-8");
+        Template actionTpt = ve.getTemplate("pysrc/pytemplate/"+template,"UTF-8");
 
         VelocityContext ctx = new VelocityContext(values);
 
-
-
-        String rootPath = PyGenerator.class.getClassLoader().getResource("").getFile() ;
-        merge(actionTpt,ctx,rootPath+"../../pysrc/pyGenerated/"+pyGeneratedName+".py");
+        merge(actionTpt,ctx,"pysrc/pytemplate/"+pyGeneratedName);
 
         System.out.println("generate python successed...");
     }
 
 	public static void main(String[] args) {
-        Map<String,String> values =new HashMap<String, String>();
+        Map values =new HashMap();
         values.put("startDate","2015-08-16");
         values.put("endDate","2016-08-16");
         values.put("initialMoney","10000");
@@ -70,7 +67,7 @@ public class PyGenerator {
 //				{"String","subject"}
 //		};
 //		ctx.put("attrs", attrs);
-		generate("BasicTp",values,"test");
+		generate("BasicTp.vm",values,"test.py");
 
 	}
 

@@ -1,0 +1,151 @@
+{
+  "selectStock": {
+    "filter": [
+      {
+        "name": "MACD",
+        "comparison": ">",
+        "count": 0
+      },
+      {
+        "name": "营业利润增长",
+        "comparison": "区间",
+        "count_low": 0.2,
+        "count_upper": 0.3
+      },
+      {
+        "name": "净利润增长",
+        "comparison": "区间排名",
+        "count_low": 10,
+        "count_upper": 20
+      }
+    ],
+    "sort": [
+      {
+        "name": "流通市值",
+        "order": "ascd",
+        "weight": 1
+      },
+      {
+        "name": "BBIC",
+        "order": "ascd",
+        "weight": 2
+      }
+    ]
+  },
+  "selectTime": {
+    "condition": {
+      "c_MA": {
+        "name": "MA",
+        "stock_index": "上证指数",
+        "period": "day",
+        "shortMA": 5,
+        "longMA": 60,
+        "selectBox": true
+      },
+      "c_MACD": {
+        "name": "MACD",
+        "stock_index": "上证指数",
+        "period": "day",
+        "shortDIF": 12,
+        "longDIF": 26,
+        "DEA": 9,
+        "selectBox": false
+      },
+      "c_DMA": {
+        "name": "DMA",
+        "stock_index": "上证指数",
+        "period": "day",
+        "shortMA": 5,
+        "longMA": 60,
+        "AMA": 20
+      },
+      "c_TRIX": {
+        "name": "TRIX",
+        "stock_index": "上证指数",
+        "period": "day",
+        "TRIX": 120,
+        "MATRIX": 5
+      },
+      "c_MAVOL": {
+        "name": "MAVOL",
+        "stock_index": "上证指数",
+        "period": "day",
+        "shortMA": 5,
+        "longMA": 60,
+        "selectBox": true
+      },
+      "c_MABias": {
+        "name": "MABias",
+        "stock_index": "上证指数",
+        "period": "day",
+        "shortMA": 5,
+        "longMA": 60,
+        "low": -0.1,
+        "upper": 0.1
+      },
+      "c_PE": {
+        "name": "PE",
+        "low": 15,
+        "upper": 30
+      },
+      "C_PB": {
+        "name": "PB",
+        "upper": 4,
+        "low": 2
+      },
+      "c_PE2": {
+        "name": "PE2",
+        "upper": 4,
+        "low": 2
+      },
+      "c_PB2": {
+        "name": "PB2",
+        "upper": 4,
+        "low": 2
+      }
+    },
+    "parameter": {
+      "bear_position": 0,
+      "bear_to_bull": -1,
+      "bull_to_bear": 3
+    }
+  },
+  "trade": {
+    "cycle": 5,
+    "gains_calc": "收盘价",
+    "ideal_position": 10,
+    "position_upper": 13,
+    "position_low": 7,
+    "buy_limit": [
+      {
+        "name": "排名名次",
+        "comparison": "<=",
+        "count": 10
+      }
+    ],
+    "sell_limit": [
+      {
+        "name": "排名名次",
+        "comparison": ">=",
+        "count": 20
+      },
+      {
+        "name": "持有天数",
+        "comparison": ">=",
+        "count": 10
+      },
+      {
+        "name": "买入后涨幅(止盈)",
+        "comparison": ">=",
+        "count": 10
+      }
+    ]
+  },
+  "strategyTest": {
+    "start": "2015-08-31",
+    "end": "2016-08-31",
+    "initial_money": 10000.0,
+    "reference": "沪深300"
+  }
+}
+

@@ -1,6 +1,7 @@
-package web.model.strategy.json;
+package web.biz.impl;
 
 import com.google.gson.Gson;
+import web.model.strategy.Root;
 
 import java.io.*;
 
@@ -9,12 +10,12 @@ import java.io.*;
  */
 public class JsonParser {
 
-    public static void ParseJson(){
+    public static Root ParseJson(String filePath){
         Gson gson =new Gson();
-        String jsonString =getJson("pysrc/pytemplate/postJson.json");
-        System.out.println(jsonString);
-        Root root = gson.fromJson(jsonString, Root.class);
-        System.out.println(root.getTrade().getCycle());
+        String jsonString =getJson(filePath);
+
+        return gson.fromJson(jsonString, Root.class);
+
     }
 
     /**
@@ -38,6 +39,8 @@ public class JsonParser {
         return stringBuilder.toString();
     }
     public static void main(String[] args) {
-        JsonParser.ParseJson();
+
+        Root root=JsonParser.ParseJson("pysrc/pytemplate/demoJson.json");
+        System.out.println(root.getSelectTime().getCondition().getC_MACD().getLongDIF());
     }
 }
