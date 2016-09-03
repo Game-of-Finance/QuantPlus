@@ -6,6 +6,11 @@ package web.model.communication;
 public class Post {
 
     /**
+     * 帖子ID(唯一标示符)
+     */
+    String postID;
+
+    /**
      * 帖子基本信息
      */
     PostBasicInfo basicInfo;
@@ -21,6 +26,14 @@ public class Post {
      * 帖子收到的评论,浏览信息
      */
     PostViews views;
+
+    public String getPostID() {
+        return postID;
+    }
+
+    public void setPostID(String postID) {
+        this.postID = postID;
+    }
 
     public PostBasicInfo getBasicInfo() {
         return basicInfo;

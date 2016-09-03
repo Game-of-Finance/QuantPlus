@@ -33,6 +33,8 @@ public class PostBasicInfo {
      */
     String topic;
 
+
+
     public String getPostID() {
         return postID;
     }

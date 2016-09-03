@@ -24,11 +24,12 @@ public class PostManage implements IPostManage {
     public boolean publish(PostBasicInfo basicInfo, String content) {
         Post post = new Post();
         //生成指定ID
-        basicInfo.setPostID(postDao.getNewPostID());
+        post.setPostID(postDao.getNewPostID());
+        basicInfo.setPostID(post.getPostID());
         //内容
         post.setBasicInfo(basicInfo);
         post.setContent(content);
-        post.setViews(new PostViews(basicInfo.getPostID()));
+        post.setViews(new PostViews(post.getPostID()));
         //保存
         try {
             postDao.save(post);

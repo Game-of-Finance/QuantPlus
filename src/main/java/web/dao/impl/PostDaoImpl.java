@@ -10,6 +10,7 @@ import web.model.communication.PostViews;
 import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class PostDaoImpl implements PostDao {
         } finally {
             session.close();
         }
-        return String.format("%06d", ++ID);
+        return String.format("%07d", ++ID);
     }
 
     public String getNewCommentID(String postID) {
@@ -185,8 +186,32 @@ public class PostDaoImpl implements PostDao {
     }
 
     public List<Post> search(String str) {
-        //TODO 模糊查找
-        return null;
+        List<String> list = null;
+        List<Post> posts = new ArrayList<Post>();
+        try {
+            session = MybatisUtils.getSession();
+            postOperation = session
+                    .getMapper(PostOperation.class);
+            list = postOperation.search(str);
+            System.out.println(list.size() + "hhh");
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.rollback();
+        } finally {
+            session.close();
+        }
+
+        for (String id : list) {
+            Post post = null;
+            try {
+                post = this.getPost(id);
+            } catch (NotFoundException e) {
+                continue;
+            }
+            posts.add(post);
+        }
+        return posts;
     }
 
 //    public PostBasicInfo getBasicInfoByID(String postID) {
@@ -216,7 +241,7 @@ public class PostDaoImpl implements PostDao {
 //        }
 //        return info;
 //    }
-//
+////
 //    public PostViews getPostViewsByID(String postID) {
 //        PostViews views = null;
 //        try {

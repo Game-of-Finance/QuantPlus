@@ -68,4 +68,7 @@ public interface PostOperation {
     @Delete("delete from post where postID=#{postID}")
     public void deletePostMain(String postID);
 
+    @Select("select postID from post_basic where title like #{key}")
+    public List<String> search(String key);
+
 }

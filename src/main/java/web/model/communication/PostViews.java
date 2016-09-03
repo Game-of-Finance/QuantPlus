@@ -39,6 +39,10 @@ public class PostViews {
      */
     List<PostComment> commentList;
 
+    public PostViews() {
+
+    }
+
     public PostViews(String postID) {
         this.postID = postID;
         viewsNum = 0;
@@ -102,8 +106,12 @@ public class PostViews {
                 ", likes=" + likes + ", disagrees=" + disagrees;
         str += (commentList == null) ? "]" : ", comments' num=" + commentList.size() + "]";
         str += "\n";
-        for (PostComment comment : commentList)
-            str += comment.toString() + "\n";
+
+        if(commentList!=null){
+            for (PostComment comment : commentList)
+                str += comment.toString() + "\n";
+        }
+
         return str;
     }
 }
