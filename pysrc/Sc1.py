@@ -1,4 +1,5 @@
 from zipline.api import order, record, symbol
+from zipline.data import *
 
 
 def initialize(context):

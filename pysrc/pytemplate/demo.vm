@@ -8,9 +8,19 @@ from pdCal import *
 import pandas as pd
 import numpy as np
 
+#parse ("pysrc/pytemplate/driver.vm")
+
 def initialize(context):
     stockinfo_df=getStock_info()
     [filt,sort]=getSelectConfig()
+    conditions={'MACD':macd_s}
+    id_list=stockinfo_df['code'].values.tolist()
+    for cond in filt:
+        id_list=conditions.get(cond[0])(id_list,cond)
+
+    context.select=id_list
+
+
 
 
 

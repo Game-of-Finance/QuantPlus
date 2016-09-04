@@ -1,0 +1,39 @@
+import datetime
+
+def small(a,b):
+    return a<b[0]
+def big(a,b):
+    return a>b[0]
+def between(a,b):
+    return a>b[0] and a<b[1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def macd_s(list,config,start=datetime.strptime('$root.strategyTest.start','%Y-%m-%d')):
+    conditions={'<':small,'>':big,'<>':between}
+    from pdCal import macd
+    import AnyQuant
+    start_date=start-datetime.timedelta(365)
+    ans=[]
+    for id in list:
+        df=getSingleStock(id,start_date,start)
+        macd(df)
+        if conditions.get(config[1])(df['MACDBar'].iloc[[-1]],config[3:]) :
+            ans.append(id)
+
+    return ans

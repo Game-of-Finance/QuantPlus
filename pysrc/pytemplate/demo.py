@@ -134,8 +134,63 @@ def trade():
     
     sell_limit = "买入后涨幅(止盈)"+">="+"10"
     
+from zipline.api import *
+from pdCal import *
+import pandas as pd
+import numpy as np
+
+import datetime
+
+def small(a,b):
+    return a<b[0]
+def big(a,b):
+    return a>b[0]
+def between(a,b):
+    return a>b[0] and a<b[1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def macd_s(list,config,start=datetime.strptime('2015-08-31','%Y-%m-%d')):
+    conditions={'<':small,'>':big,'<>':between}
+    from pdCal import macd
+    import AnyQuant
+    start_date=start-datetime.timedelta(365)
+    ans=[]
+    for id in list:
+        df=getSingleStock(id,start_date,start)
+        macd(df)
+        if conditions.get(config[1])(df['MACDBar'].iloc[[-1]],config[3:]) :
+            ans.append(id)
+
+    return ans
+
 def initialize(context):
+    stockinfo_df=getStock_info()
     [filt,sort]=getSelectConfig()
+    conditions={'MACD':macd_s}
+    id_list=stockinfo_df['code'].values.tolist()
+    for cond in filt:
+        id_list=conditions.get(cond[0])(id_list,cond)
+
+    context.select=id_list
+
+
+
 
 
 

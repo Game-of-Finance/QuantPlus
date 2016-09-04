@@ -29,7 +29,6 @@ def quantplus_ingest(
         df = df.rename(columns={'code': 'symbol','name':'asset_name','timeToMarket':'start_date','industry':'market'})
         return df
 
-
     def daily(symbol):
         tfot='%Y-%m-%d'
         # id=str(symbol)
