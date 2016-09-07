@@ -77,6 +77,7 @@ def getTimeConfig():
     period="day"
     shortMA=5
     longMA=60
+
     select_c.append([name,period,shortMA,longMA])
         
     # 2.has c_MACD
@@ -84,7 +85,8 @@ def getTimeConfig():
     period = "day"
     shortDIF =12
     longDIF =26
-    select_c.append([name,period,shortDIF,longDIF])
+    DEA =9
+    select_c.append([name,period,shortDIF,longDIF,DEA])
         
     # 3.has c_DMA
     name = "DMA"
@@ -151,12 +153,40 @@ def between(a,b):
 
 
 
+def ma(df,step=[5,30],name=['short_ma','long_ma']):
+    for i in len(name):
+        df[name[i]]=pd.ewma(df['close'],  span= step[i])
+
+    return
 
 
+def macd(df,fastperiod=12, slowperiod=26):
+    macd1, macdsignal, macdhist = ta.MACD(df['close'].values, fastperiod=fastperiod, slowperiod=slowperiod, signalperiod=9)
+    df['MACDBar']=macdhist
+    df['DIF']=macd1
+    df['DEA']=macdsignal
+    return
+def ma_t(df,config,date):
+    ma(df)
+    short_ma,long_ma=df['short_ma','long_ma'].iloc[[-1]]
+    return short_ma >= config[2] and long_ma <= config[3]
 
 
+def macd_t(df,config,date):
+    macd(df)
+    dif,dea,macd=df['DIF','DEA','MACDBar'].iloc[[-1]]
+    return dif
 
+def bench_t_s(config,date):
+    conditions={'MA':ma_t,'MACD':macd_t}
+    from AnyQuant import getBenchFromts
+    start=datetime.timedelta(60)
+    df=getBenchFromts(start=start,end=date)
+    ans=True
+    for con in config:
+        ans=ans and conditions.get(con[0])(df,con,date)
 
+    return ans
 
 
 

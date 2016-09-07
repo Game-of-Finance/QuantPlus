@@ -25,7 +25,7 @@ def getSingleStock(id,start,end):
         df=pd.DataFrame(ans)
         df['date']=pd.DatetimeIndex(df['date'])
         df.set_index('date', drop=True, inplace=True)
-    return df
+        return df
     except :
         time.sleep(0.05)
         return getSingleStock(id, start, end)
@@ -44,3 +44,26 @@ def getStockList():
     for obj in sz:
         ans.append(obj['name'])
     return ans
+
+def getBenchMark(start,end=datetime.now(),id='hs300'):
+    url=URL+'benchmark/'+id
+    s=requests.session()
+    s.keep_alive=False
+    response=requests.get(url=url,params=buildfield(start, end),headers=header)
+    try:
+        ans=response.json()['data']['trading_info']
+        print ans.text
+        df=pd.DataFrame(ans)
+        df['date']=pd.DatetimeIndex(df['date'])
+        df.set_index('date', drop=True, inplace=True)
+        return df
+    except :
+        time.sleep(0.05)
+        return getSingleStock(id, start, end)
+
+def getBenchFromts(start,end=datetime.now(),id='hs300'):
+    import tushare as ts
+    ans=ts.get_hist_data('hs300', start.strftime('%Y-%m-%d'), end.strftime('%Y-%m-%d'))
+    return  ans
+
+

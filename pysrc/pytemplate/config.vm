@@ -53,6 +53,7 @@ def getTimeConfig():
     period="$root.selectTime.condition.c_MA.period"
     shortMA=$root.selectTime.condition.c_MA.shortMA
     longMA=$root.selectTime.condition.c_MA.longMA
+
     select_c.append([name,period,shortMA,longMA])
     #end
     #if( $root.selectTime.condition.c_MACD)
@@ -62,7 +63,8 @@ def getTimeConfig():
     period = "$root.selectTime.condition.c_MACD.period"
     shortDIF =$root.selectTime.condition.c_MACD.shortDIF
     longDIF =$root.selectTime.condition.c_MACD.longDIF
-    select_c.append([name,period,shortDIF,longDIF])
+    DEA =$root.selectTime.condition.c_MACD.DEA
+    select_c.append([name,period,shortDIF,longDIF,DEA])
     #end
     #if( $root.selectTime.condition.c_DMA)
 
