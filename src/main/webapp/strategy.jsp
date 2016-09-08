@@ -36,17 +36,19 @@
 	<script type="text/javascript">
 		function addFilter(btn){
 			$("#shaixuantiaojian").
-			append("<tr>"+
+			append("<tr id="+btn.value+">"+
 			"<td id='指标'>"+btn.value+"</td>"+
 			"<td id='比较符'>"+'>'+"</td>"+
 			"<td id='范围'>"+'0.0'+"</td>"+
 			"<td id='值'>"+'0.5'+"</td>"+
-			"<td><input type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter(this)'></input>"+
+			"<td><input id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter(this)'></input>"+
 			"</tr>");
 		}
 		
 		function delFilter(button){
-			alert(button.id)
+			var name=button.id
+			$('#'+name).remove()
+			
 		}
 	</script>
 
