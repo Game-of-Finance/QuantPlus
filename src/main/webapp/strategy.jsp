@@ -34,8 +34,19 @@
     </script>
 
 	<script type="text/javascript">
-		function add(name){
-			$("#shaixuantiaojian").append("<tr><td>…</td><td>…</td><td>…</td><td>…</td><td><button type=\"button\" class=\"glyphicon glyphicon-remove\"></button> </tr>");
+		function addFilter(btn){
+			$("#shaixuantiaojian").
+			append("<tr>"+
+			"<td id='指标'>"+btn.value+"</td>"+
+			"<td id='比较符'>"+'>'+"</td>"+
+			"<td id='范围'>"+'0.0'+"</td>"+
+			"<td id='值'>"+'0.5'+"</td>"+
+			"<td><input type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter(this)'></input>"+
+			"</tr>");
+		}
+		
+		function delFilter(button){
+			alert(button.id)
 		}
 	</script>
 
@@ -139,42 +150,42 @@
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <!--行情，基本面，增长，情绪四个选股指标-->
-
+										<!--value代表项目的名称  -->
                                         <!--这边的css最好要写一下-->
                                         <!--行情-->
                                         <div role="tabpanel" class="tab-pane active" id="index1">
-                                            <button type="button" class="btn btn-default" id="zhibiao1">指标1</button>
-                                            <button type="button" class="btn btn-default" onclick="add('行情指标2')">指标2</button>
+                                            <input value='指标1' type="button" class="btn btn-default" id="zhibiao1" onclick="addFilter(this)"></input>
+                                            <input value='指标2' type="button" class="btn btn-default" onclick="addFilter(this)"></input>
                                         </div>
                                         <!--基本面-->
                                         <div role="tabpanel" class="tab-pane" id="index2">
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='基本面1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='基本面2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='基本面3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"  onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='基本面4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='基本面5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
                                         </div>
                                         <!--增长-->
                                         <div role="tabpanel" class="tab-pane" id="index3">
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='行情1'  type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='行情2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='行情3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='行情4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='行情5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
                                         </div>
                                         <!--情绪-->
                                         <div role="tabpanel" class="tab-pane" id="index4">
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='情绪1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
 
                                         </div>
                                     </div>
@@ -209,7 +220,7 @@
                                                     <td>测试</td>
                                                     <td>
                                                         测试
-                                                        <%--<button type="button" class="glyphicon glyphicon-remove"  id="btn" onclick="del(button)"></button>--%>
+                                                        <input type="button" class="glyphicon glyphicon-remove"  id="btn" onclick="delFilter(this)"></input>
                                                     </td>
                                                 </tr>
                                             </table>
