@@ -1,0 +1,1439 @@
+body {
+    background-color: #ededed;
+    color: #000
+}
+
+#title-cnt {
+    margin-bottom: 10px
+}
+
+.title {
+    font-weight: 700
+}
+
+.user-low {
+    margin: 10px 0
+}
+
+input {
+    border: solid #e5e5e5 1px
+}
+
+.glyphicon {
+    color: #999
+}
+
+#main-cnt {
+    padding-left: 5px;
+    padding-right: 5px
+}
+
+#stockScreen-top-bar {
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    padding: 8px;
+    margin-bottom: 5px;
+    overflow: hidden
+}
+
+#stockScreen-top-bar .title {
+    float: left
+}
+
+#stockScreen-top-bar .name-cnt, #stockScreen-top-bar .glyphicon-edit {
+    line-height: 33px;
+    float: right
+}
+
+#stockScreen-top-bar .glyphicon-edit {
+    cursor: pointer;
+    margin-left: 5px;
+    color: #4890c8
+}
+
+#stockScreen-top-bar .name-cnt {
+    float: left;
+    padding-left: 20px
+}
+
+#stockScreen-top-bar .name-cnt .name {
+    font-size: 18px
+}
+
+#stockScreen-top-bar .name-cnt .glyphicon-edit {
+    display: none
+}
+
+#stockScreen-top-bar .action {
+    float: right;
+    padding: 10px 20px;
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 0 !important;
+    cursor: pointer;
+    color: #4890c8
+}
+
+#stockScreen-top-bar .action:hover {
+    background-color: #eee
+}
+
+#stockScreen-top-bar .action.disable {
+    cursor: default
+}
+
+#stockScreen-top-bar .action.greyout {
+    cursor: default;
+    color: #aaa
+}
+
+#stockScreen-top-bar .action.greyout:hover {
+    background-color: #fff
+}
+
+#stockScreen-top-bar .action.grayout {
+    color: #333;
+    cursor: default
+}
+
+#stockScreen-top-bar .action.saveas {
+    display: none
+}
+
+#stockScreen-range a.switch {
+    cursor: pointer
+}
+
+#stockScreen-range .radio-inline {
+    top: 2px
+}
+
+#stockScreen-range .pool-sel {
+    float: left;
+    width: 100px;
+    margin-right: 20px;
+    height: 26px
+}
+
+#stockScreen-range .asset {
+    display: none;
+    cursor: pointer
+}
+
+#stockScreen-range .asset .glyphicon {
+    margin-left: 10px
+}
+
+#stockScreen-range .asset:hover {
+    background-color: #eee;
+    border-radius: 3px
+}
+
+#stockScreen-range .asset-content {
+    display: none;
+    margin-left: 20px
+}
+
+#stockScreen-range .asset-content table th {
+    text-align: center
+}
+
+#stockScreen-range .asset-content table td {
+    padding-left: 20px;
+    text-align: center
+}
+
+#stockScreen-range .asset-content table td.name {
+    max-width: 320px;
+    word-break: break-all
+}
+
+#stockScreen-range .asset-content table tbody td {
+    padding-top: 10px
+}
+
+#stockScreen-range .default-cnt {
+    overflow: hidden;
+    float: left;
+    zoom: 1;
+    margin-top: 10px;
+    margin-right: 50px
+}
+
+#stockScreen-range .default-cnt > div {
+    float: left
+}
+
+#stockScreen-range .default-cnt > div > span {
+    float: left;
+    margin-right: 20px;
+    line-height: 26px
+}
+
+#stockScreen-range .default-cnt > div > select {
+    margin-right: 50px;
+    float: left;
+    width: 100px;
+    height: 26px
+}
+
+#stockScreen-range .default-cnt > div > input {
+    margin: 0 10px;
+    height: 26px;
+    float: left
+}
+
+#stockScreen-range .default-cnt > div.st {
+    display: none
+}
+
+#stockScreen-range .default-cnt .dynamic-cnt {
+    margin-right: 20px
+}
+
+#stockScreen-range .default-cnt button {
+    padding: 2px 12px
+}
+
+#stockScreen-range .default-cnt button .glyphicon {
+    padding-left: 33px;
+    top: 3px
+}
+
+#stockScreen-range .pool-cnt {
+    display: none;
+    overflow: hidden;
+    float: left;
+    margin-top: 10px;
+    margin-right: 50px;
+    width: 500px
+}
+
+#stockScreen-range .pool-cnt span, #stockScreen-range .pool-cnt select {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    max-width: 200px
+}
+
+#stockScreen-range .pool-cnt .glyphicon {
+    margin-left: 20px
+}
+
+#stockScreen-range .pool-cnt .save-current, #stockScreen-range .pool-cnt .create-new {
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 0 20px;
+    border-radius: 4px
+}
+
+#stockScreen-range .pool-cnt .save-current:hover, #stockScreen-range .pool-cnt .create-new:hover {
+    background-color: #eee
+}
+
+#setting-screen-cnt, #setting-timing-cnt, #setting-trading-cnt {
+    margin: 0
+}
+
+#setting-screen-cnt .col-md-6, #setting-timing-cnt .col-md-6, #setting-trading-cnt .col-md-6 {
+    border: 0;
+    padding: 0
+}
+
+#setting-trading-cnt .mode-sel {
+    border-bottom: solid #e5e5e5 1px
+}
+
+#setting-trading-cnt .mode-sel .radio-inline {
+    top: 2px;
+    padding-right: 6px
+}
+
+#setting-trading-cnt .mode-sel .radio-inline .glyphicon {
+    top: 2px;
+    padding-left: 5px
+}
+
+#setting-trading-cnt .mode-sel .radio-inline .roma-txt {
+    font-family: Georgia
+}
+
+#setting-trading-cnt .setting-para-cnt.mode2.sell {
+    border-left: solid #e5e5e5 1px;
+    overflow-y: auto
+}
+
+#setting-trading-cnt .buysell-item {
+    padding: 5px 0;
+    width: 100%
+}
+
+#setting-trading-cnt .buysell-item .name {
+    min-width: 150px
+}
+
+#setting-trading-cnt .buysell-item select {
+    min-width: 60px;
+    margin-right: 30px
+}
+
+#setting-trading-cnt .buysell-item span, #setting-trading-cnt .buysell-item select,
+#setting-trading-cnt .buysell-item input {
+    height: 26px;
+    line-height: 26px
+}
+
+#setting-trading-cnt .buysell-item .toggle {
+    float: right
+}
+
+#setting-trading-cnt .stock-position-idea .warning {
+    display: none;
+    color: red
+}
+
+.nav-tabs {
+    margin-top: 10px
+}
+
+.nav-tabs a {
+    cursor: pointer
+}
+
+.stock-factor-cnt {
+    border-top: solid #e5e5e5 1px;
+    background-color: #fff;
+    padding: 10px
+}
+
+.stock-factor-cnt .detail-cnt {
+    max-height: 200px;
+    overflow-y: auto
+}
+
+.stock-factor-cnt .detail-cnt .sub-detail-cnt {
+    display: none;
+    position: absolute;
+    border: solid #e5e5e5 2px;
+    background-color: #fff;
+    border-radius: 3px;
+    z-index: 2
+}
+
+.stock-factor-cnt .detail-cnt .sub-detail-cnt .icon {
+    position: relative;
+    width: 18px;
+    height: 14px;
+    margin-top: -12px;
+    background-image: url(/static/images/arrowUP1.png);
+    background-size: cover
+}
+
+.stock-factor-cnt .detail-cnt button {
+    margin: 1px 20px 1px 0;
+    width: 160px;
+    text-align: left;
+    border: 0
+}
+
+.stock-factor-cnt .detail-cnt button .glyphicon {
+    float: right;
+    margin-top: 2px;
+    margin-right: 10px
+}
+
+.stock-factor-cnt .detail-cnt button .txt {
+    float: left;
+    left: 0;
+    max-width: 120px;
+    color: #000
+}
+
+.stock-factor-cnt .detail-cnt button.greyout span {
+    color: #888
+}
+
+.stock-factor-cnt .detail-cnt > .glyphicon {
+    float: right;
+    line-height: 34px;
+    cursor: pointer
+}
+
+.stock-factor-cnt .detail-cnt > .glyphicon span {
+    position: relative;
+    top: -2px
+}
+
+.stock-filter-cnt {
+    border-top: solid #e5e5e5 1px;
+    border-left: solid #e5e5e5 1px;
+    background-color: #fff;
+    padding: 10px;
+    overflow-y: auto;
+    height: 300px
+}
+
+.stock-filter-cnt .filter-cnt, .stock-filter-cnt .rank-cnt {
+    max-height: 200px
+}
+
+.stock-filter-cnt .filter-cnt, .stock-filter-cnt .rank-cnt, .stock-filter-cnt .timing-cnt {
+    min-height: 80px;
+    overflow-y: auto
+}
+
+.stock-filter-cnt .title {
+    float: left
+}
+
+.stock-filter-cnt .condition-header, .stock-filter-cnt .rank-header {
+    padding: 10px 0 0;
+    overflow: hidden
+}
+
+.stock-filter-cnt .condition-header span, .stock-filter-cnt .rank-header span {
+    font-weight: 700
+}
+
+.stock-filter-cnt .condition-item {
+    margin-top: 3px;
+    overflow: hidden
+}
+
+.stock-filter-cnt .condition-item .name .txt, .stock-filter-cnt .condition-item .para {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    overflow: hidden
+}
+
+.stock-filter-cnt .condition-item select, .stock-filter-cnt .condition-item input {
+    height: 26px
+}
+
+.stock-filter-cnt .condition-item input[type=checkbox] {
+    margin: 0;
+    width: 13px;
+    height: 26px
+}
+
+.stock-filter-cnt .condition-item .order select, .stock-filter-cnt .condition-item .range select,
+.stock-filter-cnt .condition-item .operator select {
+    max-width: 100px
+}
+
+.stock-filter-cnt .condition-item input {
+    padding: 0 10px;
+    max-width: 80px;
+    text-align: left
+}
+
+.stock-filter-cnt .condition-item .values .value1, .stock-filter-cnt .condition-item .values span {
+    display: inline-block
+}
+
+.stock-filter-cnt .condition-item .values .unit, .stock-filter-cnt .condition-item .values .unit1 {
+    padding: 0 3px;
+    min-width: 20px;
+    line-height: 26px
+}
+
+.stock-filter-cnt .condition-item .delete, .stock-filter-cnt .condition-item .edit {
+    margin-top: 5px;
+    cursor: pointer
+}
+
+.stock-filter-cnt .condition-item .glyphicon-stats {
+    float: left;
+    margin-top: 5px;
+    margin-right: 5px;
+    cursor: pointer
+}
+
+.stock-filter-cnt .name {
+    float: left;
+    width: 150px;
+    text-align: left
+}
+
+.stock-filter-cnt .operator, .stock-filter-cnt .values, .stock-filter-cnt .delete,
+.stock-filter-cnt .order, .stock-filter-cnt .range, .stock-filter-cnt .weight,
+.stock-filter-cnt .edit, .stock-filter-cnt .para {
+    float: left;
+    width: 50px;
+    height: 26px;
+    text-align: left
+}
+
+.stock-filter-cnt .nav-tabs .glyphicon {
+    display: none;
+    float: right;
+    margin-left: 5px;
+    margin-top: 2px
+}
+
+.stock-filter-cnt .nav-tabs a {
+    overflow: hidden
+}
+
+#stockScreen-result {
+    margin-top: 5px;
+    border: solid #e5e5e5 1px;
+    background-color: #fff
+}
+
+#stockScreen-result #screen-result-cnt {
+    padding: 10px
+}
+
+#stockScreen-result #screen-result-cnt > .config {
+    overflow: hidden;
+    margin-bottom: 10px
+}
+
+#stockScreen-result #screen-result-cnt > .config .result {
+    float: left;
+    line-height: 35px
+}
+
+#stockScreen-result #screen-result-cnt > .config .date-txt {
+    float: left;
+    line-height: 26px;
+    margin-right: 10px
+}
+
+#stockScreen-result #screen-result-cnt > .config .input-group.form_date {
+    float: left;
+    position: relative;
+    margin-right: 20px;
+    top: -5px;
+    width: 150px
+}
+
+#stockScreen-result #screen-result-cnt > .config .input-group.form_date input {
+    padding-left: 10px
+}
+
+#stockScreen-result #screen-result-cnt > .config .btn {
+    float: left
+}
+
+#stockScreen-result #screen-result-cnt > .config > span, #stockScreen-result #screen-result-cnt > .config > div,
+#stockScreen-result #screen-result-cnt > .config > button {
+    margin-top: 10px;
+    float: left
+}
+
+#stockScreen-result #screen-result-cnt > .hint {
+    display: none;
+    color: #f55253
+}
+
+#stockScreen-result #screen-result-cnt > .result {
+    overflow: hidden;
+    display: none
+}
+
+#stockScreen-result #screen-result-cnt > .result .result, #stockScreen-result #screen-result-cnt > .result .result-timing {
+    float: left;
+    margin: 10px 0
+}
+
+#stockScreen-result #screen-result-cnt > .result #screen-grid {
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 500px
+}
+
+#stockScreen-result #backtest-cnt .nav-pills li {
+    cursor: pointer
+}
+
+#stockScreen-result #backtest-cnt .nav-pills li.active a {
+    background-color: #4890c8
+}
+
+#stockScreen-result #backtest-cnt .result-part1 > div {
+    height: 160px
+}
+
+#stockScreen-result #backtest-cnt .result-part1 .trade-stat-grid {
+    padding: 40px
+}
+
+#stockScreen-result #backtest-cnt .result-part2 .profitMonthly-chart,
+#stockScreen-result #backtest-cnt .result-part2 .profitChart-chart {
+    height: 550px
+}
+
+#stockScreen-result #backtest-cnt .result-part2 .profitMonthly-chart {
+    padding-top: 80px
+}
+
+#stockScreen-result #backtest-cnt .result-part2 .winRate-chart,
+#stockScreen-result #backtest-cnt .result-part2 .profitMonthly-chart {
+    position: relative
+}
+
+#stockScreen-result #backtest-cnt .result-part2 .winRate-chart .content-cnt {
+    position: absolute;
+    width: 100%;
+    z-index: 50;
+    margin-left: 15px;
+    padding-top: 35px;
+    padding-bottom: 35px
+}
+
+#stockScreen-result #backtest-cnt .result-part2 .winRate-chart .content-cnt p {
+    margin-left: 30px
+}
+
+#stockScreen-result #backtest-cnt .result-part2 .winRate-chart,
+#stockScreen-result #backtest-cnt .result-part2 .profitMonthly-chart {
+    display: none
+}
+
+#stockScreen-result #backtest-cnt .result-part3 > div {
+    height: 500px;
+    overflow-y: auto
+}
+
+#stockScreen-result #backtest-cnt .result-part3 .backup-tip {
+    display: none
+}
+
+#stockScreen-result #backtest-cnt .result-part3 .trade-suggestion-grid,
+#stockScreen-result #backtest-cnt .result-part3 .trade-history-grid {
+    padding-top: 30px
+}
+
+#stockScreen-result #backtest-cnt, #stockScreen-result #ranktest-cnt {
+    display: none;
+    overflow: hidden
+}
+
+#stockScreen-result #backtest-cnt .user-low-cnt, #stockScreen-result #ranktest-cnt .user-low-cnt {
+    margin: 0 10px;
+    display: none
+}
+
+#stockScreen-result #backtest-cnt .result-part1, #stockScreen-result #backtest-cnt .result-part2,
+#stockScreen-result #backtest-cnt .result-part3, #stockScreen-result #ranktest-cnt .result-part1,
+#stockScreen-result #ranktest-cnt .result-part2, #stockScreen-result #ranktest-cnt .result-part3 {
+    overflow: hidden;
+    border-top: 2px solid #e5e5e5;
+    padding: 20px
+}
+
+#stockScreen-result #backtest-cnt .result-part1 > .title, #stockScreen-result #backtest-cnt .result-part2 > .title,
+#stockScreen-result #backtest-cnt .result-part3 > .title, #stockScreen-result #ranktest-cnt .result-part1 > .title,
+#stockScreen-result #ranktest-cnt .result-part2 > .title, #stockScreen-result #ranktest-cnt .result-part3 > .title {
+    float: left
+}
+
+#stockScreen-result #backtest-cnt .result-part1 .stat-calc span,
+#stockScreen-result #backtest-cnt .result-part2 .stat-calc span, #stockScreen-result #backtest-cnt .result-part3 .stat-calc span,
+#stockScreen-result #ranktest-cnt .result-part1 .stat-calc span, #stockScreen-result #ranktest-cnt .result-part2 .stat-calc span,
+#stockScreen-result #ranktest-cnt .result-part3 .stat-calc span {
+    line-height: 34px;
+    float: left
+}
+
+#stockScreen-result #backtest-cnt .result-part1 .stat-calc select,
+#stockScreen-result #backtest-cnt .result-part2 .stat-calc select,
+#stockScreen-result #backtest-cnt .result-part3 .stat-calc select,
+#stockScreen-result #ranktest-cnt .result-part1 .stat-calc select,
+#stockScreen-result #ranktest-cnt .result-part2 .stat-calc select,
+#stockScreen-result #ranktest-cnt .result-part3 .stat-calc select {
+    width: 160px
+}
+
+#stockScreen-result #backtest-cnt .result-part1 .clear, #stockScreen-result #backtest-cnt .result-part2 .clear,
+#stockScreen-result #backtest-cnt .result-part3 .clear, #stockScreen-result #ranktest-cnt .result-part1 .clear,
+#stockScreen-result #ranktest-cnt .result-part2 .clear, #stockScreen-result #ranktest-cnt .result-part3 .clear {
+    border-bottom: 1px solid #eee !important;
+    width: 25%
+}
+
+#stockScreen-result #backtest-cnt > .config, #stockScreen-result #ranktest-cnt > .config {
+    overflow: hidden;
+    margin: 10px 15px
+}
+
+#stockScreen-result #backtest-cnt > .config > button, #stockScreen-result #backtest-cnt > .config > span,
+#stockScreen-result #backtest-cnt > .config > div, #stockScreen-result #ranktest-cnt > .config > button,
+#stockScreen-result #ranktest-cnt > .config > span, #stockScreen-result #ranktest-cnt > .config > div {
+    margin-top: 10px;
+    float: left
+}
+
+#stockScreen-result #backtest-cnt > .config > span, #stockScreen-result #ranktest-cnt > .config > span {
+    line-height: 26px
+}
+
+#stockScreen-result #backtest-cnt > .config .time-range, #stockScreen-result #ranktest-cnt > .config .time-range {
+    margin-right: 10px
+}
+
+#stockScreen-result #backtest-cnt > .config .time-range > span, #stockScreen-result #ranktest-cnt > .config .time-range > span {
+    line-height: 26px;
+    float: left
+}
+
+#stockScreen-result #backtest-cnt > .config .time-range > span.between,
+#stockScreen-result #ranktest-cnt > .config .time-range > span.between {
+    margin: 0 5px
+}
+
+#stockScreen-result #backtest-cnt > .config .input-group.date, #stockScreen-result #ranktest-cnt > .config .input-group.date {
+    float: left;
+    width: 150px
+}
+
+#stockScreen-result #backtest-cnt > .config .input-group.date input,
+#stockScreen-result #ranktest-cnt > .config .input-group.date input {
+    padding-left: 10px
+}
+
+#stockScreen-result #backtest-cnt > .config .advanced-toggle, #stockScreen-result #ranktest-cnt > .config .advanced-toggle {
+    text-decoration: underline;
+    cursor: pointer
+}
+
+#stockScreen-result #backtest-cnt > .config .advanced-toggle:hover,
+#stockScreen-result #ranktest-cnt > .config .advanced-toggle:hover {
+    color: #4890c8
+}
+
+#stockScreen-result #backtest-cnt > .advanced-config, #stockScreen-result #ranktest-cnt > .advanced-config {
+    display: none;
+    overflow: hidden;
+    margin: 10px 15px
+}
+
+#stockScreen-result #backtest-cnt > .advanced-config .clear, #stockScreen-result #ranktest-cnt > .advanced-config .clear {
+    height: 10px
+}
+
+#stockScreen-result #backtest-cnt > .hint, #stockScreen-result #ranktest-cnt > .hint {
+    display: none;
+    margin-left: 15px;
+    color: #f55253
+}
+
+#stockScreen-result #backtest-cnt > .explain, #stockScreen-result #ranktest-cnt > .explain {
+    margin-left: 15px
+}
+
+#stockScreen-result #backtest-cnt > .result, #stockScreen-result #ranktest-cnt > .result {
+    display: none;
+    position: relative;
+    top: 10px;
+    width: 100%
+}
+
+#stockScreen-result #backtest-cnt > .result .timing-check-cnt, #stockScreen-result #backtest-cnt > .result .number-relative-cnt,
+#stockScreen-result #backtest-cnt > .result .axis-log-cnt, #stockScreen-result #ranktest-cnt > .result .timing-check-cnt,
+#stockScreen-result #ranktest-cnt > .result .number-relative-cnt,
+#stockScreen-result #ranktest-cnt > .result .axis-log-cnt {
+    float: right;
+    position: relative;
+    top: 40px;
+    margin-right: 30px;
+    z-index: 3
+}
+
+#stockScreen-result #backtest-cnt .submit, #stockScreen-result #ranktest-cnt .submit {
+    overflow: hidden
+}
+
+#stockScreen-result #backtest-cnt .submit > button, #stockScreen-result #ranktest-cnt .submit > button {
+    float: left;
+    margin: 0 0 10px 10px
+}
+
+#stockScreen-result #backtest-cnt .submit > span, #stockScreen-result #backtest-cnt .submit > p,
+#stockScreen-result #ranktest-cnt .submit > span, #stockScreen-result #ranktest-cnt .submit > p {
+    padding-left: 5px;
+    float: left;
+    line-height: 34px
+}
+
+#stockScreen-result .export {
+    cursor: pointer;
+    float: right
+}
+
+#setting-wrapper {
+    border: solid #e5e5e5 1px;
+    background-color: #fff
+}
+
+.setting-para-cnt {
+    background-color: #fff;
+    padding: 10px;
+    overflow: hidden
+}
+
+.setting-para-cnt .title {
+    float: left
+}
+
+.setting-para-cnt > button, .setting-para-cnt > span, .setting-para-cnt > div {
+    float: left
+}
+
+.setting-para-cnt > span {
+    line-height: 26px
+}
+
+.setting-para-cnt .clear {
+    width: 100%;
+    height: 8px
+}
+
+.setting-item-cnt {
+    float: left;
+    overflow: hidden;
+    margin-right: 30px
+}
+
+.setting-item-cnt span {
+    float: left;
+    line-height: 26px
+}
+
+.setting-item-cnt select {
+    float: left;
+    width: 120px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 26px;
+    line-height: 26px
+}
+
+.setting-item-cnt input {
+    float: left;
+    margin: 0 10px;
+    padding: 5px;
+    width: 40px;
+    border-radius: 3px;
+    height: 26px;
+    line-height: 26px
+}
+
+.setting-item-cnt input[type=checkbox] {
+    width: 13px
+}
+
+.setting-item-cnt .glyphicon-info-sign {
+    margin-left: 5px
+}
+
+.setting-item-cnt.mode2 select {
+    width: 135px
+}
+
+.setting-item-cnt.stock-hold-cash select {
+    width: 185px
+}
+
+.hide {
+    display: none
+}
+
+#result-nav-cnt, #setting-nav-cnt {
+    position: relative;
+    vertical-align: middle;
+    min-height: 41px;
+    line-height: 1;
+    border-bottom: solid #e5e5e5 1px;
+    background-image: -ms-linear-gradient(top, #fff, #f9f9f9);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#f9f9f9));
+    background-image: -moz-linear-gradient(top, #fff, #f9f9f9);
+    background-image: -o-linear-gradient(top, #fff, #f9f9f9);
+    background-image: linear-gradient(top, #fff, #f9f9f9)
+}
+
+#result-nav-cnt a, #setting-nav-cnt a {
+    position: relative;
+    float: left;
+    padding: 0 20px;
+    min-height: 40px;
+    line-height: 40px;
+    color: #000;
+    border-right: 1px solid #e5e5e5;
+    cursor: pointer;
+    text-decoration: none
+}
+
+#result-nav-cnt a.active, #setting-nav-cnt a.active {
+    background: #4890c8;
+    color: #FFF
+}
+
+#result-nav-cnt a.normal:hover, #setting-nav-cnt a.normal:hover {
+    background: #EBEBEB;
+    background-image: -ms-linear-gradient(top, #fff, #EBEBEB);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#EBEBEB));
+    background-image: -moz-linear-gradient(top, #fff, #EBEBEB);
+    background-image: -o-linear-gradient(top, #fff, #EBEBEB);
+    background-image: linear-gradient(top, #fff, #EBEBEB)
+}
+
+#backtest-summary-grid {
+    position: relative;
+    top: 30px;
+    width: 100%;
+    height: 140px
+}
+
+#backtest-chart, #ranktest-yearly-chart, #ranktest-daily-chart {
+    position: relative;
+    top: 40px;
+    margin: 20px 0 60px;
+    width: 100%;
+    height: 400px
+}
+
+#backtest-detail-grid {
+    position: relative;
+    top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    height: 400px
+}
+
+#backtest-stock-detail-cnt {
+    display: none
+}
+
+#backtest-stock-detail-cnt .modal-dialog {
+    width: 900px;
+    height: 700px
+}
+
+#backtest-stock-detail-grid {
+    position: relative;
+    top: 5px;
+    width: 500px;
+    height: 300px
+}
+
+#derived-editor .modal-dialog {
+    width: 760px
+}
+
+#derived-editor .modal-body {
+    overflow: hidden;
+    width: 760px
+}
+
+#derived-editor .modal-body > div {
+    display: inline-block;
+    overflow: hidden;
+    padding: 0 20px;
+    width: 280px;
+    height: 360px
+}
+
+#derived-editor .modal-body .left-cnt > div {
+    overflow: hidden
+}
+
+#derived-editor .modal-body .left-cnt .add-cnt {
+    border-radius: 3px;
+    cursor: pointer
+}
+
+#derived-editor .modal-body .left-cnt .add-cnt:hover {
+    background-color: #eee
+}
+
+#derived-editor .modal-body .left-cnt span {
+    line-height: 34px
+}
+
+#derived-editor .modal-body .left-cnt .glyphicon-remove {
+    float: right
+}
+
+#derived-editor .modal-body .left-cnt .measure-list {
+    border: solid #e5e5e5 1px;
+    border-radius: 3px;
+    padding: 10px 0;
+    height: 290px;
+    overflow-y: auto
+}
+
+#derived-editor .modal-body .left-cnt .measure-list .measure {
+    cursor: pointer;
+    padding: 0 10px
+}
+
+#derived-editor .modal-body .left-cnt .measure-list .measure .name {
+    max-width: 200px
+}
+
+#derived-editor .modal-body .left-cnt .measure-list .measure:hover,
+#derived-editor .modal-body .left-cnt .measure-list .measure.highlight {
+    background-color: #eee
+}
+
+#derived-editor .modal-body .right-cnt {
+    width: 420px;
+    border-left: solid #e5e5e5 1px
+}
+
+#derived-editor .modal-body .right-cnt .edit-ctl {
+    display: none
+}
+
+#derived-editor .modal-body .right-cnt select, #derived-editor .modal-body .right-cnt span {
+    float: left;
+    line-height: 34px
+}
+
+#derived-editor .modal-body .right-cnt select {
+    width: 300px
+}
+
+#derived-editor .modal-body .right-cnt input, #derived-editor .modal-body .right-cnt textarea {
+    margin: 5px 0
+}
+
+#derived-editor .modal-body .right-cnt textarea {
+    border: solid #e5e5e5 1px;
+    height: 70px;
+    resize: none
+}
+
+#derived-editor .modal-body .right-cnt textarea.expr {
+    height: 120px
+}
+
+#derived-editor .modal-body .right-cnt textarea.desc {
+    height: 50px
+}
+
+#derived-editor .modal-body .right-cnt .name, #derived-editor .modal-body .right-cnt .expr,
+#derived-editor .modal-body .right-cnt .items {
+    margin-left: 28px
+}
+
+#derived-editor .modal-body .right-cnt .format-prefix, #derived-editor .modal-body .right-cnt .format-precision {
+    width: 100px;
+    margin-left: 15px
+}
+
+#derived-editor .modal-body .right-cnt .name, #derived-editor .modal-body .right-cnt .expr,
+#derived-editor .modal-body .right-cnt .desc {
+    width: 270px
+}
+
+#derived-editor .modal-body .right-cnt .initial-msg {
+    line-height: 300px
+}
+
+#derived-editor .modal-body .right-cnt .warn {
+    display: none;
+    line-height: 34px
+}
+
+#derived-editor .modal-body .right-cnt .detail-explain {
+    position: relative;
+    left: 100px;
+    width: 270px;
+    color: #999;
+    font-size: 11px
+}
+
+#derived-editor .modal-body .right-cnt > button {
+    position: absolute;
+    margin-right: 10px;
+    bottom: 20px
+}
+
+#derived-editor .modal-body .right-cnt > button.grey {
+    cursor: default;
+    background-color: #ccc;
+    border-color: #ccc
+}
+
+#derived-editor .modal-body .right-cnt .save {
+    right: 380px
+}
+
+#derived-editor .modal-body .right-cnt .reset {
+    right: 300px
+}
+
+#derived-editor .modal-body .right-cnt .closee {
+    right: 40px
+}
+
+#asset-editor .modal-dialog {
+    width: 800px
+}
+
+#asset-editor .modal-body {
+    overflow: hidden
+}
+
+#asset-editor .modal-body .warning {
+    color: red;
+    display: none
+}
+
+#asset-editor .modal-body .left-cnt {
+    float: left;
+    border-right: 1px solid #e5e5e5;
+    width: 40%
+}
+
+#asset-editor .modal-body .left-cnt .content {
+    height: 150px;
+    overflow-y: auto
+}
+
+#asset-editor .modal-body .left-cnt .content .item {
+    cursor: pointer;
+    padding-bottom: 5px;
+    word-break: break-all
+}
+
+#asset-editor .modal-body .left-cnt .content .item:hover {
+    background-color: #f1f1f1
+}
+
+#asset-editor .modal-body .left-cnt .created-list {
+    border-bottom: 1px solid #e5e5e5
+}
+
+#asset-editor .modal-body .left-cnt .mall-list {
+    border-bottom: 1px solid #e5e5e5;
+    margin-top: 10px
+}
+
+#asset-editor .modal-body .left-cnt .etf-list {
+    margin-top: 10px;
+    height: 180px
+}
+
+#asset-editor .modal-body .left-cnt .etf-list .stock-select-input {
+    width: 200px
+}
+
+#asset-editor .modal-body .left-cnt .etf-list .glyphicon-arrow-right {
+    float: right;
+    margin-right: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #4890c8
+}
+
+#asset-editor .modal-body .left-cnt .etf-list .glyphicon-arrow-right.disable {
+    color: #9e9e9e
+}
+
+#asset-editor .modal-body .left-cnt #stock-list {
+    display: none;
+    list-style-type: none;
+    z-index: 100;
+    border: solid #e5e5e5 1px;
+    background-color: #fff;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    padding: 0
+}
+
+#asset-editor .modal-body .left-cnt #stock-list li {
+    padding: 1px 5px;
+    cursor: pointer
+}
+
+#asset-editor .modal-body .left-cnt #stock-list li.selected {
+    background-color: #ededed
+}
+
+#asset-editor .modal-body .right-cnt {
+    float: right;
+    width: 60%
+}
+
+#asset-editor .modal-body .right-cnt .selected-list {
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 200px;
+    overflow-y: auto;
+    border-bottom: 1px solid #e5e5e5
+}
+
+#asset-editor .modal-body .right-cnt .selected-list table {
+    width: 100%
+}
+
+#asset-editor .modal-body .right-cnt .selected-list table tbody input {
+    width: 30px
+}
+
+#asset-editor .modal-body .right-cnt .selected-list table tbody .glyphicon-remove {
+    cursor: pointer
+}
+
+#asset-editor .modal-body .right-cnt .selected-list table tbody .name {
+    width: 150px;
+    word-break: break-all
+}
+
+#asset-editor .modal-body .right-cnt .result {
+    height: 270px;
+    overflow-y: auto
+}
+
+#asset-editor .modal-body .right-cnt .result .calc-sim {
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #4890c8;
+    color: #fff;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer
+}
+
+#asset-editor .modal-body .right-cnt .result .content {
+    padding-left: 10px;
+    padding-top: 10px
+}
+
+#asset-editor .modal-body .right-cnt .result .content table {
+    width: 100%
+}
+
+#asset-editor .modal-body .right-cnt .result .content table th, #asset-editor .modal-body .right-cnt .result .content table td {
+    padding-bottom: 10px
+}
+
+#asset-editor .modal-body .right-cnt .result .content table tbody tr td.name {
+    text-align: center;
+    font-weight: 700
+}
+
+#asset-editor .modal-body .right-cnt .err.warning, #asset-editor .modal-body .right-cnt button {
+    float: right;
+    margin-left: 5px
+}
+
+#time-box {
+    top: -5px;
+    height: 36px;
+    margin-right: 30px;
+    position: relative;
+    border: solid #e5e5e5 1px
+}
+
+#time-box > span {
+    float: left;
+    padding: 0 5px;
+    line-height: 34px;
+    margin-top: -1px
+}
+
+#time-box input {
+    height: 30px
+}
+
+#time-box .input-group {
+    margin-top: 2px
+}
+
+#time-box .glyphicon {
+    cursor: pointer
+}
+
+#time-box .glyphicon:hover {
+    background-color: #eee
+}
+
+#attrFilterEditor {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    border: solid #e5e5e5 1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background-color: #fff
+}
+
+#attrFilterEditor #attFilterList {
+    line-height: 20px;
+    text-align: left;
+    z-index: 99;
+    overflow-y: auto;
+    max-height: 400px;
+    font-size: 12px
+}
+
+#attrFilterEditor #attFilterList .itemCnt {
+    cursor: pointer;
+    max-width: 500px
+}
+
+#attrFilterEditor #attFilterList .itemCnt .indicator {
+    float: left;
+    margin-top: 2px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    background-image: url(/static/images/check.png);
+    background-size: cover
+}
+
+#attrFilterEditor #attFilterList .itemCnt .indicator.checked {
+    background-image: url(/static/images/check_h.png)
+}
+
+#attrFilterEditor #attFilterList .itemCnt label {
+    padding-left: 10px;
+    padding-right: 5px;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+    font-weight: 400
+}
+
+#attrFilterEditor #attFilterList .itemCnt .showBtn {
+    margin-right: 5px;
+    float: right;
+    cursor: pointer;
+    font-style: italic;
+    font-size: 14px;
+    color: #000
+}
+
+#attrFilterEditor #attFilterList .itemCnt .showBtn:hover {
+    color: #FFF !important;
+    background-color: #4890c8 !important
+}
+
+#timing-indicator-dialog .modal-body .zero input {
+    width: auto;
+    margin: 0 20px 0 0
+}
+
+#timing-indicator-dialog .modal-body > div > div {
+    margin-bottom: 10px
+}
+
+#timing-indicator-dialog .modal-body > div > div input {
+    width: 50px;
+    margin: 5px 5px 5px 0;
+    padding: 5px
+}
+
+#timing-indicator-dialog .modal-body > div > div .error {
+    display: none;
+    color: red
+}
+
+#timing-indicator-dialog .modal-body > div > div span {
+    line-height: 42px
+}
+
+#timing-indicator-dialog .modal-body span.leftName {
+    float: left;
+    width: 100px;
+    line-height: 42px
+}
+
+#timing-indicator-dialog .modal-body .index-box select, #timing-indicator-dialog .modal-body .period-box select,
+#timing-indicator-dialog .modal-body .range-box select {
+    width: 120px;
+    margin: 6px 0;
+    float: left
+}
+
+#timing-indicator-dialog .modal-body .pool {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px
+}
+
+#derived-warn, #rule-delete-warn, #strategy-save-warn {
+    max-width: 250px
+}
+
+#derived-warn button, #rule-delete-warn button, #strategy-save-warn button {
+    margin: 20px 10px 10px
+}
+
+#strategy-save-warn {
+    max-width: 300px
+}
+
+#strategy-desc-cnt {
+    display: none;
+    position: absolute;
+    max-width: 500px;
+    padding: 0 10px;
+    top: 116px;
+    right: 26px;
+    border-left: solid #e5e5e5 1px;
+    border-right: solid #e5e5e5 1px;
+    border-bottom: solid #e5e5e5 1px;
+    background-color: #F6F6F6;
+    z-index: 2
+}
+
+#strategy-desc-cnt > div {
+    margin: 10px 0
+}
+
+#backtest-tradeStat-grid .col {
+    float: left;
+    margin-right: 80px
+}
+
+#backtest-tradeStat-grid .gap {
+    padding-top: 8px
+}
+
+#backtest-tradeStat-grid .sub-title {
+    display: inline-block;
+    color: #626262
+}
+
+#backtest-tradeStat-grid .sub-detail {
+    margin-left: 5px;
+    color: #9e9e9e
+}
+
+#backtest-tradeStat-grid .num1 .sub-title {
+    width: 120px
+}
+
+#backtest-tradeStat-grid .num2 .sub-title {
+    width: 90px
+}
+
+#backtest-tradeStat-grid .glyphicon-info-sign {
+    margin-left: 15px
+}
+
+#backtest-tradeStat-grid .glyphicon {
+    color: #999
+}
+
+#backtest-recommand-grid, #backtest-trade-hist-grid {
+    position: relative;
+    top: 5px;
+    width: 100%;
+    height: 400px
+}
+
+

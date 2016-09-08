@@ -1,0 +1,30 @@
+.redsplit{
+    display: inline-block;
+    margin-top: 22px;
+    margin-left:-4px;
+    width: 0.63%;
+    height: 26px;
+    background-color: #dc1c10;
+}
+
+.number{
+    display: inline-block;
+    width: 7.4%;
+    height: 25px;
+    margin-top: 5px;
+    font-family: PingFangSC;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    color: #9a9a9a;
+}
+.myText{
+    display:inline-block;
+    height: 25px;
+    padding:0;
+    font-family: PingFangSC;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    vertical-align: top;
+    color: #676767;
+}
