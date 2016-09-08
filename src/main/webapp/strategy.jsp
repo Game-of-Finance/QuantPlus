@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,13 +86,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="index.html">首页</a></li>
+                <li><a href="index.jsp">首页</a></li>
                 <!--<li><a href="#">Link</a></li>-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="test2.html">优选策略</a></li>
-                        <li class="active"><a href="test.html">我的策略</a></li>
+                        <li><a href="topStrategy.jsp">优选策略</a></li>
+                        <li class="active"><a href="strategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -108,9 +109,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="community.html">社区</a></li>
-                <li><a href="login.html">登陆</a></li>
-                <li><a href="register.html">注册</a></li>
+                <li><a href="community.jsp">社区</a></li>
+                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
