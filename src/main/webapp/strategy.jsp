@@ -30,9 +30,14 @@
             // business logic...
             $btn.button('reset')
         })
+       
     </script>
 
-
+	<script type="text/javascript">
+		function add(name){
+			$("#shaixuantiaojian").append("<tr><td>…</td><td>…</td><td>…</td><td>…</td><td><button type=\"button\" class=\"glyphicon glyphicon-remove\"></button> </tr>");
+		}
+	</script>
 
     <script language="text/javascript">
 
@@ -139,7 +144,7 @@
                                         <!--行情-->
                                         <div role="tabpanel" class="tab-pane active" id="index1">
                                             <button type="button" class="btn btn-default" id="zhibiao1">指标1</button>
-                                            <button type="button" class="btn btn-default" onclick="add()">指标2</button>
+                                            <button type="button" class="btn btn-default" onclick="add('行情指标2')">指标2</button>
                                         </div>
                                         <!--基本面-->
                                         <div role="tabpanel" class="tab-pane" id="index2">
