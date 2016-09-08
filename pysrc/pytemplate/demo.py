@@ -7,48 +7,48 @@ def getSelectConfig():
     # filter 筛选
 
     filter_c=[]
-    
+
     #--------------------------cell--------------------------------
     name ="MACD"
     comparison=">"
     count=0
     cell1=[name,comparison,count]
-        
+
     filter_c.append(cell1)
-    
+
     #--------------------------cell--------------------------------
     name ="营业利润增长"
     comparison="<>"
     count=0
     cell2=[name,comparison,count]
-    
+
     count_low=0.2
     cell2.append(count_low)
-        
+
     count_upper=0.3
     cell2.append(count_upper)
-    
+
     filter_c.append(cell2)
-    
+
     #--------------------------cell--------------------------------
     name ="净利润增长"
     comparison="top"
     count=0
     cell3=[name,comparison,count]
-    
+
     count_low=10.0
     cell3.append(count_low)
-        
+
     count_upper=20.0
     cell3.append(count_upper)
-    
+
     filter_c.append(cell3)
-    
+
 
 
     # sort 排序
     sort_c=[]
-    
+
     #---------------------------------------------
 
     name ="流通市值"
@@ -56,7 +56,7 @@ def getSelectConfig():
     weight=1
     sort1=[name,order,weight]
     sort_c.append(sort1)
-    
+
     #---------------------------------------------
 
     name ="BBIC"
@@ -64,14 +64,14 @@ def getSelectConfig():
     weight=2
     sort2=[name,order,weight]
     sort_c.append(sort2)
-    
+
     return [filter_c,sort_c]
 
 # 择时函数
 def getTimeConfig():
     # condition 条件
     select_c=[]
-    
+
     # 1.has c_MA
     name="MA"
     period="day"
@@ -79,7 +79,7 @@ def getTimeConfig():
     longMA=60
 
     select_c.append([name,period,shortMA,longMA])
-        
+
     # 2.has c_MACD
     name = "MACD"
     period = "day"
@@ -87,34 +87,28 @@ def getTimeConfig():
     longDIF =26
     DEA =9
     select_c.append([name,period,shortDIF,longDIF,DEA])
-        
-    # 3.has c_DMA
-    name = "DMA"
-    period = "day"
-    shortMA =5
-    longMA =60
-    AMA =20
-    select_c.append([name,period,shortMA,longMA,AMA])
-        
+
     # 4. has c_TRIX
-        
+
     # 5.has c_MAVOL
-        
+
     # 6.has c_MABias
-        
+
     # 7. has c_PE
-        
+
     # 8.has c_PB
-        
+
     # 9.has c_PE2
-        
+
     # 10.has c_PB2
-    
+
     # parameter 参数
 
     bear_position =0
     bear_to_bull =-1
     bull_to_bear =3
+
+    return select_c
 
 # 交易
 def trade():
@@ -125,17 +119,17 @@ def trade():
     position_low =7
 
     # 买入限制
-    
+
     buy_limit = "排名名次"+"<="+"10"
-    
+
     # 卖出限制
-    
+
     sell_limit = "排名名次"+">="+"20"
-    
+
     sell_limit = "持有天数"+">="+"10"
-    
+
     sell_limit = "买入后涨幅(止盈)"+">="+"10"
-    
+
 from zipline.api import *
 from pdCal import *
 import pandas as pd
@@ -175,12 +169,12 @@ def ma_t(df,config,date):
 def macd_t(df,config,date):
     macd(df)
     dif,dea,macd=df['DIF','DEA','MACDBar'].iloc[[-1]]
-    return dif
+    return dif >= config[2] and dif <= config[3] and dea == config[4]
 
 def bench_t_s(config,date):
     conditions={'MA':ma_t,'MACD':macd_t}
     from AnyQuant import getBenchFromts
-    start=datetime.timedelta(60)
+    start=date-time.timedelta(60)
     df=getBenchFromts(start=start,end=date)
     ans=True
     for con in config:
@@ -190,7 +184,13 @@ def bench_t_s(config,date):
 
 
 
-
+def asset_sort(list,config,info):
+    map={}
+    for id in list:
+        num=info[['liquidAssets']][info.code == id]
+        map[id]=num
+    dict= sorted(map.iteritems(), key=lambda d:d[1], reverse = True)
+    return dict.keys()
 
 
 
@@ -217,7 +217,8 @@ def initialize(context):
     for cond in filt:
         id_list=conditions.get(cond[0])(id_list,cond)
 
-    context.select=id_list
+    context.select=asset_sort(id_list,None,stockinfo_df)
+    context.time_config=getTimeConfig()
 
 
 
@@ -226,3 +227,13 @@ def initialize(context):
 
 # 每天交易时
 def handle_data(context, data):
+    if bench_t_s(context.time_config,context.now) :
+        
+
+
+    list=context.select
+    newlist=asset_sort(list,None,stockinfo_df)
+    to_be_sold=[id for id in list if id not in newlist]
+    for id in to_be_sold:
+        #sell them
+        pass

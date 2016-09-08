@@ -37,7 +37,7 @@ def macd_t(df,config,date):
 def bench_t_s(config,date):
     conditions={'MA':ma_t,'MACD':macd_t}
     from AnyQuant import getBenchFromts
-    start=datetime.timedelta(60)
+    start=date-time.timedelta(60)
     df=getBenchFromts(start=start,end=date)
     ans=True
     for con in config:
@@ -47,7 +47,13 @@ def bench_t_s(config,date):
 
 
 
-
+def asset_sort(list,config,info):
+    map={}
+    for id in list:
+        num=info[['liquidAssets']][info.code == id]
+        map[id]=num
+    dict= sorted(map.iteritems(), key=lambda d:d[1], reverse = True)
+    return dict.keys()
 
 
 

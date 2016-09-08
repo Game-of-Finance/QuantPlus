@@ -111,6 +111,8 @@ def getTimeConfig():
     bear_to_bull =$root.selectTime.parameter.bear_to_bull
     bull_to_bear =$root.selectTime.parameter.bull_to_bear
 
+    return select_c
+
 # 交易
 def trade():
     cycle =$root.trade.cycle

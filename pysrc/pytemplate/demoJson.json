@@ -50,14 +50,6 @@
         "DEA": 9,
         "selectBox": false
       },
-      "c_DMA": {
-        "name": "DMA",
-        "stock_index": "sh600000",
-        "period": "day",
-        "shortMA": 5,
-        "longMA": 60,
-        "AMA": 20
-      },
       "c_TRIX": {
         "name": "TRIX",
         "stock_index": "sh600000",
