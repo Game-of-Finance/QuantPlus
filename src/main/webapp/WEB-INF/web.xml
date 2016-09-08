@@ -3,7 +3,7 @@
   <display-name>StudentManagementWeb</display-name>
 
   <welcome-file-list>
-    <welcome-file>demo.jsp</welcome-file>
+    <welcome-file>strategy.jsp</welcome-file>
   </welcome-file-list>
 
   <servlet>

@@ -13,6 +13,7 @@
     <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,50 +23,32 @@
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
 
     <![endif]-->
+
+    <script language="JavaScript">
+        $('#myButton').on('click', function () {
+            var $btn = $(this).button('loading')
+            // business logic...
+            $btn.button('reset')
+        })
+    </script>
+
+
+
     <script language="text/javascript">
-        alert("add");
-        var count = 1;
-        function add() {
-            var tbl = document.all.zeshi;
-            var rows = tbl.rows.length;
-            var tr = tbl.insertRow(rows);
 
-            var condition = tr.insertCell(0);
-            condition.innerHTML = '<input type="text" name="condition" size="7" />';
+        <%--表格操作脚本--%>
+        $(document).ready(function() {
+            $("#zhibiao1").bind("click", function(){
+                //alert($("input:checked"));
+                $("#shaixuantiaojian").append("<tr><td>…</td><td>…</td><td>…</td><td>…</td><td><button type="button" class="glyphicon glyphicon-remove"></button>/td> </tr>");
+                alert(document.getElementById('sd').value);
+            });
 
-            var edit = tr.insertCell(1);
-            edit.innerHTML = '<button type="button" class="glyphicon glyphicon-edit"></button>';
-
-            var del = tr.insertCell(2);
-            del.innerHTML = '<button type="button" class="glyphicon glyphicon-remove"></button>';
-            count++;
-        }
-
-        function del(btn) {
-            var tr = btn.parentElement.parentElement;
-            var tbl = tr.parentElement;
-            if (tr.rowIndex >= 1) {
-                tbl.deleteRow(tr.rowIndex);
-            } else {
-
-            }
-        };
-
-        function delrow(){
-            var i=zeshi.rows.length;
-            zeshi.deleteRow(i-1);
-        }
-
-        function addrow(){
-            var tr = document.createElement('tr');
-            var cellsNum = tb.rows[0].cells.length;
-            for(var j = 0 ; j < cellsNum ; j++){
-                var td = document.createElement('td');
-                td.innerHTML='test';
-                tr.appendChild(td);
-            }
-            zeshi.tBodies[0].appendChild(tr);
-        }
+            $("#btn0").click(function () {
+                alert("aaa");
+                $("#zeshitiaojian").remove();
+            });
+        });
     </script>
 </head>
 
@@ -155,15 +138,8 @@
                                         <!--这边的css最好要写一下-->
                                         <!--行情-->
                                         <div role="tabpanel" class="tab-pane active" id="index1">
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <button type="button" class="btn btn-default" id="zhibiao1">指标1</button>
+                                            <button type="button" class="btn btn-default" onclick="add()">指标2</button>
                                         </div>
                                         <!--基本面-->
                                         <div role="tabpanel" class="tab-pane" id="index2">
@@ -213,7 +189,7 @@
                                     <div class="tab-content">
                                         <!筛选条件，排名条件两个选股条件-->
                                         <div role="tabpanel" class="tab-pane active" id="indexA">
-                                            <table class="table table-striped">
+                                            <table class="table table-striped" id="shaixuantiaojian">
                                                 <tr>
                                                     <th>指标</th>
                                                     <th>比较符</th>
@@ -222,21 +198,13 @@
                                                     <th>操作</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>…</td>
+                                                    <td>测试</td>
+                                                    <td>测试</td>
+                                                    <td>测试</td>
+                                                    <td>测试</td>
                                                     <td>
-                                                        <button type="button" class="glyphicon glyphicon-remove"></button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>
-                                                        <button type="button" class="glyphicon glyphicon-remove"></button>
+                                                        测试
+                                                        <%--<button type="button" class="glyphicon glyphicon-remove"  id="btn" onclick="del(button)"></button>--%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -276,28 +244,28 @@
                         <div class="row">
                             <div class="col-md-3">
                                 同时满足<select class="form-control" style="">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>全部</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="-1" selected="selected">全部</option>
                                 </select>个择时条件由熊变牛
                             </div>
                             <div class="col-md-3">
                                 同时满足<select class="form-control" style="">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>全部</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="-1" selected="selected">全部</option>
                             </select>个择时条件由牛变熊
                             </div>
                             <div class="col-md-3">
                                 熊市仓位<select class="form-control" style="">
-                                <option>空仓</option>
-                                <option>30%</option>
-                                <option>50%</option>
-                                <option>70%</option>
+                                <option value="0" selected="selected">空仓</option>
+                                <option value="0.3">30%</option>
+                                <option value="0.5">50%</option>
+                                <option value="0.7">70%</option>
                             </select>
                             </div>
                             <div class="col-md-3"></div>
@@ -327,19 +295,19 @@
                             <div class="col-md-6">
                                 <div class="panel-body">
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <table class="table table-striped" id="zeshi">
+                                        <table class="table table-striped" id="zeshitiaojian">
                                             <tr>
                                                 <th>择时条件</th>
                                                 <th>编辑</th>
                                                 <th>操作</th>
                                             </tr>
-                                            <tr>
+                                            <tr id="line1">
                                                 <td>…</td>
                                                 <td>
                                                     <button type="button" class="glyphicon glyphicon-edit"></button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="glyphicon glyphicon-remove"></button>
+                                                    <button type="button" class="glyphicon glyphicon-remove" id="btn0"></button>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -348,7 +316,7 @@
                                                     <button type="button" class="glyphicon glyphicon-edit"></button>
                                                 </td>
                                                 <td>
-                                                    <button type="button" class="glyphicon glyphicon-remove"></button>
+                                                    <button type="button" class="glyphicon glyphicon-remove" id="btn1"></button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -362,15 +330,15 @@
                 <!--交易模型-->
                 <div role="tabpanel" class="tab-pane" id="model">
                     <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="inlineRadio1" class="col-sm-2 control-label">交易模型:</label>
-                            <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 模型I
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 模型II
-                            </label>
-                        </div>
+                        <%--<div class="form-group">--%>
+                            <%--<label for="inlineRadio1" class="col-sm-2 control-label">交易模型:</label>--%>
+                            <%--<label class="radio-inline">--%>
+                                <%--<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 模型I--%>
+                            <%--</label>--%>
+                            <%--<label class="radio-inline">--%>
+                                <%--<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 模型II--%>
+                            <%--</label>--%>
+                        <%--</div>--%>
                         <div class="form-group">
                             <label for="days" class="col-sm-2 control-label">调仓周期(交易日):</label>
                             <div class="col-sm-10">
@@ -378,11 +346,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <%--<p class="form-control-static">收益计算价格:</p>--%>
                             <label for="get" class="col-sm-2 control-label">收益计算价格:</label>
                             <select class="form-control" id="get">
-                                <option>开盘价</option>
-                                <option>收盘价</option>
-                                <option>日均成交价</option>
+                                <option value="open">开盘价</option>
+                                <option value="close" selected="selected">收盘价</option>
+                                <option value="average">日均成交价</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -454,23 +423,25 @@
             <div class="col-md-3">
                 <label for="fare" class="col-sm-2 control-label">收益基准:</label>
                 <select class="form-control" id="fare">
-                    <option>零</option>
-                    <option>千分之一</option>
-                    <option>千分之二</option>
-                    <option>千分之三</option>
-                    <option>千分之五</option>
-                    <option>千分之八</option>
-                    <option>千分之十</option>
+                    <option value="0">零</option>
+                    <option value="1">千分之一</option>
+                    <option value="2" selected>千分之二</option>
+                    <option value="3">千分之三</option>
+                    <option value="5">千分之五</option>
+                    <option value="8">千分之八</option>
+                    <option value="10">千分之十</option>
                 </select>
             </div>
         </div>
 
-        <!-- Standard button -->
+        <%--<button type="button" id="myButton" data-loading-text="回测..." class="btn btn-primary" autocomplete="off">--%>
+            <%--开始回测--%>
+        <%--</button>--%>
         <button type="button" class="btn btn-default">开始回测</button>
     </div>
 </div>
 
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<%--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>--%>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
