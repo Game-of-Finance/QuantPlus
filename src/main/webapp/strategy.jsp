@@ -399,17 +399,29 @@
         <h3 class="panel-title">策略回测</h3>
     </div>
     <div class="panel-body">
-        <!--时间组件还没完成-->
         <div class="row">
-            <div class="col-md-6">
-                回测时间
-                <div class="input-append date" id="datetimepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-                    <input size="16" type="text" value="12-02-2012" readonly>
-                    <span class="add-on"><i class="icon-th"></i></span>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="dtp_input1" class="col-md-4 control-label">开始时间</label>
+                    <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="18" type="text" value="" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input1" value="" /><br/>
+                </div>
+                <div class="form-group">
+                    <label for="dtp_input2" class="col-md-4 control-label">结束时间</label>
+                    <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="18" type="text" value="" readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input type="hidden" id="dtp_input2" value="" /><br/>
                 </div>
             </div>
             <div class="col-md-3">
-                <label for="ind" class="col-sm-2 control-label">收益基准:</label>
+                <label for="ind">收益基准:</label>
                 <select class="form-control" id="ind">
                     <option>沪深300</option>
                     <option>中证500</option>
@@ -421,15 +433,15 @@
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="fare" class="col-sm-2 control-label">收益基准:</label>
+                <label for="fare">收益基准:</label>
                 <select class="form-control" id="fare">
-                    <option value="0">零</option>
-                    <option value="1">千分之一</option>
-                    <option value="2" selected>千分之二</option>
-                    <option value="3">千分之三</option>
-                    <option value="5">千分之五</option>
-                    <option value="8">千分之八</option>
-                    <option value="10">千分之十</option>
+                    <option>零</option>
+                    <option>千分之一</option>
+                    <option>千分之二</option>
+                    <option>千分之三</option>
+                    <option>千分之五</option>
+                    <option>千分之八</option>
+                    <option>千分之十</option>
                 </select>
             </div>
         </div>
