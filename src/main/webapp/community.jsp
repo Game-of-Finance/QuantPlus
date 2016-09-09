@@ -40,13 +40,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="index.jsp">首页</a></li>
+                <li><a href="index.html">首页</a></li>
                 <!--<li><a href="#">Link</a></li>-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li><a href="test2.html">优选策略</a></li>
+                        <li><a href="test.html">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -63,9 +63,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
-                <li><a href="register.jsp">注册</a></li>
+                <li class="active"><a href="community.html">社区</a></li>
+                <li><a href="login.html">登陆</a></li>
+                <li><a href="register.html">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -85,7 +85,6 @@
         </div>
         <div class="col-md-2">
             <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-            <!--<button type="button" class="btn btn-primary">发起主题</button>-->
             <a href="startNewPost.jsp">发起主题</a>
         </div>
     </div>
@@ -93,83 +92,85 @@
 <div class="panel panel-default">
     <div class="panel-body">
 
-            <!--tab 1-8:全部 精品区 模型交流 投资教学 新闻快递 操作使用 其他问题-->
-            <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">全部</a></li>
-                <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">精品区</a></li>
-                <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">模型交流</a></li>
-                <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab">投资教学</a></li>
-                <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab">新闻快递</a></li>
-                <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab">操作使用</a></li>
-                <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab">其他问题</a></li>
-            </ul>
-            <div class="tab-content">
-                <!--全部-->
-                <div role="tabpanel" class="tab-pane active" id="tab1">
-                    <table class="table table-hover">
-                    <!-- On cells (`td` or `th`) -->
-                    <tr>
-                        <td class="active">主题</td>
-                        <td class="success">作者</td>
-                        <td class="warning">日期</td>
-                        <td class="danger">赞</td>
-                        <td class="info">浏览量</td>
-                    </tr>
-
-                    <!-- On cells (`td` or `th`) -->
-                    <tr>
-                        <td class="active">主题</td>
-                        <td class="success">作者</td>
-                        <td class="warning">日期</td>
-                        <td class="danger">赞</td>
-                        <td class="info">浏览量</td>
-                    </tr>
-
-                    <!-- On cells (`td` or `th`) -->
-                    <tr>
-                        <td class="active">主题</td>
-                        <td class="success">作者</td>
-                        <td class="warning">日期</td>
-                        <td class="danger">赞</td>
-                        <td class="info">浏览量</td>
-                    </tr>
-
-                    <!-- On cells (`td` or `th`) -->
-                    <tr>
-                        <td class="active">主题</td>
-                        <td class="success">作者</td>
-                        <td class="warning">日期</td>
-                        <td class="danger">赞</td>
-                        <td class="info">浏览量</td>
-                    </tr>
-
-        </table>
-                </div>
-                <!--精品区-->
-                <div role="tabpanel" class="tab-pane" id="tab2">
-
-                </div>
-                <!--模型交流-->
-                <div role="tabpanel" class="tab-pane" id="tab3">
-
-                </div>
-                <!--投资教学-->
-                <div role="tabpanel" class="tab-pane" id="tab4">
-
-                </div>
-                <!--新闻快递-->
-                <div role="tabpanel" class="tab-pane" id="tab5">
-
-                </div>
-                <!--操作使用-->
-                <div role="tabpanel" class="tab-pane" id="tab6">
-
-                </div>
-                <!--其他问题-->
-                <div role="tabpanel" class="tab-pane" id="tab7">
-
-                </div>
+        <!--tab 1-8:全部 精品区 模型交流 投资教学 新闻快递 操作使用 其他问题-->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">全部</a></li>
+            <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">精品区</a></li>
+            <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">模型交流</a></li>
+            <li role="presentation"><a href="#tab4" role="tab" data-toggle="tab">投资教学</a></li>
+            <li role="presentation"><a href="#tab5" role="tab" data-toggle="tab">新闻快递</a></li>
+            <li role="presentation"><a href="#tab6" role="tab" data-toggle="tab">操作使用</a></li>
+            <li role="presentation"><a href="#tab7" role="tab" data-toggle="tab">其他问题</a></li>
+        </ul>
+        <div class="tab-content">
+            <!--全部-->
+            <div role="tabpanel" class="tab-pane active" id="tab1">
+                <table class="table table-hover">
+                    <div class="list-group">
+                        <a href="post.jsp" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                            <h6 class="list-group-item-heading">作者+时间</h6>
+                            <p class="list-group-item-text">文章内容</p></a>
+                        <a href="post.jsp" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                            <h6 class="list-group-item-heading">作者+时间</h6>
+                            <p class="list-group-item-text">文章内容</p></a>
+                        <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                            <h6 class="list-group-item-heading">作者+时间</h6>
+                            <p class="list-group-item-text">文章内容</p></a>
+                        <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                            <h6 class="list-group-item-heading">作者+时间</h6>
+                            <p class="list-group-item-text">文章内容</p></a>
+                    </div>
+                </table>
             </div>
+            <!--精品区-->
+            <div role="tabpanel" class="tab-pane" id="tab2">
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+            </div>
+            <!--模型交流-->
+            <div role="tabpanel" class="tab-pane" id="tab3">
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+            </div>
+            <!--投资教学-->
+            <div role="tabpanel" class="tab-pane" id="tab4">
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+            </div>
+            <!--新闻快递-->
+            <div role="tabpanel" class="tab-pane" id="tab5">
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+            </div>
+            <!--操作使用-->
+            <div role="tabpanel" class="tab-pane" id="tab6">
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+            </div>
+            <!--其他问题-->
+            <div role="tabpanel" class="tab-pane" id="tab7">
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
+                    <h6 class="list-group-item-heading">作者+时间</h6>
+                    <p class="list-group-item-text">文章内容</p></a>
+            </div>
+        </div>
 
 
 
