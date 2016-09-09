@@ -10,16 +10,17 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
+    <link href="bootstrap/css/navbar.css" rel="stylesheet">
+    <style>
+        .jumbotron{
+            background:url(bootstrap/jumu.png);
+        }
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-
-    <link href="bootstrap/css/navbar.css" rel="stylesheet">
-
     <![endif]-->
 </head>
 
@@ -70,14 +71,10 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="jumbotron">
-            <h1>Welcome to quant+!</h1>
-            <p>你想看什么随便看</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-        </div>
-    </div>
+<div class="jumbotron" style="margin: 1%;padding: 5%">
+    <h1>Welcome to quant+!</h1>
+    <p>你想看什么随便看</p>
+    <p><a class="btn btn-primary btn-lg" href="community.jsp" role="button">Learn more</a></p>
 </div>
 
 <!--<span class="glyphicon glyphicon-search"></span>-->
