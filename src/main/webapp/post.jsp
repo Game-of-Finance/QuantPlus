@@ -54,15 +54,15 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="community.html">社区</a></li>
-                <li><a href="login.html">登陆</a></li>
-                <li><a href="register.html">注册</a></li>
+                <li><a href="community.jsp">社区</a></li>
+                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
-<a href="community.html" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
+<a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 <div class="panel panel-default" style="margin: 1%">
     <div class="panel-heading">
         <h3 class="panel-title">Panel title</h3>
@@ -101,7 +101,7 @@
     </div>
     <div class="panel-footer">Panel footer</div>
 </div>
-<a href="community.html" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
+<a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 
 
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
