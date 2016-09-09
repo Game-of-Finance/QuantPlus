@@ -11,63 +11,45 @@
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-
-
-    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
 
-    <![endif]-->
+    <script type="text/javascript">
+        function addFilter(btn){
+            $("#shaixuantiaojian").
+            append("<tr id="+btn.value+">"+
+                    "<td id='指标'>"+btn.value+"</td>"+
+                    "<td id='比较符'>"+'>'+"</td>"+
+                    "<td id='范围'>"+'0.0'+"</td>"+
+                    "<td id='值'>"+'0.5'+"</td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter(this)'></button>"+
+                    "</tr>");
+        }
 
-    <script language="JavaScript">
-        $('#myButton').on('click', function () {
-            var $btn = $(this).button('loading')
-            // business logic...
-            $btn.button('reset')
-        })
-       
+        function delFilter(button){
+            var name=button.id;
+            $('#'+name).remove()
+
+        }
+
+
+    </script>
+    <script type="text/javascript">
+        function addFilter2(btn){
+            $("#zeshitiaojian").
+            append("<tr id="+btn.value+">"+
+                    "<td id='指标'>"+btn.value+"</td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-edit\" onclick=''></button></td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter2(this)'></button></td>"+
+                    "</tr>");
+        }
+
+        function delFilter2(button){
+            var name=button.id;
+            $('#'+name).remove()
+
+        }
     </script>
 
-	<script type="text/javascript">
-		function addFilter(btn){
-			$("#shaixuantiaojian").
-			append("<tr id="+btn.value+">"+
-			"<td id='指标'>"+btn.value+"</td>"+
-			"<td id='比较符'>"+'>'+"</td>"+
-			"<td id='范围'>"+'0.0'+"</td>"+
-			"<td id='值'>"+'0.5'+"</td>"+
-			"<td><input id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter(this)'></input>"+
-			"</tr>");
-		}
-		
-		function delFilter(button){
-			var name=button.id
-			$('#'+name).remove()
-			
-		}
-	</script>
-
-    <script language="text/javascript">
-
-        <%--表格操作脚本--%>
-        $(document).ready(function() {
-            $("#zhibiao1").bind("click", function(){
-                //alert($("input:checked"));
-                $("#shaixuantiaojian").append("<tr><td>…</td><td>…</td><td>…</td><td>…</td><td><button type="button" class="glyphicon glyphicon-remove"></button>/td> </tr>");
-                alert(document.getElementById('sd').value);
-            });
-
-            $("#btn0").click(function () {
-                alert("aaa");
-                $("#zeshitiaojian").remove();
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -118,7 +100,6 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-
 <div class="panel panel-default" style="margin: 0.5%">
     <div class="panel-heading">
         <h3 class="panel-title">股票策略研究</h3>
@@ -131,7 +112,6 @@
                 <li role="presentation"><a href="#time" role="tab" data-toggle="tab">大盘择时</a></li>
                 <li role="presentation"><a href="#model" role="tab" data-toggle="tab">交易模型</a></li>
             </ul>
-
             <!-- Tab panes -->
             <!--择股设置-->
             <div class="tab-content" >
@@ -152,42 +132,32 @@
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <!--行情，基本面，增长，情绪四个选股指标-->
-										<!--value代表项目的名称  -->
+                                        <!--value代表项目的名称  -->
                                         <!--这边的css最好要写一下-->
                                         <!--行情-->
                                         <div role="tabpanel" class="tab-pane active" id="index1">
-                                            <input value='指标1' type="button" class="btn btn-default" id="zhibiao1" onclick="addFilter(this)"></input>
-                                            <input value='指标2' type="button" class="btn btn-default" onclick="addFilter(this)"></input>
+                                            <input value='指标1' type="button" class="btn btn-default" onclick="addFilter(this)">
+                                            <input value='指标2' type="button" class="btn btn-default" onclick="addFilter(this)">
                                         </div>
                                         <!--基本面-->
                                         <div role="tabpanel" class="tab-pane" id="index2">
-                                            <input value='基本面1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='基本面2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='基本面3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"  onclick="addFilter(this)"></input>
-
-                                            <input value='基本面4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='基本面5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
+                                            <input value='基本面1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='基本面2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='基本面3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"  onclick="addFilter(this)">
+                                            <input value='基本面4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='基本面5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
                                         </div>
                                         <!--增长-->
                                         <div role="tabpanel" class="tab-pane" id="index3">
-                                            <input value='行情1'  type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='行情2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='行情3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='行情4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
-                                            <input value='行情5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
-
+                                            <input value='行情1'  type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='行情2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='行情3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='行情4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
+                                            <input value='行情5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
                                         </div>
                                         <!--情绪-->
                                         <div role="tabpanel" class="tab-pane" id="index4">
-                                            <input value='情绪1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)"></input>
+                                            <input value='情绪1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
 
                                         </div>
                                     </div>
@@ -202,7 +172,6 @@
                                         <li role="presentation" class="active"><a href="#indexA" role="tab" data-toggle="tab">筛选条件</a></li>
                                         <li role="presentation"><a href="#indexB" role="tab" data-toggle="tab">排名条件</a></li>
                                     </ul>
-
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <!筛选条件，排名条件两个选股条件-->
@@ -214,16 +183,6 @@
                                                     <th>范围</th>
                                                     <th>值</th>
                                                     <th>操作</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>测试</td>
-                                                    <td>测试</td>
-                                                    <td>测试</td>
-                                                    <td>测试</td>
-                                                    <td>
-                                                        测试
-                                                        <input type="button" class="glyphicon glyphicon-remove"  id="btn" onclick="delFilter(this)"></input>
-                                                    </td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -262,12 +221,12 @@
                         <div class="row">
                             <div class="col-md-3">
                                 同时满足<select class="form-control" style="">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="-1" selected="selected">全部</option>
-                                </select>个择时条件由熊变牛
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="-1" selected="selected">全部</option>
+                            </select>个择时条件由熊变牛
                             </div>
                             <div class="col-md-3">
                                 同时满足<select class="form-control" style="">
@@ -296,15 +255,8 @@
                                     <ul class="nav nav-tabs" role="tablist">
                                         <h5>择时指标</h5>
                                         <div role="tabpanel" class="tab-pane active" id="index00">
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="add()">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-
-                                            <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+                                            <input value='指标1' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='指标2' type="button" class="btn btn-default" onclick="addFilter2(this)">
                                         </div>
                                     </ul>
                                 </div>
@@ -319,44 +271,17 @@
                                                 <th>编辑</th>
                                                 <th>操作</th>
                                             </tr>
-                                            <tr id="line1">
-                                                <td>…</td>
-                                                <td>
-                                                    <button type="button" class="glyphicon glyphicon-edit"></button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="glyphicon glyphicon-remove" id="btn0"></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>…</td>
-                                                <td>
-                                                    <button type="button" class="glyphicon glyphicon-edit"></button>
-                                                </td>
-                                                <td>
-                                                    <button type="button" class="glyphicon glyphicon-remove" id="btn1"></button>
-                                                </td>
-                                            </tr>
                                         </table>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                     </div>
+                    </div>
                     <button type="button" class="btn btn-default">保存</button>
                 </div>
                 <!--交易模型-->
                 <div role="tabpanel" class="tab-pane" id="model">
                     <form class="form-horizontal" role="form">
-                        <%--<div class="form-group">--%>
-                            <%--<label for="inlineRadio1" class="col-sm-2 control-label">交易模型:</label>--%>
-                            <%--<label class="radio-inline">--%>
-                                <%--<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 模型I--%>
-                            <%--</label>--%>
-                            <%--<label class="radio-inline">--%>
-                                <%--<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 模型II--%>
-                            <%--</label>--%>
-                        <%--</div>--%>
                         <div class="form-group">
                             <label for="days" class="col-sm-2 control-label">调仓周期(交易日):</label>
                             <div class="col-sm-10">
@@ -364,7 +289,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <%--<p class="form-control-static">收益计算价格:</p>--%>
                             <label for="get" class="col-sm-2 control-label">收益计算价格:</label>
                             <select class="form-control" id="get">
                                 <option value="open">开盘价</option>
@@ -464,15 +388,47 @@
             </div>
         </div>
 
-        <%--<button type="button" id="myButton" data-loading-text="回测..." class="btn btn-primary" autocomplete="off">--%>
-            <%--开始回测--%>
-        <%--</button>--%>
         <button type="button" class="btn btn-default">开始回测</button>
     </div>
 </div>
 
-<%--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>--%>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+    $('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+    $('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 1,
+        minView: 0,
+        maxView: 1,
+        forceParse: 0
+    });
+</script>
 </body>
 </html>
