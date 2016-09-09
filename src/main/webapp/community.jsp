@@ -84,8 +84,7 @@
             </form>
         </div>
         <div class="col-md-2">
-            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-            <a href="startNewPost.jsp">发起主题</a>
+            <a href="startNewPost.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">发起主题</a>
         </div>
     </div>
 </div>

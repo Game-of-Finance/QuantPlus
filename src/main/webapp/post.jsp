@@ -60,7 +60,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<a href="community.jsp">返回主题列表</a>
+<a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">返回主题列表</a>
 <div class="panel panel-default" style="margin: 1%">
     <div class="panel-heading">
         <h3 class="panel-title">Panel title</h3>
