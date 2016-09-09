@@ -1,27 +1,49 @@
 package web.servlet;
 
+import org.apache.commons.collections.map.HashedMap;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * Created by Administrator on 2016/9/8 0008.
- */
 @Controller
-@RequestMapping("/demo")
 public class DemoController {
 
+    @RequestMapping(value = "demo.do", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> ajaxDatas(@RequestParam String username, @RequestParam String age) {
+        Map<String, Object> map = new HashedMap();
+        System.out.println(username);
+        map.put("username", username);
+        return  map;
+    }
 
-    //接收前台传过来的字符串格式的json对象，在后台进行解析
-    @ResponseBody
-    @RequestMapping(value = "/json", method = RequestMethod.POST)
-    public String resolveJsonObject(@RequestBody UserDemo user) throws IOException {
-        System.out.println(user.getName() + user.getAge());
-        return "success";
+
+    /**
+     * 通过PrintWriter将响应数据写入response，ajax可以接受到这个数据
+     *
+     * @param response
+     * @param data
+     */
+    private void renderData(HttpServletResponse response, String data) {
+        PrintWriter printWriter = null;
+        try {
+            printWriter = response.getWriter();
+            printWriter.print(data);
+        } catch (IOException ex) {
+            Logger.getLogger(DemoController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (null != printWriter) {
+                printWriter.flush();
+                printWriter.close();
+            }
+        }
     }
 
 
