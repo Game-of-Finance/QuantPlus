@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,10 +18,13 @@ public class DemoController {
 
     @RequestMapping(value = "demo", method = RequestMethod.POST)
     public @ResponseBody
-    Map<String, Object> demo(@RequestParam String username, @RequestParam String age) {
+    Map<String, Object> demo(HttpServletRequest request) {
         Map<String, Object> map = new HashedMap();
-        System.out.println(username);
-        map.put("username", username);
+        String username = request.getParameter("username");
+        String age = request.getParameter("age");
+        System.out.println("username"+username+"age"+age);
+        map.put("username",username);
+        map.put("age",age);
         return  map;
     }
 
