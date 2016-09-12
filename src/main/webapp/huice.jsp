@@ -742,5 +742,7 @@
 
 <!-- HTML -->
 <div id="chartdiv"></div>
+
+<a href="strategy.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回</a>
 </body>
 </html>
