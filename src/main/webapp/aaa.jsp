@@ -1,3 +1,9 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: alfred
+  Date: 16/9/12
+  Time: 下午2:21
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,17 +16,16 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/navbar.css" rel="stylesheet">
-    <style>
-        .jumbotron{
-            background:url(bootstrap/jumu.png);
-        }
-    </style>
+
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+    <link href="bootstrap/css/navbar.css" rel="stylesheet">
+
     <![endif]-->
 </head>
 
@@ -41,7 +46,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.jsp">首页</a></li>
+                <li><a href="index.jsp">首页</a></li>
                 <!--<li><a href="#">Link</a></li>-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
@@ -66,16 +71,91 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="jumbotron" style="margin: 1%;padding: 5%">
-    <h1>Welcome to quant+!</h1>
-    <p>你想看什么随便看</p>
-    <p><a class="btn btn-primary btn-lg" href="community.jsp" role="button">Learn more</a></p>
-</div>
+<!-- Styles -->
+<style>
+    #chartdiv {
+        width	: 100%;
+        height	: 500px;
+    }
 
-<!--<span class="glyphicon glyphicon-search"></span>-->
+</style>
 
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script src="https://www.amcharts.com/lib/3/themes/none.js"></script>
+
+<!-- Chart code -->
+<script>
+    app.title = '65k+ 飞机航线';
+
+    myChart.showLoading();
+
+    $.get('data/asset/data/flights.json', function(data) {
+
+        myChart.hideLoading();
+
+        function getAirportCoord(idx) {
+            return [data.airports[idx][3], data.airports[idx][4]];
+        }
+        var routes = data.routes.map(function (airline) {
+            return [
+                getAirportCoord(airline[1]),
+                getAirportCoord(airline[2])
+            ];
+        });
+
+        myChart.setOption(option = {
+            title: {
+                text: 'World Flights',
+                left: 'center',
+                textStyle: {
+                    color: '#eee'
+                }
+            },
+            backgroundColor: '#003',
+            tooltip: {
+                formatter: function (param) {
+                    var route = data.routes[param.dataIndex];
+                    return data.airports[route[1]][1] + ' > ' + data.airports[route[2]][1];
+                }
+            },
+            geo: {
+                map: 'world',
+                left: 0,
+                right: 0,
+                silent: true,
+                itemStyle: {
+                    normal: {
+                        borderColor: '#003',
+                        color: '#005'
+                    }
+                }
+            },
+            series: [{
+                type: 'lines',
+                coordinateSystem: 'geo',
+                data: routes,
+                large: true,
+                largeThreshold: 100,
+                lineStyle: {
+                    normal: {
+                        opacity: 0.05,
+                        width: 0.5,
+                        curveness: 0.3
+                    }
+                },
+                // 设置混合模式为叠加
+                blendMode: 'lighter'
+            }]
+        });
+    });
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+
 </body>
 </html>

@@ -2,11 +2,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="wangEditor/dist/css/wangEditor.min.css">
+    <style type="text/css">
+        #div1,#div2 {
+            width: 100%;
+            height: 250px;
+        }
+    </style>
+    <script type="text/javascript" src="wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="wangEditor/dist/js/wangEditor.js"></script>
+    <script type="text/javascript" >
+        function read() {
+            // 获取编辑器区域完整html代码
+            var html = editor.$txt.html();
+            alert(html);
+
+            // 获取编辑器纯文本内容
+            var text = editor.$txt.text();
+
+            // 获取格式化后的纯文本
+            var formatText = editor.$txt.formatText();
+
+//            $.ajax({
+//                type: "POST",
+//                contentType: "application/json; charset=utf-8",
+//                dataType: "text",
+//                url: "read.do/getInput",//传入后台的地址/方法
+//                data: {text:"text",formatText:"formatText"}//参数，这里是一个json语句
+//            });
+        }
+
+        function onerror() {
+
+        }
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>LOF Index</title>
+    <title>Post</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,13 +76,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
+                        <li><a href="#">虚拟交易2</a></li>
                     </ul>
                 </li>
 
@@ -99,13 +128,16 @@
             <h6 class="list-group-item-heading">作者+时间</h6>
             <p class="list-group-item-text">评论内容</p></a>
     </div>
-    <div class="panel-footer">Panel footer</div>
+    <div id="div1"></div>
+    <a href="#" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
 </div>
 <a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 
-
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--这里引用jquery和wangEditor.js-->
+<script type="text/javascript">
+    var editor = new wangEditor('div1');
+    editor.create();
+</script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

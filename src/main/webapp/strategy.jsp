@@ -81,13 +81,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
+                        <li><a href="#">虚拟交易2</a></li>
                     </ul>
                 </li>
             </ul>
@@ -387,12 +382,11 @@
                 </select>
             </div>
         </div>
-
-        <button type="button" class="btn btn-default">开始回测</button>
+        <a href="huice.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">开始回测</a>
     </div>
 </div>
 
-<script type="text/javascript" src="bootstrap/js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="js/jquery-3.1.0.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
