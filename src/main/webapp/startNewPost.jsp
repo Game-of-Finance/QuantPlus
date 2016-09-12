@@ -133,7 +133,6 @@
         editor.create();
 
         $('#btn1').click(function () {
-            alert("发帖 click");
             // 获取编辑器区域完整html代码
             var html = editor.$txt.html();
 
