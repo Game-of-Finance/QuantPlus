@@ -20,7 +20,6 @@ public class PostManage implements IPostManage {
 
     PostDao postDao = new PostDaoImpl();
 
-    //TODO 嘉琛,我们又改了一下接口(捂脸),麻烦啦
     public boolean publish(PostBasicInfo basicInfo, String content) {
         Post post = new Post();
         //生成指定ID

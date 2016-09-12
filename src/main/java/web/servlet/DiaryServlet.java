@@ -32,7 +32,6 @@
 //	 */
 //	public DiaryServlet() {
 //		super();
-//		// TODO spring 注入
 ////		diaryDao = new DiaryDaoImpl();// 实例化日记相关的数据库操作类的对象
 //        diaryDao = new DiaryStub();
 //	}
