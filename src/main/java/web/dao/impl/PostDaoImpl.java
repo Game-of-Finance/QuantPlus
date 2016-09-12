@@ -1,6 +1,8 @@
 package web.dao.impl;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.PostDao;
 import web.dao.util.MybatisUtils;
 import web.dao.util.PostOperation;
@@ -16,6 +18,9 @@ import java.util.List;
 /**
  * Created by JiachenWang on 2016/8/18.
  */
+@SuppressWarnings("restriction")
+@Repository("postDao")
+@Transactional
 public class PostDaoImpl implements PostDao {
 
     SqlSession session;

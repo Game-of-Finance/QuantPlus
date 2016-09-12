@@ -14,6 +14,7 @@
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
 
     <script type="text/javascript">
+
         function addFilter(btn){
             $("#shaixuantiaojian").
             append("<tr id="+btn.value+">"+

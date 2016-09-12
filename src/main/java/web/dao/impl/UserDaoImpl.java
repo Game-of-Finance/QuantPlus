@@ -9,6 +9,7 @@ import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 import web.model.register.User;
 
+
 public class UserDaoImpl implements UserDao {
 
     SqlSession session;

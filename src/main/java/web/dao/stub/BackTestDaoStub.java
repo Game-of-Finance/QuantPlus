@@ -2,6 +2,8 @@ package web.dao.stub;
 
 
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.BackTestDao;
 import web.model.strategy.BackTest;
 
@@ -13,6 +15,9 @@ import java.util.*;
 /**
  * Created by Administrator on 2016/8/14 0014.
  */
+@SuppressWarnings("restriction")
+@Repository("backTestDao")
+@Transactional
 public class BackTestDaoStub implements BackTestDao {
     static SimpleDateFormat timeformatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     static SimpleDateFormat dateformatter = new SimpleDateFormat("yyyy-MM-dd");

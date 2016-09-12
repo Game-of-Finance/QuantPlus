@@ -1,8 +1,8 @@
 package web.biz.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import web.biz.IPostManage;
 import web.dao.PostDao;
-import web.dao.impl.PostDaoImpl;
 import web.model.communication.Post;
 import web.model.communication.PostBasicInfo;
 import web.model.communication.PostComment;
@@ -18,7 +18,8 @@ import java.util.List;
  */
 public class PostManage implements IPostManage {
 
-    PostDao postDao = new PostDaoImpl();
+    @Autowired
+    private PostDao postDao;
 
     public boolean publish(PostBasicInfo basicInfo, String content) {
         Post post = new Post();
@@ -118,5 +119,9 @@ public class PostManage implements IPostManage {
         if (list.size() == 0)
             return null;
         return list.get(0);
+    }
+
+    public List<Post> getAllPost() {
+        return null;
     }
 }

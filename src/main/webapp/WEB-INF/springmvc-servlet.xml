@@ -59,7 +59,7 @@
     </bean>
     <context:annotation-config />
     <!-- 启动自动扫描该包下所有的Bean(例如@Controller) -->
-    <context:component-scan base-package="web.servlet" />
+    <context:component-scan base-package="web.*" />
 
     <mvc:default-servlet-handler />
     <!-- 定义视图解析器 -->

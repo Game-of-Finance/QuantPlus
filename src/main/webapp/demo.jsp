@@ -30,6 +30,7 @@
 
                     data: $("#user").serialize(),
                     cache:false,
+
                     success : function(response) {
                         //请求成功
                         alert("你好"+response.username);
