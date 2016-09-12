@@ -387,8 +387,7 @@
                 </select>
             </div>
         </div>
-
-        <button type="button" class="btn btn-default">开始回测</button>
+        <a href="huice.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">开始回测</a>
     </div>
 </div>
 
