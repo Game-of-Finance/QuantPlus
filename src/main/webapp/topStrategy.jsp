@@ -45,7 +45,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="topStrategy.jsp">优选策略</a></li>
+                        <li class="active"><a href="topStrategy.jsp">优选策略</a></li>
                         <li><a href="strategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
@@ -63,7 +63,7 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="community.jsp">社区</a></li>
+                <li><a href="community.jsp">社区</a></li>
                 <li><a href="login.jsp">登陆</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>

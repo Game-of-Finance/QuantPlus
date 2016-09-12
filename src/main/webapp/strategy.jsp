@@ -16,7 +16,7 @@
     <script type="text/javascript">
 
         function addFilter(btn){
-            $("#shaixuantiaojian").
+            $("#selectStock").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td id='比较符'>"+'>'+"</td>"+
@@ -36,7 +36,7 @@
     </script>
     <script type="text/javascript">
         function addFilter2(btn){
-            $("#zeshitiaojian").
+            $("#selectTime").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-edit\" onclick=''></button></td>"+
@@ -172,7 +172,7 @@
                                     <div class="tab-content">
                                         <!筛选条件，排名条件两个选股条件-->
                                         <div role="tabpanel" class="tab-pane active" id="indexA">
-                                            <table class="table table-striped" id="shaixuantiaojian">
+                                            <table class="table table-striped" id="selectStock">
                                                 <tr>
                                                     <th>指标</th>
                                                     <th>比较符</th>
@@ -183,7 +183,7 @@
                                             </table>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="indexB">
-                                            <table class="table table-striped">
+                                            <table class="table table-striped" id="selcetStock_sort">
                                                 <tr>
                                                     <th>指标</th>
                                                     <th>次序</th>
@@ -216,7 +216,7 @@
                         <h5>择时参数</h5>
                         <div class="row">
                             <div class="col-md-3">
-                                同时满足<select class="form-control" style="">
+                                同时满足<select class="form-control" style="" id="bear_to_bull">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -225,7 +225,7 @@
                             </select>个择时条件由熊变牛
                             </div>
                             <div class="col-md-3">
-                                同时满足<select class="form-control" style="">
+                                同时满足<select class="form-control" style="" id="bull_to_bear">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -234,7 +234,7 @@
                             </select>个择时条件由牛变熊
                             </div>
                             <div class="col-md-3">
-                                熊市仓位<select class="form-control" style="">
+                                熊市仓位<select class="form-control" style="" id="bear_position">
                                 <option value="0" selected="selected">空仓</option>
                                 <option value="0.3">30%</option>
                                 <option value="0.5">50%</option>
@@ -261,7 +261,7 @@
                             <div class="col-md-6">
                                 <div class="panel-body">
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <table class="table table-striped" id="zeshitiaojian">
+                                        <table class="table table-striped" id="selectTime">
                                             <tr>
                                                 <th>择时条件</th>
                                                 <th>编辑</th>
