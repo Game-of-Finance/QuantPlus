@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,12 +16,24 @@ import java.util.logging.Logger;
 @Controller
 public class DemoController {
 
-    @RequestMapping(value = "demo.do", method = RequestMethod.POST)
+    @RequestMapping(value = "demo", method = RequestMethod.POST)
     public @ResponseBody
-    Map<String, Object> ajaxDatas(@RequestParam String username, @RequestParam String age) {
+    Map<String, Object> demo(HttpServletRequest request) {
+        Map<String, Object> map = new HashedMap();
+        String username = request.getParameter("username");
+        String age = request.getParameter("age");
+        System.out.println("username"+username+"age"+age);
+        map.put("username",username);
+        map.put("age",age);
+        return  map;
+    }
+
+    @RequestMapping(value = "demo/json", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> demojson(@RequestParam String username, @RequestParam String age) {
         Map<String, Object> map = new HashedMap();
         System.out.println(username);
-        map.put("username", username);
+        map.put("username", "new"+username);
         return  map;
     }
 
@@ -48,15 +61,15 @@ public class DemoController {
 
 
     private class UserDemo {
-        private String name;
+        private String username;
         private int age;
 
-        public String getName() {
-            return name;
+        public String getUsername() {
+            return username;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setUsername(String username) {
+            this.username = username;
         }
 
         public int getAge() {
