@@ -15,12 +15,21 @@ import java.util.logging.Logger;
 @Controller
 public class DemoController {
 
-    @RequestMapping(value = "demo.do", method = RequestMethod.POST)
+    @RequestMapping(value = "demo", method = RequestMethod.POST)
     public @ResponseBody
-    Map<String, Object> ajaxDatas(@RequestParam String username, @RequestParam String age) {
+    Map<String, Object> demo(@RequestParam String username, @RequestParam String age) {
         Map<String, Object> map = new HashedMap();
         System.out.println(username);
         map.put("username", username);
+        return  map;
+    }
+
+    @RequestMapping(value = "demo/json", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<String, Object> demojson(@RequestParam String username, @RequestParam String age) {
+        Map<String, Object> map = new HashedMap();
+        System.out.println(username);
+        map.put("username", "new"+username);
         return  map;
     }
 
@@ -48,15 +57,15 @@ public class DemoController {
 
 
     private class UserDemo {
-        private String name;
+        private String username;
         private int age;
 
-        public String getName() {
-            return name;
+        public String getUsername() {
+            return username;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setUsername(String username) {
+            this.username = username;
         }
 
         public int getAge() {

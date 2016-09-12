@@ -20,20 +20,38 @@
 
         $(document).ready(function () {
             //传递字符串格式json对象到后台（一个json对象）
-            $("#resolveJsonObject").click(function () {
+            $("#serialbtn").click(function () {
 
                 $.ajax({
                     type : 'POST',
-                    url : 'demo.do',
-//                    contentType:'application/json; charset=utf-8',
-                    dataType : 'json',
-
+                    url : 'demo',
+//                    dataType : 'json',
+//                    contentType:'application/json',
                     data: $("#user").serialize(),
-                    cache:false,
+//                    cache:false,
                     success : function(response) {
                         //请求成功
                         alert("你好"+response.username);
 
+                    },
+                    error : function(msg) {
+                        alert("error"+msg);
+                    }
+                });
+            });
+            $("#jsonbtn").click(function (){
+                var name=$("#username").val();
+                var age=$("#age").val();
+                var json={"username":name,"age":age};
+                console.log(json);
+                $.ajax({
+                    type:"POST",
+                    url:"demo/json",
+//                    contentType: "application/json;charset=utf-8",
+                    data:JSON.stringify(json),
+                    success : function(response) {
+                        //请求成功
+                        alert("你好"+response);
                     },
                     error : function(msg) {
                         alert("error"+msg);
@@ -48,9 +66,10 @@
 <h1>json添加用户</h1>
 
 <form id="user">
-姓名：<input id="userName" type="text" name="userName">
+姓名：<input id="username" type="text" name="username">
 年龄:<input id="age" type="text" name="age"><br>
-<input type="button" id="resolveJsonObject" value="json对象" >
+<input type="button" id="serialbtn" value="serialbtn" >
+<input type="button" id="jsonbtn" value="jsonbtn" >
 </form>
 
 
