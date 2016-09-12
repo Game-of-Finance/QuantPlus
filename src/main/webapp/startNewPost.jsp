@@ -115,19 +115,50 @@
                 </select>
             </div>
             <div class="col-md-5">
-                <input type="text" name="PostModel[title]" value="" id="title" class="form-control"
+                <input type="text" name="PostModel[title]" value=""
+                       id="title" class="form-control"
                        placeholder="请输入主题标题">
             </div>
         </div>
         <label>内 容</label>
         <div id="div1"></div>
-        <a href="startNewPost.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">发起主题</a>
+        <a href="community.jsp" id="btn1"
+           class="btn btn-primary"
+           role="button" style="margin: 1.5%">发起主题</a>
     </div>
 </div>
     <!--这里引用jquery和wangEditor.js-->
     <script type="text/javascript">
         var editor = new wangEditor('div1');
         editor.create();
+
+        $('#btn1').click(function () {
+            alert("发帖 click");
+            // 获取编辑器区域完整html代码
+            var html = editor.$txt.html();
+
+            // 获取编辑器纯文本内容
+            var text = editor.$txt.text();
+
+            // 获取格式化后的纯文本
+            var formatText = editor.$txt.formatText();
+
+            $.ajax({
+                type: 'POST',
+                url: 'inputPost.do',
+                data:{
+                    inputHtml : html,
+                    inputText : text,
+                    inputFormatText : formatText
+                },
+                cache: false,
+
+                success: function (response) {
+                   alert("input success")
+                }
+
+            });
+        });
     </script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>

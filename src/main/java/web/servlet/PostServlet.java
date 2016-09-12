@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import web.biz.IPostManage;
 import web.model.communication.Post;
+import web.model.communication.PostBasicInfo;
 
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +36,20 @@ public class PostServlet extends HttpServlet {
         map.put("postList", postList);
         System.out.println("map.put(postList, postList);");
         return  map;
+    }
+
+    @RequestMapping(value = "inputPost.do", method = RequestMethod.POST)
+    public boolean inputPost(HttpServletRequest request) {
+        String content = request.getParameter("inputHtml");
+
+        PostBasicInfo basicInfo = new PostBasicInfo();
+        basicInfo.setDate(new Date());
+        basicInfo.setAuthor(null);
+        basicInfo.setPostID(null);
+        basicInfo.setTitile(null);
+        basicInfo.setTopic(null);
+        this.iPostManage.publish(basicInfo, content);
+        return true;
     }
 
 }
