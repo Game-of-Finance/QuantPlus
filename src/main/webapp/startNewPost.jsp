@@ -47,7 +47,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>LOF Index</title>
+    <title>newPost</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -104,7 +104,7 @@
         <!--/item_title-->
         <label>标 题</label>
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <select class="form-control" id="postType">
                     <option value="1">模型交流</option>
                     <option value="2">bug反馈</option>
@@ -114,7 +114,7 @@
                     <option value="3">其他问题</option>
                 </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <input type="text" name="PostModel[title]" value="" id="title" class="form-control"
                        placeholder="请输入主题标题">
             </div>
@@ -129,7 +129,7 @@
         var editor = new wangEditor('div1');
         editor.create();
     </script>
-<<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 
