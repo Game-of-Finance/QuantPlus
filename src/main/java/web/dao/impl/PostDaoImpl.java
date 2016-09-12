@@ -198,7 +198,7 @@ public class PostDaoImpl implements PostDao {
             postOperation = session
                     .getMapper(PostOperation.class);
             list = postOperation.search(str);
-            System.out.println(list.size() + "hhh");
+//            System.out.println(list.size() + "hhh");
             session.commit();
         } catch (Exception e) {
             e.printStackTrace();

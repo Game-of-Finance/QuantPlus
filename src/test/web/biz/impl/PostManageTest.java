@@ -26,7 +26,7 @@ public class PostManageTest extends TestCase {
 
     public void testDelete() throws Exception {
         IPostManage manage = new PostManage();
-        manage.delete("000002");
+        manage.delete("0000001");
     }
 
     public void testAttitude() throws Exception {
