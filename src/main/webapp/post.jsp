@@ -12,14 +12,16 @@
     <script type="text/javascript" src="wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="wangEditor/dist/js/wangEditor.js"></script>
 
+    <%--获取community界面里超链接的参数--%>
     <%
         String postID = request.getParameter("id");
     %>
 
     <script type="text/javascript">
-        var a="<%=postID%>";
-        alert("a="+a);
+        <%--让JS获取上面JAVA里的参数--%>
+        var id="<%=postID%>";
 
+        // 根据获取的帖子ID进行URL请求,获取帖子的内容
         $(document).ready(function () {
             $.ajax({
                 type: 'GET',
