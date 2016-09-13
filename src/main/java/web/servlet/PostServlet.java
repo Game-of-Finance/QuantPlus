@@ -30,11 +30,9 @@ public class PostServlet extends HttpServlet {
     @RequestMapping(value = "getPostList.do", method = RequestMethod.GET)
     public @ResponseBody
     Map<String, Object> getPostList() {
-        System.out.println("getPostList");
         Map<String, Object> map = new HashedMap();
         List<Post> postList = this.iPostManage.getAllPost();
         map.put("postList", postList);
-        System.out.println("map.put(postList, postList);");
         return  map;
     }
 
@@ -52,15 +50,29 @@ public class PostServlet extends HttpServlet {
     @RequestMapping(value = "inputPost.do", method = RequestMethod.POST)
     public boolean inputPost(HttpServletRequest request) {
         String content = request.getParameter("inputHtml");
+        String postType = request.getParameter("postType");
+        String postTitle = request.getParameter("postTitle");
 
         PostBasicInfo basicInfo = new PostBasicInfo();
         basicInfo.setDate(new Date());
-        basicInfo.setAuthor(null);
-        basicInfo.setPostID(null);
-        basicInfo.setTitle(null);
-        basicInfo.setTopic(null);
+        basicInfo.setAuthor("admin");
+        basicInfo.setTitle(postTitle);
+        basicInfo.setTopic(postType);
         this.iPostManage.publish(basicInfo, content);
         return true;
+    }
+
+    @RequestMapping(value = "getOnePost.do", method = RequestMethod.GET)
+    public @ResponseBody
+    Map<String, Object> getPostByID(HttpServletRequest request) {
+        String id = request.getParameter("postID");
+        Post returnPost = this.iPostManage.search(id);
+
+        Map<String, Object> map = new HashedMap();
+        if (returnPost!= null)
+            map.put("returnPost", returnPost);
+
+        return map;
     }
 
 }

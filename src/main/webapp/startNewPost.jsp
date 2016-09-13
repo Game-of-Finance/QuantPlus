@@ -18,37 +18,11 @@
     </style>
     <script type="text/javascript" src="wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="wangEditor/dist/js/wangEditor.js"></script>
-    <script type="text/javascript" >
-        function read() {
-            // 获取编辑器区域完整html代码
-            var html = editor.$txt.html();
-            alert(html);
-
-            // 获取编辑器纯文本内容
-            var text = editor.$txt.text();
-
-            // 获取格式化后的纯文本
-            var formatText = editor.$txt.formatText();
-
-//            $.ajax({
-//                type: "POST",
-//                contentType: "application/json; charset=utf-8",
-//                dataType: "text",
-//                url: "read.do/getInput",//传入后台的地址/方法
-//                data: {text:"text",formatText:"formatText"}//参数，这里是一个json语句
-//            });
-        }
-
-        function onerror() {
-
-        }
-    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>newPost</title>
-
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -95,6 +69,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
 <!--/header-->
 <div class="panel panel-default" style="margin: 3% 3%">
     <div class="panel-heading">
@@ -116,7 +91,7 @@
             </div>
             <div class="col-md-5">
                 <input type="text" name="PostModel[title]" value=""
-                       id="title" class="form-control"
+                       id="postTitle" class="form-control"
                        placeholder="请输入主题标题">
             </div>
         </div>
@@ -135,12 +110,14 @@
         $('#btn1').click(function () {
             // 获取编辑器区域完整html代码
             var html = editor.$txt.html();
-
             // 获取编辑器纯文本内容
             var text = editor.$txt.text();
-
             // 获取格式化后的纯文本
             var formatText = editor.$txt.formatText();
+
+            var postType = $('#postType').find('option:selected').text();
+            var ipt = document.getElementById('postTitle');
+            var postTitle = ipt.value;
 
             $.ajax({
                 type: 'POST',
@@ -148,7 +125,9 @@
                 data:{
                     inputHtml : html,
                     inputText : text,
-                    inputFormatText : formatText
+                    inputFormatText : formatText,
+                    postType : postType,
+                    postTitle : postTitle
                 },
                 cache: false,
 

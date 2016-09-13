@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="wangEditor/dist/css/wangEditor.min.css">
     <style type="text/css">
-        #div1,#div2 {
+        #div1, #div2 {
             width: 100%;
             height: 250px;
         }
@@ -19,22 +19,64 @@
 
     <script type="text/javascript">
         <%--让JS获取上面JAVA里的参数--%>
-        var id="<%=postID%>";
-        alert(id);
+        var id = "<%=postID%>";
 
         // 根据获取的帖子ID进行URL请求,获取帖子的内容
         $(document).ready(function () {
             $.ajax({
                 type: 'GET',
-                url: 'getPost.do',
-                dataType: 'html',
+                url: 'getOnePost.do',
+                data: {
+                    postID: id
+                },
+                dataType: 'json',
                 cache: false,
 
                 success: function (response) {
+                    // 获取到的帖子
+                    var onePost = response.returnPost;
+                    // 帖子基本信息
+                    var title = onePost.basicInfo.title;
+                    var author = onePost.basicInfo.author;
+                    var time = onePost.basicInfo.date;
+                    var topic = onePost.basicInfo.topic;
 
-                },
-                error: function (msg) {
+                    // 帖子内容
+                    var content = onePost.content;
 
+                    // 评论内容
+                    var postViews = onePost.views;
+                    var viewsNum = postViews.viewsNum;
+                    var thanks = postViews.thanks;
+                    var likes = postViews.likes;
+                    var disagrees = postViews.disagrees;
+
+                    // 评论列表
+                    var commentList = postViews.commentList;
+
+                    // 添加主题内容
+                    var webContent = document.getElementById("post-content");
+                    webContent.innerHTML = content;
+                    // 添加基本信息
+                    var webBasic = document.getElementById("post-basic");
+                    webBasic.innerHTML = "<h6 class='list-group-item-heading' >" +
+                            "作者：" + author + "时间:" + getFormatTime(time) + "浏览数" + viewsNum + "</h6>";
+
+                    // 添加评论信息
+                    var webViews = document.getElementById("post-views");
+                    for (var i = 0; i < webViews.length; i++) {
+                        var oneView = webViews[i];
+                        var comtAuthor = oneView.author;
+                        var comtDate = oneView.date;
+                        var comtContent = oneView.content;
+                        // 创建a标签
+                        var newNode = document.createElement("a");
+                        newNode.innerHTML = "<a href='#' class='list-group-item'>" +
+                                "<h6 class='list-group-item-headin'>" + comtAuthor + " " + comtDate + "</h6>" +
+                                "<p class='list-group-item-text'>"+comtContent+"</p>" +
+                                "</a>";
+                        webViews.appendChild(newNode);
+                    }
                 }
             });
         });
@@ -57,7 +99,8 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -98,25 +141,19 @@
 
 <a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 <div class="panel panel-default" style="margin: 1%">
-    <div class="panel-heading">
+    <div class="panel-heading" id="post-basic">
         <h3 class="panel-title">Panel title</h3>
-        <h6>作者+时间+浏览数</h6>
+
     </div>
-    <div class="panel-body">
-        文章，1984年6月26日出生于陕西省西安市，中国内地男演员、导演。2006年毕业于中央戏剧学院表演系。
-    </div>
+    <div class="panel-body" id="post-content"></div>
+
     <!-- List group -->
     <button class="glyphicon glyphicon-heart" style="margin: 1%"></button>
     <button class="glyphicon glyphicon-thumbs-up" style="margin: 1%"></button>
     <button class="glyphicon glyphicon-thumbs-down" style="margin: 1%"></button>
 
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <h6 class="list-group-item-heading">作者+时间</h6>
-            <p class="list-group-item-text">评论内容</p></a>
-        <a href="#" class="list-group-item">
-            <h6 class="list-group-item-heading">作者+时间</h6>
-            <p class="list-group-item-text">评论内容</p></a>
+    <div class="list-group" id="post-views">
+
     </div>
     <div id="div1"></div>
     <a href="#" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
