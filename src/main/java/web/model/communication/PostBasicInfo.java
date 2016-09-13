@@ -33,8 +33,6 @@ public class PostBasicInfo {
      */
     String topic;
 
-
-
     public String getPostID() {
         return postID;
     }
@@ -43,11 +41,11 @@ public class PostBasicInfo {
         this.postID = postID;
     }
 
-    public String getTitile() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitile(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 

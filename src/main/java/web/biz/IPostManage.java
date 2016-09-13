@@ -63,4 +63,5 @@ public interface IPostManage {
      * get all existing posts
      */
     List<Post> getAllPost();
+
 }

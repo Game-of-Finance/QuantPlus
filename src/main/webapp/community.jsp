@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,6 +24,14 @@
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
 
     <script type="text/javascript">
+        function getFormatTime(nS) {
+            var date = new Date(nS);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            return year + "-" + month + "-" + day;
+        }
+
         $(document).ready(function () {
             $.ajax({
                 type: 'GET',
@@ -30,29 +39,42 @@
                 dataType: 'json',
                 cache: false,
 
-
                 success: function (response) {
                     var list = response.postList;
-//                    alert(list.length);
                     for (var i = 0; i < list.length; i++) {
                         var onePost = list[i];
-                        var basicInfo = onePost.basicInfo;
+                        var title = onePost.basicInfo.title;
+                        var author = onePost.basicInfo.author;
+                        var time = onePost.basicInfo.date;
+                        var topic = onePost.basicInfo.topic;
                         var content = onePost.content;
                         var postViews = onePost.views;
                         var newNode = document.createElement("a");//创建a标签
-                        newNode.innerHTML="<a href='#' class='list-group-item'>" +
+                        newNode.innerHTML = "<a href='post.jsp' class='list-group-item'>" +
                                 "<span class='badge'>postViews</span>" +
-                                "<h4 class='list-group-item-heading'>List group item heading</h4>" +
-                                "<h6 class='list-group-item-heading'>作者+时间</h6>" +
-                                "<p class='list-group-item-text'>content</p>" +
+                                "<h4 class='list-group-item-heading'>" + title + "</h4>" +
+                                "<h6 class='list-group-item-heading' >" + "作者：" + author + "<br />时间:" + getFormatTime(time) + "</h6>" +
+                                "<p class='list-group-item-text' >" + "内容：<br />" + topic + content + "</p>" +
                                 "</a>";
-                        document.getElementById('postTable1').appendChild(newNode);
+                        var cloneNode = newNode.cloneNode(true);
+                        document.getElementById('table_all').appendChild(cloneNode);
+                        switch (topic) {
+                            case "value":document.getElementById('table_value').appendChild(newNode);break;
+                            case "model":document.getElementById('table_model').appendChild(newNode);break;
+                            case "bug":document.getElementById('table_bug').appendChild(newNode);break;
+                            case "invest":document.getElementById('table_invest').appendChild(newNode);break;
+                            case "news":document.getElementById('table_news').appendChild(newNode);break;
+                            case "operation":document.getElementById('table_operation').appendChild(newNode);break;
+                            case "other":document.getElementById('table_other').appendChild(newNode);break;
+                        }
+
                     }
                 },
                 error: function (msg) {
 
                 }
             });
+
         });
 
     </script>
@@ -139,35 +161,35 @@
         <div class="tab-content">
             <!--全部-->
             <div role="tabpanel" class="tab-pane active" id="tab1">
-                <div class="list-group" id="postTable1"></div>
+                <div class="list-group" id="table_all"></div>
             </div>
             <!--精品区-->
             <div role="tabpanel" class="tab-pane" id="tab2">
-                <div class="list-group" id="postTable2"></div>
+                <div class="list-group" id="table_value"></div>
             </div>
             <!--模型交流-->
             <div role="tabpanel" class="tab-pane" id="tab3">
-                <div class="list-group" id="postTable3"></div>
+                <div class="list-group" id="table_model"></div>
             </div>
             <!--bug反馈-->
             <div role="tabpanel" class="tab-pane" id="tab4">
-                <div class="list-group" id="postTable4"></div>
+                <div class="list-group" id="table_bug"></div>
             </div>
             <!--投资教学-->
             <div role="tabpanel" class="tab-pane" id="tab5">
-                <div class="list-group" id="postTable5"></div>
+                <div class="list-group" id="table_invest"></div>
             </div>
             <!--新闻快递-->
             <div role="tabpanel" class="tab-pane" id="tab6">
-                <div class="list-group" id="postTable6"></div>
+                <div class="list-group" id="table_news"></div>
             </div>
             <!--操作使用-->
             <div role="tabpanel" class="tab-pane" id="tab7">
-                <div class="list-group" id="postTable7"></div>
+                <div class="list-group" id="table_operation"></div>
             </div>
             <!--其他问题-->
             <div role="tabpanel" class="tab-pane" id="tab8">
-                <div class="list-group" id="postTable8"></div>
+                <div class="list-group" id="table_other"></div>
             </div>
         </div>
         <nav>

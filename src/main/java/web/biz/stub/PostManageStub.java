@@ -7,6 +7,7 @@ import web.model.communication.PostBasicInfo;
 import web.model.communication.PostComment;
 import web.model.communication.PostViews;
 import web.model.enums.PostViewAttitude;
+import web.model.enums.Topic;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,24 +45,27 @@ public class PostManageStub implements IPostManage {
 
     public List<Post> getAllPost() {
         List<Post> list = new ArrayList<Post>();
+        for (int i = 0; i < 10; i++)
+            list.add(randomPost());
+        return list;
+    }
+
+    private Post randomPost() {
         Post post1 = new Post();
         PostBasicInfo basic = new PostBasicInfo();
-        basic.setAuthor("作者");
+        basic.setAuthor("王嘉琛");
         basic.setDate(new Date());
-        basic.setTitile("标题");
-        basic.setTopic("主题");
+        basic.setTitle("第" + Math.random() * 10);
+        basic.setTopic(Topic.list[(int) (Math.random() * 7)]);
         post1.setBasicInfo(basic);
 
-        post1.setContent("asdfasdfasdfhasdoiufowegoiugao");
+        post1.setContent("<内容> ");
         PostViews postViews = new PostViews();
         postViews.setLikes(100);
         postViews.setThanks(200);
         postViews.setDisagrees(10);
         post1.setViews(postViews);
 
-        list.add(post1);
-        list.add(new Post());
-        list.add(new Post());
-        return list;
+        return post1;
     }
 }

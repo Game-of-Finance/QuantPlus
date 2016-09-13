@@ -124,4 +124,5 @@ public class PostManage implements IPostManage {
     public List<Post> getAllPost() {
         return null;
     }
+
 }

@@ -38,6 +38,17 @@ public class PostServlet extends HttpServlet {
         return  map;
     }
 
+//    @RequestMapping(value = "getPostListByType.do", method = RequestMethod.GET)
+//    public @ResponseBody
+//    Map<String, Object> getPostListByType(String type) {
+////        System.out.println("getPostListByType");
+//        Map<String, Object> map = new HashedMap();
+//        List<Post> postList = this.iPostManage.getPostByType(type);
+//        map.put("postList", postList);
+////        System.out.println("map.put(postList, postList);");
+//        return  map;
+//    }
+
     @RequestMapping(value = "inputPost.do", method = RequestMethod.POST)
     public boolean inputPost(HttpServletRequest request) {
         String content = request.getParameter("inputHtml");
@@ -46,7 +57,7 @@ public class PostServlet extends HttpServlet {
         basicInfo.setDate(new Date());
         basicInfo.setAuthor(null);
         basicInfo.setPostID(null);
-        basicInfo.setTitile(null);
+        basicInfo.setTitle(null);
         basicInfo.setTopic(null);
         this.iPostManage.publish(basicInfo, content);
         return true;
