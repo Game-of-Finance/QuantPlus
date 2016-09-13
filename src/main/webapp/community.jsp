@@ -43,6 +43,7 @@
                     var list = response.postList;
                     for (var i = 0; i < list.length; i++) {
                         var onePost = list[i];
+                        var id = onePost.basicInfo.postID;
                         var title = onePost.basicInfo.title;
                         var author = onePost.basicInfo.author;
                         var time = onePost.basicInfo.date;
@@ -50,7 +51,7 @@
                         var content = onePost.content;
                         var postViews = onePost.views;
                         var newNode = document.createElement("a");//创建a标签
-                        newNode.innerHTML = "<a href='post.jsp' class='list-group-item'>" +
+                        newNode.innerHTML = "<a href='post.jsp?id=" + id + "' class='list-group-item'>" +
                                 "<span class='badge'>postViews</span>" +
                                 "<h4 class='list-group-item-heading'>" + title + "</h4>" +
                                 "<h6 class='list-group-item-heading' >" + "作者：" + author + "<br />时间:" + getFormatTime(time) + "</h6>" +

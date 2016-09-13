@@ -53,6 +53,7 @@ public class PostManageStub implements IPostManage {
     private Post randomPost() {
         Post post1 = new Post();
         PostBasicInfo basic = new PostBasicInfo();
+        basic.setPostID("222");
         basic.setAuthor("王嘉琛");
         basic.setDate(new Date());
         basic.setTitle("第" + Math.random() * 10);

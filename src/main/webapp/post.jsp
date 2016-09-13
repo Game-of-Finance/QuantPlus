@@ -20,6 +20,7 @@
     <script type="text/javascript">
         <%--让JS获取上面JAVA里的参数--%>
         var id="<%=postID%>";
+        alert(id);
 
         // 根据获取的帖子ID进行URL请求,获取帖子的内容
         $(document).ready(function () {
