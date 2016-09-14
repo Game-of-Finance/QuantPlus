@@ -270,33 +270,43 @@
                         <!--择时参数-->
                         <h5>择时参数</h5>
                         <div class="row">
-                            <div class="col-md-3">
-                                同时满足<select class="form-control" style="" id="bear_to_bull">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="-1" selected="selected">全部</option>
-                            </select>个择时条件由熊变牛
+                            <div class="col-md-4">
+                                <div class="form-inline">
+                                    <span>同时满足</span>
+                                    <select class="form-control" style="" id="bear_to_bull">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="-1" selected="selected">全部</option>
+                                    </select>
+                                    <span>个择时条件由熊变牛</span>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                同时满足<select class="form-control" style="" id="bull_to_bear">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="-1" selected="selected">全部</option>
-                            </select>个择时条件由牛变熊
+                            <div class="col-md-4">
+                                <div class="form-inline">
+                                    <span>同时满足</span>
+                                    <select class="form-control" style="" id="bull_to_bear">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="-1" selected="selected">全部</option>
+                                    </select>
+                                    <span>个择时条件由牛变熊</span>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                熊市仓位<select class="form-control" style="" id="bear_position">
-                                <option value="0" selected="selected">空仓</option>
-                                <option value="0.3">30%</option>
-                                <option value="0.5">50%</option>
-                                <option value="0.7">70%</option>
-                            </select>
+                            <div class="col-md-4">
+                                <div class="form-inline">
+                                <span>熊市仓位</span>
+                                    <select class="form-control" style="" id="bear_position">
+                                        <option value="0" selected="selected">空仓</option>
+                                        <option value="0.3">30%</option>
+                                        <option value="0.5">50%</option>
+                                        <option value="0.7">70%</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="col-md-3"></div>
                         </div>
 
                         <div class="row">
@@ -341,48 +351,35 @@
                     <form class="form-horizontal" role="form">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="days" class="col-sm-2 control-label">调仓周期(交易日):</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="days" style="margin-top: 2%">
-                                    </div>
+                                <div class="form-group form-inline" style="margin: 1%">
+                                    <label>调仓周期(日):</label>
+                                    <input class="form-control" id="days" style="margin-top: 2%;width: 70%">
                                 </div>
-                                <div class="form-group">
-                                    <label for="quantity" class="col-sm-2 control-label">股票持仓(只):</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="quantity">
-                                    </div>
+                                <div class="form-group form-inline" style="margin: 1%">
+                                    <label>股票持仓(只):</label>
+                                    <input class="form-control" id="quantity" style="margin-top: 2%;width: 70%">
                                 </div>
-                                <div class="form-group">
-                                    <label for="amount" class="col-sm-2 control-label">股票备选买入个数(只):</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="amount">
-                                    </div>
+                                <div class="form-group form-inline" style="margin: 1%">
+                                    <label>备选买入(只):</label>
+                                    <input class="form-control" id="amount" style="margin-top: 2%;width: 70%">
                                 </div>
-                                <div class="form-group">
-                                    <label for="max" class="col-sm-2 control-label">个股最大买入仓位(%):</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="max">
-                                    </div>
+                                <div class="form-group form-inline" style="margin: 1%">
+                                    <label>最大买入(%):</label>
+                                    <input class="form-control" id="max" style="margin-top: 2%;width: 70%">
                                 </div>
-                                <%--<div class="form-group">--%>
-                                    <%--<div class="col-sm-offset-2 col-sm-10">--%>
-                                        <%--<button type="submit" class="btn btn-default btn-success">新建</button>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                        <label for="get" class="control-label">收益计算价格:</label>
-                                    <select class="form-control" id="get">
+                                <div class="form-group form-inline" style="margin: 2%">
+                                    <label>收益计算价格:</label>
+                                    <select class="form-control" id="get"  style="width: 70%">
                                         <option value="open">开盘价</option>
                                         <option value="close" selected="selected">收盘价</option>
                                         <option value="average">日均成交价</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="empty" class="control-label">空仓资金配置:</label>
-                                    <select class="form-control" id="empty">
+                                <div class="form-group form-inline" style="margin: 2%">
+                                    <label>空仓资金配置:</label>
+                                    <select class="form-control" id="empty" style="width: 70%">
                                         <option>无</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -405,9 +402,9 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label for="dtp_input1" class="col-md-4 control-label">开始时间</label>
+            <div class="col-md-6">
+                <div class="form-inline" style="margin: 2%">
+                    <label>开始时间:</label>
                     <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                         <input class="form-control" size="18" type="text" value="" readonly>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
@@ -415,39 +412,40 @@
                     </div>
                     <input type="hidden" id="dtp_input1" value="" /><br/>
                 </div>
-                <div class="form-group">
-                    <label for="dtp_input2" class="col-md-4 control-label">结束时间</label>
+                <div class="form-inline" style="margin: 2%">
+                    <label>结束时间:</label>
                     <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                         <input class="form-control" size="18" type="text" value="" readonly>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
-                    <input type="hidden" id="dtp_input2" value="" /><br/>
                 </div>
             </div>
-            <div class="col-md-3">
-                <label for="ind">收益基准:</label>
-                <select class="form-control" id="ind">
-                    <option>沪深300</option>
-                    <option>中证500</option>
-                    <option>中证全指</option>
-                    <option>中证流通</option>
-                    <option>创业板指数</option>
-                    <option>中小板指数</option>
-                    <option>上证指数</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="fare">收益基准:</label>
-                <select class="form-control" id="fare">
-                    <option>零</option>
-                    <option>千分之一</option>
-                    <option>千分之二</option>
-                    <option>千分之三</option>
-                    <option>千分之五</option>
-                    <option>千分之八</option>
-                    <option>千分之十</option>
-                </select>
+            <div class="col-md-6">
+                <div class="form-inline" style="margin: 2%">
+                    <label>收益基准:</label>
+                    <select class="form-control" id="ind" style="width: 70%">
+                        <option>沪深300</option>
+                        <option>中证500</option>
+                        <option>中证全指</option>
+                        <option>中证流通</option>
+                        <option>创业板指数</option>
+                        <option>中小板指数</option>
+                        <option>上证指数</option>
+                    </select>
+                </div>
+                <div class="form-inline" style="margin: 2%">
+                    <label>交易费用:</label>
+                    <select class="form-control" id="fare" style="width: 70%">
+                        <option>零</option>
+                        <option>千分之一</option>
+                        <option>千分之二</option>
+                        <option>千分之三</option>
+                        <option>千分之五</option>
+                        <option>千分之八</option>
+                        <option>千分之十</option>
+                    </select>
+                </div>
             </div>
         </div>
         <a href="huice.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">开始回测</a>
