@@ -156,7 +156,7 @@
 
     </div>
     <div id="div1"></div>
-    <a href="#" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
+    <a href="#" id="btn1" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
 </div>
 <a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 
@@ -164,6 +164,36 @@
 <script type="text/javascript">
     var editor = new wangEditor('div1');
     editor.create();
+
+    // 获取编辑器纯文本内容
+    var text = editor.$txt.text();
+
+
+    $('#btn1').click(function () {
+        // 获取编辑器区域完整html代码
+        var html = editor.$txt.html();
+        // 获取编辑器纯文本内容
+        var text = editor.$txt.text();
+        // 获取格式化后的纯文本
+        var formatText = editor.$txt.formatText();
+
+        $.ajax({
+            type: 'POST',
+            url: 'inputComment.do',
+            data:{
+                inputHtml : html,
+                inputText : text,
+                inputFormatText : formatText,
+            },
+            cache: false,
+
+            success: function (response) {
+                alert("input success")
+            }
+
+        });
+    });
+
 </script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
