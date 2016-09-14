@@ -82,13 +82,13 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">确认密码</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
             </div>
-            <button type="submit" class="btn btn-default">提交</button>
+            <button type="submit" class="btn btn-default btn-success">提交</button>
         </form>
 
     </div>

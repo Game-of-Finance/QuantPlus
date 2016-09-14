@@ -56,7 +56,6 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
                         <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
                         <li><a href="#">虚拟交易2</a></li>
                     </ul>
@@ -98,11 +97,7 @@
             <tr>
                 <td class="active">策略6</td>
             </tr>
-
-
         </table>
-
-
         <nav>
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
@@ -116,9 +111,6 @@
         </nav>
     </div>
 </div>
-
-
-
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>

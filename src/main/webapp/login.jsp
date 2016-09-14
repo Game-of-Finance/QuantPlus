@@ -84,7 +84,7 @@
                 <label for="exampleInputPassword1">密码</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-default">登陆</button>
+            <button type="submit" class="btn btn-default btn-success">登陆</button>
         </form>
 
     </div>

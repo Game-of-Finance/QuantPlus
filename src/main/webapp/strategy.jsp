@@ -154,9 +154,9 @@
                                 <ul class="nav nav-tabs" role="tablist">
                                     <h5>选股指标</h5>
                                     <div role="tabpanel" class="tab-pane active" id="index00">
-                                        <input value='MACD' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter(this)">
-                                        <input value='行业' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter(this)">
-                                        <input value='净资产' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter(this)">
+                                        <input value='MACD' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
+                                        <input value='行业' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
+                                        <input value='净资产' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
                                     </div>
                                     <%--<ul class="nav nav-tabs" role="tablist">--%>
                                         <%--<li role="presentation" class="active"><a href="#index1" role="tab" data-toggle="tab">行情</a></li>--%>
@@ -247,7 +247,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default">保存</button>
+                    <button type="button" class="btn btn-default btn-success">保存</button>
                 </div>
                 <!--大盘择时-->
                 <div role="tabpanel" class="tab-pane" id="time">
@@ -290,15 +290,15 @@
                                 <div class="panel-body">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <h5>择时指标</h5>
-                                        <div role="tabpanel" class="tab-pane active" id="index00">
-                                            <input value='MA' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='TRIX' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='MAVOL' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='MABias' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='PE' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='PB' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='PE2' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
-                                            <input value='PB2' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                        <div role="tabpanel" class="tab-pane active" id="index">
+                                            <input value='MA' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='TRIX' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='MAVOL' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='MABias' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='PE' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='PB' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='PE2' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='PB2' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
                                         </div>
                                     </ul>
                                 </div>
@@ -319,56 +319,62 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default">保存</button>
+                    <button type="button" class="btn btn-default btn-success">保存</button>
                 </div>
                 <!--交易模型-->
                 <div role="tabpanel" class="tab-pane" id="model">
                     <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label for="days" class="col-sm-2 control-label">调仓周期(交易日):</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="days">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="days" class="col-sm-2 control-label">调仓周期(交易日):</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="days" style="margin-top: 2%">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="quantity" class="col-sm-2 control-label">股票持仓(只):</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="quantity">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount" class="col-sm-2 control-label">股票备选买入个数(只):</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="amount">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="max" class="col-sm-2 control-label">个股最大买入仓位(%):</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="max">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-default btn-success">新建</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="get" class="col-sm-2 control-label">收益计算价格:</label>
-                            <select class="form-control" id="get">
-                                <option value="open">开盘价</option>
-                                <option value="close" selected="selected">收盘价</option>
-                                <option value="average">日均成交价</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="empty" class="col-sm-2 control-label">空仓资金配置:</label>
-                            <select class="form-control" id="empty">
-                                <option>无</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="quantity" class="col-sm-2 control-label">股票持仓(只):</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="quantity">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="amount" class="col-sm-2 control-label">股票备选买入个数(只):</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="amount">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="max" class="col-sm-2 control-label">个股最大买入仓位(%):</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="max">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">新建</button>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label for="get" class="control-label">收益计算价格:</label>
+                                    <select class="form-control" id="get">
+                                        <option value="open">开盘价</option>
+                                        <option value="close" selected="selected">收盘价</option>
+                                        <option value="average">日均成交价</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="empty" class="control-label">空仓资金配置:</label>
+                                    <select class="form-control" id="empty">
+                                        <option>无</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -39,7 +39,6 @@
                 <img alt="Brand" src="images/logo.jpg">
             </a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -69,19 +68,10 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
 <div class="panel panel-default" style="margin:0.5%">
     <div class="panel-body">
         <h3>优选策略</h3>
         <table class="table table-hover">
-            <!--&lt;!&ndash; On rows &ndash;&gt;-->
-            <!--<tr class="active">...</tr>-->
-            <!--<tr class="success">...</tr>-->
-            <!--<tr class="warning">...</tr>-->
-            <!--<tr class="danger">...</tr>-->
-            <!--<tr class="info">...</tr>-->
-
-            <!-- On cells (`td` or `th`) -->
             <tr>
                 <td class="warning">策略1</td>
             </tr>
@@ -105,11 +95,7 @@
             <tr>
                 <td class="active">策略6</td>
             </tr>
-
-
         </table>
-
-
         <nav>
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
@@ -123,10 +109,6 @@
         </nav>
     </div>
 </div>
-
-
-
-
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
