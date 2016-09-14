@@ -47,7 +47,7 @@ public interface ISimuTradeManage {
      * @param vid
      * @return
      */
-    public VirtualTradePo stopVTrade(String userid, String vid);
+    public MyMessage stopVTrade(String userid, String vid);
 
     /**
      * 重启模拟交易
@@ -55,7 +55,7 @@ public interface ISimuTradeManage {
      * @param vid
      * @return
      */
-    public VirtualTradePo restartVTrade(String userid,String vid);
+    public MyMessage restartVTrade(String userid,String vid);
 
 
 }
