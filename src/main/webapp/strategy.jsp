@@ -285,14 +285,14 @@
                                     <ul class="nav nav-tabs" role="tablist">
                                         <h5>择时指标</h5>
                                         <div role="tabpanel" class="tab-pane active" id="index00">
-                                            <input value='MA' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='TRIX' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='MAVOL' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='MABias' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='PE' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='PB' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='PE2' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='PB2' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='MA' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='TRIX' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='MAVOL' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='MABias' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='PE' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='PB' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='PE2' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
+                                            <input value='PB2' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter2(this)">
                                         </div>
                                     </ul>
                                 </div>

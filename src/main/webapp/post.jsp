@@ -135,7 +135,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -145,7 +145,7 @@
 <a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 <div class="panel panel-default" style="margin: 1%">
     <div class="panel-heading" id="post-basic">
-        <h3 class="panel-title">Panel title</h3>
+        <%--<h3 class="panel-title">Panel title</h3>--%>
 
     </div>
     <div class="panel-body" id="post-content">

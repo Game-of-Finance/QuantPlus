@@ -59,7 +59,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="community.jsp">社区</a></li>
-                <li class="active"><a href="login.jsp">登陆</a></li>
+                <li class="active"><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -68,7 +68,7 @@
 
 <div class="panel panel-default" style="margin: 3% 30%">
     <div class="panel-heading">
-        <h3 class="panel-title">登陆</h3>
+        <h3 class="panel-title">登录</h3>
     </div>
     <div class="panel-body">
         <form role="form">
