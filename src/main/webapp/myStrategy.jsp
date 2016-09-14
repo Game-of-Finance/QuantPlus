@@ -73,16 +73,8 @@
 
 <div class="panel panel-default" style="margin:0.5%">
     <div class="panel-body">
-        <h3>优选策略</h3>
+        <h3>我的策略</h3>
         <table class="table table-hover">
-            <!--&lt;!&ndash; On rows &ndash;&gt;-->
-            <!--<tr class="active">...</tr>-->
-            <!--<tr class="success">...</tr>-->
-            <!--<tr class="warning">...</tr>-->
-            <!--<tr class="danger">...</tr>-->
-            <!--<tr class="info">...</tr>-->
-
-            <!-- On cells (`td` or `th`) -->
             <tr>
                 <td class="warning">策略1</td>
             </tr>
