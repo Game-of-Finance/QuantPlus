@@ -183,7 +183,7 @@
             data:{
                 inputHtml : html,
                 inputText : text,
-                inputFormatText : formatText,
+                inputFormatText : formatText
             },
             cache: false,
 
