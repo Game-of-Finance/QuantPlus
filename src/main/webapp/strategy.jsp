@@ -98,10 +98,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <%--<a class="navbar-brand" href="#">quant+</a>--%>
-            <a class="navbar-brand">
-                <img alt="Brand" src="images/logo.jpg">
-            </a>
+            <a class="navbar-brand" href="#">quant+</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -113,7 +110,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li class="active"><a href="strategy.jsp">我的策略</a></li>
+                        <li class="active"><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -155,45 +153,50 @@
                             <div class="panel-body">
                                 <ul class="nav nav-tabs" role="tablist">
                                     <h5>选股指标</h5>
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active"><a href="#index1" role="tab" data-toggle="tab">行情</a></li>
-                                        <li role="presentation"><a href="#index2" role="tab" data-toggle="tab">基本面</a></li>
-                                        <li role="presentation"><a href="#index3" role="tab" data-toggle="tab">增长</a></li>
-                                        <li role="presentation"><a href="#index4" role="tab" data-toggle="tab">情绪</a></li>
-                                    </ul>
-
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <!--行情，基本面，增长，情绪四个选股指标-->
-                                        <!--value代表项目的名称  -->
-                                        <!--这边的css最好要写一下-->
-                                        <!--行情-->
-                                        <div role="tabpanel" class="tab-pane active" id="index1">
-                                            <input value='MACD' type="button" class="btn btn-default" onclick="addFilter(this)">
-                                            <input value='流通市值' type="button" class="btn btn-default" onclick="addFilter(this)">
-                                        </div>
-                                        <!--基本面-->
-                                        <div role="tabpanel" class="tab-pane" id="index2">
-                                            <input value='基本面1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='基本面2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='基本面3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"  onclick="addFilter(this)">
-                                            <input value='基本面4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='基本面5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                        </div>
-                                        <!--增长-->
-                                        <div role="tabpanel" class="tab-pane" id="index3">
-                                            <input value='行情1'  type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='行情2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='行情3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='行情4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                            <input value='行情5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-                                        </div>
-                                        <!--情绪-->
-                                        <div role="tabpanel" class="tab-pane" id="index4">
-                                            <input value='情绪1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">
-
-                                        </div>
+                                    <div role="tabpanel" class="tab-pane active" id="index00">
+                                        <input value='MACD' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter(this)">
+                                        <input value='行业' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter(this)">
+                                        <input value='净资产' type="button" class="btn btn-default" style="margin: 1%" onclick="addFilter(this)">
                                     </div>
+                                    <%--<ul class="nav nav-tabs" role="tablist">--%>
+                                        <%--<li role="presentation" class="active"><a href="#index1" role="tab" data-toggle="tab">行情</a></li>--%>
+                                        <%--<li role="presentation"><a href="#index2" role="tab" data-toggle="tab">基本面</a></li>--%>
+                                        <%--<li role="presentation"><a href="#index3" role="tab" data-toggle="tab">增长</a></li>--%>
+                                        <%--<li role="presentation"><a href="#index4" role="tab" data-toggle="tab">情绪</a></li>--%>
+                                    <%--</ul>--%>
+
+                                    <%--<!-- Tab panes -->--%>
+                                    <%--<div class="tab-content">--%>
+                                        <%--<!--行情，基本面，增长，情绪四个选股指标-->--%>
+                                        <%--<!--value代表项目的名称  -->--%>
+                                        <%--<!--这边的css最好要写一下-->--%>
+                                        <%--<!--行情-->--%>
+                                        <%--<div role="tabpanel" class="tab-pane active" id="index1">--%>
+                                            <%--<input value='MACD' type="button" class="btn btn-default" onclick="addFilter(this)">--%>
+                                            <%--<input value='流通市值' type="button" class="btn btn-default" onclick="addFilter(this)">--%>
+                                        <%--</div>--%>
+                                        <%--<!--基本面-->--%>
+                                        <%--<div role="tabpanel" class="tab-pane" id="index2">--%>
+                                            <%--<input value='基本面1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='基本面2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='基本面3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"  onclick="addFilter(this)">--%>
+                                            <%--<input value='基本面4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='基本面5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                        <%--</div>--%>
+                                        <%--<!--增长-->--%>
+                                        <%--<div role="tabpanel" class="tab-pane" id="index3">--%>
+                                            <%--<input value='行情1'  type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='行情2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='行情3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='行情4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                            <%--<input value='行情5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+                                        <%--</div>--%>
+                                        <%--<!--情绪-->--%>
+                                        <%--<div role="tabpanel" class="tab-pane" id="index4">--%>
+                                            <%--<input value='情绪1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
+
+                                        <%--</div>--%>
+                                    <%--</div>--%>
                                 </ul>
                             </div>
                         </div>

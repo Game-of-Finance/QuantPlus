@@ -111,7 +111,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
