@@ -154,6 +154,7 @@
 
     <div class="list-group" id="post-views">
 
+
     </div>
     <div id="div1"></div>
     <a href="#" id="btn1" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
@@ -188,7 +189,13 @@
             cache: false,
 
             success: function (response) {
-                alert("input success")
+                var viewDiv = document.getElementById('post-views');
+                var newNode = document.createElement("a");//创建a标签
+                newNode.innerHTML = "<a href='#' class='list-group-item'>" +
+                        "<h6 class='list-group-item-heading' >" + "作者：test_viewer " + "时间:" + getFormatTime(time) + "</h6>" +
+                        "<p class='list-group-item-text' >" + "内容：<br />"  + content + "</p>" +
+                        "</a>";
+                viewDiv.appendChild(newNode);
             }
 
         });
