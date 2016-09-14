@@ -76,8 +76,6 @@
 <div class="jumbotron" style="margin: 1.5%;padding: 6%">
     <h1>Welcome to quant+!</h1>
     <br />
-    <br />
-    <br />
     <p>量化投资交易平台</p>
     <br />
     <br />
@@ -90,7 +88,7 @@
     <br />
     <br />
     <br />
-
+    <br />
 </div>
 
 <!--<span class="glyphicon glyphicon-search"></span>-->

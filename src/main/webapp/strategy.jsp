@@ -19,10 +19,15 @@
             $("#selectStock").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
-                    "<td id='比较符'>"+'>'+"</td>"+
+                    "<td id='比较符'>"+
+                    '<select>' +
+                    '<option value=">">></option>' +
+                    '<option value="<"><</option>' +
+                    '<option value="=">=</option>' +
+                    '</select>' +"</td>"+
                     "<td id='范围'>"+'0.0'+"</td>"+
-                    "<td id='值'>"+'0.5'+"</td>"+
-                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter(this)'></button>"+
+                    "<td id='值'>"+'<input>'+"</td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
                     "</tr>");
         }
 
@@ -39,8 +44,8 @@
             $("#selectTime").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
-                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-edit\" data-toggle=\"modal\" data-target=\"#myModal\" onclick='lauchModel()'></button></td>"+
-                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove\" onclick='delFilter2(this)'></button></td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-edit btn btn-default btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#myModal\" onclick='lauchModel()'></button></td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove btn btn-default btn-danger btn-xs\" onclick='delFilter2(this)'></button></td>"+
                     "</tr>");
         }
 
