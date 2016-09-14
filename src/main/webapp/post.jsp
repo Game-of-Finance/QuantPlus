@@ -177,14 +177,18 @@
         var text = editor.$txt.text();
         // 获取格式化后的纯文本
         var formatText = editor.$txt.formatText();
+        var id = "<%=postID%>";
 
+        var author = "test_viewer";
         $.ajax({
             type: 'POST',
             url: 'inputComment.do',
             data:{
                 inputHtml : html,
                 inputText : text,
-                inputFormatText : formatText
+                inputFormatText : formatText,
+                postID : id,
+                author : author
             },
             cache: false,
 
@@ -192,7 +196,7 @@
                 var viewDiv = document.getElementById('post-views');
                 var newNode = document.createElement("a");//创建a标签
                 newNode.innerHTML = "<a href='#' class='list-group-item'>" +
-                        "<h6 class='list-group-item-heading' >" + "作者：test_viewer " + "时间:" + getFormatTime(time) + "</h6>" +
+                        "<h6 class='list-group-item-heading' >" + "作者："+author + " 时间:" + getFormatTime(time) + "</h6>" +
                         "<p class='list-group-item-text' >" + "内容：<br />"  + content + "</p>" +
                         "</a>";
                 viewDiv.appendChild(newNode);
