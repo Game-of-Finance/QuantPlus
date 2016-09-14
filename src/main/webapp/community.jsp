@@ -96,7 +96,10 @@
                 <span class="icon-bar"></span>
 
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

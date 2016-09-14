@@ -13,7 +13,9 @@
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
     <style>
         .jumbotron{
-            background:url(bootstrap/jumu.png);
+            background:url(images/jumu.png);
+            width: auto;
+            height: auto;
         }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,7 +37,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#"><img src="images/index/logo.png" style="width: auto;height: auto"></a>--%>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -66,9 +72,9 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="jumbotron" style="margin: 1%;padding: 5%">
+<div class="jumbotron" style="margin: 1.5%;padding: 6%">
     <h1>Welcome to quant+!</h1>
-    <p>你想看什么随便看</p>
+    <p>量化投资交易平台</p>
     <p><a class="btn btn-primary btn-lg" href="community.jsp" role="button">Learn more</a></p>
 </div>
 
