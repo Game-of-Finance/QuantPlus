@@ -48,14 +48,14 @@
                         var author = onePost.basicInfo.author;
                         var time = onePost.basicInfo.date;
                         var topic = onePost.basicInfo.topic;
-                        var content = onePost.content;
+                        var content = onePost.content.substr(0, 100) + "......";
                         var postViews = onePost.views;
                         var newNode = document.createElement("a");//创建a标签
                         newNode.innerHTML = "<a href='post.jsp?id=" + id + "' class='list-group-item'>" +
                                 "<span class='badge'>postViews</span>" +
                                 "<h4 class='list-group-item-heading'>" + title + "</h4>" +
                                 "<h6 class='list-group-item-heading' >" + "作者：" + author + "<br />时间:" + getFormatTime(time) + "</h6>" +
-                                "<p class='list-group-item-text' >" + "内容：<br />" + topic + content + "</p>" +
+                                "<p class='list-group-item-text' >" + "<br />" + content + "</p>" +
                                 "</a>";
                         var cloneNode = newNode.cloneNode(true);
                         document.getElementById('table_all').appendChild(cloneNode);

@@ -52,7 +52,7 @@ public class PostDaoImpl implements PostDao {
             ID = postOperation.getNewPostID();
             session.commit();
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
 //            session.rollback();
         } finally {
             session.close();
@@ -69,8 +69,8 @@ public class PostDaoImpl implements PostDao {
             comentID = postOperation.getNewCommentID(postID);
             session.commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            session.rollback();
+//            e.printStackTrace();
+//            session.rollback();
         } finally {
             session.close();
         }
