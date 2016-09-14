@@ -4,18 +4,6 @@
       {
         "name": "MACD",
         "comparison": ">"
-      },
-      {
-        "name": "营业利润增长",
-        "comparison": "<>",
-        "count_low": 0.2,
-        "count_upper": 0.3
-      },
-      {
-        "name": "净利润增长",
-        "comparison": "top",
-        "count_low": 10,
-        "count_upper": 20
       }
     ],
     "sort": [
@@ -23,11 +11,6 @@
         "name": "流通市值",
         "order": "ascd",
         "weight": 1
-      },
-      {
-        "name": "BBIC",
-        "order": "ascd",
-        "weight": 2
       }
     ]
   },
@@ -37,19 +20,11 @@
         "name": "MA",
         "stock_index": "sh600000",
         "period": "day",
-        "shortMA": 5,
-        "longMA": 60,
+        "shortMA": 2000,
+        "longMA": 2300,
         "selectBox": true
       },
-      "c_MACD": {
-        "name": "MACD",
-        "stock_index": "sh600000",
-        "period": "day",
-        "shortDIF": 12,
-        "longDIF": 26,
-        "DEA": 9,
-        "selectBox": false
-      },
+      
       "c_TRIX": {
         "name": "TRIX",
         "stock_index": "sh600000",

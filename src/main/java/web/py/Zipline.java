@@ -23,7 +23,7 @@ public class Zipline {
 	 * @param end   yyyy-MM-dd
 	 * @param output 結果輸出位置: xx/xx/xx.pickle
 	 * @param money 初始的資金數
-	 * @return String xx/xx/xx.csv與pickle文件同名
+	 * @return String xx/xx/xx.json與pickle文件同名
 	 * @throws ScriptException 用戶的腳本錯誤
 	 * 
 	 * @exception FileNotFound 腳本未找到
@@ -35,12 +35,12 @@ public class Zipline {
 		if (!file.exists()) {
 			throw new FileNotFoundException();
 		}
-		String[] cmd={"zipline","-f",scriptLocation,"-o",output,"-s",start,"-e",end,"--capital-base",Double.toString(money),"-b","quantplusbundles"};
+		String[] cmd={"rqalpha","-f",scriptLocation,"-o",output,"-s",start,"-e",end,"--no-plot"};
 		try {
 			Process process=Runtime.getRuntime().exec(cmd);
 			process.waitFor();
 			if (process.exitValue()==0) {
-				String[] transCMD={"python","pickle2csv.py",output};
+				String[] transCMD={"python","pickle2json.py",output};
 				Process process2=Runtime.getRuntime().exec(transCMD);
 				process2.waitFor();
 				InputStream inputStream=process2.getInputStream();

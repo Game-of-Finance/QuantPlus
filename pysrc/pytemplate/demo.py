@@ -16,34 +16,6 @@ def getSelectConfig():
         
     filter_c.append(cell1)
     
-    #--------------------------cell--------------------------------
-    name ="营业利润增长"
-    comparison="<>"
-    count=0
-    cell2=[name,comparison,count]
-    
-    count_low=0.2
-    cell2.append(count_low)
-        
-    count_upper=0.3
-    cell2.append(count_upper)
-    
-    filter_c.append(cell2)
-    
-    #--------------------------cell--------------------------------
-    name ="净利润增长"
-    comparison="top"
-    count=0
-    cell3=[name,comparison,count]
-    
-    count_low=10.0
-    cell3.append(count_low)
-        
-    count_upper=20.0
-    cell3.append(count_upper)
-    
-    filter_c.append(cell3)
-    
 
 
     # sort 排序
@@ -57,14 +29,6 @@ def getSelectConfig():
     sort1=[name,order,weight]
     sort_c.append(sort1)
     
-    #---------------------------------------------
-
-    name ="BBIC"
-    order="ascd"
-    weight=2
-    sort2=[name,order,weight]
-    sort_c.append(sort2)
-    
     return [filter_c,sort_c]
 
 # 择时函数
@@ -75,19 +39,11 @@ def getTimeConfig():
     # 1.has c_MA
     name="MA"
     period="day"
-    shortMA=5
-    longMA=60
+    shortMA=2000
+    longMA=2300
 
     select_c.append([name,period,shortMA,longMA])
-        
-    # 2.has c_MACD
-    name = "MACD"
-    period = "day"
-    shortDIF =12
-    longDIF =26
-    DEA =9
-    select_c.append([name,period,shortDIF,longDIF,DEA])
-            
+                
     # 4. has c_TRIX
         
     # 5.has c_MAVOL
@@ -130,7 +86,6 @@ def trade():
     
     sell_limit = "买入后涨幅(止盈)"+">="+"10"
     
-from zipline.api import *
 from pdCal import *
 import pandas as pd
 import numpy as np
@@ -145,37 +100,19 @@ def between(a,b):
     return a>b[0] and a<b[1]
 
 
-
-
-def ma(df,step=[5,30],name=['short_ma','long_ma']):
-    for i in len(name):
-        df[name[i]]=pd.ewma(df['close'],  span= step[i])
-
-    return
-
-
-def macd(df,fastperiod=12, slowperiod=26):
-    macd1, macdsignal, macdhist = ta.MACD(df['close'].values, fastperiod=fastperiod, slowperiod=slowperiod, signalperiod=9)
-    df['MACDBar']=macdhist
-    df['DIF']=macd1
-    df['DEA']=macdsignal
-    return
-def ma_t(df,config,date):
-    ma(df)
-    short_ma,long_ma=df['short_ma','long_ma'].iloc[[-1]]
+def ma_t(array,config,date):
+    short_ma=ta.SMA(array,5)[-1]
+    long_ma=ta.SMA(array,30)[-1]
     return short_ma >= config[2] and long_ma <= config[3]
 
 
 def macd_t(df,config,date):
-    macd(df)
-    dif,dea,macd=df['DIF','DEA','MACDBar'].iloc[[-1]]
-    return dif >= config[2] and dif <= config[3] and dea == config[4]
+    macd1, macdsignal, macdhist = ta.MACD(df, fastperiod=12, slowperiod=26, signalperiod=9)
+    return macd1[-1] >= config[2] and macd1[-1] <= config[3]
 
 def bench_t_s(config,date):
     conditions={'MA':ma_t,'MACD':macd_t}
-    from AnyQuant import getBenchFromts
-    start=date-time.timedelta(60)
-    df=getBenchFromts(start=start,end=date)
+    df=history(60,'1d','close')['000300.XSHG'].values;
     ans=True
     for con in config:
         ans=ans and conditions.get(con[0])(df,con,date)
@@ -195,29 +132,23 @@ def asset_sort(list,config,info):
 
 
 
-def macd_s(list,config,start=datetime.strptime('2015-08-31','%Y-%m-%d')):
+def macd_s(list,config,start=datetime.datetime.strptime('2015-08-31','%Y-%m-%d')):
     conditions={'<':small,'>':big,'<>':between}
-    from pdCal import macd
-    import AnyQuant
-    start_date=start-datetime.timedelta(365)
+
     ans=[]
     for id in list:
-        df=getSingleStock(id,start_date,start)
-        macd(df)
-        if conditions.get(config[1])(df['MACDBar'].iloc[[-1]],config[3:]) :
+        df=history(60,'1d','close')[id].values
+        macd1, macdsignal, macdhist = ta.MACD(df, fastperiod=12, slowperiod=26, signalperiod=9)
+        if conditions.get(config[1])(macdhist[-1],config[2:]) :
             ans.append(id)
 
     return ans
 
-def initialize(context):
+def init(context):
     stockinfo_df=getStock_info()
-    [filt,sort]=getSelectConfig()
-    conditions={'MACD':macd_s}
-    id_list=stockinfo_df['code'].values.tolist()
-    for cond in filt:
-        id_list=conditions.get(cond[0])(id_list,cond)
+    stockinfo_df=stockinfo_df.iloc[:20]
+    context.all=stockinfo_df
 
-    context.select=asset_sort(id_list,None,stockinfo_df)
     context.time_config=getTimeConfig()
 
     return
@@ -227,17 +158,37 @@ def initialize(context):
 
 
 # 每天交易时
-def handle_data(context, data):
+def handle_bar(context, data):
+
+
+    if not hasattr(context,'select'):
+        [filt,sort]=getSelectConfig()
+        conditions={'MACD':macd_s}
+        id_list=context.all['code'].values.tolist()
+        for cond in filt:
+            id_list=conditions.get(cond[0])(id_list,cond,context.now)
+        context.select=id_list
+    else:
+
+        list=context.select
+
+        [filt,sort]=getSelectConfig()
+        conditions={'MACD':macd_s}
+        newlist=context.all['code'].values.tolist()
+        for cond in filt:
+            newlist=conditions.get(cond[0])(newlist,cond,context.now)
+
+        context.select=newlist
+        to_be_sold=[id for id in list if id not in newlist]
+        for id in to_be_sold:
+            #sell them
+            order_target_percent(id,0)
+
     if bench_t_s(context.time_config,context.now) :
         # buy
         for id in context.select:
             order_target_percent(id,float(1)/len(context.select))
 
-    list=context.select
-    newlist=asset_sort(list,None,stockinfo_df)
-    to_be_sold=[id for id in list if id not in newlist]
-    for id in to_be_sold:
-        #sell them
-        order_target_percent(id,0)
+
 
     return

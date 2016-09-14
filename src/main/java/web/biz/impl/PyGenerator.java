@@ -22,7 +22,7 @@ public class PyGenerator {
         //交易
         //回测
         VelocityUtil.generate("demo.vm",values,"demo.py");
-        System.out.println(root.getSelectTime().getCondition().getC_MACD().getPeriod());
+//        System.out.println(root.getSelectTime().getCondition().getC_MACD().getPeriod());
 
     }
 
