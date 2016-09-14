@@ -166,8 +166,8 @@
                                         <!--这边的css最好要写一下-->
                                         <!--行情-->
                                         <div role="tabpanel" class="tab-pane active" id="index1">
-                                            <input value='指标1' type="button" class="btn btn-default" onclick="addFilter(this)">
-                                            <input value='指标2' type="button" class="btn btn-default" onclick="addFilter(this)">
+                                            <input value='MACD' type="button" class="btn btn-default" onclick="addFilter(this)">
+                                            <input value='流通市值' type="button" class="btn btn-default" onclick="addFilter(this)">
                                         </div>
                                         <!--基本面-->
                                         <div role="tabpanel" class="tab-pane" id="index2">
@@ -226,13 +226,13 @@
                                                     <th>操作</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>…</td>
-                                                    <td>
-                                                        <button type="button" class="glyphicon glyphicon-remove"></button>
-                                                    </td>
+                                                    <%--<td>…</td>--%>
+                                                    <%--<td>…</td>--%>
+                                                    <%--<td>…</td>--%>
+                                                    <%--<td>…</td>--%>
+                                                    <%--<td>--%>
+                                                        <%--<button type="button" class="glyphicon glyphicon-remove"></button>--%>
+                                                    <%--</td>--%>
                                                 </tr>
                                             </table>
                                         </div>
@@ -285,8 +285,14 @@
                                     <ul class="nav nav-tabs" role="tablist">
                                         <h5>择时指标</h5>
                                         <div role="tabpanel" class="tab-pane active" id="index00">
-                                            <input value='指标1' type="button" class="btn btn-default" onclick="addFilter2(this)">
-                                            <input value='指标2' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='MA' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='TRIX' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='MAVOL' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='MABias' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='PE' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='PB' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='PE2' type="button" class="btn btn-default" onclick="addFilter2(this)">
+                                            <input value='PB2' type="button" class="btn btn-default" onclick="addFilter2(this)">
                                         </div>
                                     </ul>
                                 </div>
