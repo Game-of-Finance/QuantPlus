@@ -13,7 +13,7 @@
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
     <style>
         .jumbotron{
-            background:url(images/jumu.png);
+            background:url(images/jumu.jpeg);
             width: auto;
             height: auto;
         }
@@ -74,8 +74,21 @@
 </nav>
 <div class="jumbotron" style="margin: 1.5%;padding: 6%">
     <h1>Welcome to quant+!</h1>
+    <br />
     <p>量化投资交易平台</p>
+    <br />
+    <br />
+    <br />
+    <br />
     <p><a class="btn btn-primary btn-lg" href="community.jsp" role="button">Learn more</a></p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
 
 <!--<span class="glyphicon glyphicon-search"></span>-->
