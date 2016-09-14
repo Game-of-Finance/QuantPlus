@@ -133,7 +133,17 @@
 
 <div class="panel panel-default" style="margin: 0.5%">
     <div class="panel-heading">
-        <h3 class="panel-title">股票策略研究</h3>
+        <div class="row">
+            <div class="col-md-10">
+                <h3 class="panel-title">股票策略研究</h3>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default btn-success">保存</button>
+            </div>
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-default btn-success">新建</button>
+            </div>
+        </div>
     </div>
     <div class="panel-body">
         <ul class="nav nav-tabs" role="tablist">
@@ -247,7 +257,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-success">保存</button>
+                    <%--<button type="button" class="btn btn-default btn-success">保存</button>--%>
                 </div>
                 <!--大盘择时-->
                 <div role="tabpanel" class="tab-pane" id="time">
@@ -319,7 +329,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-default btn-success">保存</button>
+                    <%--<button type="button" class="btn btn-default btn-success">保存</button>--%>
                 </div>
                 <!--交易模型-->
                 <div role="tabpanel" class="tab-pane" id="model">
@@ -350,11 +360,11 @@
                                         <input type="email" class="form-control" id="max">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-default btn-success">新建</button>
-                                    </div>
-                                </div>
+                                <%--<div class="form-group">--%>
+                                    <%--<div class="col-sm-offset-2 col-sm-10">--%>
+                                        <%--<button type="submit" class="btn btn-default btn-success">新建</button>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
