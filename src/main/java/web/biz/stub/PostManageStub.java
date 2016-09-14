@@ -17,7 +17,7 @@ import java.util.List;
  * Created by kylin on 9/12/16.
  * All rights reserved.
  */
-@Service
+
 public class PostManageStub implements IPostManage {
     public boolean publish(PostBasicInfo basicInfo, String content) {
         return false;

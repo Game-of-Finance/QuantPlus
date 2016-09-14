@@ -26,6 +26,23 @@ public class PostDaoImpl implements PostDao {
     SqlSession session;
     PostOperation postOperation;
 
+    public List<String> getAllPost() {
+        List<String> list = new ArrayList<String>();
+        try {
+            session = MybatisUtils.getSession();
+            postOperation = session
+                    .getMapper(PostOperation.class);
+            list = postOperation.getAllPost();
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.rollback();
+        } finally {
+            session.close();
+        }
+        return list;
+    }
+
     public String getNewPostID() {
         int ID = 0;
         try {
@@ -36,7 +53,7 @@ public class PostDaoImpl implements PostDao {
             session.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            session.rollback();
+//            session.rollback();
         } finally {
             session.close();
         }

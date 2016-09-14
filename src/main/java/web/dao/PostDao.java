@@ -14,6 +14,12 @@ import java.util.List;
 public interface PostDao {
 
     /**
+     * 获得所有有效帖子编号
+     * @return
+     */
+    List<String> getAllPost();
+
+    /**
      * 获得新的帖子唯一指定编号
      * @return 的帖子唯一指定编号
      */

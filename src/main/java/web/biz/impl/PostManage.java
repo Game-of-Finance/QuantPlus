@@ -1,6 +1,7 @@
 package web.biz.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import web.biz.IPostManage;
 import web.dao.PostDao;
 import web.model.communication.Post;
@@ -11,11 +12,13 @@ import web.model.enums.PostViewAttitude;
 import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by alfred on 16/8/13.
  */
+@Service
 public class PostManage implements IPostManage {
 
     @Autowired
@@ -122,7 +125,16 @@ public class PostManage implements IPostManage {
     }
 
     public List<Post> getAllPost() {
-        return null;
+        List<String> list = postDao.getAllPost();
+        List<Post> posts = new ArrayList<Post>();
+        for (String postID : list) {
+            try {
+                posts.add(postDao.getPost(postID));
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return posts;
     }
 
 }

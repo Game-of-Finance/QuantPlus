@@ -81,12 +81,12 @@
         <div class="row">
             <div class="col-md-2">
                 <select class="form-control" id="postType">
-                    <option value="1">模型交流</option>
-                    <option value="2">bug反馈</option>
-                    <%--<option value="3" _alias="algorithm">投资教学</option>--%>
-                    <%--<option value="3" _alias="algorithm">新闻快递</option>--%>
-                    <%--<option value="3" _alias="algorithm">操作使用</option>--%>
-                    <option value="3">其他问题</option>
+                    <option value="model">模型交流</option>
+                    <option value="bug">bug反馈</option>
+                    <option value="invest" _alias="algorithm">投资教学</option>
+                    <option value="news" _alias="algorithm">新闻快递</option>
+                    <option value="operation" _alias="algorithm">操作使用</option>
+                    <option value="other">其他问题</option>
                 </select>
             </div>
             <div class="col-md-5">
@@ -115,7 +115,7 @@
             // 获取格式化后的纯文本
             var formatText = editor.$txt.formatText();
 
-            var postType = $('#postType').find('option:selected').text();
+            var postType = $('#postType').find('option:selected').val();
             var ipt = document.getElementById('postTitle');
             var postTitle = ipt.value;
 

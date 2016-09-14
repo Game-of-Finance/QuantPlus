@@ -16,6 +16,9 @@ import java.util.List;
  */
 public interface PostOperation {
 
+    @Select("select postID from post")
+    public List<String> getAllPost();
+
     @Select("select max(postID) from post")
     public int getNewPostID();
 
