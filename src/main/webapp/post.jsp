@@ -56,7 +56,7 @@
 
                     // 添加主题内容
                     var webContent = document.getElementById("post-content");
-                    webContent.innerHTML = content;
+                    webContent.innerHTML = "23333";
                     // 添加基本信息
                     var webBasic = document.getElementById("post-basic");
                     webBasic.innerHTML = "<h6 class='list-group-item-heading' >" +
