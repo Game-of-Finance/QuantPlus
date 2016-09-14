@@ -33,6 +33,7 @@
                 cache: false,
 
                 success: function (response) {
+                    alert("hhhhhhhhhhhh");
                     // 获取到的帖子
                     var onePost = response.returnPost;
                     // 帖子基本信息
@@ -55,8 +56,10 @@
                     var commentList = postViews.commentList;
 
                     // 添加主题内容
-                    var webContent = document.getElementById("post-content");
-                    webContent.innerHTML = "23333";
+                    var newContent = document.createElement("p");//创建标签
+                    newContent.innerHTML = "456798";
+                    document.getElementById("post-content").appendChild(newContent);
+
                     // 添加基本信息
                     var webBasic = document.getElementById("post-basic");
                     webBasic.innerHTML = "<h6 class='list-group-item-heading' >" +
@@ -145,7 +148,9 @@
         <h3 class="panel-title">Panel title</h3>
 
     </div>
-    <div class="panel-body" id="post-content"></div>
+    <div class="panel-body" id="post-content">
+
+    </div>
 
     <!-- List group -->
     <button class="glyphicon glyphicon-heart" style="margin: 1%"></button>
