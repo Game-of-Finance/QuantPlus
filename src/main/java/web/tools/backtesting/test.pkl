@@ -1,0 +1,16 @@
+(dp0
+S'12345'
+p1
+(lp2
+S'us'
+p3
+aS'en'
+p4
+asS'12346'
+p5
+(lp6
+S'cn'
+p7
+aS'th'
+p8
+as.

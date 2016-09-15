@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="web.dao.BackTestBL.BackTestMapper" >
+
+    <select id="getJson" parameterType="String" resultType="String">
+        SELECT json_text FROM strategy
+        WHERE userid = #{0,jdbcType=VARCHAR} AND sid = #{1,jdbcType=BIGINT}
+    </select>
+
+    <update id="setPython" parameterType="String">
+        UPDATE strategy SET py_text = #{2,jdbcType=LONGVARCHAR}
+        WHERE userid = #{0,jdbcType=VARCHAR} AND sid = #{1,jdbcType=BIGINT}
+    </update>
+    
+    <select id="getResult" resultType="web.pojo.after.BackTestDailyResultPo">
+        SELECT * FROM ${listname}
+    </select>
+
+    <select id="getResultid" resultType="String">
+        SELECT resultid FROM backtesting WHERE userid = #{0,jdbcType=BIGINT} AND sid = #{1,jdbcType=BIGINT} AND start = #{2,jdbcType=LONGVARCHAR}
+        AND end = #{3,jdbcType=LONGVARCHAR}
+    </select>
+</mapper>

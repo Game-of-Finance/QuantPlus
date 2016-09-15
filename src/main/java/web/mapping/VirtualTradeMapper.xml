@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="web.dao.BackTestBL.VirtualTradeMapper">
+
+    <insert id="addtrade">
+        INSERT INTO vtrade (userid,vname,starttime,startfund,rightfund,sid,poolid,sname)
+        VALUES (#{0,jdbcType=VARCHAR},#{1,jdbcType=VARCHAR},#{3,jdbcType=VARCHAR},#{2,jdbcType=DOUBLE},#{2,jdbcType=DOUBLE},#{4,jdbcType=VARCHAR},#{5,jdbcType=VARCHAR},#{6,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="getidByName" parameterType="String" resultType="String">
+        SELECT vid FROM vtrade WHERE userid = #{0,jdbcType=VARCHAR} AND vname = #{1,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deletetrade" parameterType="String">
+        DELETE FROM vtrade WHERE userid = #{0,jdbcType=VARCHAR} AND vid = #{1,jdbcType=VARCHAR}
+    </delete>
+
+
+    <select id="getTrade" resultMap="web.dao.UserSystem.StockPoolMapper.virtualtrademap">
+        SELECT * FROM vtrade WHERE userid = #{0,jdbcType=VARCHAR} AND vid = #{1,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getAllTrade" resultMap="web.dao.UserSystem.StockPoolMapper.virtualtrademap">
+        SELECT * FROM vtrade WHERE userid = #{0,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getDailyResult" resultType="web.pojo.after.BackTestDailyResultPo">
+          SELECT * FROM ${listname}
+    </select>
+    
+    <update id="insertStoptime" parameterType="String">
+        UPDATE vtrade SET endtime = #{2,jdbcType=VARCHAR} , state = '0'
+        WHERE userid = #{0,jdbcType=VARCHAR} AND vid = #{1,jdbcType=VARCHAR}
+    </update>
+
+    <update id="restartVTrade" parameterType="String">
+          UPDATE vtrade SET endtime = NULL , state = '1'
+        WHERE userid = #{0,jdbcType=VARCHAR} AND vid = #{1,jdbcType=VARCHAR}
+    </update>
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="web.dao.BackTestBL.StrategyMapper" >
+
+    <insert id="addStrategy" parameterType="String">
+        INSERT INTO strategy(userid,sname,json_text,py_text,isJson)
+        VALUES (#{userid},#{name},#{json},#{python},#{isjson})
+    </insert>
+
+    <select id="getIDByName" parameterType="String" resultType="String">
+        SELECT sid FROM strategy
+        WHERE userid = #{userid} AND sname = #{name}
+    </select>
+
+    <update id="updateStrategyName" parameterType="String">
+        UPDATE strategy set sname = #{2,jdbcType=VARCHAR}
+        WHERE sid = #{1,jdbcType=VARCHAR} AND userid = #{0,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateStrategyPython" parameterType="String">
+        UPDATE strategy set py_text = #{2,jdbcType=VARCHAR}
+        WHERE sid = #{1,jdbcType=VARCHAR}  AND userid = #{0,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateStrategyJson" parameterType="String">
+        UPDATE strategy set json_text = #{2,jdbcType=VARCHAR}
+        WHERE sid = #{1,jdbcType=VARCHAR}  AND userid = #{0,jdbcType=VARCHAR}
+    </update>
+
+    <delete id="deleteStrategy" parameterType="String">
+        DELETE FROM strategy WHERE  sid = #{1,jdbcType=VARCHAR}  AND userid = #{0,jdbcType=VARCHAR}
+    </delete>
+
+    <resultMap id="StrategyMap" type="web.pojo.after.StrategyPo">
+        <id column="userid" property="userid" jdbcType="VARCHAR"/>
+        <result column="sid" property="strategyid" javaType="String" jdbcType="BIGINT"/>
+        <result column="sname" property="strategyname" jdbcType="LONGVARCHAR"/>
+        <result column="json_text" property="json" jdbcType="LONGVARCHAR"/>
+        <result column="py_text" property="python" jdbcType="LONGVARCHAR"/>
+        <result column="isJson" property="isJson" jdbcType="VARCHAR"/>
+        <result column="updateAt" property="updateAt" jdbcType="TIMESTAMP" javaType="String"/>
+    </resultMap>
+    <select id="selectStrategy" resultMap="StrategyMap">
+        SELECT * FROM strategy WHERE userid = #{0,jdbcType=VARCHAR} AND sid = #{1,jdbcType=VARCHAR}
+    </select>
+
+    <select id="getAllStategy" resultMap="StrategyMap">
+        SELECT * FROM strategy WHERE userid = #{0,jdbcType=VARCHAR}
+    </select>
+</mapper>
