@@ -209,6 +209,7 @@
         }
 
         function saveStrategy() {
+            window.location.href="back.jsp";
             var selectStock=new Array();
             if($("#MACD").length>0){
                 selectStock.push($("#MACD").find("#select option:selected").val());
@@ -656,7 +657,7 @@
             </div>
         </div>
         <button class="btn btn-primary" onclick="saveStrategy()">开始回测</button>
-        <%--<a href="huice.jsp" class="btn btn-primary" role="button" style="margin: 1.5%" >开始回测</a>--%>
+        <%--<a  class="btn btn-primary" role="button" style="margin: 1.5%" >开始回测</a>--%>
     </div>
 </div>
 

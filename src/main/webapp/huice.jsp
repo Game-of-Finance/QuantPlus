@@ -30,51 +30,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <%--<a class="navbar-brand" href="#">quant+</a>--%>
-            <a class="navbar-brand">
-                <img alt="Brand" src="images/logo.jpg">
-            </a>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li><a href="index.jsp">首页</a></li>
-                <!--<li><a href="#">Link</a></li>-->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">新建策略</a></li>
-                        <li><a href="myStrategy.jsp">我的策略</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="SimulatedTrading.jsp">虚拟交易</a></li>
-                        <li><a href="#" disabled="">我的交易</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登录</a></li>
-                <li><a href="register.jsp">注册</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-</nav>
 <!-- Styles -->
 <style>
     #chartdiv {
