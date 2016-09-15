@@ -56,8 +56,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
-                        <li><a href="#">虚拟交易2</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易</a></li>
+                        <li><a href="#" disabled="">我的交易</a></li>
                     </ul>
                 </li>
             </ul>
