@@ -1,4 +1,4 @@
-package web.biz.impl.BackTestBL;
+package web.biz.impl;
 
 import org.springframework.stereotype.Service;
 import web.tools.backtesting.BackTesting;

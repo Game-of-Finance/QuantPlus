@@ -1,4 +1,4 @@
-package web.biz.impl.BackTestBL;
+package web.biz.impl;
 
 //import com.sun.tools.corba.se.idl.toJavaPortab.InterfaceGen;
 import org.springframework.stereotype.Service;
