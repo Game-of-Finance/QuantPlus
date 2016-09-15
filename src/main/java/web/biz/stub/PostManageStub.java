@@ -17,7 +17,7 @@ import java.util.List;
  * Created by kylin on 9/12/16.
  * All rights reserved.
  */
-
+@Service
 public class PostManageStub implements IPostManage {
     public boolean publish(PostBasicInfo basicInfo, String content) {
         return false;
@@ -56,7 +56,7 @@ public class PostManageStub implements IPostManage {
         basic.setPostID("222");
         basic.setAuthor("王嘉琛");
         basic.setDate(new Date());
-        basic.setTitle("第" + Math.random() * 10);
+        basic.setTitle("第" + Math.random() * 10+"内容是啊哈哈哈哈哈哈哈哈");
         basic.setTopic(Topic.list[(int) (Math.random() * 7)]);
         post1.setBasicInfo(basic);
 
