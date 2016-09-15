@@ -42,7 +42,6 @@
 
                 success: function (response) {
                     var list = response.postList;
-                    alert(list.length);
                     for (var i = 0; i < list.length; i++) {
                         var onePost = list[i];
                         var id = onePost.basicInfo.postID;

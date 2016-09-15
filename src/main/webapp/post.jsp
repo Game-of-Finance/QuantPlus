@@ -33,7 +33,6 @@
                 cache: false,
 
                 success: function (response) {
-                    alert("hhhhhhhhhhhh");
                     // 获取到的帖子
                     var onePost = response.returnPost;
                     // 帖子基本信息
@@ -57,7 +56,7 @@
 
                     // 添加主题内容
                     var newContent = document.createElement("p");//创建标签
-                    newContent.innerHTML = "456798";
+                    newContent.innerHTML = content;
                     document.getElementById("post-content").appendChild(newContent);
 
                     // 添加基本信息
