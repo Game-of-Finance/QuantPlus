@@ -1,7 +1,10 @@
 package web.dao.stub;
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.StrategyDao;
 import web.model.strategy.Strategy;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +13,9 @@ import java.util.List;
 
 
 
-
+@SuppressWarnings("restriction")
+@Repository("strategyDao")
+@Transactional
 public class StrategyDaoStub implements StrategyDao {
 
 

@@ -1,5 +1,6 @@
 package web.biz.impl;
 
+import org.springframework.stereotype.Service;
 import web.model.strategy.Root;
 import web.tools.VelocityUtil;
 
@@ -9,6 +10,7 @@ import java.util.Map;
 /**
  * Created by xyf on 2016/9/1 0001.
  */
+@Service
 public class PyGenerator {
     public static void pyGenerate(){
         Map values =new HashMap();
@@ -20,7 +22,7 @@ public class PyGenerator {
         //交易
         //回测
         VelocityUtil.generate("demo.vm",values,"demo.py");
-        System.out.println(root.getSelectTime().getCondition().getC_MACD().getPeriod());
+//        System.out.println(root.getSelectTime().getCondition().getC_MACD().getPeriod());
 
     }
 

@@ -1,6 +1,8 @@
 package web.dao.stub;
 
 
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.UserDao;
 import web.model.register.User;
 
@@ -8,6 +10,9 @@ import web.model.register.User;
  * Created by kylin on 16/8/9.
  * All rights reserved.
  */
+@SuppressWarnings("restriction")
+@Repository("userDao")
+@Transactional
 public class UserStub implements UserDao {
 
     public int login(User user) {

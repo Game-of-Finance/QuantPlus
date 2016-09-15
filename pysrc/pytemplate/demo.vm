@@ -3,22 +3,23 @@
 
 #parse ("pysrc/pytemplate/config.vm")
 
-from zipline.api import *
 from pdCal import *
 import pandas as pd
 import numpy as np
 
 #parse ("pysrc/pytemplate/driver.vm")
 
-def initialize(context):
+def init(context):
     stockinfo_df=getStock_info()
-    [filt,sort]=getSelectConfig()
-    conditions={'MACD':macd_s}
-    id_list=stockinfo_df['code'].values.tolist()
-    for cond in filt:
-        id_list=conditions.get(cond[0])(id_list,cond)
+    [fix,filt,sort]=getSelectConfig()
+    conditions={'area':area_s,'industry':industry_s,'asset':asset_s}
+    for con in fix:
+        stockinfo_df=conditions.get(con[0])(stockinfo_df,con)
 
-    context.select=asset_sort(id_list,None,stockinfo_df)
+    
+
+    context.all=stockinfo_df
+
     context.time_config=getTimeConfig()
 
     return
@@ -28,17 +29,37 @@ def initialize(context):
 
 
 # 每天交易时
-def handle_data(context, data):
+def handle_bar(context, data):
+
+
+    if not hasattr(context,'select'):
+        [fix,filt,sort]=getSelectConfig()
+        conditions={'MACD':macd_s}
+        id_list=context.all['code'].values.tolist()
+        for cond in filt:
+            id_list=conditions.get(cond[0])(id_list,cond,context.now)
+        context.select=id_list
+    else:
+
+        list=context.select
+
+        [filt,sort]=getSelectConfig()
+        conditions={'MACD':macd_s}
+        newlist=context.all['code'].values.tolist()
+        for cond in filt:
+            newlist=conditions.get(cond[0])(newlist,cond,context.now)
+
+        context.select=newlist
+        to_be_sold=[id for id in list if id not in newlist]
+        for id in to_be_sold:
+            #sell them
+            order_target_percent(id,0)
+
     if bench_t_s(context.time_config,context.now) :
         # buy
         for id in context.select:
             order_target_percent(id,float(1)/len(context.select))
 
-    list=context.select
-    newlist=asset_sort(list,None,stockinfo_df)
-    to_be_sold=[id for id in list if id not in newlist]
-    for id in to_be_sold:
-        #sell them
-        order_target_percent(id,0)
+
 
     return

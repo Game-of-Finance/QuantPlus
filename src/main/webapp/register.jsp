@@ -34,7 +34,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,7 +49,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -59,7 +63,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li class="active"><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -68,7 +72,7 @@
 
 <div class="panel panel-default" style="margin: 3% 30%">
     <div class="panel-heading">
-        <h3 class="panel-title">登陆</h3>
+        <h3 class="panel-title">注册</h3>
     </div>
     <div class="panel-body">
         <form role="form">
@@ -78,13 +82,13 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">确认密码</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password">
             </div>
-            <button type="submit" class="btn btn-default">提交</button>
+            <button type="submit" class="btn btn-default btn-success">提交</button>
         </form>
 
     </div>

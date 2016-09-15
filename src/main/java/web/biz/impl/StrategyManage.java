@@ -1,5 +1,7 @@
 package web.biz.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import web.biz.IStrategyManage;
 import web.dao.BackTestDao;
 import web.dao.StrategyDao;
@@ -14,9 +16,14 @@ import java.util.Set;
 /**
  * Created by xyf on 2016/8/15 0015.
  */
+@Service
 public class StrategyManage implements IStrategyManage{
-    StrategyDao strategyDao =new StrategyDaoStub();
-    BackTestDao backTestDao =new BackTestDaoStub();
+
+    @Autowired
+    StrategyDao strategyDao;
+
+    @Autowired
+    BackTestDao backTestDao;
 
 
     public List<Strategy> queryStrategy(int userId) {

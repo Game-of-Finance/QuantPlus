@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +13,74 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
+
+
+    <script type="text/javascript">
+        function getFormatTime(nS) {
+            var date = new Date(nS);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            return year + "-" + month + "-" + day;
+        }
+
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'getPostList.do',
+                dataType: 'json',
+                cache: false,
+
+                success: function (response) {
+                    var list = response.postList;
+                    for (var i = 0; i < list.length; i++) {
+                        var onePost = list[i];
+                        var id = onePost.basicInfo.postID;
+                        var title = onePost.basicInfo.title;
+                        var author = onePost.basicInfo.author;
+                        var time = onePost.basicInfo.date;
+                        var topic = onePost.basicInfo.topic;
+                        var content = onePost.content.substr(0, 100) + "......";
+                        var postViews = onePost.views;
+                        var newNode = document.createElement("a");//创建a标签
+                        newNode.innerHTML = "<a href='post.jsp?id=" + id + "' class='list-group-item'>" +
+                                "<span class='badge'>postViews</span>" +
+                                "<h4 class='list-group-item-heading'>" + title + "</h4>" +
+                                "<h6 class='list-group-item-heading' >" + "<strong>作者：</strong>" + author
+                                + " <strong>时间：</strong>" + getFormatTime(time) + "</h6>" +
+                                "<p class='list-group-item-text' >" + "<br />" + content + "</p>" +
+                                "</a>";
+                        var cloneNode = newNode.cloneNode(true);
+                        document.getElementById('table_all').appendChild(cloneNode);
+                        switch (topic) {
+                            case "value":document.getElementById('table_value').appendChild(newNode);break;
+                            case "model":document.getElementById('table_model').appendChild(newNode);break;
+                            case "bug":document.getElementById('table_bug').appendChild(newNode);break;
+                            case "invest":document.getElementById('table_invest').appendChild(newNode);break;
+                            case "news":document.getElementById('table_news').appendChild(newNode);break;
+                            case "operation":document.getElementById('table_operation').appendChild(newNode);break;
+                            case "other":document.getElementById('table_other').appendChild(newNode);break;
+                        }
+
+                    }
+                },
+                error: function (msg) {
+
+                }
+            });
+
+        });
+
+    </script>
 
     <![endif]-->
 </head>
@@ -28,13 +90,18 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,7 +113,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -59,7 +127,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -100,81 +168,37 @@
         <div class="tab-content">
             <!--全部-->
             <div role="tabpanel" class="tab-pane active" id="tab1">
-                <table class="table table-hover">
-                    <div class="list-group">
-                        <a href="post.jsp" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                            <h6 class="list-group-item-heading">作者+时间</h6>
-                            <p class="list-group-item-text">文章内容</p></a>
-                        <a href="post.jsp" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                            <h6 class="list-group-item-heading">作者+时间</h6>
-                            <p class="list-group-item-text">文章内容</p></a>
-                        <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                            <h6 class="list-group-item-heading">作者+时间</h6>
-                            <p class="list-group-item-text">文章内容</p></a>
-                        <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                            <h6 class="list-group-item-heading">作者+时间</h6>
-                            <p class="list-group-item-text">文章内容</p></a>
-                    </div>
-                </table>
+                <div class="list-group" id="table_all"></div>
             </div>
             <!--精品区-->
             <div role="tabpanel" class="tab-pane" id="tab2">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_value"></div>
             </div>
             <!--模型交流-->
             <div role="tabpanel" class="tab-pane" id="tab3">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_model"></div>
             </div>
             <!--bug反馈-->
             <div role="tabpanel" class="tab-pane" id="tab4">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_bug"></div>
             </div>
             <!--投资教学-->
             <div role="tabpanel" class="tab-pane" id="tab5">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_invest"></div>
             </div>
             <!--新闻快递-->
             <div role="tabpanel" class="tab-pane" id="tab6">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_news"></div>
             </div>
             <!--操作使用-->
             <div role="tabpanel" class="tab-pane" id="tab7">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_operation"></div>
             </div>
             <!--其他问题-->
             <div role="tabpanel" class="tab-pane" id="tab8">
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
-                <a href="#" class="list-group-item"><span class="badge">浏览数</span><h4 class="list-group-item-heading">List group item heading</h4>
-                    <h6 class="list-group-item-heading">作者+时间</h6>
-                    <p class="list-group-item-text">文章内容</p></a>
+                <div class="list-group" id="table_other"></div>
             </div>
         </div>
-
-
-
         <nav>
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
@@ -188,8 +212,6 @@
         </nav>
     </div>
 </div>
-
-
 
 
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>

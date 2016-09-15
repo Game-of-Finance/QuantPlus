@@ -64,6 +64,8 @@ public class Root{
     }
 
     public static class SelectStockBean {
+    	
+    	private List<FixFilterBean> fixFilter;
         /**
          * name : MACD
          * comparison : >
@@ -80,8 +82,17 @@ public class Root{
          */
 
         private List<SortBean> sort;
+        
 
-        public List<FilterBean> getFilter() {
+        public List<FixFilterBean> getFixFilter() {
+			return fixFilter;
+		}
+
+		public void setFixFilter(List<FixFilterBean> fixFilter) {
+			this.fixFilter = fixFilter;
+		}
+
+		public List<FilterBean> getFilter() {
             return filter;
         }
 
@@ -95,6 +106,44 @@ public class Root{
 
         public void setSort(List<SortBean> sort) {
             this.sort = sort;
+        }
+        public static class FixFilterBean{
+        	private String name;
+        	private String comparison;
+        	private String value;
+        	private double low;
+        	private double high;
+			public String getName() {
+				return name;
+			}
+			public void setName(String name) {
+				this.name = name;
+			}
+			public String getComparison() {
+				return comparison;
+			}
+			public void setComparison(String comparison) {
+				this.comparison = comparison;
+			}
+			public String getValue() {
+				return value;
+			}
+			public void setValue(String value) {
+				this.value = value;
+			}
+			public double getLow() {
+				return low;
+			}
+			public void setLow(double low) {
+				this.low = low;
+			}
+			public double getHigh() {
+				return high;
+			}
+			public void setHigh(double high) {
+				this.high = high;
+			}
+        	
         }
 
         public static class FilterBean {

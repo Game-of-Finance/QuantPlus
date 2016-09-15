@@ -13,7 +13,9 @@
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
     <style>
         .jumbotron{
-            background:url(bootstrap/jumu.png);
+            background:url(images/jumu.jpeg);
+            width: auto;
+            height: auto;
         }
     </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -35,7 +37,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#"><img src="images/index/logo.png" style="width: auto;height: auto"></a>--%>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,7 +53,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -60,16 +67,28 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="jumbotron" style="margin: 1%;padding: 5%">
+<div class="jumbotron" style="margin: 1.5%;padding: 6%">
     <h1>Welcome to quant+!</h1>
-    <p>你想看什么随便看</p>
+    <br />
+    <p>量化投资交易平台</p>
+    <br />
+    <br />
+    <br />
+    <br />
     <p><a class="btn btn-primary btn-lg" href="community.jsp" role="button">Learn more</a></p>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>
 
 <!--<span class="glyphicon glyphicon-search"></span>-->

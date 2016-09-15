@@ -1,6 +1,8 @@
 package web.dao.impl;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.PostDao;
 import web.dao.util.MybatisUtils;
 import web.dao.util.PostOperation;
@@ -16,10 +18,30 @@ import java.util.List;
 /**
  * Created by JiachenWang on 2016/8/18.
  */
+@SuppressWarnings("restriction")
+@Repository("postDao")
+@Transactional
 public class PostDaoImpl implements PostDao {
 
     SqlSession session;
     PostOperation postOperation;
+
+    public List<String> getAllPost() {
+        List<String> list = new ArrayList<String>();
+        try {
+            session = MybatisUtils.getSession();
+            postOperation = session
+                    .getMapper(PostOperation.class);
+            list = postOperation.getAllPost();
+            session.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            session.rollback();
+        } finally {
+            session.close();
+        }
+        return list;
+    }
 
     public String getNewPostID() {
         int ID = 0;
@@ -30,8 +52,8 @@ public class PostDaoImpl implements PostDao {
             ID = postOperation.getNewPostID();
             session.commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            session.rollback();
+//            e.printStackTrace();
+//            session.rollback();
         } finally {
             session.close();
         }
@@ -47,8 +69,8 @@ public class PostDaoImpl implements PostDao {
             comentID = postOperation.getNewCommentID(postID);
             session.commit();
         } catch (Exception e) {
-            e.printStackTrace();
-            session.rollback();
+//            e.printStackTrace();
+//            session.rollback();
         } finally {
             session.close();
         }
@@ -193,7 +215,7 @@ public class PostDaoImpl implements PostDao {
             postOperation = session
                     .getMapper(PostOperation.class);
             list = postOperation.search(str);
-            System.out.println(list.size() + "hhh");
+//            System.out.println(list.size() + "hhh");
             session.commit();
         } catch (Exception e) {
             e.printStackTrace();

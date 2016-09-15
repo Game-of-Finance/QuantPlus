@@ -6,6 +6,8 @@ import web.model.communication.PostBasicInfo;
 import web.model.communication.PostComment;
 import web.model.enums.PostViewAttitude;
 
+import java.util.List;
+
 /**
  * Created by alfred on 16/8/13.
  */
@@ -56,4 +58,15 @@ public interface IPostManage {
      * 搜索
      */
     Post search(String keyword);
+
+    /**
+     * get  post bu ID
+     */
+    Post getPost(String postID);
+
+    /**
+     * get all existing posts
+     */
+    List<Post> getAllPost();
+
 }

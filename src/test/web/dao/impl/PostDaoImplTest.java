@@ -11,6 +11,11 @@ import java.util.Date;
  */
 public class PostDaoImplTest extends TestCase {
 
+    public void testGetAllPost() throws Exception {
+        PostDaoImpl test = new PostDaoImpl();
+        System.out.println(test.getAllPost().size());
+    }
+
     public void testSearch() throws Exception {
         PostDaoImpl test = new PostDaoImpl();
         System.out.println(test.search("title").size());

@@ -1,8 +1,8 @@
 package web.biz.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import web.biz.IPostManage;
 import web.dao.PostDao;
-import web.dao.impl.PostDaoImpl;
 import web.model.communication.Post;
 import web.model.communication.PostBasicInfo;
 import web.model.communication.PostComment;
@@ -11,14 +11,17 @@ import web.model.enums.PostViewAttitude;
 import web.model.exceptions.BadInputException;
 import web.model.exceptions.NotFoundException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by alfred on 16/8/13.
  */
+
 public class PostManage implements IPostManage {
 
-    PostDao postDao = new PostDaoImpl();
+    @Autowired
+    private PostDao postDao;
 
     public boolean publish(PostBasicInfo basicInfo, String content) {
         Post post = new Post();
@@ -119,4 +122,27 @@ public class PostManage implements IPostManage {
             return null;
         return list.get(0);
     }
+
+    public Post getPost(String postID) {
+        try {
+            return postDao.getPost(postID);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<Post> getAllPost() {
+        List<String> list = postDao.getAllPost();
+        List<Post> posts = new ArrayList<Post>();
+        for (String postID : list) {
+            try {
+                posts.add(postDao.getPost(postID));
+            } catch (NotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        return posts;
+    }
+
 }

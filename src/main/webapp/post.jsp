@@ -4,38 +4,98 @@
 <head>
     <link rel="stylesheet" type="text/css" href="wangEditor/dist/css/wangEditor.min.css">
     <style type="text/css">
-        #div1,#div2 {
+        #div1, #div2 {
             width: 100%;
             height: 250px;
         }
     </style>
     <script type="text/javascript" src="wangEditor/dist/js/lib/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="wangEditor/dist/js/wangEditor.js"></script>
-    <script type="text/javascript" >
-        function read() {
-            // 获取编辑器区域完整html代码
-            var html = editor.$txt.html();
-            alert(html);
 
-            // 获取编辑器纯文本内容
-            var text = editor.$txt.text();
+    <%--获取community界面里超链接的参数--%>
+    <%
+        String postID = request.getParameter("id");
+    %>
 
-            // 获取格式化后的纯文本
-            var formatText = editor.$txt.formatText();
-
-//            $.ajax({
-//                type: "POST",
-//                contentType: "application/json; charset=utf-8",
-//                dataType: "text",
-//                url: "read.do/getInput",//传入后台的地址/方法
-//                data: {text:"text",formatText:"formatText"}//参数，这里是一个json语句
-//            });
+    <script type="text/javascript">
+        function getFormatTime(nS) {
+            var date = new Date(nS);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            return year + "-" + month + "-" + day;
         }
+        <%--让JS获取上面JAVA里的参数--%>
+        var id = "<%=postID%>";
 
-        function onerror() {
+        // 根据获取的帖子ID进行URL请求,获取帖子的内容
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'getOnePost.do',
+                data: {
+                    postID: id
+                },
+                dataType: 'json',
+                cache: false,
 
-        }
+                success: function (response) {
+                    // 获取到的帖子
+                    var onePost = response.returnPost;
+                    // 帖子基本信息
+                    var title = onePost.basicInfo.title;
+                    var author = onePost.basicInfo.author;
+                    var time = onePost.basicInfo.date;
+                    var topic = onePost.basicInfo.topic;
+
+                    // 帖子内容
+                    var content = onePost.content;
+
+                    // 评论内容
+                    var postViews = onePost.views;
+                    var viewsNum = postViews.viewsNum;
+                    var thanks = postViews.thanks;
+                    var likes = postViews.likes;
+                    var disagrees = postViews.disagrees;
+
+                    // 评论列表
+                    var commentList = postViews.commentList;
+
+                    // 添加基本信息
+                    var basicContent = document.createElement("p");//创建标签
+                    basicContent.innerHTML = basicContent.innerHTML =
+                            "<h6 class='list-group-content-item-heading' >" +
+                            "标题: " + title +
+                            " 作者：" + author + " 时间:" + getFormatTime(time) +
+                            " 浏览数" + viewsNum + "</h6>";
+                    document.getElementById("post-basic").appendChild(basicContent);
+
+                    // 添加主题内容
+                    var newContent = document.createElement("p");//创建标签
+                    newContent.innerHTML = content;
+                    document.getElementById("post-content").appendChild(newContent);
+
+                    // 添加评论信息
+                    for (var i = 0; i < webViews.length; i++) {
+                        var oneView = webViews[i];
+                        var comtAuthor = oneView.author;
+                        var comtDate = oneView.date;
+                        var comtContent = oneView.content;
+                        // 创建a标签
+                        var newNode = document.createElement("a");
+                        newNode.innerHTML = "<a href='#' class='list-group-item'>" +
+                                "<h6 class='list-group-item-headin'>" + "作者： " + comtAuthor
+                                + " 时间: " + getFormatTime(comtDate) + "</h6>" +
+                                "<p class='list-group-item-text'>" + comtContent + "</p>" +
+                                "</a>";
+                        document.getElementById("post-views").appendChild(newNode);
+                    }
+                }
+            });
+        });
+
     </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,13 +112,17 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -70,7 +134,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -84,7 +149,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -93,43 +158,25 @@
 
 <a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 <div class="panel panel-default" style="margin: 1%">
-    <div class="panel-heading">
-        <h3 class="panel-title">Panel title</h3>
-        <h6>作者+时间+浏览数</h6>
+    <div class="panel-heading" id="post-basic">
+        <%--<h3 class="panel-title">Panel title</h3>--%>
+
     </div>
-    <div class="panel-body">
-        文章，1984年6月26日出生于陕西省西安市，中国内地男演员、导演。2006年毕业于中央戏剧学院表演系。
-        2004年参演电视剧《与青春有关的日子》，开始在影视圈崭露头角[1]  。2005年拍摄古装剧《锦衣卫》。2007年主演赵宝刚导演的青春剧《奋斗》；[2]  同年，主演首部电影《走着瞧》。2008年主演滕华涛执导的电视剧《蜗居》，饰演80后城市青年小贝。[1]  2009年，在电影《海洋天堂》中扮演自闭症患者王大福；同年参演抗战题材的电视剧《雪豹》[4]  。2011年，主演的电视剧《裸婚时代》在各大卫视播出；[5]  2011年-2012年连续2年获得北京大学生电影节[6-7]  最受大学生欢迎男演员奖。2012年，凭借电影《失恋33天》获得第31届大众电影百花奖最佳男主角奖；[8]  同年成立自己经营的北京君竹影视文化有限公司，并导演第一部影视作品《小爸爸》。2013年2月，主演的电影《西游·降魔篇》在全国上映。[9]
-        2014年3月28日，主演的中韩合资文艺爱情片《我在路上最爱你》在全国上映。2014年12月18日，在姜文执导的动作喜剧片《一步之遥》中扮演武七一角。[10]  2016年，主演电视剧《少帅》，饰演张学良[11]  ；主演电视剧《剃刀边缘》[12]  。7月15日导演的电影《陆垚知马俐》上映。[13]
-        演艺事业外，文章也参与公益慈善事业，2010年成立大福自闭症关爱基金。
-        文章，1984年6月26日出生于陕西省西安市，中国内地男演员、导演。2006年毕业于中央戏剧学院表演系。
-        2004年参演电视剧《与青春有关的日子》，开始在影视圈崭露头角[1]  。2005年拍摄古装剧《锦衣卫》。2007年主演赵宝刚导演的青春剧《奋斗》；[2]  同年，主演首部电影《走着瞧》。2008年主演滕华涛执导的电视剧《蜗居》，饰演80后城市青年小贝。[1]  2009年，在电影《海洋天堂》中扮演自闭症患者王大福；同年参演抗战题材的电视剧《雪豹》[4]  。2011年，主演的电视剧《裸婚时代》在各大卫视播出；[5]  2011年-2012年连续2年获得北京大学生电影节[6-7]  最受大学生欢迎男演员奖。2012年，凭借电影《失恋33天》获得第31届大众电影百花奖最佳男主角奖；[8]  同年成立自己经营的北京君竹影视文化有限公司，并导演第一部影视作品《小爸爸》。2013年2月，主演的电影《西游·降魔篇》在全国上映。[9]
-        2014年3月28日，主演的中韩合资文艺爱情片《我在路上最爱你》在全国上映。2014年12月18日，在姜文执导的动作喜剧片《一步之遥》中扮演武七一角。[10]  2016年，主演电视剧《少帅》，饰演张学良[11]  ；主演电视剧《剃刀边缘》[12]  。7月15日导演的电影《陆垚知马俐》上映。[13]
-        演艺事业外，文章也参与公益慈善事业，2010年成立大福自闭症关爱基金。
-        文章，1984年6月26日出生于陕西省西安市，中国内地男演员、导演。2006年毕业于中央戏剧学院表演系。
-        2004年参演电视剧《与青春有关的日子》，开始在影视圈崭露头角[1]  。2005年拍摄古装剧《锦衣卫》。2007年主演赵宝刚导演的青春剧《奋斗》；[2]  同年，主演首部电影《走着瞧》。2008年主演滕华涛执导的电视剧《蜗居》，饰演80后城市青年小贝。[1]  2009年，在电影《海洋天堂》中扮演自闭症患者王大福；同年参演抗战题材的电视剧《雪豹》[4]  。2011年，主演的电视剧《裸婚时代》在各大卫视播出；[5]  2011年-2012年连续2年获得北京大学生电影节[6-7]  最受大学生欢迎男演员奖。2012年，凭借电影《失恋33天》获得第31届大众电影百花奖最佳男主角奖；[8]  同年成立自己经营的北京君竹影视文化有限公司，并导演第一部影视作品《小爸爸》。2013年2月，主演的电影《西游·降魔篇》在全国上映。[9]
-        2014年3月28日，主演的中韩合资文艺爱情片《我在路上最爱你》在全国上映。2014年12月18日，在姜文执导的动作喜剧片《一步之遥》中扮演武七一角。[10]  2016年，主演电视剧《少帅》，饰演张学良[11]  ；主演电视剧《剃刀边缘》[12]  。7月15日导演的电影《陆垚知马俐》上映。[13]
-        演艺事业外，文章也参与公益慈善事业，2010年成立大福自闭症关爱基金。
-        文章，1984年6月26日出生于陕西省西安市，中国内地男演员、导演。2006年毕业于中央戏剧学院表演系。
-        2004年参演电视剧《与青春有关的日子》，开始在影视圈崭露头角[1]  。2005年拍摄古装剧《锦衣卫》。2007年主演赵宝刚导演的青春剧《奋斗》；[2]  同年，主演首部电影《走着瞧》。2008年主演滕华涛执导的电视剧《蜗居》，饰演80后城市青年小贝。[1]  2009年，在电影《海洋天堂》中扮演自闭症患者王大福；同年参演抗战题材的电视剧《雪豹》[4]  。2011年，主演的电视剧《裸婚时代》在各大卫视播出；[5]  2011年-2012年连续2年获得北京大学生电影节[6-7]  最受大学生欢迎男演员奖。2012年，凭借电影《失恋33天》获得第31届大众电影百花奖最佳男主角奖；[8]  同年成立自己经营的北京君竹影视文化有限公司，并导演第一部影视作品《小爸爸》。2013年2月，主演的电影《西游·降魔篇》在全国上映。[9]
-        2014年3月28日，主演的中韩合资文艺爱情片《我在路上最爱你》在全国上映。2014年12月18日，在姜文执导的动作喜剧片《一步之遥》中扮演武七一角。[10]  2016年，主演电视剧《少帅》，饰演张学良[11]  ；主演电视剧《剃刀边缘》[12]  。7月15日导演的电影《陆垚知马俐》上映。[13]
-        演艺事业外，文章也参与公益慈善事业，2010年成立大福自闭症关爱基金。
+    <div class="panel-body" id="post-content">
+
     </div>
+
     <!-- List group -->
     <button class="glyphicon glyphicon-heart" style="margin: 1%"></button>
     <button class="glyphicon glyphicon-thumbs-up" style="margin: 1%"></button>
     <button class="glyphicon glyphicon-thumbs-down" style="margin: 1%"></button>
 
-    <div class="list-group">
-        <a href="#" class="list-group-item">
-            <h6 class="list-group-item-heading">作者+时间</h6>
-            <p class="list-group-item-text">评论内容</p></a>
-        <a href="#" class="list-group-item">
-            <h6 class="list-group-item-heading">作者+时间</h6>
-            <p class="list-group-item-text">评论内容</p></a>
+    <div class="list-group" id="post-views">
+
+
     </div>
     <div id="div1"></div>
-    <a href="#" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
+    <a href="#" id="btn1" class="btn btn-primary" role="button" style="margin: 1%">发表评论</a>
 </div>
 <a href="community.jsp" class="btn btn-primary" role="button" style="margin: 1%">返回主题列表</a>
 
@@ -137,6 +184,46 @@
 <script type="text/javascript">
     var editor = new wangEditor('div1');
     editor.create();
+
+    // 获取编辑器纯文本内容
+    var text = editor.$txt.text();
+
+
+    $('#btn1').click(function () {
+        // 获取编辑器区域完整html代码
+        var html = editor.$txt.html();
+        // 获取编辑器纯文本内容
+        var text = editor.$txt.text();
+        // 获取格式化后的纯文本
+        var formatText = editor.$txt.formatText();
+        var id = "<%=postID%>";
+
+        var author = "test_viewer";
+        $.ajax({
+            type: 'POST',
+            url: 'inputComment.do',
+            data: {
+                inputHtml: html,
+                inputText: text,
+                inputFormatText: formatText,
+                postID: id,
+                author: author
+            },
+            cache: false,
+
+            success: function (response) {
+                var viewDiv = document.getElementById('post-views');
+                var newNode = document.createElement("a");//创建a标签
+                newNode.innerHTML = "<a href='#' class='list-group-item'>" +
+                        "<h6 class='list-group-item-heading' >" + "作者：" + author + " 时间:" + getFormatTime(time) + "</h6>" +
+                        "<p class='list-group-item-text' >" + "内容：<br />" + content + "</p>" +
+                        "</a>";
+                viewDiv.appendChild(newNode);
+            }
+
+        });
+    });
+
 </script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>

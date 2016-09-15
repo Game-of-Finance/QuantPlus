@@ -50,7 +50,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="topStrategy.jsp">优选策略</a></li>
                         <li><a href="strategy.jsp">新建策略</a></li>
-                        <li><a href="myStrategy.jsp">我的策略</a></li>
+                        <li class="active"><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -63,34 +63,54 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="community.jsp">社区</a></li>
-                <li class="active"><a href="login.jsp">登录</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="panel panel-default" style="margin: 3% 30%">
-    <div class="panel-heading">
-        <h3 class="panel-title">登录</h3>
-    </div>
+<div class="panel panel-default" style="margin:0.5%">
     <div class="panel-body">
-        <form role="form">
-            <div class="form-group">
-                <label for="exampleInputEmail1">用户名</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Username">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-default btn-success">登陆</button>
-        </form>
+        <h3>我的策略</h3>
+        <table class="table table-hover">
+            <tr>
+                <td class="warning">策略1</td>
+            </tr>
 
+            <tr>
+                <td class="active">策略2</td>
+            </tr>
+
+            <tr>
+                <td class="warning">策略3</td>
+            </tr>
+
+            <tr>
+                <td class="active">策略4</td>
+            </tr>
+
+            <tr>
+                <td class="warning">策略5</td>
+            </tr>
+
+            <tr>
+                <td class="active">策略6</td>
+            </tr>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </nav>
     </div>
 </div>
-
-
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>

@@ -29,12 +29,14 @@
                     url : 'demo',
 //                    dataType : 'json',
 //                    contentType:'application/json',
+
 //                    data: $("#user").serialize(),
                     data:{
                         "username":username,
                         "age":age
                     },
 //                    cache:false,
+
                     success : function(response) {
                         //请求成功
                         alert("你好"+response.username);

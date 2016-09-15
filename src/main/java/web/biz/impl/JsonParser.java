@@ -1,6 +1,7 @@
 package web.biz.impl;
 
 import com.google.gson.Gson;
+import org.springframework.stereotype.Service;
 import web.model.strategy.Root;
 
 import java.io.*;
@@ -8,6 +9,7 @@ import java.io.*;
 /**
  * Created by xyf on 2016/9/1 0001.
  */
+@Service
 public class JsonParser {
 
     public static Root ParseJson(String filePath){

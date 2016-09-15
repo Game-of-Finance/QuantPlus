@@ -34,9 +34,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">quant+</a>
+            <%--<a class="navbar-brand" href="#">quant+</a>--%>
+            <a class="navbar-brand">
+                <img alt="Brand" src="images/logo.jpg">
+            </a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
@@ -45,44 +47,31 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">策略研究 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="topStrategy.jsp">优选策略</a></li>
-                        <li><a href="strategy.jsp">我的策略</a></li>
+                        <li class="active"><a href="topStrategy.jsp">优选策略</a></li>
+                        <li><a href="strategy.jsp">新建策略</a></li>
+                        <li><a href="myStrategy.jsp">我的策略</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
+                        <li><a href="#">虚拟交易2</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="community.jsp">社区</a></li>
-                <li><a href="login.jsp">登陆</a></li>
+                <li><a href="community.jsp">社区</a></li>
+                <li><a href="login.jsp">登录</a></li>
                 <li><a href="register.jsp">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
 <div class="panel panel-default" style="margin:0.5%">
     <div class="panel-body">
         <h3>优选策略</h3>
         <table class="table table-hover">
-            <!--&lt;!&ndash; On rows &ndash;&gt;-->
-            <!--<tr class="active">...</tr>-->
-            <!--<tr class="success">...</tr>-->
-            <!--<tr class="warning">...</tr>-->
-            <!--<tr class="danger">...</tr>-->
-            <!--<tr class="info">...</tr>-->
-
-            <!-- On cells (`td` or `th`) -->
             <tr>
                 <td class="warning">策略1</td>
             </tr>
@@ -106,11 +95,7 @@
             <tr>
                 <td class="active">策略6</td>
             </tr>
-
-
         </table>
-
-
         <nav>
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
@@ -124,10 +109,6 @@
         </nav>
     </div>
 </div>
-
-
-
-
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>

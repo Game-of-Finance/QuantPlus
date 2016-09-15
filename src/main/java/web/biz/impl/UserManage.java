@@ -2,6 +2,7 @@ package web.biz.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import web.biz.IUserManage;
 import web.dao.UserDao;
 import web.model.exceptions.BadInputException;
@@ -15,6 +16,7 @@ import java.util.*;
 /**
  * Created by alfred on 16/8/12.
  */
+@Service
 public class UserManage implements IUserManage {
 
     @Autowired
