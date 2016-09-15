@@ -1,15 +1,14 @@
-package web.biz.impl.BackTestBL;
+package web.biz.impl;
 
 import org.springframework.stereotype.Service;
 import web.tools.backtesting.BackTesting;
 //import web.tools.strategy_module.RookieModule;
-import web.dao.BackTestBL.BackTestMapper;
+import web.dao.BackTestMapper;
 import web.model.btAndVt.BackTestResultPo;
-import web.biz.BackTestBL.BackTestService;
+import web.biz.BackTestService;
 
 import javax.annotation.Resource;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 /**
  * Created by linyufan on 16/9/7.
