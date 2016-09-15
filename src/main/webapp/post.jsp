@@ -64,7 +64,7 @@
                     // 添加基本信息
                     var basicContent = document.createElement("p");//创建标签
                     basicContent.innerHTML = basicContent.innerHTML =
-                            "<h6 class='list-groucontentp-item-heading' >" +
+                            "<h6 class='list-group-content-item-heading' >" +
                             "标题: " + title +
                             " 作者：" + author + " 时间:" + getFormatTime(time) +
                             " 浏览数" + viewsNum + "</h6>";
