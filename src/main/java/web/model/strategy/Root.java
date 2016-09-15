@@ -151,20 +151,13 @@ public class Root{
         public static class FilterBean {
             private String name;
             private String comparison;
-            private int count;
-            private Object count_low;
-            private Object count_upper;
+            private double count;
+            private double count_low;
+            private double count_upper;
 
-            public FilterBean() {
-            }
 
-            public FilterBean(String name, String comparison, int count, Object count_low, Object count_upper) {
-                this.name = name;
-                this.comparison = comparison;
-                this.count = count;
-                this.count_low = count_low;
-                this.count_upper = count_upper;
-            }
+
+
 
             public String getName() {
                 return name;
@@ -182,27 +175,27 @@ public class Root{
                 this.comparison = comparison;
             }
 
-            public int getCount() {
+            public double getCount() {
                 return count;
             }
 
-            public void setCount(int count) {
+            public void setCount(double count) {
                 this.count = count;
             }
 
-            public Object getCount_low() {
+            public double getCount_low() {
                 return count_low;
             }
 
-            public void setCount_low(Object count_low) {
+            public void setCount_low(double count_low) {
                 this.count_low = count_low;
             }
 
-            public Object getCount_upper() {
+            public double getCount_upper() {
                 return count_upper;
             }
 
-            public void setCount_upper(Object count_upper) {
+            public void setCount_upper(double count_upper) {
                 this.count_upper = count_upper;
             }
         }

@@ -16,13 +16,9 @@ public class PyGenerator {
         Map values =new HashMap();
         Root root=JsonParser.ParseJson("pysrc/pytemplate/demoJson.json");
         values.put("root",root);
-        //初始化
-        //选股
-        //择时
-        //交易
-        //回测
+
         VelocityUtil.generate("demo.vm",values,"demo.py");
-//        System.out.println(root.getSelectTime().getCondition().getC_MACD().getPeriod());
+
 
     }
 

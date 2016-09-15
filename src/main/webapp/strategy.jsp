@@ -20,7 +20,7 @@
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td id='比较符'>"+
-                    '<select>' +
+                    '<select id="select">' +
                     '<option value="通信设备">通信设备</option>' +
                     '<option value="旅游服务">旅游服务</option>' +
                     '<option value="电信运营">电信运营</option>' +
@@ -145,7 +145,7 @@
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td id='比较符'>"+
-                    '<select>' +
+                    '<select id="select">' +
                     '<option value="青海">青海</option>' +
                     '<option value="辽宁">辽宁</option>' +
                     '<option value="贵州">贵州</option>' +
@@ -188,15 +188,15 @@
         function addFilter(btn){
             $("#selectStock").
             append("<tr id="+btn.value+">"+
-                    "<td id='指标'>"+btn.value+"</td>"+
+                    "<td id='name'>"+btn.value+"</td>"+
                     "<td id='比较符'>"+
-                    '<select>' +
+                    '<select id="select">' +
                     '<option value=">">></option>' +
                     '<option value="<"><</option>' +
                     '<option value="="><></option>' +
                     '</select>' +"</td>"+
-                    "<td id='low'>"+'<input placeholder="low">'+"</td>"+
-                    "<td id='high'>"+'<input placeholder="high">'+"</td>"+
+                    "<td>"+'<input placeholder="low" id="low">'+"</td>"+
+                    "<td>"+'<input placeholder="high" id="high">'+"</td>"+
                     "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-trash btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
                     "</tr>");
         }
@@ -208,25 +208,37 @@
         }
 
         function saveStrategy() {
-            var table1 = document.getElementById("selectStock");
-            var table2 = document.getElementById("selectTime");
-            var selectStockList = new Array();
-            //从1开始，不要表头
-            for(var i=1,rows=table1.rows.length; i<rows; i++){
-                selectStockList.push(table1.rows[i].cells[0].innerHTML+","
-                        +table1.rows[i].cells[1].innerHTML+","
-                        +table1.rows[i].cells[2].innerHTML+","
-                        +table1.rows[i].cells[3].innerHTML+","
-                )
+            var selectStock=new Array();
+            if($('#selectStock tr').find("#MACD")){
+                selectStock.push($("#MACD").find("#select option:selected").val());
+                selectStock.push($("#MACD").find("#low").val());
+                selectStock.push($("#MACD").find("#high").val());
+            }
+            if($('#selectStock tr').find("#行业")){
+                selectStock.push($("#行业").find("#select option:selected").val());
+            }
+            if($('#selectStock tr').find("#资产")){
+                selectStock.push($("#资产").find("#select option:selected").val());
+                selectStock.push($("#资产").find("#low").val());
+                selectStock.push($("#资产").find("#high").val());
+            }
+            if($('#selectStock tr').find("#地域")){
+                selectStock.push($("#地域").find("#select option:selected").val());
+            }
 
+            var selectTime=new Array();
+            if($('#selectTime tr').find("#timeMACD")){
+                selectTime.push($("#timeMACD").find("#select option:selected").val());
+                selectTime.push($("#timeMACD").find("#low").val());
+                selectTime.push($("#timeMACD").find("#high").val());
             }
-            var selectTimeList = new Array();
-            //从1开始，不要表头
-            for(var i=1,rows=table2.rows.length; i<rows; i++){
-                selectTimeList.push(
-                        table2.rows[i].cells[0].innerHTML
-                )
+            if($('#selectTime tr').find("#timeMA")){
+                selectTime.push($("#timeMA").find("#select option:selected").val());
+                selectTime.push($("#timeMA").find("#low").val());
+                selectTime.push($("#timeMA").find("#high").val());
             }
+
+
             var bear_to_bull = document.getElementById("bear_to_bull").value;
             var bull_to_bear = document.getElementById("bull_to_bear").value;
             var bear_position = document.getElementById("bear_position").value;
@@ -252,23 +264,20 @@
 
             $.ajax({
                 type : 'POST',
-                url : 'newStrategy',
+                url : 'newStrategy.do',
+                dataType:'application/json',
                 data:{
-                    "selectStock":selectStockList,
-                    "selectTime":selectTimeList,
+                    "selectStock":selectStock,
+                    "selectTime":selectTime,
                     "selectTimePara":selectTimePara,
                     "tradePara":tradePara
                 },
                 traditional:true,
                 success : function(response) {
                     //请求成功
-                    alert("新的策略"+response.a);
-                    alert("新的策略"+response.b);
-                    alert("新的策略"+response.c);
+                    alert("新的策略"+response.status);
 
-                },
-                error : function(msg) {
-                    alert("error"+msg);
+
                 }
             });
 
@@ -279,16 +288,16 @@
     <script type="text/javascript">
         function addFilter2(btn){
             $("#selectTime").
-            append("<tr id="+btn.value+">"+
+            append("<tr id="+"time"+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td id='比较符'>"+
-                    '<select>' +
+                    '<select id="select">' +
                     '<option value=">">></option>' +
                     '<option value="<"><</option>' +
                     '<option value="="><></option>' +
                     '</select>' +"</td>"+
-                    "<td id='low'>"+'<input placeholder="low">'+"</td>"+
-                    "<td id='high'>"+'<input placeholder="high">'+"</td>"+
+                    "<td>"+'<input placeholder="low" id="low">'+"</td>"+
+                    "<td>"+'<input placeholder="high" id="high">'+"</td>"+
                     "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-trash btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
                     "</tr>");
         }
@@ -575,8 +584,8 @@
             <div class="col-md-6">
                 <div class="form-inline" style="margin: 2%">
                     <label>开始时间:</label>
-                    <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                        <input class="form-control" size="18" type="text" value="" readonly>
+                    <div class="input-group date form_date col-md-8" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="18" type="text" value="" readonly id="startDate">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
@@ -584,8 +593,8 @@
                 </div>
                 <div class="form-inline" style="margin: 2%">
                     <label>结束时间:</label>
-                    <div class="input-group date form_date col-md-8" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                        <input class="form-control" size="18" type="text" value="" readonly>
+                    <div class="input-group date form_date col-md-8" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input class="form-control" size="18" type="text" value="" readonly id="endData">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
@@ -594,7 +603,7 @@
             <div class="col-md-6">
                 <div class="form-inline" style="margin: 2%">
                     <label>收益基准:</label>
-                    <select class="form-control" id="ind" style="width: 70%">
+                    <select class="form-control" id="ind" style="width: 70%" id="reference">
                         <option>沪深300</option>
                         <option>中证500</option>
                         <option>中证全指</option>
