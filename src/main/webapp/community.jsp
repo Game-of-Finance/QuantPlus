@@ -12,16 +12,12 @@
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
-
-    <![endif]-->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
         function getFormatTime(nS) {
@@ -54,7 +50,8 @@
                         newNode.innerHTML = "<a href='post.jsp?id=" + id + "' class='list-group-item'>" +
                                 "<span class='badge'>postViews</span>" +
                                 "<h4 class='list-group-item-heading'>" + title + "</h4>" +
-                                "<h6 class='list-group-item-heading' >" + "作者：" + author + "<br />时间:" + getFormatTime(time) + "</h6>" +
+                                "<h6 class='list-group-item-heading' >" + "<strong>作者：</strong>" + author
+                                + " <strong>时间：</strong>" + getFormatTime(time) + "</h6>" +
                                 "<p class='list-group-item-text' >" + "<br />" + content + "</p>" +
                                 "</a>";
                         var cloneNode = newNode.cloneNode(true);
@@ -118,8 +115,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
-                        <li><a href="#">虚拟交易2</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易</a></li>
+                        <li><a href="#" disabled="">我的交易</a></li>
                     </ul>
                 </li>
             </ul>
@@ -141,7 +138,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary">搜索</button>
             </form>
         </div>
         <div class="col-md-2">
@@ -149,7 +146,7 @@
         </div>
     </div>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin: 1%">
     <div class="panel-body">
 
         <!--tab 1-8:全部 精品区 模型交流 投资教学 新闻快递 操作使用 其他问题-->
@@ -210,10 +207,5 @@
         </nav>
     </div>
 </div>
-
-
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

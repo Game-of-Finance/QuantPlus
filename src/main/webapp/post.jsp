@@ -18,6 +18,13 @@
     %>
 
     <script type="text/javascript">
+        function getFormatTime(nS) {
+            var date = new Date(nS);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            return year + "-" + month + "-" + day;
+        }
         <%--让JS获取上面JAVA里的参数--%>
         var id = "<%=postID%>";
 
@@ -33,7 +40,6 @@
                 cache: false,
 
                 success: function (response) {
-                    alert("hhhhhhhhhhhh");
                     // 获取到的帖子
                     var onePost = response.returnPost;
                     // 帖子基本信息
@@ -46,39 +52,43 @@
                     var content = onePost.content;
 
                     // 评论内容
-                    var postViews = onePost.views;
-                    var viewsNum = postViews.viewsNum;
-                    var thanks = postViews.thanks;
-                    var likes = postViews.likes;
-                    var disagrees = postViews.disagrees;
+                    var webViews = onePost.views;
+                    var viewsNum = webViews.viewsNum;
+                    var thanks = webViews.thanks;
+                    var likes = webViews.likes;
+                    var disagrees = webViews.disagrees;
 
                     // 评论列表
-                    var commentList = postViews.commentList;
+                    var commentList = webViews.commentList;
+
+                    // 添加基本信息
+                    var basicContent = document.createElement("p");//创建标签
+                    basicContent.innerHTML = basicContent.innerHTML =
+                            "<h6 class='list-group-content-item-heading' >" +
+                            "标题: " + title +
+                            " 作者：" + author + " 时间:" + getFormatTime(time) +
+                            " 浏览数" + viewsNum + "</h6>";
+                    document.getElementById("post-basic").appendChild(basicContent);
 
                     // 添加主题内容
                     var newContent = document.createElement("p");//创建标签
-                    newContent.innerHTML = "456798";
+                    newContent.innerHTML = content;
                     document.getElementById("post-content").appendChild(newContent);
 
-                    // 添加基本信息
-                    var webBasic = document.getElementById("post-basic");
-                    webBasic.innerHTML = "<h6 class='list-group-item-heading' >" +
-                            "作者：" + author + "时间:" + getFormatTime(time) + "浏览数" + viewsNum + "</h6>";
-
                     // 添加评论信息
-                    var webViews = document.getElementById("post-views");
-                    for (var i = 0; i < webViews.length; i++) {
-                        var oneView = webViews[i];
+                    for (var i = 0; i < commentList.length; i++) {
+                        var oneView = commentList[i];
                         var comtAuthor = oneView.author;
                         var comtDate = oneView.date;
                         var comtContent = oneView.content;
                         // 创建a标签
                         var newNode = document.createElement("a");
                         newNode.innerHTML = "<a href='#' class='list-group-item'>" +
-                                "<h6 class='list-group-item-headin'>" + comtAuthor + " " + comtDate + "</h6>" +
-                                "<p class='list-group-item-text'>"+comtContent+"</p>" +
+                                "<h6 class='list-group-item-headin'>" + "作者： " + comtAuthor
+                                + " 时间: " + getFormatTime(comtDate) + "</h6>" +
+                                "<p class='list-group-item-text'>" + comtContent + "</p>" +
                                 "</a>";
-                        webViews.appendChild(newNode);
+                        document.getElementById("post-views").appendChild(newNode);
                     }
                 }
             });
@@ -131,8 +141,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
-                        <li><a href="#">虚拟交易2</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易</a></li>
+                        <li><a href="#" disabled="">我的交易</a></li>
                     </ul>
                 </li>
 
@@ -192,12 +202,12 @@
         $.ajax({
             type: 'POST',
             url: 'inputComment.do',
-            data:{
-                inputHtml : html,
-                inputText : text,
-                inputFormatText : formatText,
-                postID : id,
-                author : author
+            data: {
+                inputHtml: html,
+                inputText: text,
+                inputFormatText: formatText,
+                postID: id,
+                author: author
             },
             cache: false,
 
@@ -205,8 +215,8 @@
                 var viewDiv = document.getElementById('post-views');
                 var newNode = document.createElement("a");//创建a标签
                 newNode.innerHTML = "<a href='#' class='list-group-item'>" +
-                        "<h6 class='list-group-item-heading' >" + "作者："+author + " 时间:" + getFormatTime(time) + "</h6>" +
-                        "<p class='list-group-item-text' >" + "内容：<br />"  + content + "</p>" +
+                        "<h6 class='list-group-item-heading' >" + "作者：" + author + " 时间:" + getFormatTime(time) + "</h6>" +
+                        "<p class='list-group-item-text' >" + "内容：<br />" + content + "</p>" +
                         "</a>";
                 viewDiv.appendChild(newNode);
             }

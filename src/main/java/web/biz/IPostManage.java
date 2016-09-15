@@ -60,6 +60,11 @@ public interface IPostManage {
     Post search(String keyword);
 
     /**
+     * get  post bu ID
+     */
+    Post getPost(String postID);
+
+    /**
      * get all existing posts
      */
     List<Post> getAllPost();

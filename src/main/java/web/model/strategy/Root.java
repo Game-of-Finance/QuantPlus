@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Root{
 
+
+
     private SelectStockBean selectStock;
     /**
      * condition : {"c_MA":{"name":"MA","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"selectBox":true},"c_MACD":{"name":"MACD","stock_index":"上证指数","period":"day","shortDIF":12,"longDIF":26,"DEA":9,"selectBox":false},"c_DMA":{"name":"DMA","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"AMA":20},"c_TRIX":{"name":"TRIX","stock_index":"上证指数","period":"day","TRIX":120,"MATRIX":5},"c_MAVOL":{"name":"MAVOL","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"selectBox":true},"c_MABias":{"name":"MABias","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"low":-0.1,"upper":0.1},"c_PE":{"name":"PE","low":15,"upper":30},"C_PB":{"name":"PB","upper":4,"low":2},"c_PE2":{"name":"PE2","upper":4,"low":2},"c_PB2":{"name":"PB2","upper":4,"low":2}}
@@ -64,6 +66,8 @@ public class Root{
     }
 
     public static class SelectStockBean {
+    	
+    	private List<FixFilterBean> fixFilter;
         /**
          * name : MACD
          * comparison : >
@@ -80,8 +84,17 @@ public class Root{
          */
 
         private List<SortBean> sort;
+        
 
-        public List<FilterBean> getFilter() {
+        public List<FixFilterBean> getFixFilter() {
+			return fixFilter;
+		}
+
+		public void setFixFilter(List<FixFilterBean> fixFilter) {
+			this.fixFilter = fixFilter;
+		}
+
+		public List<FilterBean> getFilter() {
             return filter;
         }
 
@@ -96,13 +109,55 @@ public class Root{
         public void setSort(List<SortBean> sort) {
             this.sort = sort;
         }
+        public static class FixFilterBean{
+        	private String name;
+        	private String comparison;
+        	private String value;
+        	private double low;
+        	private double high;
+			public String getName() {
+				return name;
+			}
+			public void setName(String name) {
+				this.name = name;
+			}
+			public String getComparison() {
+				return comparison;
+			}
+			public void setComparison(String comparison) {
+				this.comparison = comparison;
+			}
+			public String getValue() {
+				return value;
+			}
+			public void setValue(String value) {
+				this.value = value;
+			}
+			public double getLow() {
+				return low;
+			}
+			public void setLow(double low) {
+				this.low = low;
+			}
+			public double getHigh() {
+				return high;
+			}
+			public void setHigh(double high) {
+				this.high = high;
+			}
+        	
+        }
 
         public static class FilterBean {
             private String name;
             private String comparison;
-            private int count;
-            private Object count_low;
-            private Object count_upper;
+            private double count;
+            private double count_low;
+            private double count_upper;
+
+
+
+
 
             public String getName() {
                 return name;
@@ -120,27 +175,27 @@ public class Root{
                 this.comparison = comparison;
             }
 
-            public int getCount() {
+            public double getCount() {
                 return count;
             }
 
-            public void setCount(int count) {
+            public void setCount(double count) {
                 this.count = count;
             }
 
-            public Object getCount_low() {
+            public double getCount_low() {
                 return count_low;
             }
 
-            public void setCount_low(Object count_low) {
+            public void setCount_low(double count_low) {
                 this.count_low = count_low;
             }
 
-            public Object getCount_upper() {
+            public double getCount_upper() {
                 return count_upper;
             }
 
-            public void setCount_upper(Object count_upper) {
+            public void setCount_upper(double count_upper) {
                 this.count_upper = count_upper;
             }
         }
@@ -235,76 +290,7 @@ public class Root{
              * DEA : 9
              * selectBox : false
              */
-
             private CMACDBean c_MACD;
-            /**
-             * name : DMA
-             * stock_index : 上证指数
-             * period : day
-             * shortMA : 5
-             * longMA : 60
-             * AMA : 20
-             */
-
-            private CDMABean c_DMA;
-            /**
-             * name : TRIX
-             * stock_index : 上证指数
-             * period : day
-             * TRIX : 120
-             * MATRIX : 5
-             */
-
-            private CTRIXBean c_TRIX;
-            /**
-             * name : MAVOL
-             * stock_index : 上证指数
-             * period : day
-             * shortMA : 5
-             * longMA : 60
-             * selectBox : true
-             */
-
-            private CMAVOLBean c_MAVOL;
-            /**
-             * name : MABias
-             * stock_index : 上证指数
-             * period : day
-             * shortMA : 5
-             * longMA : 60
-             * low : -0.1
-             * upper : 0.1
-             */
-
-            private CMABiasBean c_MABias;
-            /**
-             * name : PE
-             * low : 15
-             * upper : 30
-             */
-
-            private CPEBean c_PE;
-            /**
-             * name : PB
-             * upper : 4
-             * low : 2
-             */
-
-            private CPBBean C_PB;
-            /**
-             * name : PE2
-             * upper : 4
-             * low : 2
-             */
-
-            private CPE2Bean c_PE2;
-            /**
-             * name : PB2
-             * upper : 4
-             * low : 2
-             */
-
-            private CPB2Bean c_PB2;
 
             public CMABean getC_MA() {
                 return c_MA;
@@ -322,552 +308,95 @@ public class Root{
                 this.c_MACD = c_MACD;
             }
 
-            public CDMABean getC_DMA() {
-                return c_DMA;
-            }
-
-            public void setC_DMA(CDMABean c_DMA) {
-                this.c_DMA = c_DMA;
-            }
-
-            public CTRIXBean getC_TRIX() {
-                return c_TRIX;
-            }
-
-            public void setC_TRIX(CTRIXBean c_TRIX) {
-                this.c_TRIX = c_TRIX;
-            }
-
-            public CMAVOLBean getC_MAVOL() {
-                return c_MAVOL;
-            }
-
-            public void setC_MAVOL(CMAVOLBean c_MAVOL) {
-                this.c_MAVOL = c_MAVOL;
-            }
-
-            public CMABiasBean getC_MABias() {
-                return c_MABias;
-            }
-
-            public void setC_MABias(CMABiasBean c_MABias) {
-                this.c_MABias = c_MABias;
-            }
-
-            public CPEBean getC_PE() {
-                return c_PE;
-            }
-
-            public void setC_PE(CPEBean c_PE) {
-                this.c_PE = c_PE;
-            }
-
-            public CPBBean getC_PB() {
-                return C_PB;
-            }
-
-            public void setC_PB(CPBBean C_PB) {
-                this.C_PB = C_PB;
-            }
-
-            public CPE2Bean getC_PE2() {
-                return c_PE2;
-            }
-
-            public void setC_PE2(CPE2Bean c_PE2) {
-                this.c_PE2 = c_PE2;
-            }
-
-            public CPB2Bean getC_PB2() {
-                return c_PB2;
-            }
-
-            public void setC_PB2(CPB2Bean c_PB2) {
-                this.c_PB2 = c_PB2;
-            }
-
             public static class CMABean {
                 private String name;
-                private String stock_index;
-                private String period;
-                private int shortMA;
-                private int longMA;
-                private boolean selectBox;
-
+                private String comparison;
+                private String value;
+                private double low;
+                private double high;
                 public String getName() {
                     return name;
                 }
-
                 public void setName(String name) {
                     this.name = name;
                 }
-
-                public String getStock_index() {
-                    return stock_index;
+                public String getComparison() {
+                    return comparison;
                 }
-
-                public void setStock_index(String stock_index) {
-                    this.stock_index = stock_index;
+                public void setComparison(String comparison) {
+                    this.comparison = comparison;
                 }
-
-                public String getPeriod() {
-                    return period;
+                public String getValue() {
+                    return value;
                 }
-
-                public void setPeriod(String period) {
-                    this.period = period;
+                public void setValue(String value) {
+                    this.value = value;
                 }
-
-                public int getShortMA() {
-                    return shortMA;
+                public double getLow() {
+                    return low;
                 }
-
-                public void setShortMA(int shortMA) {
-                    this.shortMA = shortMA;
+                public void setLow(double low) {
+                    this.low = low;
                 }
-
-                public int getLongMA() {
-                    return longMA;
+                public double getHigh() {
+                    return high;
                 }
-
-                public void setLongMA(int longMA) {
-                    this.longMA = longMA;
-                }
-
-                public boolean isSelectBox() {
-                    return selectBox;
-                }
-
-                public void setSelectBox(boolean selectBox) {
-                    this.selectBox = selectBox;
+                public void setHigh(double high) {
+                    this.high = high;
                 }
             }
 
             public static class CMACDBean {
                 private String name;
-                private String stock_index;
-                private String period;
-                private int shortDIF;
-                private int longDIF;
-                private int DEA;
-                private boolean selectBox;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public String getStock_index() {
-                    return stock_index;
-                }
-
-                public void setStock_index(String stock_index) {
-                    this.stock_index = stock_index;
-                }
-
-                public String getPeriod() {
-                    return period;
-                }
-
-                public void setPeriod(String period) {
-                    this.period = period;
-                }
-
-                public int getShortDIF() {
-                    return shortDIF;
-                }
-
-                public void setShortDIF(int shortDIF) {
-                    this.shortDIF = shortDIF;
-                }
-
-                public int getLongDIF() {
-                    return longDIF;
-                }
-
-                public void setLongDIF(int longDIF) {
-                    this.longDIF = longDIF;
-                }
-
-                public int getDEA() {
-                    return DEA;
-                }
-
-                public void setDEA(int DEA) {
-                    this.DEA = DEA;
-                }
-
-                public boolean isSelectBox() {
-                    return selectBox;
-                }
-
-                public void setSelectBox(boolean selectBox) {
-                    this.selectBox = selectBox;
-                }
-            }
-
-            public static class CDMABean {
-                private String name;
-                private String stock_index;
-                private String period;
-                private int shortMA;
-                private int longMA;
-                private int AMA;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public String getStock_index() {
-                    return stock_index;
-                }
-
-                public void setStock_index(String stock_index) {
-                    this.stock_index = stock_index;
-                }
-
-                public String getPeriod() {
-                    return period;
-                }
-
-                public void setPeriod(String period) {
-                    this.period = period;
-                }
-
-                public int getShortMA() {
-                    return shortMA;
-                }
-
-                public void setShortMA(int shortMA) {
-                    this.shortMA = shortMA;
-                }
-
-                public int getLongMA() {
-                    return longMA;
-                }
-
-                public void setLongMA(int longMA) {
-                    this.longMA = longMA;
-                }
-
-                public int getAMA() {
-                    return AMA;
-                }
-
-                public void setAMA(int AMA) {
-                    this.AMA = AMA;
-                }
-            }
-
-            public static class CTRIXBean {
-                private String name;
-                private String stock_index;
-                private String period;
-                private int TRIX;
-                private int MATRIX;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public String getStock_index() {
-                    return stock_index;
-                }
-
-                public void setStock_index(String stock_index) {
-                    this.stock_index = stock_index;
-                }
-
-                public String getPeriod() {
-                    return period;
-                }
-
-                public void setPeriod(String period) {
-                    this.period = period;
-                }
-
-                public int getTRIX() {
-                    return TRIX;
-                }
-
-                public void setTRIX(int TRIX) {
-                    this.TRIX = TRIX;
-                }
-
-                public int getMATRIX() {
-                    return MATRIX;
-                }
-
-                public void setMATRIX(int MATRIX) {
-                    this.MATRIX = MATRIX;
-                }
-            }
-
-            public static class CMAVOLBean {
-                private String name;
-                private String stock_index;
-                private String period;
-                private int shortMA;
-                private int longMA;
-                private boolean selectBox;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public String getStock_index() {
-                    return stock_index;
-                }
-
-                public void setStock_index(String stock_index) {
-                    this.stock_index = stock_index;
-                }
-
-                public String getPeriod() {
-                    return period;
-                }
-
-                public void setPeriod(String period) {
-                    this.period = period;
-                }
-
-                public int getShortMA() {
-                    return shortMA;
-                }
-
-                public void setShortMA(int shortMA) {
-                    this.shortMA = shortMA;
-                }
-
-                public int getLongMA() {
-                    return longMA;
-                }
-
-                public void setLongMA(int longMA) {
-                    this.longMA = longMA;
-                }
-
-                public boolean isSelectBox() {
-                    return selectBox;
-                }
-
-                public void setSelectBox(boolean selectBox) {
-                    this.selectBox = selectBox;
-                }
-            }
-
-            public static class CMABiasBean {
-                private String name;
-                private String stock_index;
-                private String period;
-                private int shortMA;
-                private int longMA;
+                private String comparison;
+                private String value;
                 private double low;
-                private double upper;
-
+                private double high;
                 public String getName() {
                     return name;
                 }
-
                 public void setName(String name) {
                     this.name = name;
                 }
-
-                public String getStock_index() {
-                    return stock_index;
+                public String getComparison() {
+                    return comparison;
                 }
-
-                public void setStock_index(String stock_index) {
-                    this.stock_index = stock_index;
+                public void setComparison(String comparison) {
+                    this.comparison = comparison;
                 }
-
-                public String getPeriod() {
-                    return period;
+                public String getValue() {
+                    return value;
                 }
-
-                public void setPeriod(String period) {
-                    this.period = period;
+                public void setValue(String value) {
+                    this.value = value;
                 }
-
-                public int getShortMA() {
-                    return shortMA;
-                }
-
-                public void setShortMA(int shortMA) {
-                    this.shortMA = shortMA;
-                }
-
-                public int getLongMA() {
-                    return longMA;
-                }
-
-                public void setLongMA(int longMA) {
-                    this.longMA = longMA;
-                }
-
                 public double getLow() {
                     return low;
                 }
-
                 public void setLow(double low) {
                     this.low = low;
                 }
-
-                public double getUpper() {
-                    return upper;
+                public double getHigh() {
+                    return high;
                 }
-
-                public void setUpper(double upper) {
-                    this.upper = upper;
+                public void setHigh(double high) {
+                    this.high = high;
                 }
             }
 
-            public static class CPEBean {
-                private String name;
-                private int low;
-                private int upper;
 
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public int getLow() {
-                    return low;
-                }
-
-                public void setLow(int low) {
-                    this.low = low;
-                }
-
-                public int getUpper() {
-                    return upper;
-                }
-
-                public void setUpper(int upper) {
-                    this.upper = upper;
-                }
-            }
-
-            public static class CPBBean {
-                private String name;
-                private int upper;
-                private int low;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public int getUpper() {
-                    return upper;
-                }
-
-                public void setUpper(int upper) {
-                    this.upper = upper;
-                }
-
-                public int getLow() {
-                    return low;
-                }
-
-                public void setLow(int low) {
-                    this.low = low;
-                }
-            }
-
-            public static class CPE2Bean {
-                private String name;
-                private int upper;
-                private int low;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public int getUpper() {
-                    return upper;
-                }
-
-                public void setUpper(int upper) {
-                    this.upper = upper;
-                }
-
-                public int getLow() {
-                    return low;
-                }
-
-                public void setLow(int low) {
-                    this.low = low;
-                }
-            }
-
-            public static class CPB2Bean {
-                private String name;
-                private int upper;
-                private int low;
-
-                public String getName() {
-                    return name;
-                }
-
-                public void setName(String name) {
-                    this.name = name;
-                }
-
-                public int getUpper() {
-                    return upper;
-                }
-
-                public void setUpper(int upper) {
-                    this.upper = upper;
-                }
-
-                public int getLow() {
-                    return low;
-                }
-
-                public void setLow(int low) {
-                    this.low = low;
-                }
-            }
         }
 
         public static class ParameterBean {
-            private int bear_position;
+            private double bear_position;
             private int bear_to_bull;
             private int bull_to_bear;
 
-            public int getBear_position() {
+            public double getBear_position() {
                 return bear_position;
             }
 
-            public void setBear_position(int bear_position) {
+            public void setBear_position(double bear_position) {
                 this.bear_position = bear_position;
             }
 
@@ -890,7 +419,9 @@ public class Root{
     }
 
     public static class TradeBean {
-        private int cycle;
+        private int cycle; //调仓周期
+        private int quantity;//持仓数量
+
         private String gains_calc;
         private int ideal_position;
         private int position_upper;

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>LOF Index</title>
+    <title>首页</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -60,8 +60,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
-                        <li><a href="#">虚拟交易2</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易</a></li>
+                        <li><a href="#" disabled="">我的交易</a></li>
                     </ul>
                 </li>
             </ul>
@@ -76,8 +76,6 @@
 <div class="jumbotron" style="margin: 1.5%;padding: 6%">
     <h1>Welcome to quant+!</h1>
     <br />
-    <br />
-    <br />
     <p>量化投资交易平台</p>
     <br />
     <br />
@@ -90,7 +88,7 @@
     <br />
     <br />
     <br />
-
+    <br />
 </div>
 
 <!--<span class="glyphicon glyphicon-search"></span>-->

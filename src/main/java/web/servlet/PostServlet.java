@@ -86,7 +86,7 @@ public class PostServlet extends HttpServlet {
     @ResponseBody
     Map<String, Object> getPostByID(HttpServletRequest request) {
         String id = request.getParameter("postID");
-        Post returnPost = this.iPostManage.search(id);
+        Post returnPost = this.iPostManage.getPost(id);
 
         Map<String, Object> map = new HashedMap();
         if (returnPost != null)

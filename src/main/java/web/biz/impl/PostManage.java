@@ -124,6 +124,15 @@ public class PostManage implements IPostManage {
         return list.get(0);
     }
 
+    public Post getPost(String postID) {
+        try {
+            return postDao.getPost(postID);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public List<Post> getAllPost() {
         List<String> list = postDao.getAllPost();
         List<Post> posts = new ArrayList<Post>();

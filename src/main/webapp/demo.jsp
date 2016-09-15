@@ -21,13 +21,21 @@
         $(document).ready(function () {
             //传递字符串格式json对象到后台（一个json对象）
             $("#serialbtn").click(function () {
+                var username =$("#username").val();
+                var age =$("#age").val();
 
                 $.ajax({
                     type : 'POST',
                     url : 'demo',
 //                    dataType : 'json',
 //                    contentType:'application/json',
-                    data: $("#user").serialize(),
+
+//                    data: $("#user").serialize(),
+                    data:{
+                        "username":username,
+                        "age":age
+                    },
+//                    cache:false,
 
                     success : function(response) {
                         //请求成功

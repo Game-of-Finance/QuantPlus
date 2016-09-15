@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>LOF Index</title>
+    <title>我的策略</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -56,9 +56,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">虚拟交易 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="SimulatedTrading.jsp">虚拟交易1</a></li>
-                        <li><a href="#">虚拟交易2</a></li>
+                        <li><a href="SimulatedTrading.jsp">虚拟交易</a></li>
+                        <li><a href="#" disabled="">我的交易</a></li>
                     </ul>
                 </li>
             </ul>
@@ -73,16 +72,8 @@
 
 <div class="panel panel-default" style="margin:0.5%">
     <div class="panel-body">
-        <h3>优选策略</h3>
+        <h3>我的策略</h3>
         <table class="table table-hover">
-            <!--&lt;!&ndash; On rows &ndash;&gt;-->
-            <!--<tr class="active">...</tr>-->
-            <!--<tr class="success">...</tr>-->
-            <!--<tr class="warning">...</tr>-->
-            <!--<tr class="danger">...</tr>-->
-            <!--<tr class="info">...</tr>-->
-
-            <!-- On cells (`td` or `th`) -->
             <tr>
                 <td class="warning">策略1</td>
             </tr>
@@ -106,11 +97,7 @@
             <tr>
                 <td class="active">策略6</td>
             </tr>
-
-
         </table>
-
-
         <nav>
             <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
@@ -124,9 +111,6 @@
         </nav>
     </div>
 </div>
-
-
-
 <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>

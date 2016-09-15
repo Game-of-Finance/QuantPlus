@@ -40,7 +40,11 @@ public class PostManageStub implements IPostManage {
     }
 
     public Post search(String keyword) {
-        return null;
+        return this.randomPost();
+    }
+
+    public Post getPost(String postID) {
+        return new Post();
     }
 
     public List<Post> getAllPost() {
@@ -56,11 +60,11 @@ public class PostManageStub implements IPostManage {
         basic.setPostID("222");
         basic.setAuthor("王嘉琛");
         basic.setDate(new Date());
-        basic.setTitle("第" + Math.random() * 10);
+        basic.setTitle("第x个");
         basic.setTopic(Topic.list[(int) (Math.random() * 7)]);
         post1.setBasicInfo(basic);
 
-        post1.setContent("<内容> ");
+        post1.setContent("<p> 1233 </p>");
         PostViews postViews = new PostViews();
         postViews.setLikes(100);
         postViews.setThanks(200);

@@ -28,8 +28,7 @@ public class BackTest {
     private double annualizedReturn; //年化收益
     private double income;//策略收益
 
-    // 预计绩效 ，是一张折线图用于显示预期效果，实际上不是image
-    private Image anticipatedPerformance;
+
     //其他包含的字段略
 
 
@@ -152,11 +151,11 @@ public class BackTest {
         this.annualizedReturn = annualizedReturn;
     }
 
-    public Image getAnticipatedPerformance() {
-        return anticipatedPerformance;
+    public double getIncome() {
+        return income;
     }
 
-    public void setAnticipatedPerformance(Image anticipatedPerformance) {
-        this.anticipatedPerformance = anticipatedPerformance;
+    public void setIncome(double income) {
+        this.income = income;
     }
 }

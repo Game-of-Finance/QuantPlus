@@ -1,5 +1,21 @@
 {
   "selectStock": {
+    "fixFilter":[
+      {
+        "name": "industry",
+        "value": "化工原料"
+      },
+      {
+        "name": "asset",
+        "comparison": ">",
+        "low": 10000,
+        "high": 0
+      },
+      {
+        "name": "area",
+        "value": "江苏"
+      }
+    ],
     "filter": [
       {
         "name": "MACD",
@@ -24,7 +40,7 @@
         "longMA": 2300,
         "selectBox": true
       },
-      
+
       "c_TRIX": {
         "name": "TRIX",
         "stock_index": "sh600000",

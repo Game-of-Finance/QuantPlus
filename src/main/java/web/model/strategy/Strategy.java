@@ -1,20 +1,20 @@
 package web.model.strategy;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import web.dao.BackTestDao;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author xuyafan
+ *
  * 策略 实体类
  *
  */
 public class Strategy {
-	//策略类型，有期权和股票
-	public static final int OPTION =1; //期权
-	public static final int FUTURES =2; //期货
-	public static final int STOCK =3; //股票
-	public static final int FOREX =4; //外汇
+	@Autowired
+	BackTestDao backTestDao;
 	
 	
 	//基本部分
@@ -22,16 +22,12 @@ public class Strategy {
 	private String name;//策略名称
 	private int userId; // 策略开发者的Id
 	private Date createTime; //策略创建时间
-	private Set<Integer> types =new HashSet<Integer>(); //策略类型,一种或者多种
 	private String python; //策略的Python代码
-	private String savedPython; // 上一次保存的Python代码
 	private Date lastModifyTime;//最后修改时间
 
-	
+
 	//回测部分,一个策略有多个回测条件，对应多个回测结果
 	private Set<Integer> backTestIds =new HashSet<Integer>();
-    private Set<BackTest> backTestSet =new HashSet<BackTest>();
-
 	//策略排名部分
 	//用户决定是否分享该策略,默认false
 	private boolean isShare=false;
@@ -47,24 +43,29 @@ public class Strategy {
 		this.createTime = createTime;
 	}
 
-
-
-	//添加类型
-	public void addType(int type){
-        types.add(type);
-	}
-
 	//添加回测
 	public void addBackTest(int backTestId){
 		backTestIds.add(backTestId);
 	}
 
-	//计算rank分并设置
-	public void calcRank(){
+	//获得rank分,rank=(income*0.8+maxDrowdown+annualizedReturn*0.2-maxDrowdown*1)*1500
+	//取历次回测的最大rank分
+	public double getRank(){
+		Set<BackTest> backTests = backTestDao.getBackTests(getId());
+		double max=0;//最大评分
+		for(BackTest backTest:backTests){
+			double maxDrowdown = backTest.getMaxDrowdown();//最大回测
+			double annualizedReturn = backTest.getAnnualizedReturn();//年化收益
+			double income = backTest.getIncome();//累计收益
 
+			//calculate rank 1500 is base score
+			double rank=(income*0.8+maxDrowdown+annualizedReturn*0.2-maxDrowdown*1)*1500;
+			if(rank>max){
+				max=rank;
+			}
+		}
+		return  max;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -106,13 +107,6 @@ public class Strategy {
 		this.python = python;
 	}
 
-	public String getSavedPython() {
-		return savedPython;
-	}
-
-	public void setSavedPython(String savedPython) {
-		this.savedPython = savedPython;
-	}
 
 	public Date getLastModifyTime() {
 		return lastModifyTime;
@@ -122,17 +116,6 @@ public class Strategy {
 		this.lastModifyTime = lastModifyTime;
 	}
 
-
-
-
-    public Set<Integer> getTypes() {
-        return types;
-    }
-
-    public void setTypes(Set<Integer> types) {
-        this.types = types;
-    }
-
     public Set<Integer> getBackTestIds() {
         return backTestIds;
     }
@@ -141,13 +124,6 @@ public class Strategy {
         this.backTestIds = backTestIds;
     }
 
-    public Set<BackTest> getBackTestSet() {
-        return backTestSet;
-    }
-
-    public void setBackTestSet(Set<BackTest> backTestSet) {
-        this.backTestSet = backTestSet;
-    }
 
 	public boolean isShare() {
 		return isShare;
@@ -157,11 +133,4 @@ public class Strategy {
 		isShare = share;
 	}
 
-	public double getRank() {
-		return rank;
-	}
-
-	public void setRank(double rank) {
-		this.rank = rank;
-	}
 }

@@ -11,7 +11,13 @@ import numpy as np
 
 def init(context):
     stockinfo_df=getStock_info()
-    stockinfo_df=stockinfo_df.iloc[:20]
+    [fix,filt,sort]=getSelectConfig()
+    conditions={'area':area_s,'industry':industry_s,'asset':asset_s}
+    for con in fix:
+        stockinfo_df=conditions.get(con[0])(stockinfo_df,con)
+
+    
+
     context.all=stockinfo_df
 
     context.time_config=getTimeConfig()
@@ -27,7 +33,7 @@ def handle_bar(context, data):
 
 
     if not hasattr(context,'select'):
-        [filt,sort]=getSelectConfig()
+        [fix,filt,sort]=getSelectConfig()
         conditions={'MACD':macd_s}
         id_list=context.all['code'].values.tolist()
         for cond in filt:
