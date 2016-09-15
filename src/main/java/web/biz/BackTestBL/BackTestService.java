@@ -28,9 +28,9 @@ public interface BackTestService {
      * @param enddate
      * @return
      */
-    public BackTestResultPo runJsonBackTest(String strategyid, String userid, String startdate, String enddate, ArrayList<String> stocklist);
-
-    public BackTestResultPo runJsonBackTest(String strategyid, String userid, String startdate, String enddate, ArrayList<String> stocklist, int initmoney);
+//    public BackTestResultPo runJsonBackTest(String strategyid, String userid, String startdate, String enddate, ArrayList<String> stocklist);
+//
+//    public BackTestResultPo runJsonBackTest(String strategyid, String userid, String startdate, String enddate, ArrayList<String> stocklist, int initmoney);
 
 
     public BackTestResultPo runPythonBackTest(String strategyid, String userid, String startdate, String enddate);
