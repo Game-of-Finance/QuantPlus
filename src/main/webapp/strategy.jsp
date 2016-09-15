@@ -15,6 +15,83 @@
 
     <script type="text/javascript">
 
+        function addInd(btn){
+            $("#selectStock").
+            append("<tr id="+btn.value+">"+
+                    "<td id='指标'>"+btn.value+"</td>"+
+                    "<td id='比较符'>"+
+                    '<select>' +
+                    '<option value="通信设备">通信设备</option>' +
+                    '<option value="旅游服务">旅游服务</option>' +
+                    '<option value="电信运营">电信运营</option>' +
+                    '<option value="软件服务">软件服务</option>' +
+                    '<option value="农业综合">农业综合</option>' +
+                    '<option value="白酒">白酒</option>' +
+                    '<option value="铝">铝</option>' +
+                    '<option value="证券">证券</option>' +
+                    '<option value="造纸">造纸</option>' +
+                    '<option value="陶瓷">陶瓷</option>' +
+                    '<option value="啤酒">啤酒</option>' +
+                    '<option value="供气供热">供气供热</option>' +
+                    '<option value="化纤">化纤</option>' +
+                    '<option value="汽车整车">汽车整车</option>' +
+                    '<option value="家用电器">家用电器</option>' +
+                    '<option value="仓储物流">仓储物流</option>' +
+                    '<option value="公共交通">公共交通</option>' +
+                    '<option value="林业">林业</option>' +
+                    '<option value="铁路">铁路</option>' +
+                    '<option value="医药商业">医药商业</option>' +
+                    '</select>' +"</td>"+
+                    "<td id='low'>"+'<input placeholder="-" disabled>'+"</td>"+
+                    "<td id='high'>"+'<input placeholder="-" disabled>'+"</td>"+
+                    "<td id='操作'><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-trash btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
+                    "</tr>");
+        }
+        function addAre(btn){
+            $("#selectStock").
+            append("<tr id="+btn.value+">"+
+                    "<td id='指标'>"+btn.value+"</td>"+
+                    "<td id='比较符'>"+
+                    '<select>' +
+                    '<option value="青海">青海</option>' +
+                    '<option value="辽宁">辽宁</option>' +
+                    '<option value="贵州">贵州</option>' +
+                    '<option value="北京">北京</option>' +
+                    '<option value="广西">广西</option>' +
+                    '<option value="广东">广东</option>' +
+                    '<option value="云南">云南</option>' +
+                    '<option value="上海">上海</option>' +
+                    '<option value="甘肃">甘肃</option>' +
+                    '<option value="山东">山东</option>' +
+                    '<option value="安徽">安徽</option>' +
+                    '<option value="江西">江西</option>' +
+                    '<option value="宁夏">宁夏</option>' +
+                    '<option value="海南">海南</option>' +
+                    '<option value="湖南">湖南</option>' +
+                    '<option value="河北">河北</option>' +
+                    '<option value="西藏">西藏</option>' +
+                    '<option value="吉林">吉林</option>' +
+                    '<option value="黑龙江">黑龙江</option>' +
+                    '<option value="福建">福建</option>' +
+                    '<option value="天津">天津</option>' +
+                    '<option value="江苏">江苏</option>' +
+                    '<option value="陕西">陕西</option>' +
+                    '<option value="山西">山西</option>' +
+                    '<option value="新疆">新疆</option>' +
+                    '<option value="四川">四川</option>' +
+                    '<option value="重庆">重庆</option>' +
+                    '<option value="内蒙">内蒙</option>' +
+                    '<option value="湖北">湖北</option>' +
+                    '<option value="深圳">深圳</option>' +
+                    '<option value="河南">河南</option>' +
+                    '<option value="浙江">浙江</option>' +
+                    '</select>' +"</td>"+
+                    "<td id='low'>"+'<input placeholder="-" disabled>'+"</td>"+
+                    "<td id='high'>"+'<input placeholder="-" disabled>'+"</td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-trash btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
+                    "</tr>");
+        }
+
         function addFilter(btn){
             $("#selectStock").
             append("<tr id="+btn.value+">"+
@@ -23,11 +100,11 @@
                     '<select>' +
                     '<option value=">">></option>' +
                     '<option value="<"><</option>' +
-                    '<option value="=">=</option>' +
+                    '<option value="="><></option>' +
                     '</select>' +"</td>"+
-                    "<td id='范围'>"+'0.0'+"</td>"+
-                    "<td id='值'>"+'<input>'+"</td>"+
-                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
+                    "<td id='low'>"+'<input placeholder="low">'+"</td>"+
+                    "<td id='high'>"+'<input placeholder="high">'+"</td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-trash btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
                     "</tr>");
         }
 
@@ -95,20 +172,16 @@
             $("#selectTime").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
-                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-edit btn btn-default btn-danger btn-xs\" data-toggle=\"modal\" data-target=\"#myModal\" onclick='lauchModel()'></button></td>"+
-                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-remove btn btn-default btn-danger btn-xs\" onclick='delFilter2(this)'></button></td>"+
+                    "<td id='比较符'>"+
+                    '<select>' +
+                    '<option value=">">></option>' +
+                    '<option value="<"><</option>' +
+                    '<option value="="><></option>' +
+                    '</select>' +"</td>"+
+                    "<td id='low'>"+'<input placeholder="low">'+"</td>"+
+                    "<td id='high'>"+'<input placeholder="high">'+"</td>"+
+                    "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-trash btn btn-default btn-danger btn-xs\" onclick='delFilter(this)'></button>"+
                     "</tr>");
-        }
-
-        function lauchModel(){
-//            alert("SUCCESS!");
-//            $('#myModal').modal(options)
-        }
-
-        function delFilter2(button){
-            var name=button.id;
-            $('#'+name).remove()
-
         }
     </script>
 
@@ -221,94 +294,26 @@
                                     <h5>选股指标</h5>
                                     <div role="tabpanel" class="tab-pane active" id="index00">
                                         <input value='MACD' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
-                                        <input value='行业' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
-                                        <input value='净资产' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
+                                        <input value='行业' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addInd(this)">
+                                        <input value='资产' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
+                                        <input value='地域' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addAre(this)">
                                     </div>
-                                    <%--<ul class="nav nav-tabs" role="tablist">--%>
-                                        <%--<li role="presentation" class="active"><a href="#index1" role="tab" data-toggle="tab">行情</a></li>--%>
-                                        <%--<li role="presentation"><a href="#index2" role="tab" data-toggle="tab">基本面</a></li>--%>
-                                        <%--<li role="presentation"><a href="#index3" role="tab" data-toggle="tab">增长</a></li>--%>
-                                        <%--<li role="presentation"><a href="#index4" role="tab" data-toggle="tab">情绪</a></li>--%>
-                                    <%--</ul>--%>
-
-                                    <%--<!-- Tab panes -->--%>
-                                    <%--<div class="tab-content">--%>
-                                        <%--<!--行情，基本面，增长，情绪四个选股指标-->--%>
-                                        <%--<!--value代表项目的名称  -->--%>
-                                        <%--<!--这边的css最好要写一下-->--%>
-                                        <%--<!--行情-->--%>
-                                        <%--<div role="tabpanel" class="tab-pane active" id="index1">--%>
-                                            <%--<input value='MACD' type="button" class="btn btn-default" onclick="addFilter(this)">--%>
-                                            <%--<input value='流通市值' type="button" class="btn btn-default" onclick="addFilter(this)">--%>
-                                        <%--</div>--%>
-                                        <%--<!--基本面-->--%>
-                                        <%--<div role="tabpanel" class="tab-pane" id="index2">--%>
-                                            <%--<input value='基本面1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='基本面2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='基本面3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right"  onclick="addFilter(this)">--%>
-                                            <%--<input value='基本面4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='基本面5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                        <%--</div>--%>
-                                        <%--<!--增长-->--%>
-                                        <%--<div role="tabpanel" class="tab-pane" id="index3">--%>
-                                            <%--<input value='行情1'  type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='行情2' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='行情3' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='行情4' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                            <%--<input value='行情5' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-                                        <%--</div>--%>
-                                        <%--<!--情绪-->--%>
-                                        <%--<div role="tabpanel" class="tab-pane" id="index4">--%>
-                                            <%--<input value='情绪1' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right" onclick="addFilter(this)">--%>
-
-                                        <%--</div>--%>
-                                    <%--</div>--%>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="panel-body">
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <h5>选股条件</h5>
-                                    <ul class="nav nav-tabs" role="tablist">
-                                        <li role="presentation" class="active"><a href="#indexA" role="tab" data-toggle="tab">筛选条件</a></li>
-                                        <li role="presentation"><a href="#indexB" role="tab" data-toggle="tab">排名条件</a></li>
-                                    </ul>
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <!筛选条件，排名条件两个选股条件-->
-                                        <div role="tabpanel" class="tab-pane active" id="indexA">
-                                            <table class="table table-striped" id="selectStock">
-                                                <tr>
-                                                    <th>指标</th>
-                                                    <th>比较符</th>
-                                                    <th>范围</th>
-                                                    <th>值</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                        <div role="tabpanel" class="tab-pane" id="indexB">
-                                            <table class="table table-striped" id="selcetStock_sort">
-                                                <tr>
-                                                    <th>指标</th>
-                                                    <th>次序</th>
-                                                    <th>范围</th>
-                                                    <th>权重</th>
-                                                    <th>操作</th>
-                                                </tr>
-                                                <tr>
-                                                    <%--<td>…</td>--%>
-                                                    <%--<td>…</td>--%>
-                                                    <%--<td>…</td>--%>
-                                                    <%--<td>…</td>--%>
-                                                    <%--<td>--%>
-                                                        <%--<button type="button" class="glyphicon glyphicon-remove"></button>--%>
-                                                    <%--</td>--%>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
+                                    <br />
+                                    <table class="table table-striped" id="selectStock">
+                                        <tr>
+                                            <th>指标</th>
+                                            <th>比较符</th>
+                                            <th>low</th>
+                                            <th>high</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </table>
                                 </ul>
                             </div>
                         </div>
@@ -328,13 +333,13 @@
                                         <h5>择时指标</h5>
                                         <div role="tabpanel" class="tab-pane active" id="index">
                                             <input value='MA' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='TRIX' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='MAVOL' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='MABias' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='PE' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='PB' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='PE2' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
-                                            <input value='PB2' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <input value='MACD' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">
+                                            <%--<input value='MAVOL' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">--%>
+                                            <%--<input value='MABias' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">--%>
+                                            <%--<input value='PE' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">--%>
+                                            <%--<input value='PB' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">--%>
+                                            <%--<input value='PE2' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">--%>
+                                            <%--<input value='PB2' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter2(this)">--%>
                                         </div>
                                     </ul>
                                 </div>
@@ -343,10 +348,13 @@
                             <div class="col-md-6">
                                 <div class="panel-body">
                                     <ul class="nav nav-tabs" role="tablist">
+                                        <br />
                                         <table class="table table-striped" id="selectTime">
                                             <tr>
-                                                <th>择时条件</th>
-                                                <th>编辑</th>
+                                                <th>指标</th>
+                                                <th>比较符</th>
+                                                <th>low</th>
+                                                <th>high</th>
                                                 <th>操作</th>
                                             </tr>
                                         </table>
