@@ -62,6 +62,7 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<a class="btn btn-primary" href="SimulatedTrading.jsp" style="margin-left: 5%" role="button">返回</a>
 <div class="panel panel-default" style="margin: 3% 30%">
     <div class="panel-heading">
         <h3 class="panel-title">设置</h3>
@@ -98,7 +99,6 @@
             </div>
             <button type="submit" class="btn btn-default btn-success" style="margin-left: 30%">开始模拟交易</button>
         </form>
-
     </div>
 </div>
 <script type="text/javascript" src="js/jquery-3.1.0.min.js" charset="UTF-8"></script>

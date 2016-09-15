@@ -79,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<a class="btn btn-primary" href="test.jsp" style="margin-left: 5%" role="button">新建虚拟交易</a>
+<a class="btn btn-primary" href="startNewTrading.jsp" style="margin-left: 5%" role="button">新建虚拟交易</a>
 <a class="btn btn-primary" href="test.jsp" style="margin-left: 5%" role="button">test</a>
 <div class="panel-body" style="margin: 1%">
     <ul class="nav nav-tabs" role="tablist">
