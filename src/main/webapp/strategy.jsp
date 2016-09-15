@@ -15,7 +15,7 @@
 
     <script type="text/javascript">
         function addFilter(btn){
-            $("#shaixuantiaojian").
+            $("#selectStock").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td id='比较符'>"+'>'+"</td>"+
@@ -31,11 +31,62 @@
 
         }
 
+        function saveStrategy() {
+            var table1 = document.getElementById("selectStock");
+            var table2 = document.getElementById("selectStock");
+            var selectStockList = new Array();
+            //从1开始，不要表头
+            for(var i=1,rows=table1.rows.length; i<rows; i++){
+                selectStockList.push(table1.rows[i].cells[0].innerHTML+","
+                        +table1.rows[i].cells[1].innerHTML+","
+                        +table1.rows[i].cells[2].innerHTML+","
+                        +table1.rows[i].cells[3].innerHTML+","
+                )
+
+            }
+            var selectTimeList = new Array();
+            //从1开始，不要表头
+            for(var i=1,rows=table2.rows.length; i<rows; i++){
+                selectTimeList.push(
+                        table2.rows[i].cells[0].innerHTML
+                )
+            }
+            var bear_to_bull = document.getElementById("bear_to_bull").value;
+            var bull_to_bear = document.getElementById("bull_to_bear").value;
+            var bear_position = document.getElementById("bear_position").value;
+            var selectTimePara=new Array();
+            selectTimePara.push(bear_to_bull);
+            selectTimePara.push(bull_to_bear);
+            selectTimePara.push(bear_position);
+
+            $.ajax({
+                type : 'POST',
+                url : 'newStrategy',
+                data:{
+                    "selectStock":selectStockList,
+                    "selectTime":selectTimeList,
+                    "selectTimePara":selectTimePara
+                },
+                traditional:true,
+                success : function(response) {
+                    //请求成功
+                    alert("新的策略"+response.a);
+                    alert("新的策略"+response.b);
+                    alert("新的策略"+response.c);
+
+                },
+                error : function(msg) {
+                    alert("error"+msg);
+                }
+            });
+
+
+        }
 
     </script>
     <script type="text/javascript">
         function addFilter2(btn){
-            $("#zeshitiaojian").
+            $("#selectTime").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
                     "<td><button id="+btn.value+" type=\"button\" class=\"glyphicon glyphicon-edit\" onclick=''></button></td>"+
@@ -171,7 +222,7 @@
                                     <div class="tab-content">
                                         <!筛选条件，排名条件两个选股条件-->
                                         <div role="tabpanel" class="tab-pane active" id="indexA">
-                                            <table class="table table-striped" id="shaixuantiaojian">
+                                            <table class="table table-striped" id="selectStock">
                                                 <tr>
                                                     <th>指标</th>
                                                     <th>比较符</th>
@@ -215,7 +266,7 @@
                         <h5>择时参数</h5>
                         <div class="row">
                             <div class="col-md-3">
-                                同时满足<select class="form-control" style="">
+                                同时满足<select class="form-control" style="" id="bear_to_bull">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -224,7 +275,7 @@
                             </select>个择时条件由熊变牛
                             </div>
                             <div class="col-md-3">
-                                同时满足<select class="form-control" style="">
+                                同时满足<select class="form-control" style="" id="bull_to_bear">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -233,7 +284,7 @@
                             </select>个择时条件由牛变熊
                             </div>
                             <div class="col-md-3">
-                                熊市仓位<select class="form-control" style="">
+                                熊市仓位<select class="form-control" style="" id="bear_position">
                                 <option value="0" selected="selected">空仓</option>
                                 <option value="0.3">30%</option>
                                 <option value="0.5">50%</option>
@@ -260,7 +311,7 @@
                             <div class="col-md-6">
                                 <div class="panel-body">
                                     <ul class="nav nav-tabs" role="tablist">
-                                        <table class="table table-striped" id="zeshitiaojian">
+                                        <table class="table table-striped" id="selectTime">
                                             <tr>
                                                 <th>择时条件</th>
                                                 <th>编辑</th>
@@ -382,7 +433,8 @@
                 </select>
             </div>
         </div>
-        <a href="huice.jsp" class="btn btn-primary" role="button" style="margin: 1.5%">开始回测</a>
+        <button class="btn btn-primary" onclick="saveStrategy()">开始回测</button>
+        <%--<a href="huice.jsp" class="btn btn-primary" role="button" style="margin: 1.5%" >开始回测</a>--%>
     </div>
 </div>
 

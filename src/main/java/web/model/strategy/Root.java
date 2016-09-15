@@ -104,6 +104,17 @@ public class Root{
             private Object count_low;
             private Object count_upper;
 
+            public FilterBean() {
+            }
+
+            public FilterBean(String name, String comparison, int count, Object count_low, Object count_upper) {
+                this.name = name;
+                this.comparison = comparison;
+                this.count = count;
+                this.count_low = count_low;
+                this.count_upper = count_upper;
+            }
+
             public String getName() {
                 return name;
             }
