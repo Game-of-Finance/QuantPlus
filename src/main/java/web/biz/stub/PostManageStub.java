@@ -43,6 +43,10 @@ public class PostManageStub implements IPostManage {
         return this.randomPost();
     }
 
+    public Post getPost(String postID) {
+        return new Post();
+    }
+
     public List<Post> getAllPost() {
         List<Post> list = new ArrayList<Post>();
         for (int i = 0; i < 10; i++)
