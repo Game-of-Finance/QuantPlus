@@ -2,11 +2,11 @@ package web.biz.impl.BackTestBL;
 
 //import com.sun.tools.corba.se.idl.toJavaPortab.InterfaceGen;
 import org.springframework.stereotype.Service;
-import web.dao.BackTestBL.StrategyMapper;
+import web.dao.StrategyMapper;
 import web.model.btAndVt.StrategyPo;
 import web.model.enumPo.DeleteState;
 import web.model.enumPo.UpdateState;
-import web.biz.BackTestBL.StrategyService;
+import web.biz.StrategyService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;

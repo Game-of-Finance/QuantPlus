@@ -1,4 +1,4 @@
-package web.biz.BackTestBL;
+package web.biz;
 
 import web.model.btAndVt.BackTestResultPo;
 
