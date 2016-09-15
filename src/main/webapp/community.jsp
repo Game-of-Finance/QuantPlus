@@ -13,15 +13,16 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="bootstrap/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+
     <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 
     <link href="bootstrap/css/navbar.css" rel="stylesheet">
 
-    <![endif]-->
 
     <script type="text/javascript">
         function getFormatTime(nS) {
@@ -41,6 +42,7 @@
 
                 success: function (response) {
                     var list = response.postList;
+                    alert(list.length);
                     for (var i = 0; i < list.length; i++) {
                         var onePost = list[i];
                         var id = onePost.basicInfo.postID;
