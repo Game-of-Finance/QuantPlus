@@ -116,7 +116,7 @@
 
         function saveStrategy() {
             var table1 = document.getElementById("selectStock");
-            var table2 = document.getElementById("selectStock");
+            var table2 = document.getElementById("selectTime");
             var selectStockList = new Array();
             //从1开始，不要表头
             for(var i=1,rows=table1.rows.length; i<rows; i++){
@@ -142,13 +142,29 @@
             selectTimePara.push(bull_to_bear);
             selectTimePara.push(bear_position);
 
+
+            var days=document.getElementById("days").value;
+            var quantity=document.getElementById("quantity").value;
+            var amount=document.getElementById("amount").value;
+            var max=document.getElementById("max").value;
+            var get=document.getElementById("get").value;
+            var empty=document.getElementById("empty").value;
+            var tradePara=new Array();
+            tradePara.push(days);
+            tradePara.push(quantity);
+            tradePara.push(amount);
+            tradePara.push(max);
+            tradePara.push(get);
+            tradePara.push(empty);
+
             $.ajax({
                 type : 'POST',
                 url : 'newStrategy',
                 data:{
                     "selectStock":selectStockList,
                     "selectTime":selectTimeList,
-                    "selectTimePara":selectTimePara
+                    "selectTimePara":selectTimePara,
+                    "tradePara":tradePara
                 },
                 traditional:true,
                 success : function(response) {
@@ -325,6 +341,50 @@
                     <div role="tabpanel" class="tab-pane active" id="settings2">
                         <!--择时参数-->
                         <h5>择时参数</h5>
+                        <div class="row">
+
+
+
+                            <div class="col-md-4">
+                                <div class="form-inline">
+                                    <span>同时满足</span>
+                                    <select class="form-control" style="" id="bear_to_bull">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="-1" selected="selected">全部</option>
+                                    </select>
+                                    <span>个择时条件由熊变牛</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-inline">
+                                    <span>同时满足</span>
+                                    <select class="form-control" style="" id="bull_to_bear">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="-1" selected="selected">全部</option>
+                                    </select>
+                                    <span>个择时条件由牛变熊</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-inline">
+                                <span>熊市仓位</span>
+                                    <select class="form-control" style="" id="bear_position">
+                                        <option value="0" selected="selected">空仓</option>
+                                        <option value="0.3">30%</option>
+                                        <option value="0.5">50%</option>
+                                        <option value="0.7">70%</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+
                         <div class="row">
                             <!--择时指标-->
                             <div class="col-md-6">

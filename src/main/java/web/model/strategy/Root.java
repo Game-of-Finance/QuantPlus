@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Root{
 
+
+
     private SelectStockBean selectStock;
     /**
      * condition : {"c_MA":{"name":"MA","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"selectBox":true},"c_MACD":{"name":"MACD","stock_index":"上证指数","period":"day","shortDIF":12,"longDIF":26,"DEA":9,"selectBox":false},"c_DMA":{"name":"DMA","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"AMA":20},"c_TRIX":{"name":"TRIX","stock_index":"上证指数","period":"day","TRIX":120,"MATRIX":5},"c_MAVOL":{"name":"MAVOL","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"selectBox":true},"c_MABias":{"name":"MABias","stock_index":"上证指数","period":"day","shortMA":5,"longMA":60,"low":-0.1,"upper":0.1},"c_PE":{"name":"PE","low":15,"upper":30},"C_PB":{"name":"PB","upper":4,"low":2},"c_PE2":{"name":"PE2","upper":4,"low":2},"c_PB2":{"name":"PB2","upper":4,"low":2}}
@@ -919,15 +921,15 @@ public class Root{
         }
 
         public static class ParameterBean {
-            private int bear_position;
+            private double bear_position;
             private int bear_to_bull;
             private int bull_to_bear;
 
-            public int getBear_position() {
+            public double getBear_position() {
                 return bear_position;
             }
 
-            public void setBear_position(int bear_position) {
+            public void setBear_position(double bear_position) {
                 this.bear_position = bear_position;
             }
 
@@ -950,7 +952,9 @@ public class Root{
     }
 
     public static class TradeBean {
-        private int cycle;
+        private int cycle; //调仓周期
+        private int quantity;//持仓数量
+
         private String gains_calc;
         private int ideal_position;
         private int position_upper;
