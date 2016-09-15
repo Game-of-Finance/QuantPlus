@@ -35,7 +35,6 @@ public class StrategyManage implements IStrategyManage{
         Strategy strategy =strategyDao.getStrategy(strategyId);
         //回测信息
         Set<BackTest> backTests = backTestDao.getBackTests(strategyId);
-        strategy.setBackTestSet(backTests);
         return strategy;
     }
 

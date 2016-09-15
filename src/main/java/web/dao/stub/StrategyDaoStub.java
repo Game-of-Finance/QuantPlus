@@ -30,29 +30,20 @@ public class StrategyDaoStub implements StrategyDao {
         strategies =new ArrayList<Strategy>();
         try {
             Strategy strategy1 = new Strategy(1,"name_a",1,parseDate("2016-08-12 20:00:00"));
-            strategy1.addType(Strategy.STOCK);
             strategy1.addBackTest(1);
             strategy1.addBackTest(2);
             strategy1.addBackTest(3);
-            strategy1.setSavedPython("Python 1");
             Strategy strategy2 =new Strategy(2,"name_b",1,parseDate("2016-08-12 21:00:00"));
-            strategy2.addType(Strategy.FOREX);
-            strategy2.addType(Strategy.FUTURES);
             strategy2.addBackTest(4);
             strategy2.addBackTest(5);
             strategy2.addBackTest(6);
-            strategy2.setSavedPython("Python 2");
             Strategy strategy3 =new Strategy(3,"name_c",1,parseDate("2016-08-12 22:00:00"));
-            strategy3.addType(Strategy.OPTION);
             strategy3.addBackTest(7);
-            strategy3.setSavedPython("Python 3");
 
 
 
             Strategy strategy4 =new Strategy(5,"name_e",2,parseDate("2016-08-12 20:00:00"));
-            strategy4.addType(Strategy.OPTION);
             strategy4.addBackTest(8);
-            strategy3.setSavedPython("Python 4");
             Strategy strategy5 =new Strategy(6,"name_f",2,parseDate("2016-08-12 21:00:00"));
             Strategy strategy6 =new Strategy(7,"name_g",2,parseDate("2016-08-12 22:00:00"));
 

@@ -210,33 +210,57 @@
 
         function saveStrategy() {
             var selectStock=new Array();
-            if($('#selectStock tr').find("#MACD")){
+            if($("#MACD").length>0){
                 selectStock.push($("#MACD").find("#select option:selected").val());
                 selectStock.push($("#MACD").find("#low").val());
                 selectStock.push($("#MACD").find("#high").val());
+            }else{
+                alert("not macd");
+                selectStock.push("");
+                selectStock.push("");
+                selectStock.push("");
             }
-            if($('#selectStock tr').find("#行业")){
+            if($("#行业").length>0){
                 selectStock.push($("#行业").find("#select option:selected").val());
+            }else{
+                alert("not 行业");
+                selectStock.push("");
             }
-            if($('#selectStock tr').find("#资产")){
+            if($("#资产").length>0){
                 selectStock.push($("#资产").find("#select option:selected").val());
                 selectStock.push($("#资产").find("#low").val());
                 selectStock.push($("#资产").find("#high").val());
+            }else{
+                alert("not 资产");
+                selectStock.push("");
+                selectStock.push("");
+                selectStock.push("");
             }
-            if($('#selectStock tr').find("#地域")){
+            if($("#地域").length>0){
                 selectStock.push($("#地域").find("#select option:selected").val());
+            }else{
+                alert("not 地域");
+                selectStock.push("");
             }
 
             var selectTime=new Array();
-            if($('#selectTime tr').find("#timeMACD")){
+            if($("#timeMACD").length>0){
                 selectTime.push($("#timeMACD").find("#select option:selected").val());
                 selectTime.push($("#timeMACD").find("#low").val());
                 selectTime.push($("#timeMACD").find("#high").val());
+            }else{
+                selectTime.push("");
+                selectTime.push("");
+                selectTime.push("");
             }
-            if($('#selectTime tr').find("#timeMA")){
+            if($("#timeMA").length>0){
                 selectTime.push($("#timeMA").find("#select option:selected").val());
                 selectTime.push($("#timeMA").find("#low").val());
                 selectTime.push($("#timeMA").find("#high").val());
+            }else{
+                selectTime.push("");
+                selectTime.push("");
+                selectTime.push("");
             }
 
 
@@ -263,6 +287,16 @@
             tradePara.push(get);
             tradePara.push(empty);
 
+            var strategyTest=new Array();
+            var startDate=document.getElementById("startDate").value;
+            var endDate=document.getElementById("endDate").value;
+            var reference=document.getElementById("reference").value;
+            var initialMoney=document.getElementById("initialMoney").value;
+            strategyTest.push(startDate);
+            strategyTest.push(endDate);
+            strategyTest.push(reference);
+            strategyTest.push(initialMoney);
+
             $.ajax({
                 type : 'POST',
                 url : 'newStrategy.do',
@@ -271,7 +305,8 @@
                     "selectStock":selectStock,
                     "selectTime":selectTime,
                     "selectTimePara":selectTimePara,
-                    "tradePara":tradePara
+                    "tradePara":tradePara,
+                    "strategyTest":strategyTest
                 },
                 traditional:true,
                 success : function(response) {
@@ -595,7 +630,7 @@
                 <div class="form-inline" style="margin: 2%">
                     <label>结束时间:</label>
                     <div class="input-group date form_date col-md-8" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                        <input class="form-control" size="18" type="text" value="" readonly id="endData">
+                        <input class="form-control" size="18" type="text" value="" readonly id="endDate">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                     </div>
@@ -604,7 +639,7 @@
             <div class="col-md-6">
                 <div class="form-inline" style="margin: 2%">
                     <label>收益基准:</label>
-                    <select class="form-control" id="ind" style="width: 70%" id="reference">
+                    <select class="form-control" id="reference" style="width: 70%">
                         <option>沪深300</option>
                         <option>中证500</option>
                         <option>中证全指</option>
@@ -615,16 +650,8 @@
                     </select>
                 </div>
                 <div class="form-inline" style="margin: 2%">
-                    <label>交易费用:</label>
-                    <select class="form-control" id="fare" style="width: 70%">
-                        <option>零</option>
-                        <option>千分之一</option>
-                        <option>千分之二</option>
-                        <option>千分之三</option>
-                        <option>千分之五</option>
-                        <option>千分之八</option>
-                        <option>千分之十</option>
-                    </select>
+                    <label>初始金额:</label>
+                    <input class="form-control" id="initialMoney" style="margin-top: 2%;width: 70%">
                 </div>
             </div>
         </div>
