@@ -41,6 +41,99 @@
                     '<option value="林业">林业</option>' +
                     '<option value="铁路">铁路</option>' +
                     '<option value="医药商业">医药商业</option>' +
+                    '<option value="医药商业">医药商业</option>' +
+                    '<option value="软饮料">软饮料</option>' +
+                    '<option value="水力发电">水力发电</option>' +
+                    '<option value="化工机械">化工机械</option>' +
+                    '<option value="综合类">综合类</option>' +
+                    '<option value="红黄药酒">红黄药酒</option>' +
+                    '<option value="批发业">批发业</option>' +
+                    '<option value="建筑施工">建筑施工</option>' +
+                    '<option value="机场">机场</option>' +
+                    '<option value="石油贸易">石油贸易</option>' +
+                    '<option value="钢加工">钢加工</option>' +
+                    '<option value="商贸代理">商贸代理</option>' +
+                    '<option value="全国地产">全国地产</option>' +
+                    '<option value="电脑设备">电脑设备</option>' +
+                    '<option value="机械基件">机械基件</option>' +
+                    '<option value="全国地产">全国地产</option>' +
+                    '<option value="纺织">纺织</option>' +
+                    '<option value="多元金融">多元金融</option>' +
+                    '<option value="渔业">渔业</option>' +
+                    '<option value="路桥">路桥</option>' +
+                    '<option value="广告包装">广告包装</option>' +
+                    '<option value="航空">航空</option>' +
+                    '<option value="化工原料">化工原料</option>' +
+                    '<option value="医疗保健">医疗保健</option>' +
+                    '<option value="互联网">互联网</option>' +
+                    '<option value="汽车配件">汽车配件</option>' +
+                    '<option value="专用机械">专用机械</option>' +
+                    '<option value="服饰 ">服饰</option>' +
+                    '<option value="农用机械">农用机械</option>' +
+                    '<option value="乳制品">乳制品</option>' +
+                    '<option value="空运">空运</option>' +
+                    '<option value="铅锌">铅锌</option>' +
+                    '<option value="轻工机械">轻工机械</option>' +
+                    '<option value="影视音像">影视音像</option>' +
+                    '<option value="汽车服务">汽车服务</option>' +
+                    '<option value="铜">铜</option>' +
+                    '<option value="银行">银行</option>' +
+                    '<option value="电气设备">电气设备</option>' +
+                    '<option value="煤炭开采">煤炭开采</option>' +
+                    '<option value="其他商业">其他商业</option>' +
+                    '<option value="电器仪表">电器仪表</option>' +
+                    '<option value="中成药">中成药</option>' +
+                    '<option value="电器连锁">电器连锁</option>' +
+                    '<option value="电气设备">电气设备</option>' +
+                    '<option value="日用化工">日用化工</option>' +
+                    '<option value="半导体">半导体</option>' +
+                    '<option value="工程机械">工程机械</option>' +
+                    '<option value="水务">水务</option>' +
+                    '<option value="其他建材">其他建材</option>' +
+                    '<option value="区域地产">区域地产</option>' +
+                    '<option value="石油加工">石油加工</option>' +
+                    '<option value="农药化肥">农药化肥</option>' +
+                    '<option value="火力发电">火力发电</option>' +
+                    '<option value="矿物制品">矿物制品</option>' +
+                    '<option value="港口">港口</option>' +
+                    '<option value="船舶">船舶</option>' +
+                    '<option value="染料涂料">染料涂料</option>' +
+                    '<option value="保险">保险</option>' +
+                    '<option value="黄金">黄金</option>' +
+                    '<option value="饲料">饲料</option>' +
+                    '<option value="酒店餐饮">酒店餐饮</option>' +
+                    '<option value="种植业">种植业</option>' +
+                    '<option value="生物制药">生物制药</option>' +
+                    '<option value="橡胶">橡胶</option>' +
+                    '<option value="特种钢">特种钢</option>' +
+                    '<option value="石油开采">石油开采</option>' +
+                    '<option value="玻璃">玻璃</option>' +
+                    '<option value="水运">水运</option>' +
+                    '<option value="小金属">小金属</option>' +
+                    '<option value="纺织机械">纺织机械</option>' +
+                    '<option value="普钢">普钢</option>' +
+                    '<option value="园区开发">园区开发</option>' +
+                    '<option value="塑料">塑料</option>' +
+                    '<option value="焦炭加工">焦炭加工</option>' +
+                    '<option value="出版业">出版业</option>' +
+                    '<option value="元器件">元器件</option>' +
+                    '<option value="新型电力">新型电力</option>' +
+                    '<option value="旅游景点">旅游景点</option>' +
+                    '<option value="环境保护">环境保护</option>' +
+                    '<option value="商品城">商品城</option>' +
+                    '<option value="水泥">水泥</option>' +
+                    '<option value="文教休闲">文教休闲</option>' +
+                    '<option value="百货">百货</option>' +
+                    '<option value="化学制药">化学制药</option>' +
+                    '<option value="食品">食品</option>' +
+                    '<option value="摩托车">摩托车</option>' +
+                    '<option value="房产服务">房产服务</option>' +
+                    '<option value="家居用品">家居用品</option>' +
+                    '<option value="运输设备">运输设备</option>' +
+                    '<option value="机床制造">机床制造</option>' +
+                    '<option value="公路">公路</option>' +
+                    '<option value="装修装饰">装修装饰</option>' +
+                    '<option value="超市连锁">超市连锁</option>' +
                     '</select>' +"</td>"+
                     "<td id='low'>"+'<input placeholder="-" disabled>'+"</td>"+
                     "<td id='high'>"+'<input placeholder="-" disabled>'+"</td>"+
@@ -339,8 +432,6 @@
                 <!--大盘择时-->
                 <div role="tabpanel" class="tab-pane" id="time">
                     <div role="tabpanel" class="tab-pane active" id="settings2">
-                        <!--择时参数-->
-                        <h5>择时参数</h5>
                         <div class="row">
 
 
