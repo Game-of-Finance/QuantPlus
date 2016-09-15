@@ -110,6 +110,21 @@
             <artifactId>mybatis</artifactId>
             <version>3.1.1</version>
         </dependency>
+        <!-- 添加mybatis的核心包 -->
+
+        <!-- 添加mybatis与Spring整合的核心包 -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+        <!--Oracle -->
+        <!--这里有个坑,ojdbc14.jar是不会被自动下载的，需要手动下载后，找到C:\Users\{你的用户名}\.m2\repository\com\oracle\ojdbc14\10.2.0.4.0目录，将下载到的ojdbc14.jar重命名为ojdbc14-10.2.0.4.0.jar,这样就能正确通过ojdbc连接数据库了，mysql不存在此问题-->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc14</artifactId>
+            <version>10.2.0.4.0</version>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>
@@ -142,6 +157,12 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
             <version>2.5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.2.2</version>
         </dependency>
 
         <!-- struts2依赖包 -->
