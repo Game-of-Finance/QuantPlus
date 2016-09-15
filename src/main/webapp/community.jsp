@@ -55,7 +55,8 @@
                         newNode.innerHTML = "<a href='post.jsp?id=" + id + "' class='list-group-item'>" +
                                 "<span class='badge'>postViews</span>" +
                                 "<h4 class='list-group-item-heading'>" + title + "</h4>" +
-                                "<h6 class='list-group-item-heading' >" + "<strong>作者：</strong>" + author + " <strong>时间：</strong>" + getFormatTime(time) + "</h6>" +
+                                "<h6 class='list-group-item-heading' >" + "<strong>作者：</strong>" + author
+                                + " <strong>时间：</strong>" + getFormatTime(time) + "</h6>" +
                                 "<p class='list-group-item-text' >" + "<br />" + content + "</p>" +
                                 "</a>";
                         var cloneNode = newNode.cloneNode(true);

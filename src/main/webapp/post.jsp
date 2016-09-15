@@ -76,7 +76,6 @@
                     document.getElementById("post-content").appendChild(newContent);
 
                     // 添加评论信息
-                    var webViews = document.getElementById("post-views");
                     for (var i = 0; i < webViews.length; i++) {
                         var oneView = webViews[i];
                         var comtAuthor = oneView.author;
@@ -85,10 +84,11 @@
                         // 创建a标签
                         var newNode = document.createElement("a");
                         newNode.innerHTML = "<a href='#' class='list-group-item'>" +
-                                "<h6 class='list-group-item-headin'>" + comtAuthor + " " + comtDate + "</h6>" +
+                                "<h6 class='list-group-item-headin'>" + "作者： " + comtAuthor
+                                + " 时间: " + getFormatTime(comtDate) + "</h6>" +
                                 "<p class='list-group-item-text'>" + comtContent + "</p>" +
                                 "</a>";
-                        webViews.appendChild(newNode);
+                        document.getElementById("post-views").appendChild(newNode);
                     }
                 }
             });
