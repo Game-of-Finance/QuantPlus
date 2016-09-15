@@ -18,6 +18,13 @@
     %>
 
     <script type="text/javascript">
+        function getFormatTime(nS) {
+            var date = new Date(nS);
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            return year + "-" + month + "-" + day;
+        }
         <%--让JS获取上面JAVA里的参数--%>
         var id = "<%=postID%>";
 
@@ -54,15 +61,19 @@
                     // 评论列表
                     var commentList = postViews.commentList;
 
+                    // 添加基本信息
+                    var basicContent = document.createElement("p");//创建标签
+                    basicContent.innerHTML = basicContent.innerHTML =
+                            "<h6 class='list-groucontentp-item-heading' >" +
+                            "标题: " + title +
+                            " 作者：" + author + " 时间:" + getFormatTime(time) +
+                            " 浏览数" + viewsNum + "</h6>";
+                    document.getElementById("post-basic").appendChild(basicContent);
+
                     // 添加主题内容
                     var newContent = document.createElement("p");//创建标签
                     newContent.innerHTML = content;
                     document.getElementById("post-content").appendChild(newContent);
-
-                    // 添加基本信息
-                    var webBasic = document.getElementById("post-basic");
-                    webBasic.innerHTML = "<h6 class='list-group-item-heading' >" +
-                            "作者：" + author + "时间:" + getFormatTime(time) + "浏览数" + viewsNum + "</h6>";
 
                     // 添加评论信息
                     var webViews = document.getElementById("post-views");
@@ -75,7 +86,7 @@
                         var newNode = document.createElement("a");
                         newNode.innerHTML = "<a href='#' class='list-group-item'>" +
                                 "<h6 class='list-group-item-headin'>" + comtAuthor + " " + comtDate + "</h6>" +
-                                "<p class='list-group-item-text'>"+comtContent+"</p>" +
+                                "<p class='list-group-item-text'>" + comtContent + "</p>" +
                                 "</a>";
                         webViews.appendChild(newNode);
                     }
@@ -191,12 +202,12 @@
         $.ajax({
             type: 'POST',
             url: 'inputComment.do',
-            data:{
-                inputHtml : html,
-                inputText : text,
-                inputFormatText : formatText,
-                postID : id,
-                author : author
+            data: {
+                inputHtml: html,
+                inputText: text,
+                inputFormatText: formatText,
+                postID: id,
+                author: author
             },
             cache: false,
 
@@ -204,8 +215,8 @@
                 var viewDiv = document.getElementById('post-views');
                 var newNode = document.createElement("a");//创建a标签
                 newNode.innerHTML = "<a href='#' class='list-group-item'>" +
-                        "<h6 class='list-group-item-heading' >" + "作者："+author + " 时间:" + getFormatTime(time) + "</h6>" +
-                        "<p class='list-group-item-text' >" + "内容：<br />"  + content + "</p>" +
+                        "<h6 class='list-group-item-heading' >" + "作者：" + author + " 时间:" + getFormatTime(time) + "</h6>" +
+                        "<p class='list-group-item-text' >" + "内容：<br />" + content + "</p>" +
                         "</a>";
                 viewDiv.appendChild(newNode);
             }
