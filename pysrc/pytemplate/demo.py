@@ -5,7 +5,27 @@
 # 选股函数
 def getSelectConfig():
     # filter 筛选
-
+    fix=[]
+    
+    name="industry"
+    
+    fix.append([name,'化工原料'])
+    
+    
+    
+    name="asset"
+    
+    
+    comparison=">"
+    fix.append([name,comparison,10000.0,0.0])
+    
+    
+    name="area"
+    
+    fix.append([name,'江苏'])
+    
+    
+    
     filter_c=[]
     
     #--------------------------cell--------------------------------
@@ -29,7 +49,7 @@ def getSelectConfig():
     sort1=[name,order,weight]
     sort_c.append(sort1)
     
-    return [filter_c,sort_c]
+    return [fix,filter_c,sort_c]
 
 # 择时函数
 def getTimeConfig():
@@ -146,6 +166,8 @@ def macd_s(list,config,start=datetime.datetime.strptime('2015-08-31','%Y-%m-%d')
 
 def init(context):
     stockinfo_df=getStock_info()
+    [fix,filt,sort]=getSelectConfig()
+    
     stockinfo_df=stockinfo_df.iloc[:20]
     context.all=stockinfo_df
 
@@ -162,7 +184,7 @@ def handle_bar(context, data):
 
 
     if not hasattr(context,'select'):
-        [filt,sort]=getSelectConfig()
+        [fix,filt,sort]=getSelectConfig()
         conditions={'MACD':macd_s}
         id_list=context.all['code'].values.tolist()
         for cond in filt:

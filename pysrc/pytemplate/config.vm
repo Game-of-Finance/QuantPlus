@@ -2,6 +2,22 @@
 # 选股函数
 def getSelectConfig():
     # filter 筛选
+    fix=[]
+    #foreach(${i} in $root.selectStock.fixFilter)
+
+    name="$i.name"
+    #if($i.value)
+
+    fix.append([name,'$i.value'])
+    #end
+
+    #if($i.comparison)
+
+    comparison="$i.comparison"
+    fix.append([name,comparison,$i.low,$i.high])
+    #end
+
+    #end
 
     filter_c=[]
     #foreach(${i} in $root.selectStock.filter)
@@ -40,7 +56,7 @@ def getSelectConfig():
     sort_c.append(sort${velocityCount})
     #end
 
-    return [filter_c,sort_c]
+    return [fix,filter_c,sort_c]
 
 # 择时函数
 def getTimeConfig():

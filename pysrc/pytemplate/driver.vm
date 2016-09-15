@@ -38,7 +38,19 @@ def asset_sort(list,config,info):
     return dict.keys()
 
 
+def industry_s(df,config):
+    return df[df['industry']==config[1]]
 
+def area_s(df,config):
+    return df[df['area']==config[1]]
+
+def asset_s(df,config):
+    if config[1]=='>':
+        return df[df['fixedAssets']>config[2]]
+    elif config[1]=='<':
+        return df[df['fixedAssets']<config[3]]
+    elif config[1]=='<>':
+        return df[df['fixedAssets']>config[2] and df['fixedAssets']<config[3]]
 
 def macd_s(list,config,start=datetime.datetime.strptime('$root.strategyTest.start','%Y-%m-%d')):
     conditions={'<':small,'>':big,'<>':between}
