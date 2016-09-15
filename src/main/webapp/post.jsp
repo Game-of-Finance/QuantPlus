@@ -52,14 +52,14 @@
                     var content = onePost.content;
 
                     // 评论内容
-                    var postViews = onePost.views;
-                    var viewsNum = postViews.viewsNum;
-                    var thanks = postViews.thanks;
-                    var likes = postViews.likes;
-                    var disagrees = postViews.disagrees;
+                    var webViews = onePost.views;
+                    var viewsNum = webViews.viewsNum;
+                    var thanks = webViews.thanks;
+                    var likes = webViews.likes;
+                    var disagrees = webViews.disagrees;
 
                     // 评论列表
-                    var commentList = postViews.commentList;
+                    var commentList = webViews.commentList;
 
                     // 添加基本信息
                     var basicContent = document.createElement("p");//创建标签
@@ -76,8 +76,8 @@
                     document.getElementById("post-content").appendChild(newContent);
 
                     // 添加评论信息
-                    for (var i = 0; i < webViews.length; i++) {
-                        var oneView = webViews[i];
+                    for (var i = 0; i < commentList.length; i++) {
+                        var oneView = commentList[i];
                         var comtAuthor = oneView.author;
                         var comtDate = oneView.date;
                         var comtContent = oneView.content;

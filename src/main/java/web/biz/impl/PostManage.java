@@ -1,6 +1,7 @@
 package web.biz.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import web.biz.IPostManage;
 import web.dao.PostDao;
 import web.model.communication.Post;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * Created by alfred on 16/8/13.
  */
-
+@Service
 public class PostManage implements IPostManage {
 
     @Autowired
