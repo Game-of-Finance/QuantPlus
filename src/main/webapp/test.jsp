@@ -97,7 +97,7 @@
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
             </div>
-            <button type="submit" class="btn btn-default btn-success" style="margin-left: 30%">开始模拟交易</button>
+            <button type="submit" class="btn btn-default btn-success" style="margin-left: 35%">开始模拟交易</button>
         </form>
     </div>
 </div>

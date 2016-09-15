@@ -82,22 +82,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a class="btn btn-primary" href="startNewTrading.jsp" style="margin-left: 5%" role="button">新建虚拟交易</a>
 <a class="btn btn-primary" href="test.jsp" style="margin-left: 5%" role="button">test</a>
 <div class="panel-body" style="margin: 1%">
+    <!--tab 1-3:全部 进行中 已关闭-->
     <ul class="nav nav-tabs" role="tablist">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active"><a href="#all-live" role="tab" data-toggle="tab">全部</a></li>
-        <li role="presentation"><a href="#time" role="tab" data-toggle="tab">进行中</a></li>
-        <li role="presentation"><a href="#model" role="tab" data-toggle="tab">已关闭</a></li>
+        <li role="presentation" class="active"><a href="#tab1" role="tab" data-toggle="tab">全部</a></li>
+        <li role="presentation"><a href="#tab2" role="tab" data-toggle="tab">进行中</a></li>
+        <li role="presentation"><a href="#tab3" role="tab" data-toggle="tab">已关闭</a></li>
     </ul>
-    <!-- Tab panes -->
-    <!--择股设置-->
-    <div class="tab-content" >
-        <div role="tabpanel" class="tab-pane active" id="all-live">
-
+    <div class="tab-content">
+        <!--全部-->
+        <div role="tabpanel" class="tab-pane active" id="tab1">
+            <div class="list-group" id="table_all"></div>
         </div>
-        <div role="tabpanel" class="tab-pane active" id="running-live"></div>
-        <div role="tabpanel" class="tab-pane active" id="stop-live"></div>
+        <!--进行中-->
+        <div role="tabpanel" class="tab-pane" id="tab2">
+            <div class="list-group" id="table_value"></div>
+        </div>
+        <!--已关闭-->
+        <div role="tabpanel" class="tab-pane" id="tab3">
+            <div class="list-group" id="table_model"></div>
+        </div>
     </div>
+    <nav>
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </nav>
 </ul>
 </div>
 </div>

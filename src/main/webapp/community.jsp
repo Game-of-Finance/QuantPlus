@@ -138,7 +138,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary">搜索</button>
             </form>
         </div>
         <div class="col-md-2">
@@ -146,7 +146,7 @@
         </div>
     </div>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-default" style="margin: 1%">
     <div class="panel-body">
 
         <!--tab 1-8:全部 精品区 模型交流 投资教学 新闻快递 操作使用 其他问题-->
@@ -207,8 +207,5 @@
         </nav>
     </div>
 </div>
-
-
-
 </body>
 </html>

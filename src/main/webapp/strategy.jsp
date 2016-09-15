@@ -16,6 +16,7 @@
     <script type="text/javascript">
 
         function addInd(btn){
+//            $("#industry").addClass('disabled'); // Disables visually
             $("#selectStock").
             append("<tr id="+btn.value+">"+
                     "<td id='指标'>"+btn.value+"</td>"+
@@ -411,10 +412,10 @@
                                 <ul class="nav nav-tabs" role="tablist">
                                     <h5>选股指标</h5>
                                     <div role="tabpanel" class="tab-pane active" id="index00">
-                                        <input value='MACD' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
-                                        <input value='行业' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addInd(this)">
-                                        <input value='资产' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)">
-                                        <input value='地域' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addAre(this)">
+                                        <input value='MACD' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)" id="MACD">
+                                        <input value='行业' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addInd(this)" id="industry">
+                                        <input value='资产' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addFilter(this)" id="zichan">
+                                        <input value='地域' type="button" class="btn btn-default btn-danger" style="margin: 0.5%" onclick="addAre(this)" id="area">
                                     </div>
                                 </ul>
                             </div>
