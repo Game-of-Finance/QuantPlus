@@ -50,7 +50,7 @@ public class StrategyDaoImpl implements StrategyDao {
             session = MybatisUtils.getSession();
             System.out.println(session);
             strategyOperation = session.getMapper(StrategyOperation.class);
-            strategyPo = strategyOperation.getStrategy(sid);
+            strategyPo = strategyOperation.getStrategyByID(String.valueOf(sid));
             System.out.println(strategyPo.getUserid());
             session.commit();
         } catch (Exception e) {
@@ -180,7 +180,7 @@ public class StrategyDaoImpl implements StrategyDao {
         try {
             session = MybatisUtils.getSession();
             strategyOperation = session.getMapper(StrategyOperation.class);
-            s = strategyOperation.getStrategy(userid, sname);
+            s = strategyOperation.getStrategyByUN(userid, sname);
             session.commit();
         } catch (Exception e) {
             e.printStackTrace();
