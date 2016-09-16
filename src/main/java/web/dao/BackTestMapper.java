@@ -10,7 +10,6 @@ import java.util.ArrayList;
  * Created by linyufan on 16/9/7.
  */
 
-@Repository
 public interface BackTestMapper {
 
 
