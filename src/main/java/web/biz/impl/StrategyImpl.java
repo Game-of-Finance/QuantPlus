@@ -25,13 +25,6 @@ public class StrategyImpl implements StrategyService {
 
     @Override
     public String addStrategy(String userid, String strategyname, String python) {
-//        String isJson = "1";
-//        if(json==null) {
-//            isJson = "0";
-//        }
-//        strategyMapper.addStrategy(userid,strategyname+"0",json,python,isJson);
-//        String strategyid = strategyMapper.getIDByName(userid,strategyname);
-//        return strategyid;
         strategyDao.addStrategy(userid, python, strategyname);
         String strategyid = strategyDao.getStrategy(userid, strategyname).getStrategyid();
         return strategyid;
