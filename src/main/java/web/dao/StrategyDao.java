@@ -2,6 +2,7 @@ package web.dao;
 
 
 
+import web.model.btAndVt.StrategyPo;
 import web.model.strategy.Strategy;
 
 import java.util.List;
@@ -15,34 +16,47 @@ public interface StrategyDao {
 	 * @param userId
 	 * @return
 	 */
-	List<Strategy> queryStrategy(int userId);
+	List<StrategyPo> queryStrategy(String userId);
 
 	/**
 	 * 根据策略id获得该策略
-	 * @param strategyId
+	 * @param sid
 	 * @return
 	 */
-	Strategy getStrategy(int strategyId);
+	StrategyPo getStrategy(int sid);
 
 	/**
 	 * 添加策略
-	 * @param strategy
+	 * @param userid, py_text, sname
 	 * @return
 	 */
-	boolean addStrategy(Strategy strategy);
+	boolean addStrategy(String userid, String py_text, String sname);
 
 	/**
 	 * 删除策略
-	 * @param strategyId
+	 * @param sid
 	 * @return
 	 */
-	boolean deleteStrategy(int strategyId);
+	boolean deleteStrategy(int sid);
 
 	/**
 	 * 更新策略
-	 * @param strategy
+	 * @param sid, py_text
 	 * @return
 	 */
-	boolean updateStrategy(Strategy strategy);
+	boolean updatePy(int sid, String py_text);
+	/**
+	 * 更新策略
+	 * @param sid, sname
+	 * @return
+	 */
+	boolean updateSname(int sid, String sname);
 
+//	boolean updatePy(String py_text, String userid, String sname);
+//
+//	boolean updateSname(String afterName, String userid, String beforeName);
+//
+//	boolean deleteStrategy(String userid, String sname);
+
+	StrategyPo getStrategy(String userid, String sname);
 }

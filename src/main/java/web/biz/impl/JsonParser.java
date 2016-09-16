@@ -40,9 +40,9 @@ public class JsonParser {
         }
         return stringBuilder.toString();
     }
-    public static void main(String[] args) {
-
-        Root root=JsonParser.ParseJson("pysrc/pytemplate/demoJson.json");
-        System.out.println(root.getSelectTime().getCondition().getC_MACD().getLongDIF());
-    }
+//    public static void main(String[] args) {
+//
+//        Root root=JsonParser.ParseJson("pysrc/pytemplate/demoJson.json");
+//        System.out.println(root.getSelectTime().getCondition().getC_MACD().getLongDIF());
+//    }
 }

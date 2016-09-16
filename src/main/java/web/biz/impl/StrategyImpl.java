@@ -1,7 +1,9 @@
 package web.biz.impl;
 
 //import com.sun.tools.corba.se.idl.toJavaPortab.InterfaceGen;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import web.dao.StrategyDao;
 import web.dao.StrategyMapper;
 import web.model.btAndVt.StrategyPo;
 import web.model.enumPo.DeleteState;
@@ -10,62 +12,61 @@ import web.biz.StrategyService;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by linyufan on 16/9/1.
  */
-@Service("strategyImpl")
+@Service
 public class StrategyImpl implements StrategyService {
 
-    @Resource
-    public StrategyMapper strategyMapper;
+    @Autowired
+    StrategyDao strategyDao;
 
 
     @Override
-    public String addStrategy(String userid, String strategyname, String json,String python) {
-        String isJson = "1";
-        if(json==null) {
-            isJson = "0";
-        }
-        strategyMapper.addStrategy(userid,strategyname+"0",json,python,isJson);
-        String strategyid = strategyMapper.getIDByName(userid,strategyname);
+    public String addStrategy(String userid, String strategyname, String python) {
+//        String isJson = "1";
+//        if(json==null) {
+//            isJson = "0";
+//        }
+//        strategyMapper.addStrategy(userid,strategyname+"0",json,python,isJson);
+//        String strategyid = strategyMapper.getIDByName(userid,strategyname);
+//        return strategyid;
+        strategyDao.addStrategy(userid, python, strategyname);
+        String strategyid = strategyDao.getStrategy(userid, strategyname).getStrategyid();
         return strategyid;
     }
 
     @Override
-    public UpdateState updateStrategyName(String userid, String strategyid, String strategyname) {
-        strategyMapper.updateStrategyName(userid,strategyid,strategyname);
+    public UpdateState updateStrategyName(String strategyid, String strategyname) {
+//        strategyMapper.updateStrategyName(userid,strategyid,strategyname);
+        strategyDao.updateSname(Integer.parseInt(strategyid), strategyname);
         return UpdateState.修改成功;
     }
 
     @Override
-    public UpdateState updateStrategyPython(String userid, String strategyid, String strategypyhton) {
-        strategyMapper.updateStrategyPython(userid,strategyid,strategypyhton);
+    public UpdateState updateStrategyPython(String strategyid, String strategypyhton) {
+        strategyDao.updatePy(Integer.parseInt(strategyid), strategypyhton);
         return UpdateState.修改成功;
     }
 
     @Override
-    public UpdateState updateStrategyJson(String userid, String strategyid, String strategyjson) {
-        strategyMapper.updateStrategyJson(userid,strategyid,strategyjson);
-        return UpdateState.修改成功;
-    }
-
-    @Override
-    public DeleteState deleteStrategy(String userid, String strategyid) {
-        strategyMapper.deleteStrategy(userid,strategyid);
+    public DeleteState deleteStrategy(String strategyid) {
+        strategyDao.deleteStrategy(Integer.parseInt(strategyid));
         return DeleteState.删除成功;
     }
 
     @Override
-    public StrategyPo selectStrategy(String userid, String Strategyid) {
-        StrategyPo strategyPo = strategyMapper.selectStrategy(userid,Strategyid);
+    public StrategyPo selectStrategy(String Strategyid) {
+        StrategyPo strategyPo = strategyDao.getStrategy(Integer.parseInt(Strategyid));
 
         return strategyPo;
     }
 
     @Override
-    public ArrayList<StrategyPo> getAllStategy(String userid) {
-        ArrayList<StrategyPo> temp = strategyMapper.getAllStategy(userid);
+    public List<StrategyPo> getAllStategy(String userid) {
+        List<StrategyPo> temp = strategyDao.queryStrategy(userid);
         return temp;
     }
 }

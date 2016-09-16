@@ -3,6 +3,7 @@ package web.dao.util;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import web.model.strategy.Strategy;
 
 import java.io.InputStream;
 
@@ -34,6 +35,7 @@ public class MybatisUtils {
         sessionFactory = new SqlSessionFactoryBuilder().build(is);
         sessionFactory.getConfiguration().addMapper(UserOperation.class);
         sessionFactory.getConfiguration().addMapper(PostOperation.class);
+        sessionFactory.getConfiguration().addMapper(StrategyOperation.class);
     }
 
 }

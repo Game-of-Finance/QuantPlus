@@ -7,15 +7,11 @@ public class StrategyPo {
 
     public String userid;
 
-    public String strategyid;
+    public String sid;
 
-    public String strategyname;
+    public String sname;
 
-    public String isJson;
-
-    public String json;
-
-    public String python;
+    public String py_text;
 
     public String updateAt;
 
@@ -27,28 +23,20 @@ public class StrategyPo {
         this.updateAt = updateAt;
     }
 
-    public String getIsJson() {
-        return isJson;
+    public String getSname() {
+        return sname;
     }
 
-    public void setIsJson(String isJson) {
-        this.isJson = isJson;
+    public void setSname(String strategyname) {
+        this.sname = strategyname;
     }
-
-    public String getStrategyname() {
-        return strategyname;
-    }
-
-    public void setStrategyname(String strategyname) {
-        this.strategyname = strategyname;
-    }
-
-    public String getPython() {
-        return python;
+//
+    public String getPyTest() {
+        return py_text;
     }
 
     public void setPython(String python) {
-        this.python = python;
+        this.py_text = python;
     }
 
     public String getUserid() {
@@ -60,18 +48,11 @@ public class StrategyPo {
     }
 
     public String getStrategyid() {
-        return strategyid;
+        return sid;
     }
 
     public void setStrategyid(String strategyid) {
-        this.strategyid = strategyid;
+        this.sid = strategyid;
     }
 
-    public String getJson() {
-        return json;
-    }
-
-    public void setJson(String json) {
-        this.json = json;
-    }
 }
