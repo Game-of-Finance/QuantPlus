@@ -11,6 +11,8 @@ import javax.swing.*;
  * Created by NJU on 2016/9/16.
  */
 public class StrategyTest {
+//    @Resource
+//    StrategyService strategyService;
 
     @Test
     public void test() {

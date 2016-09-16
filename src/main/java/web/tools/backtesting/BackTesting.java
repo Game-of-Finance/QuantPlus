@@ -27,10 +27,10 @@ public class BackTesting {
         System.out.println("成功加载MySQL驱动！");
         int count = 0;
 
-        String url = "jdbc:mysql://572b2568442c7.sh.cdb.myqcloud.com:8161/dracarys";    //JDBC的URL
+        String url = "jdbc:mysql://115.159.106.212:3306/quantplus";    //JDBC的URL
         Connection conn;
         try {
-            conn = DriverManager.getConnection(url, "cdb_outerroot", "software2015");
+            conn = DriverManager.getConnection(url, "root", "");
             Statement stmt = conn.createStatement(); //创建Statement对象
             System.out.println("成功连接到数据库！");
 

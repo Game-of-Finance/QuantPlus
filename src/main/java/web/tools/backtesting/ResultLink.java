@@ -60,7 +60,7 @@ public class ResultLink {
         else if(system.contains(("linux"))) {
             path += "/";
         }
-        String pyPath = path + "result_db.py";
+        String pyPath = path + "result_db_quant.py";
         String pklPath = path + resultName + ".pkl";
         cmd += "python " + pyPath + " " + resultName + " " + pklPath;
         System.out.println(cmd);
