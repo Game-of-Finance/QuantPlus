@@ -88,7 +88,7 @@ public class BackTestImpl implements BackTestService{
 //        return backTestResultPo;
 //    }
 
-    @Override
+  
     public BackTestResultPo runPythonBackTest(String strategyid, String userid, String startdate, String enddate) {
         String resultid = backTestMapper.getResultid(userid,strategyid,startdate, enddate);
         String error = new String();
@@ -121,7 +121,7 @@ public class BackTestImpl implements BackTestService{
         return backTestResultPo;
     }
 
-    @Override
+   
     public BackTestResultPo runPythonBackTest(String strategyid, String userid, String startdate, String enddate, int initmoney) {
         String resultid = backTestMapper.getResultid(userid,strategyid,startdate, enddate);
         String error = new String();
