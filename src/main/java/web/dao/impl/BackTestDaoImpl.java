@@ -24,7 +24,7 @@ public class BackTestDaoImpl implements BackTestMapper{
     SqlSession sqlSession;
     BackTestOperation backTestOperation;
 
-    @Override
+
     public ArrayList<BackTestDailyResultPo> getResult(@Param("listname") String resultid) {
         ArrayList<BackTestDailyResultPo> backTestDailyResultPos = new ArrayList<>();
         try {

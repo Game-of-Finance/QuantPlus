@@ -31,9 +31,15 @@ def getSelectConfig():
     #--------------------------cell--------------------------------
     name ="MACD"
     comparison=">"
-    count=0
+    count=0.0
     cell1=[name,comparison,count]
+    
+    count_low=0.0
+    cell1.append(count_low)
         
+    count_upper=0.0
+    cell1.append(count_upper)
+    
     filter_c.append(cell1)
     
 
@@ -58,29 +64,15 @@ def getTimeConfig():
     
     # 1.has c_MA
     name="MA"
-    period="day"
-    shortMA=2000
-    longMA=2300
+    period="$root.selectTime.condition.c_MA.period"
+    shortMA=$root.selectTime.condition.c_MA.shortMA
+    longMA=$root.selectTime.condition.c_MA.longMA
 
     select_c.append([name,period,shortMA,longMA])
-                
-    # 4. has c_TRIX
-        
-    # 5.has c_MAVOL
-        
-    # 6.has c_MABias
-        
-    # 7. has c_PE
-        
-    # 8.has c_PB
-        
-    # 9.has c_PE2
-        
-    # 10.has c_PB2
-    
+                                        
     # parameter 参数
 
-    bear_position =0
+    bear_position =0.0
     bear_to_bull =-1
     bull_to_bear =3
 
@@ -150,7 +142,19 @@ def asset_sort(list,config,info):
     return dict.keys()
 
 
+def industry_s(df,config):
+    return df[df['industry']==config[1]]
 
+def area_s(df,config):
+    return df[df['area']==config[1]]
+
+def asset_s(df,config):
+    if config[1]=='>':
+        return df[df['fixedAssets']>config[2]]
+    elif config[1]=='<':
+        return df[df['fixedAssets']<config[3]]
+    elif config[1]=='<>':
+        return df[df['fixedAssets']>config[2] and df['fixedAssets']<config[3]]
 
 def macd_s(list,config,start=datetime.datetime.strptime('2015-08-31','%Y-%m-%d')):
     conditions={'<':small,'>':big,'<>':between}
@@ -167,8 +171,12 @@ def macd_s(list,config,start=datetime.datetime.strptime('2015-08-31','%Y-%m-%d')
 def init(context):
     stockinfo_df=getStock_info()
     [fix,filt,sort]=getSelectConfig()
+    conditions={'area':area_s,'industry':industry_s,'asset':asset_s}
+    for con in fix:
+        stockinfo_df=conditions.get(con[0])(stockinfo_df,con)
+
     
-    stockinfo_df=stockinfo_df.iloc[:20]
+
     context.all=stockinfo_df
 
     context.time_config=getTimeConfig()
