@@ -66,16 +66,16 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.0.2.RELEASE</version>
         </dependency>
-    </dependencies>
-    <packaging>war</packaging>
+    <!--</dependencies>-->
+    <!--<packaging>war</packaging>-->
 
-    <name>StudentManagementWeb</name>
-    <url>http://maven.apache.org</url>
+    <!--<name>StudentManagementWeb</name>-->
+    <!--<url>http://maven.apache.org</url>-->
 
-    <properties>
-        <org.springframework.version>3.0.2.RELEASE</org.springframework.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <!--<properties>-->
+        <!--<org.springframework.version>3.0.2.RELEASE</org.springframework.version>-->
+        <!--<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+    <!--</properties>-->
 
 
 
@@ -260,6 +260,7 @@
             <version>4.0.2.RELEASE</version>
 
         </dependency>
+    </dependencies>
 
 
     <build>
