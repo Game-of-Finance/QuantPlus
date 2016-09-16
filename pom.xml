@@ -15,7 +15,6 @@
     </properties>
 
 
-    <dependencies>
 
         <dependency>
             <groupId>junit</groupId>
@@ -185,6 +184,7 @@
             <version>2.7</version>
         </dependency>
         <dependency>
+
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -195,7 +195,6 @@
             <version>4.0.2.RELEASE</version>
         </dependency>
 
-    </dependencies>
 
     <build>
 
