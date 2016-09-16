@@ -36,6 +36,7 @@ public class MybatisUtils {
         sessionFactory.getConfiguration().addMapper(UserOperation.class);
         sessionFactory.getConfiguration().addMapper(PostOperation.class);
         sessionFactory.getConfiguration().addMapper(StrategyOperation.class);
+        sessionFactory.getConfiguration().addMapper(BackTestOperation.class);
     }
 
 }

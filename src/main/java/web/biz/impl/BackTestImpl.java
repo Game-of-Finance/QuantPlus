@@ -14,7 +14,7 @@ import java.time.LocalDate;
  * Created by linyufan on 16/9/7.
  */
 
-@Service("backTestImpl")
+@Service("backTestService")
 public class BackTestImpl implements BackTestService{
 
     @Resource
