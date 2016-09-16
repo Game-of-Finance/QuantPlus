@@ -30,7 +30,7 @@ public class JsonParser {
 
         StringBuilder stringBuilder = new StringBuilder();
         try {
-            BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(fileName),"UTF-8"));
+            BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(fileName), "UTF-8"));
             String line;
             while ((line = bf.readLine()) != null) {
                 stringBuilder.append(line);
@@ -40,9 +40,9 @@ public class JsonParser {
         }
         return stringBuilder.toString();
     }
-//    public static void main(String[] args) {
-//
-//        Root root=JsonParser.ParseJson("pysrc/pytemplate/demoJson.json");
-//        System.out.println(root.getSelectTime().getCondition().getC_MACD().getLongDIF());
-//    }
+    public static void main(String[] args) {
+
+        Root root=JsonParser.ParseJson("pysrc/pytemplate/demoJson.json");
+    }
+
 }

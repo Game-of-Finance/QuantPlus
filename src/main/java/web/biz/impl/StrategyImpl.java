@@ -23,7 +23,6 @@ public class StrategyImpl implements StrategyService {
     @Autowired
     StrategyDao strategyDao;
 
-
     @Override
     public String addStrategy(String userid, String strategyname, String python) {
 //        String isJson = "1";
@@ -60,13 +59,12 @@ public class StrategyImpl implements StrategyService {
     @Override
     public StrategyPo selectStrategy(String Strategyid) {
         StrategyPo strategyPo = strategyDao.getStrategy(Integer.parseInt(Strategyid));
-
-        return strategyPo;
+        return  strategyPo;
     }
 
     @Override
     public List<StrategyPo> getAllStategy(String userid) {
         List<StrategyPo> temp = strategyDao.queryStrategy(userid);
-        return temp;
+        return  temp;
     }
 }

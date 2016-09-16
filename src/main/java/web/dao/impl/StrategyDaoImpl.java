@@ -16,9 +16,9 @@ import java.util.List;
 /**
  * Created by NJU on 2016/9/16.
 // */
-////@SuppressWarnings("restriction")
-////@Repository("strategyDao")
-////@Transactional
+@SuppressWarnings("restriction")
+@Repository("strategyDao")
+@Transactional
 public class StrategyDaoImpl implements StrategyDao {
 
     SqlSession session;
